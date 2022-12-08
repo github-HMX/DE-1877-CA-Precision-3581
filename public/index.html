@@ -1,0 +1,2755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="Content-Language" content="en">
+   <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+   <meta name='mobile-web-app-capable' content='yes'>
+   <meta name='apple-mobile-web-app-capable' content='yes'>
+
+   <title>Precision 3581 Workstation</title>
+   <style type='text/css'>
+      .closeIcon {
+         display: none;
+      }
+
+      html,
+      body {
+         user-select: none;
+         /* supported by Chrome and Opera */
+         -webkit-user-select: none;
+         /* Safari */
+         -khtml-user-select: none;
+         /* Konqueror HTML */
+         -moz-user-select: none;
+         /* Firefox */
+         -ms-user-select: none;
+         /* Internet Explorer */
+      }
+
+      html,
+      body {
+         background-color: #f9f9f9;
+         width: 100%;
+         height: 100%;
+         margin: 0px;
+         overflow: hidden;
+      }
+
+      #root {
+         display: block;
+         width: 100%;
+
+      }
+
+      #menubar {
+         position: relative;
+         z-index: 11;
+         top: -30px;
+      }
+
+      canvas {
+         display: block;
+      }
+
+      #loader {
+         position: absolute;
+         left: 50%;
+         top: 168px;
+         transform: translate(-50%, 100%);
+         z-index: 1200;
+         margin-top: 136px;
+         opacity: 1;
+         transition: opacity 1s;
+      }
+
+      .loaderimg {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .loaderimg::after {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: #000000;
+         opacity: 0.7;
+      }
+
+      .loaderimg img {
+         margin-top: -190px;
+      }
+
+      @media screen and (min-width:992px) {
+         .loaderimg img {
+            width: 969px;
+            margin-left: 3px;
+            margin-top: -94px;
+         }
+      }
+
+      @media screen and (min-width:1366px) {
+         .loaderimg img {
+            width: 963px;
+            margin-left: 293px;
+            margin-top: -94px;
+         }
+      }
+
+      @media screen and (min-width:1440px) {
+         .loaderimg img {
+            width: 782px;
+            margin-left: 291px;
+            margin-top: -78px;
+         }
+      }
+
+      @media screen and (min-width:1600px) {
+         .loaderimg img {
+            width: 784px;
+            margin-left: 291px;
+            margin-top: -79px;
+         }
+      }
+
+      @media screen and (min-width:1920px) {
+         .loaderimg img {
+            width: 882px;
+            margin-left: 291px;
+            margin-top: -93px;
+
+         }
+      }
+
+      @media screen and (min-width:2560px) {
+         .loaderimg img {
+            width: 952px;
+            margin-left: 271px;
+            margin-top: -239px;
+         }
+      }
+
+      @media screen and (max-width: 991px) {
+         .loaderimg img {
+            margin-top: -4px;
+            margin-left: -6px;
+            width: calc(100vw - 221px);
+         }
+
+      }
+
+      @media screen and (max-width:767px) {
+         .loaderimg img {
+            margin-top: -65px;
+            margin-left: -4px;
+            width: calc(100vw - 385px);
+         }
+
+         #menubar {
+            position: relative;
+            z-index: 11;
+            top: -31px;
+         }
+      }
+
+      @media screen and (max-width:541px) {
+         .loaderimg img {
+            margin-top: -35px;
+            margin-left: 3px;
+            width: calc(100vw - 22px);
+         }
+      }
+
+      #exploreButtton {
+         position: absolute;
+         left: 50%;
+         top: 341px;
+         transform: translate(-50%, 100%);
+         z-index: 1200;
+         cursor: pointer;
+         height: 74px;
+         width: 417px;
+         background: #80808057;
+         border-radius: 2px;
+         align-items: center;
+         text-align: center;
+         padding: 12px;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: normal;
+         font-size: 24px;
+         line-height: 36px;
+         color: #FFFFFF;
+         border: 0;
+      }
+
+      #loading {
+         display: none;
+         justify-content: center;
+         position: absolute;
+         left: 50%;
+         top: 57%;
+         transform: translate(-50%, -280%);
+         width: 265px;
+         height: 120px;
+         color: #ffffff;
+      }
+
+      #loading>div {
+         text-align: center;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 40px;
+         line-height: 48px;
+      }
+
+      #mainload {
+         /* display: none; */
+         visibility: hidden;
+         opacity: 0;
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100vh;
+         background-color: #ffffff;
+         z-index: 11;
+      }
+
+      #Scalable {
+         transform: scale(0.6);
+         width: 100%;
+         height: 100vh;
+      }
+
+      .MuiPaper-root.MuiDrawer-paper.makeStyles-drawerPaper-2.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0 {
+         min-width: 285px !important;
+         z-index: 111;
+      }
+
+      .MuiPaper-root.MuiDrawer-paper.jss2.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0 {
+         min-width: 285px !important;
+         z-index: 111;
+      }
+
+      .mobile {
+         display: none;
+      }
+
+      #loader {
+         width: 938px;
+         height: 5px;
+      }
+
+      .hotspots {
+         display: block;
+         position: absolute;
+         z-index: 5;
+      }
+
+      #hotspot1demo:focus {
+         outline: none;
+         border: none;
+      }
+
+      #loading:focus {
+         outline: none;
+         border: none;
+      }
+
+      /* .hotspots:focus {
+       outline: 1px solid #0076ce;
+   } */
+
+      @media screen and (min-width: 640px) and (max-width: 824px) and (orientation : landscape) {
+
+         #loading {
+            display: none;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 70%;
+            transform: translate(-50%, -280%);
+            width: 265px;
+            height: 120px;
+         }
+      }
+
+      @media screen and (max-width: 600px) {
+         #root {
+            z-index: 1;
+            /* position: absolute; 
+       top: 92.5%; 
+       left: 0px; */
+            display: block;
+            width: 100%;
+         }
+
+         .desktop {
+            display: none;
+         }
+
+         .mobile {
+            display: block;
+         }
+
+         div#loading {
+            display: flex;
+            flex-wrap: wrap;
+            left: 50%;
+            top: 42%;
+            transform: translate(-50%, -240%);
+            min-width: 350px;
+         }
+
+         #loaders {
+            width: 379px;
+            height: 5px;
+            top: 465px;
+         }
+
+         #loading>div>.img {
+            margin-top: 44px;
+            margin-left: 40px;
+            height: 69px;
+            width: 164px;
+         }
+
+         #loading>div {
+            margin: 0;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 36px;
+            text-align: left;
+
+         }
+
+         #exploreButtton {
+            position: absolute;
+            left: 50%;
+            top: 473px;
+            transform: translate(-50%, 100%);
+            z-index: 1200;
+            cursor: pointer;
+            height: 74px;
+            width: 379px;
+            background: #80808057;
+            border-radius: 2px;
+            align-items: center;
+            text-align: center;
+            padding: 12px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 36px;
+            color: #FFFFFF;
+            border: 0;
+         }
+      }
+
+      @media screen and (max-width: 390px) {
+         #exploreButtton {
+            position: absolute;
+            left: 50%;
+            top: 473px;
+            top: 465px;
+            transform: translate(-50%, 100%);
+            z-index: 1200;
+            cursor: pointer;
+            height: 74px;
+            width: 330px;
+            background: #80808057;
+            border-radius: 2px;
+            align-items: center;
+            text-align: center;
+            padding: 12px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 31px;
+            color: #FFFFFF;
+            border: 0;
+         }
+
+         #loaders {
+            width: 330px;
+            height: 37px;
+            top: 440px;
+         }
+
+         #loading>div>img {
+            margin-left: 40px !important;
+
+         }
+
+         .threebtns>div {
+            display: flex !important;
+            justify-content: center;
+            max-width: 360px;
+         }
+
+      }
+
+      #infinityrt-canvas {
+         transition: margin 1s;
+      }
+   </style>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" />
+
+   <!-- <script src='jquery-1.8.2.min.js' type='text/javascript'></script> -->
+   <script type="text/javascript" src='normalizeWheel.js'></script>
+   <script src='libvector3.js' type='text/javascript'></script>
+   <script src='SSE.js' type='text/javascript'></script>
+   <script src="InfinityRT_Navigation.js" type="text/javascript"></script>
+   <!-- <script type="text/javascript" src="skin.js"></script> -->
+   <script type="text/javascript" src="rt-Analytics.js"></script>
+   <script type="text/javascript" src="https://content.hmxmedia.com/DIST/webglutils.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script type="text/javascript">
+
+      var animationLoading,_scenePollInterval,timeStart,loaderbarWidth = 0;
+      var updateEnabled = true;
+      var canvas = null;
+      var calloutcanvas = null;
+      var scene = null;
+      ctxCallouts = null;
+      var checkOrientationStatus = null;
+      window.canvasLandscapeMarginTop = false;
+
+
+      var isipad = (/CriOS/i.test(navigator.userAgent) && /ipad/i.test(navigator.userAgent)) || (navigator.userAgent.indexOf('iPad') !== -1) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+
+      var mob = (navigator.userAgent.indexOf("iPhone") !== -1) || ((navigator.userAgent.indexOf("Android") !== -1)) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15");
+
+      function InfinityRTStart() {
+
+         if (mob || isipad) {
+            var urlDataPath = './model_gl_mob/';
+         } else {
+            var urlDataPath = './model_gl/';
+         }
+
+
+         timeStart = new Date().getTime();
+         touch = new Vector3();
+         touches = [new Vector3(),new Vector3(),new Vector3()]; InfinityRTStart
+         prevTouches = [new Vector3(),new Vector3(),new Vector3()];
+         var loaderDiv = document.getElementById('loader');
+
+         var loaderDivs = document.getElementById('loaders');
+         var loadingDiv = document.getElementById('loading');
+         var exploreBtn = document.getElementById('exploreButtton');
+         var mainLoad = document.getElementById('mainload');
+
+         loaderDiv.style.display = 'block';
+         loaderDivs.style.display = 'block';
+
+         loadingDiv.style.display = 'flex';
+         // mainLoad.style.display = 'block';
+
+         setTimeout(() => {
+            // mainLoad.style.display = 'block';
+            document.getElementById('mainload').style.visibility = "visible";
+            document.getElementById('mainload').style.opacity = "1";
+            // document.getElementById('mainload').style.transition = "visibility 0s, opacity 0.5s linear";
+            document.getElementById('footerControlDesk').style.display = 'block';
+            document.getElementById('footerControMob').style.display = 'block';
+
+            // document.querySelector('#menubar').style.display = "none";
+
+         },0);
+         // if(!(mob || isipad)){
+         //    console.log("**")
+         //    document.querySelector('.openCloseBtn').style.display = "none";
+         // }
+         exploreBtn.style.backgroundColor = "#80808057";
+         // $("#loader").css("left", ((document.documentElement.clientWidth / 2) - (265 / 2)) + "px");
+         // $("#loader").css("top", ((document.documentElement.clientHeight / 2) - (12 / 2)) + "px");
+         // $("#loader").css('display', 'block');
+         animationLoading = setInterval(function () {
+            loaderbarWidth++;
+            if (loaderbarWidth > 50) loaderbarWidth = 50;
+            document.getElementById('loaderbar').style.width = loaderbarWidth + "px"
+         },100);
+         try {
+            canvas = document.getElementById("infinityrt-canvas");
+            calloutcanvas = document.getElementById("calloutcanvas");
+
+            ui = document.getElementById("root");
+            uifooterControMob = document.getElementById("footerControMob");
+            uifooterControlDesk = document.getElementById("footerControlDesk");
+            uifooterControIpad = document.getElementById("footerControIpad");
+            if (typeof (canvas) != 'undefined') {
+               var gl = infinityrt_getwebglcontextHMX(canvas,{ xrCompatible: true,antialias: true,depth: true });
+               if (!gl) {
+                  alert("***Could not initialise WebGL canvas");
+               }
+               else {
+                  scene = new infinityrt_scene({ rtgl: gl,useDraco: false },urlDataPath,canvas.width,canvas.height,undefined,undefined,undefined,function () { },function () { });
+                  scene._nav = new infinityrt_navigation(scene,canvas.width,canvas.height);
+                  scene._jitRadius = 2;
+                  scene.gotoPosInTime(0.998110,-0.032676,1.520975,5.866925,72.177856,1,undefined,undefined,{ fovy: 37.849300,zang: -0.003371 })
+                  //scene.fovy = 37.849285;
+                  resizeCanvas2();
+                  scene.start();
+                  _scenePollInterval = setInterval("isInfinityRTReady()",100);
+                  addMouseListeners(canvas);
+                  addMouseListeners(ui);
+                  addMouseListeners(uifooterControMob);
+                  addMouseListeners(uifooterControlDesk);
+                  addMouseListeners(uifooterControIpad);
+                  window.addEventListener('keypress',keyPress,false);
+               }
+            }
+         }
+         catch (e) {
+            console.log(e);
+         }
+         if (scene != null) {
+            window.requestAnimationFrame(frameUpdate);
+            // $(this).bind("contextmenu", onRightClick); //prevents a right click     
+            document.body.oncontextmenu = onRightClick;
+            if (typeof (onInit) != 'undefined') onInit();
+         }
+      }
+      function onRightClick(event) {
+         //console.log("press right");
+         //mdown = true;
+         //panNav = true;
+         return false; //surpress theright menu 
+      }
+      function isInfinityRTReady() {
+         if (scene == null)
+            return;
+         scene.start();
+         outstandingJobs = scene.getOutstandingJobs();
+         if (outstandingJobs <= 0 && scene._prepared) {
+            onInfinityRTReady();
+            clearInterval(_scenePollInterval);
+         } else if (scene._projectparsed) {
+            clearInterval(animationLoading);
+            updateProgressBar();
+         }
+      }
+
+      function updateProgressBar() {
+         if (scene == null)
+            return;
+         totalJobs = scene.getTotalJobs();
+         outstandingJobs = scene.getOutstandingJobs();
+         var perc = 100 - Math.round(outstandingJobs / totalJobs * 100);
+         var newwidth = 948 * perc / 100;
+         var newwidth = 948 * perc / 100;
+         if (mob) {
+            newwidth = 386 * perc / 100;
+            document.querySelector('.mobile #loaderbar').style.width = newwidth + "px";
+         }
+         if (window.innerWidth < 411) {
+            newwidth = 334 * perc / 100;
+            document.querySelector('.mobile #loaderbar').style.width = newwidth + "px";
+         }
+         else {
+
+            document.getElementById('loaderbar').style.width = newwidth + "px";
+         }
+
+      }
+      var config = {
+         name: "precision-14-5480-laptop",
+         default: "Render_Cam_F50_FL",
+         front: "Render_Cam_F26_JD",
+         top: "Render_Cam_F34_Top",
+         right: "Render_Cam_F26_R",
+         left: "Render_Cam_F26_L",
+         back: "Render_Cam_F22_Rear",
+         internals: "DE_1539_CA_Cinnamon_Bay_16_inch",
+         backlit: "Render_Cam_F34_Top",
+         fpr: "Render_Cam_F34_Top",
+         close: "Render_Cam_F1_Close",
+         exploded: "Render_Cam_F75_Explode"
+      }
+      var hideIndexId = ["colorBtn","selectProductBtn","closeIcon","productViewBtn","feature","animswtich","positionBtn","rLeft","rRight","zoomOut","sliderRange","previousView","zoomIn","resetView","nextView","HowToUseHeader"];
+
+      var time = (new Date().getTime() - timeStart);
+      function onInfinityRTReady() {
+         if (time < 60000) {
+            RT_RecordTiming("Load",time,config.name);
+         }
+
+         document.getElementById("loading").focus();
+         setTimeout(function () {
+            document.getElementById("loading").removeAttribute("tabIndex");
+         },3000);
+         document.getElementById('loader').style.opacity = '0';
+         document.getElementById('loaders').style.opacity = '0';
+         document.getElementById('root').style.display = "block"
+         document.getElementById('root').style.visibility = "visible"
+         document.getElementById('footerControIpad').style.visibility = "visible"
+         document.getElementById('footerControMob').style.visibility = "visible"
+         document.getElementById('footerControlDesk').style.visibility = "visible"
+         // if(!(mob || isipad)){
+         //    console.log("**")
+         //    document.querySelector('.openCloseBtn').style.display = "none";
+         // }
+         // setTimeout(() => {
+         //    document.querySelector('#menubar').style.display = 'block';
+         // }, 100);
+
+
+         document.getElementById('loading').style.display = 'flex';
+         // document.getElementById('mainload').style.display = 'block';
+         document.getElementById('loaderbar').style.width = '100%';
+         document.getElementById('exploreButtton').disabled = false;
+         document.getElementById('exploreButtton').style.backgroundColor = '#0076CE';
+         document.querySelector('.mobile #exploreButtton').disabled = false;
+         document.querySelector('.mobile #exploreButtton').style.backgroundColor = '#0076CE';
+         // $("#reset", window.document).css('display', 'none');
+         console.log('End time: ' + (new Date().getTime() - timeStart));
+         // window.localStorage.removeItem('Animation');
+         window.localStorage.removeItem('hotspot');
+         GotoPosInTimeNamedValue(config.default);
+         window.localStorage.setItem('Animation','on');
+         window.localStorage.setItem("laptop","laptop360");
+         // document.getElementById("animSwitchValue").checked = true;
+         if (!(window.mob)) {
+            document.getElementById("animSwitchValue1").checked = true;
+         }
+         window.scene.groupApplyState("Internal_OFF");
+
+         if (!(mob || isipad)) {
+            hideHotspot();
+            document.getElementById("hotspot1").setAttribute("tabindex","-1");
+            document.getElementById("hotspot2").setAttribute("tabindex","-1");
+            document.getElementById("hotspot3").setAttribute("tabindex","-1");
+            document.getElementById("hotspot4").setAttribute("tabindex","-1");
+            document.getElementById("hotspot5").setAttribute("tabindex","-1");
+            document.getElementById("hotspot6").setAttribute("tabindex","-1");
+            document.getElementById("hotspot7").setAttribute("tabindex","-1");
+            document.getElementById("hotspot8").setAttribute("tabindex","-1");
+            document.getElementById("hotspot9").setAttribute("tabindex","-1");
+            document.getElementById("hotspot10").setAttribute("tabindex","-1");
+            document.getElementById("hotspot11").setAttribute("tabindex","-1");
+            document.getElementById("hotspot12").setAttribute("tabindex","-1");
+            document.getElementById("hotspot13").setAttribute("tabindex","-1");
+            document.getElementById("hotspot14").setAttribute("tabindex","-1");
+            document.getElementById("hotspot15").setAttribute("tabindex","-1");
+            document.getElementById("hotspot16").setAttribute("tabindex","-1");
+            document.getElementById("hotspot17").setAttribute("tabindex","-1");
+            document.getElementById("hotspot18").setAttribute("tabindex","-1");
+            document.getElementById("hotspot19").setAttribute("tabindex","-1");
+            document.getElementById("hotspot20").setAttribute("tabindex","-1");
+            document.getElementById("hotspot21").setAttribute("tabindex","-1");
+            document.getElementById("hotspot22").setAttribute("tabindex","-1");
+            document.getElementById("hotspot23").setAttribute("tabindex","-1");
+            document.getElementById("hotspot24").setAttribute("tabindex","-1");
+            document.getElementById("hotspot25").setAttribute("tabindex","-1");
+            document.getElementById("hotspot26").setAttribute("tabindex","-1");
+            document.getElementById("hotspot27").setAttribute("tabindex","-1");
+            document.getElementById("LeftMenuWrapper").setAttribute("tabindex","-1");
+            // setTimeout(function () {
+            //    hideTabIndexes();
+            // }, 400);
+
+         }
+      }
+      function hideHotspot() {
+         document.getElementById("hotspot1demo").style.color = "transparent"
+         document.getElementById("hotspot1").style.color = "transparent"
+         document.getElementById("hotspot2").style.color = "transparent"
+         document.getElementById("hotspot3").style.color = "transparent"
+         document.getElementById("hotspot4").style.color = "transparent"
+         document.getElementById("hotspot5").style.color = "transparent"
+         document.getElementById("hotspot6").style.color = "transparent"
+         document.getElementById("hotspot7").style.color = "transparent"
+         document.getElementById("hotspot8").style.color = "transparent"
+         document.getElementById("hotspot9").style.color = "transparent"
+         document.getElementById("hotspot10").style.color = "transparent"
+         document.getElementById("hotspot11").style.color = "transparent"
+         document.getElementById("hotspot12").style.color = "transparent"
+         document.getElementById("hotspot13").style.color = "transparent"
+         document.getElementById("hotspot14").style.color = "transparent"
+         document.getElementById("hotspot15").style.color = "transparent"
+         document.getElementById("hotspot16").style.color = "transparent"
+         document.getElementById("hotspot17").style.color = "transparent"
+         document.getElementById("hotspot18").style.color = "transparent"
+         document.getElementById("hotspot19").style.color = "transparent"
+         document.getElementById("hotspot20").style.color = "transparent"
+         document.getElementById("hotspot21").style.color = "transparent"
+         document.getElementById("hotspot22").style.color = "transparent"
+         document.getElementById("hotspot23").style.color = "transparent"
+         document.getElementById("hotspot24").style.color = "transparent"
+         document.getElementById("hotspot25").style.color = "transparent"
+         document.getElementById("hotspot26").style.color = "transparent"
+         document.getElementById("hotspot27").style.color = "transparent"
+
+
+      }
+
+      function hideTabIndexes() {
+         for (let i = 0; i < hideIndexId.length; i++) {
+            if (window.document.getElementById(hideIndexId[i])) {
+               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex","-1");
+            }
+         }
+
+      }
+      function addMouseListeners(canvas) {
+         canvas.addEventListener('mousemove',mouseMove,false);
+         canvas.addEventListener('mousedown',mouseDown,false);
+         window.addEventListener('mouseup',mouseUp,false);
+         canvas.addEventListener('wheel',mouseWheel,false);
+         canvas.addEventListener('DOMMouseScroll',mouseWheel,false);
+         canvas.addEventListener('touchstart',touchStart,false);
+         canvas.addEventListener('touchmove',touchMove,false);
+         canvas.addEventListener('touchend',touchEnd,false);
+         canvas.addEventListener('mouseout',mouseOut);
+      }
+      var sceneViewMatrix;
+      function frameUpdate() {
+
+         // if (btnXR && btnXR.session && btnXR.session.isImmersive)
+         //     return;
+         setTimeout(function () {
+            window.requestAnimationFrame(frameUpdate);
+         },scene.backoff);
+         sceneViewMatrix = scene._nav.NavCreateViewMatrix(scene._initialNavMatrix);
+         scene.setViewMatrix(sceneViewMatrix);
+         if (scene._refineCount < 64) frameUpdateForScene(scene);
+
+      }
+      function frameUpdateForScene(scene) {
+         var bGotoPosUpdate = scene._nav._navGotoPosActive;
+         scene.setViewMatrix(scene._nav.NavCreateViewMatrix(scene._initialNavMatrix));
+         scene.setModelMatrix(scene._nav.NavCreateModelMatrix(scene._initialNavMatrix));
+         var drawn = scene.draw();
+         if (drawn) hotspotPosAsignment();
+         if (bGotoPosUpdate)
+            scene.clearRefine();
+
+         if (!mob) {
+            // setTimeout(function(){ document.getElementById("sliderRange").value = parseInt(60+100-window.scene._nav._navDolly); }, 500);
+         }
+
+         if (scene._nav._navDolly < 100) {
+            scene._bDoF = true;
+         }
+         else {
+            scene._bDoF = false;
+         }
+      }
+      window.addEventListener('resize',resizeCanvas2,false);
+
+      function resizeCanvas2() {
+
+
+
+
+         var leftMenu = document.getElementById('mainMenu');
+         var size = scene.get3DCanvasSize("infinityrt-canvas",window.innerWidth,window.innerHeight);
+         var menu = document.querySelector('#LeftMenuWrapper div');
+         //calloutcanvas = document.getElementById('calloutcanvas');
+         var dpr = window.devicePixelRatio;
+         var dprccs = 1.0 / dpr;
+         if (canvas != null) {
+            if (isipad) {
+
+               //console.log("ipad")
+               var reslimit = { w: 1920,h: 1080 };
+               if (scene && scene._glVersionNum > 1) reslimit = { w: 3840,h: 2160 };
+               var w = window.innerWidth * dpr; //canvas.parentElement.offsetWidth * dpr;
+               var h = window.innerHeight * dpr; //canvas.parentElement.offsetHeight * dpr;
+
+               if (window.innerHeight > window.innerWidth) {
+                  // console.log("ipad Portrait")
+                  h = window.innerHeight * 1 * dpr; //canvas.parentElement.offsetHeight * dpr;
+                  if (w > reslimit.w || h > reslimit.h) {
+                     var scale = Math.min(reslimit.w / w,reslimit.h / h);
+                     w *= scale;
+                     h *= scale;
+                     dprccs /= scale;
+                  }
+                  canvas.width = w;
+                  canvas.height = h;
+                  canvas.style.marginLeft = "";
+                  calloutcanvas.style.marginLeft = "";
+                  calloutcanvas.width = canvas.width;
+                  calloutcanvas.height = canvas.height;
+                  if (scene != null) {
+                     scene._nav.canvasResize(canvas.width,canvas.height);
+                     scene.resize(canvas.width,canvas.height);
+                     scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+                     scene.resize(calloutcanvas.width,calloutcanvas.height);
+                  }
+                  window.checkOrientationStatus(true);
+                  $("#infinityrt-canvas, #calloutcanvas").css({
+                     marginLeft: ''
+                  })
+               }
+               else if (window.innerHeight < window.innerWidth) {
+                  console.log("ipad Landscape")
+                  window.checkOrientationStatus(false);
+
+                  if (window.innerWidth < 991) {
+                        var marginVal = "50"
+                        } else {
+                        var marginVal = "170";
+                  }
+
+                  // var marginVal = "170";
+                  calloutcanvas.width = canvas.width = size.width - marginVal;
+                  calloutcanvas.height = canvas.height = size.height;
+                  calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
+                  if (window.innerWidth > window.innerHeight) {
+                     var scalePopup = ((window.innerWidth / window.innerHeight) - window.devicePixelRatio);
+                     if (scalePopup < 0.5) scalePopup = 0.5;
+                     if (scalePopup > 1) scalePopup = 1;
+                  }
+                  if (scene != null) {
+                     scene._nav.canvasResize(canvas.width,canvas.height);
+                     scene.resize(canvas.width,canvas.height);
+                     scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+                     scene.resize(calloutcanvas.width,calloutcanvas.height);
+                  }
+               }
+
+               /* $("#infinityrt-canvas, #calloutcanvas").css({
+                  'transform': 'scale(' + dprccs + ')',
+                  'transform-origin': '0% 0%',
+                  '-webkit-transform': 'scale(' + dprccs + ')',
+                  '-webkit-transform-origin': '0% 0%',
+                  '-moz-transform': 'scale(' + dprccs + ')',
+                  '-moz-transform-origin': '0% 0%',
+                  '-o-transform': 'scale(' + dprccs + ')',
+                  '-o-transform-origin': '0% 0%',
+                  '-ms-transform': 'scale(' + dprccs + ')',
+                  '-ms-transform-origin': '0% 0%',
+               }); */
+            }
+            else if ( window.innerWidth < 991) {
+               //console.log('mobile');
+               // scene.setProjectionOffset(40,65);
+
+               var reslimit = { w: 1920,h: 1080 };
+               if (scene && scene._glVersionNum > 1) reslimit = { w: 3840,h: 2160 };
+               var w = window.innerWidth * dpr;//canvas.parentElement.offsetWidth * dpr;
+               var h = window.innerHeight * dpr;//canvas.parentElement.offsetHeight * dpr;
+
+
+               if (window.innerHeight < window.innerWidth) {
+                  //console.log('mobile landscap');
+
+                  if (w > reslimit.w || h > reslimit.h) {
+                     var scale = Math.min(reslimit.w / w,reslimit.h / h);
+                     w *= scale;
+                     h *= scale;
+                     dprccs /= scale;
+                  }
+                  canvas.width = w;
+                  canvas.height = h;
+                  calloutcanvas.width = canvas.width;
+                  calloutcanvas.height = canvas.height;
+                  // $("#infinityrt-canvas, #calloutcanvas").css({
+                  //    // marginLeft: '',
+                  //    marginTop: ''
+                  // })
+                  document.getElementById("footerControMob").style.position = "absolute";
+                  if (window.canvasLandscapeMarginTop) {
+                     console.log("check)))")
+                     // document.getElementById("footerControMob").style.display = "block";
+                     calloutcanvas.style.marginTop = canvas.style.marginTop = "0px";
+
+                  }
+               }
+               else {
+                  // console.log('mobile potrait');
+
+                  h = window.innerHeight * 1 * dpr;//canvas.parentElement.offsetHeight * dpr;
+                  if (w > reslimit.w || h > reslimit.h) {
+                     var scale = Math.min(reslimit.w / w,reslimit.h / h);
+                     w *= scale;
+                     h *= scale;
+                     dprccs /= scale;
+                  }
+                  canvas.width = w;
+                  canvas.height = h;
+                  calloutcanvas.width = canvas.width;
+                  calloutcanvas.height = canvas.height;
+                  // document.getElementById("footerControMob").style.position = "static";
+                  if (window.canvasLandscapeMarginTop) {
+                     console.log("check++")
+                     calloutcanvas.style.marginTop = canvas.style.marginTop = "-150px",
+                        document.getElementById("footerControMob").style.display = "none";
+
+                  }
+
+               }
+
+               if (scene != null) {
+                  scene._nav.canvasResize(canvas.width,canvas.height);
+                  scene.resize(canvas.width,canvas.height);
+                  scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+                  scene.resize(calloutcanvas.width,calloutcanvas.height);
+               }
+
+
+
+               //   document.getElementById('popupContainer').style.display = 'none';
+               /* $("#infinityrt-canvas, #calloutcanvas").css({
+                  'transform': 'scale(' + dprccs + ')',
+                  'transform-origin': '0% 0%',
+                  '-webkit-transform': 'scale(' + dprccs + ')',
+                  '-webkit-transform-origin': '0% 0%',
+                  '-moz-transform': 'scale(' + dprccs + ')',
+                  '-moz-transform-origin': '0% 0%',
+                  '-o-transform': 'scale(' + dprccs + ')',
+                  '-o-transform-origin': '0% 0%',
+                  '-ms-transform': 'scale(' + dprccs + ')',
+                  '-ms-transform-origin': '0% 0%',
+                  'margin-left': ''
+               }); */
+               window.checkOrientationStatus(false);
+
+            }
+            else {
+               //console.log("desktop")
+
+               var marginVal = menu == null ? 0 : menu.offsetWidth;
+               calloutcanvas.width = canvas.width = size.width - marginVal;
+               calloutcanvas.height = canvas.height = size.height;
+               calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
+               if (window.innerWidth > window.innerHeight) {
+                  var scalePopup = ((window.innerWidth / window.innerHeight) - window.devicePixelRatio);
+                  if (scalePopup < 0.5) scalePopup = 0.5;
+                  if (scalePopup > 1) scalePopup = 1;
+               }
+               if (scene != null) {
+                  scene._nav.canvasResize(canvas.width,canvas.height);
+                  scene.resize(canvas.width,canvas.height);
+                  scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+                  scene.resize(calloutcanvas.width,calloutcanvas.height);
+               }
+               /* $("#infinityrt-canvas, #calloutcanvas").css({
+                  'transform': 'scale(' + dprccs + ')',
+                  'transform-origin': '0% 0%',
+                  '-webkit-transform': 'scale(' + dprccs + ')',
+                  '-webkit-transform-origin': '0% 0%',
+                  '-moz-transform': 'scale(' + dprccs + ')',
+                  '-moz-transform-origin': '0% 0%',
+                  '-o-transform': 'scale(' + dprccs + ')',
+                  '-o-transform-origin': '0% 0%',
+                  '-ms-transform': 'scale(' + dprccs + ')',
+                  '-ms-transform-origin': '0% 0%',
+               }); */
+               window.checkOrientationStatus(false);
+
+            }
+
+            $("#infinityrt-canvas, #calloutcanvas").css({
+               'transform': 'scale(' + dprccs + ')',
+               'transform-origin': '0% 0%',
+               '-webkit-transform': 'scale(' + dprccs + ')',
+               '-webkit-transform-origin': '0% 0%',
+               '-moz-transform': 'scale(' + dprccs + ')',
+               '-moz-transform-origin': '0% 0%',
+               '-o-transform': 'scale(' + dprccs + ')',
+               '-o-transform-origin': '0% 0%',
+               '-ms-transform': 'scale(' + dprccs + ')',
+               '-ms-transform-origin': '0% 0%',
+            });
+         }
+      }
+
+
+      function GotoPosInTimeNamedValue(gotoposname,onComplete,onSample) {
+
+         var opt = undefined,
+            gp = jsonobject.positions[gotoposname];
+         //    console.log(gp)
+         if (gp.fovy && scene.fovy != gp.fovy)
+            opt = {
+               fovy: gp.fovy
+            };
+         if (gp.pos.length > 5) {
+            if (!opt)
+               opt = {};
+            opt.zang = gp.pos[5];
+         }
+         scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+      }
+
+
+
+      var jsonobject;
+
+      function getCameraValues(uijson) {
+         var jsonhttp = new XMLHttpRequest();
+         jsonhttp.skin = this;
+         jsonhttp.open("GET",uijson,true);
+         jsonhttp.onload = function (e) {
+            if (jsonhttp.status >= 200 && jsonhttp.status <= 299) {
+               var s = jsonhttp.skin;
+               jsonobject = JSON.parse(jsonhttp.response);
+               //s.createUI();
+            }
+         };
+         jsonhttp.send("");
+      }
+      window.addEventListener('DOMContentLoaded',function () {
+         getCameraValues("./model_gl/config.json");
+      });
+
+      function keyPress(ev) {
+         if (ev.keyCode === 0) {
+            ev.preventDefault()
+            scene._nav._navDX = scene._nav._navDY = 0;
+            scene._nav._navMX = scene._nav._navMY = 0;
+            scene._nav._navXAng = scene._nav._navYAng = 0;
+            scene._nav._navDolly = 0.0;
+            scene._nav._navPan = [0.0,0.0];
+            scene.clearRefine();
+         }
+      }
+      function getScene(ev) {
+         return scene;
+      }
+      var mpos = [0,0];
+      var mdown = false;
+      var panNav = false;
+      function mouseDown(ev) {
+         hideTabIndexes();
+         // console.log('mouseDown');
+         // console.log(ev.path)
+         // var hotspotContainer = document.getElementById('hotspot_container');
+         // if (hotspotContainer.style.display == "block" || hotspotContainer.style.display == "") {
+         //    hotspotContainer.style.display = "none"
+         // }
+         for (i in ev.path) {
+            if (ev.path[i].id == "leftPan" || ev.path[i].id == 'footerControls') return;
+            // console.log(ev.path[i].id)
+
+         }
+         var tabIndexDiv = document.getElementsByClassName("hotspots")
+         for (x of tabIndexDiv) {
+            // console.log("checktabindex")
+            if (x != undefined) {
+               x.style.zIndex = -11;
+            }
+         }
+
+         // if (window.innerWidth > window.innerHeight) {
+         window.localStorage.removeItem('hotspot');
+         // }
+
+         mdown = true;
+         if (ev.which == 3 || ev.which == 2)
+            panNav = true;
+         mpos = [ev.clientX - canvas.offsetLeft,ev.clientY - canvas.offsetTop];
+      }
+      function mouseUp(ev) {
+         // console.log('mouseUp');
+         // var hotspotContainer = document.getElementById('hotspot_container');
+         // if (hotspotContainer.style.display == "none") {
+         //    hotspotContainer.style.display = "block"
+         // }
+         mdown = false;
+         if (ev.which == 3 || ev.which == 2 || panNav) panNav = false;
+      }
+
+      function mouseOut(ev) {
+         for (let i = 0; i < hideIndexId.length; i++) {
+            if (window.document.getElementById(hideIndexId[i])) {
+               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex","-1");
+            }
+         }
+
+         if (!mdown) return;
+         if (ev.relatedTarget.nodeName != 'HTML') return;
+         mdown = false;
+      }
+
+      function mouseMove(ev) {
+
+         // var hotspotContainer = document.getElementById('hotspot_container');
+         // if (hotspotContainer.style.display == "block") {
+         //    hotspotContainer.style.display = "none"
+         // }
+
+         if (!mdown)
+            return;
+         var s = getScene(ev);
+         var mousePos = [ev.clientX - canvas.offsetLeft,ev.clientY - canvas.offsetTop];
+         var mdelta = [(mpos[0] - mousePos[0]),(mpos[1] - mousePos[1])];
+         mpos = [mousePos[0],mousePos[1]];
+         if (!panNav) {
+            if (s._nav.NavRotation(mpos,mdelta))
+               s.clearRefine();
+         }
+         else {
+            if (s._nav.NavPan(mdelta))
+               s.clearRefine();
+         }
+
+      }
+
+      function mouseWheel(ev) {
+         for (i in ev.path) {
+            if (ev.path[i].id == "leftPan" || ev.path[i].id == 'footerControls') return;
+            // console.log(ev.path[i].id)
+
+         }
+         window.localStorage.removeItem('hotspot');
+
+         var s = getScene(ev);
+         var delta = ev.wheelDelta;
+
+         if (!ev) ev = window.event; /* IE7, IE8, Chrome, Safari */
+         if (ev.preventDefault) ev.preventDefault(); /* Chrome, Safari, Firefox */
+         ev.returnValue = false; /* IE7, IE8 */
+         // var delta = -ev.deltaY;
+         var deltaScene = delta * 4.3;
+
+         if (s._nav.NavChangeDolly(deltaScene,true)) {
+            // console.log(s._nav._navDolly);
+            document.getElementById("sliderRange").value = s._nav.getZoomFactor();
+            s.clearRefine();
+         }
+         setTimeout(function () { document.getElementById("sliderRange").value = s._nav.getZoomFactor(); },100);
+      }
+
+      var touch,touches,prevTouches,prevDistance = null;
+      //TOUCH VARIABLES NAVIGATION ************************
+      var touchSensitivity = 500.0;
+      var touchZoom = 0.06;
+      var touchPan = 500.0;
+      //**************************************************
+      var firstInteraction = true;
+      function touchStart(event) {
+         var screenX = document.getElementById('infinityrt-canvas').clientWidth;
+         var screenY = document.getElementById('infinityrt-canvas').clientHeight;
+         switch (event.touches.length) {
+            case 1:
+               touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+               touches[1].set(event.touches[0].pageX,event.touches[0].pageY,0);
+               break;
+            case 2:
+               touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+               touches[1].set(event.touches[1].pageX,event.touches[1].pageY,0);
+               prevDistance = touches[0].distanceTo(touches[1]);
+               break;
+         }
+         prevTouches[0].copy(touches[0]);
+         prevTouches[1].copy(touches[1]);
+      }
+
+      var doubleTouch = false;
+
+      function touchMove(event) {
+         var screenX = document.getElementById('infinityrt-canvas').clientWidth;
+         var screenY = document.getElementById('infinityrt-canvas').clientHeight;
+         var s = getScene(event);
+
+         if (event.touches.length > 1) {
+
+            event.preventDefault();
+         }
+         event.stopPropagation();
+         // document.getElementById('calloutcanvas').style.display = "none";
+         window.localStorage.removeItem('hotspot');
+
+         if (event.target.id != "root") {
+            // alert('event.target.id != "root"')
+            return;
+         }
+         for (i in event.path) {
+            // console.log(event.path[i])
+            if (event.path[i].id == "leftPan" || event.path[i].id == 'footerControls') {
+               return;
+            }
+
+         }
+         var getClosest = function (touch,touches) {
+            var closest = touches[0];
+            for (var i in touches) {
+               if (closest.distanceTo(touch) > touches[i].distanceTo(touch)) closest = touches[i];
+            }
+            return closest;
+         }
+         switch (event.touches.length) {
+            case 1:
+               if (doubleTouch == false) {
+                  touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+                  touches[1].set(event.touches[0].pageX,event.touches[0].pageY,0);
+                  if (s._nav.NavRotation([touches[0].x,touches[0].y],[(prevTouches[0].x - touches[0].x) * touchSensitivity / screenX,(prevTouches[0].y - touches[0].y) * touchSensitivity / screenY])) s.clearRefine();
+                  //scope.rotate( touches[ 0 ].sub( getClosest( touches[ 0 ] ,prevTouches ) ).multiplyScalar( - 0.005 ) );
+                  if (firstInteraction) {
+                     firstInteraction = false;
+                     RT_RecordEvent("First 3D Interaction","First 3D Interaction",config.name);
+                  } else {
+                     RT_RecordEvent("3D Model Interaction","Rotating",config.name);
+                  }
+               }
+               break;
+            case 2:
+               doubleTouch = true;
+               touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+               touches[1].set(event.touches[1].pageX,event.touches[1].pageY,0);
+               var distance = touches[0].distanceTo(touches[1]);
+               var deltaScene = (prevDistance - distance) * touchZoom * screenX;
+               if (s._nav.NavChangeDolly(-deltaScene,true)) {
+                  s.clearRefine();
+                  RT_RecordEvent("3D Model Interaction","Zooming",config.name);
+                  if (document.getElementById("sliderRange") !== null) {
+                     document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+                  }
+               }
+               //scope.zoom( new Vector3( 0, 0, prevDistance - distance ) );
+               prevDistance = distance;
+               var offset0 = touches[0].clone().sub(getClosest(touches[0],prevTouches));
+               var offset1 = touches[1].clone().sub(getClosest(touches[1],prevTouches));
+               offset0.x = -offset0.x;
+               offset1.x = -offset1.x;
+               var mdelta2 = [offset1.x * touchPan / screenX,-offset1.y * touchPan / screenY];
+               if (s._nav.NavPan(mdelta2)) s.clearRefine();
+               //scope.pan( offset0.add( offset1 ).multiplyScalar( 0.5 ) );
+               break;
+         }
+         prevTouches[0].copy(touches[0]);
+         prevTouches[1].copy(touches[1]);
+      }
+
+      function touchEnd(event) {
+         setTimeout(function () { doubleTouch = false; },1000);
+      }
+      window.addEventListener('DOMContentLoaded',function () {
+         var resetBtn = document.getElementById('reset');
+      });
+      function exploreFun() {
+         /* Fix for Screen reader calls out "collapsed" at the end of each section header even if it's expanded, so we get "… collapsed, expanded" */
+         // if (document.getElementById('selectProductBtn')) {
+         //    document.getElementById('selectProductBtn').removeAttribute("aria-expanded");
+         // }
+         // if (document.getElementById('colorBtn')) {
+         //    document.getElementById('colorBtn').removeAttribute("aria-expanded");
+         // }
+
+         if (document.getElementById('positionBtn')) {
+            document.getElementById('positionBtn').removeAttribute("aria-expanded");
+         }
+         if (document.getElementById('productViewBtn')) {
+            document.getElementById('productViewBtn').removeAttribute("aria-expanded");
+         }
+         if (document.getElementById('feature')) {
+            document.getElementById('feature').removeAttribute("aria-expanded");
+         }
+         /* Fix for Screen reader end */
+         if (document.getElementById('exploreButtton')) {
+            document.getElementById('exploreButtton').style.display = 'none';
+         }
+         if (document.getElementById('root')) {
+            document.getElementById('root').style.zIndex = '1';
+         }
+         if (document.getElementById('sliderRange')) {
+            document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+         }
+         if (document.getElementById('mainload')) {
+            document.getElementById('mainload').style.display = "none";
+         }
+         if (document.getElementById('loader')) {
+            document.getElementById('loader').style.display = "none";
+         }
+         if (document.getElementById('LeftMenuWrapper')) {
+            window.document.getElementById('LeftMenuWrapper').setAttribute('aria-hidden','false');
+         }
+         if (document.getElementById('loaders')) {
+            document.getElementById('loaders').style.display = "none";
+         }
+         // document.querySelector('#menubar').style.display = 'block';
+         if (!mob && window.innerWidth >= 1026) {
+            setTimeout(function () {
+               if (document.getElementById("sliderRange")) {
+                  document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+               }
+            },1000);
+         }
+
+         if (!(mob || isipad)) {
+            hideTabIndex();
+
+         }
+
+         // console.log('abc');
+
+         // document.getElementById('backlitOn').style.display="none";
+         resizeCanvas2();
+
+      }
+      function exploreFunMob() {
+         if (document.getElementById('exploreButtton')) {
+            document.getElementById('exploreButtton').style.display = 'none';
+         }
+
+         if (document.getElementById('mainload')) {
+            // document.getElementById('mainload').style.display = "none";
+            document.getElementById('mainload').style.opacity = "0";
+            document.getElementById('mainload').style.visibility = "hidden";
+            document.getElementById('mainload').style.transition = ".5s ease-out";
+         }
+         if (document.getElementById('loader')) {
+            document.getElementById('loader').style.display = "none";
+         }
+         if (document.getElementById('root')) {
+            document.getElementById('root').style.zIndex = '1';
+         }
+         if (document.getElementById("sliderRange") !== null) {
+            document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+            setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },500);
+         }
+         document.getElementById('loaders').style.display = "none";
+         // document.querySelector('#menubar').style.display = 'block';
+
+         // console.log('abc');
+      }
+
+      function hideTabIndex() {
+
+         for (let i = 0; i < hideIndexId.length; i++) {
+            if (window.document.getElementById(hideIndexId[i])) {
+               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex","1");
+            }
+         }
+
+      }
+
+      // hotspot Functionality
+
+      var hotspotPoint = true;
+      var hotspotOn;
+      var clockWise = true;
+      var antiClockWise = true;
+      var portClick;
+      var setup;
+      var modal;
+      var port0 = "";
+      // front hotspot
+      var port1 = 'Up to •FHD IR w/EMZA proximity sensor, privacy shutter, ExpressSignin';
+      var port2 = '•Up to FHD, 100% sRGB, 400nits, PremierColor. Touch and ComfortView Plus optional';
+      var port3 = 'Optional fingerprint reader on the power button';
+      var port4 = 'Pro2 Keyboard';
+      var port5 = 'Large, glass-like clickpad';
+
+      var port6 = 'Large clickpad';
+
+      var port7 = '7.4mm power connector';
+      var port8 = 'RJ-45 10/100/1000';
+      var port9 = 'HDMI 2.1';
+      var port10 = 'USB 3.2 Type-A with PowerShare';
+      var port11 = '(2) Thunderbolt 4 with PowerShare';
+      var port12 = 'Optional Smart Card Reader';
+
+      var port13 = 'SD Reader';
+      var port14 = 'Universal audio jack';
+      var port16 = 'USB 3.2 Type-C';
+      var port15 = 'USB 3.2 Type-A with PowerShare';
+      var port17 = 'Wedge lock slot';
+
+      var port18 = ' Security features';
+      var port18_1 = 'Chassis intrusion sensor';
+      var port18_2 = 'Fingerprint reader';
+      var port18_3 = 'Facial recognition';
+      // top hotspot
+      var port19 = 'Dual array mics with noise suppression technology';
+      // var port20 = '(2) Top firing, (2) bottom firing speakers==';
+      var port21 = 'Fingerprint reader on power button';
+      var port22 = 'Pro 2.5 keyboard';
+      var port23 = 'Large clickpad with NFC reader';
+
+      var port24 = 'Advanced thermals including DOO fan, heatpipes and GORE materials';
+      var port25 = 'Up to 128GB of 6400MHz DDR5 memory, ECC optional';
+
+      var port26 = "EPEAT GOLD Certified";
+      var port27 = "ISV Certifications";
+      var port28 = "Reliable Memory Technology Pro";
+
+
+
+      function setHotSpot(divid,hotsoptName,leftNum,topNum,hotspotopacityspeed,text,maxwidth,fontsize,txtAligns) {
+         var viewCameraZV = [sceneViewMatrix[8],sceneViewMatrix[9],sceneViewMatrix[10]];
+         var hotspotopacityspeedConst = 3.0;
+         var pos2Dpoint = [];
+         var norm3Dpoint1 = scene.getObjectNormal(hotsoptName);
+         var hotspotopacity1 = infinityrt_dp(norm3Dpoint1,viewCameraZV) * hotspotopacityspeedConst - hotspotopacityspeed;
+
+         if (hotspotopacity1 > 0 && (hotspotOn == false)) hotspotopacity1 = 1.0;
+         if (hotspotopacity1 < 0.0) hotspotopacity1 = 1.0;
+         else if (hotspotopacity1 > 1.0) hotspotopacity1 = 1.0;
+
+         document.getElementById(divid).style.opacity = hotspotopacity1;
+         document.getElementById(divid).innerHTML = text;
+         var hotspotClass = document.getElementsByClassName("hotspots");
+         if (hotspotopacity1 == 0) {
+            document.getElementById(divid).style.display = "none";
+            document.getElementById(divid).setAttribute("tabindex","-1");
+            // for(var i=0; hotspotClass.length; i++){
+            //     console.log(hotspotClass[i])
+
+            //     hotspotClass[i].setAttribute("tabindex", "-1");
+            // }
+            // document.getElementsByClassName("hotspots").setAttribute("tabindex", "-1");
+         }
+         else {
+            document.getElementById(divid).style.display = "block";
+            document.getElementById(divid).setAttribute("tabindex","0");
+            // for(var i=0; hotspotClass.length; i++){
+            //     console.log(hotspotClass[i])
+            //     hotspotClass[i].setAttribute("tabindex", "0");
+            // }
+            // document.getElementsByClassName("hotspots").setAttribute("tabindex", "0");
+
+         }
+         pos2Dpoint = scene.projectPoint(scene.getObjectLocation(hotsoptName,true));
+         /*
+             var leftPosPoint = (pos2Dpoint[0] * 50) + leftNum;
+             var toptPosPoint = -((pos2Dpoint[1] * 50) - topNum);
+         
+         console.log('pos2Dpoint[1]', pos2Dpoint[1]);
+             console.log('toptPosPoint', toptPosPoint);
+             $("#" + divid).css('left', leftPosPoint + '%').css('top', toptPosPoint + '%');
+             */
+         canvasCallouts = window.document.getElementById("infinityrt-canvas");
+         //    ctxCallouts = canvasCallouts.getContext("2d");
+         pos2Dpoint[0] = pos2Dpoint[0] * 0.5 + 0.5;
+         pos2Dpoint[1] = pos2Dpoint[1] * 0.5 + 0.5;
+         pos2Dpoint[1] = 1.0 - pos2Dpoint[1];
+         pos2Dpoint[0] *= canvasCallouts.width;
+         pos2Dpoint[1] *= canvasCallouts.height;
+         // canvasCallouts.font = fontsize + "px " + font;
+
+         window.document.getElementById(divid).style.left = (pos2Dpoint[0] + leftNum + 'px');
+         window.document.getElementById(divid).style.top = (pos2Dpoint[1] + topNum + 'px');
+         window.document.getElementById(divid).style.width = (maxwidth + 'px');
+         document.getElementById(divid).style.fontSize = (fontsize + 'px');
+         window.document.getElementById(divid).style.visibility = "visible";
+         window.document.getElementById(divid).style.textAlign = txtAligns;
+
+         // $("#" + divid +"::after").css('left', pos2Dpoint[0] + leftNum + 'px').css('top', pos2Dpoint[1] + topNum + 'px');
+         /*if(hotspotopacity1==0) {
+         $("#point5,#point6,#point7,#point8,#point9,#point10,#point11,#point12,#point13,#point14,#point15,#point16,#point17,#point18,#point19,#point20,#point21,#point22,#point23,#point24,#point25,#point26,#point27,#point28,#point29,#point30,#point31,#point32").removeAttr("tabindex");
+         $(".annotation").removeAttr("tabindex");
+         
+         }*/
+         /*else{
+         $("#point5,#point6,#point7,#point8,#point9,#point10,#point11,#point12,#point13,#point14,#point15,#point16,#point17,#point18,#point19,#point20,#point21,#point22,#point23,#point24,#point25,#point26,#point27,#point28,#point29,#point30,#point31,#point32").removeAttr("tabindex");
+         $(".annotation").removeAttr("tabindex");
+             
+         }*/
+
+      }
+
+
+      function hotspotPosAsignment() {
+         /*New HotSpot Assignment*/
+         var currentPosition = window.localStorage.getItem("hotspot");
+         var currentLaptop = window.localStorage.getItem("laptop");
+         var colorHotspot = window.localStorage.getItem("color");
+
+         // console.log("hotspot")
+
+         if (ctxCallouts == null) {
+            canvasCallouts = window.document.getElementById("calloutcanvas");
+            ctxCallouts = canvasCallouts.getContext("2d");
+         }
+         ctxCallouts.resetTransform();
+         ctxCallouts.clearRect(0,0,canvasCallouts.width,canvasCallouts.height);
+         if (mob) {
+            if (innerWidth > innerHeight) {
+               console.log("landscap_mob")
+               if (currentPosition == 'front') {
+                  // HS_SimpleCallout([0,-50],0,0,"hotspot_010","",port1,"center",25,300,0);
+
+                  // HS_SimpleCallout([-600,0],-540,0,"hotspot_012","",port2,"right",10,150,10);
+
+                  // HS_SimpleCallout([50,0],0,0,"hotspot_012","",port3,"center",80,300,20);
+
+                  // HS_SimpleCallout([50,0],0,0,"hotspot_013","",port4,"center",55,300,20);
+
+                  // HS_SetOriginFromHotspot("hotspot_013");
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([120,160],port5,"Roboto",11,"left",180);
+               }
+               else if (currentPosition == 'back') {
+                  // HS_SetOriginFromHotspot("hotspot_030");
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([-220,-50],port41 + ' <br> ' + port42 + ' <br> ' + port43 + ' <br> ' + port44,"Roboto",11,"left",200);
+
+                  // HS_SetOriginFromHotspot("hotspot_030");
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([660,-50],port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39 + ' <br> ' + port40,"Roboto",11,"left",200);
+
+               }
+               else if (currentPosition == 'top') {
+
+                  // HS_SetOriginFromHotspot("bottom_firing_speakers_02_hotspot");
+                  // HS_DrawLine([-515,0],[-515,-40]); //h
+                  // HS_DrawLine([10,-40],[10,0]); //h2
+                  // HS_DrawLine([10,-40],[-575,-40]); //v
+                  // // HS_DrawLine([100, -180], [100, -190]);
+                  // ctxCallouts.fillStyle = '#d8d8d8';
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([-590,-40],port20,"Roboto",11,"right",120);
+
+                  // HS_SimpleCallout([-60,0],35,0,"hotspot_024","",port22,"left",100,300,10);
+
+                  // HS_SimpleCallout([300,-60],0,-60,"hotspot_025","",port23,"left",0,300,5);
+
+                  // HS_SimpleCallout([60,0],0,0,"hotspot_026","",port21,"left",10,300,10);
+
+                  // HS_SetOriginFromHotspot("hotspot_032");
+                  // HS_DrawLine([-35,-100],[-35,-90]); //h
+                  // HS_DrawLine([235,-100],[235,-90]); //h2
+                  // HS_DrawLine([235,-100],[-35,-100]); //v
+                  // HS_DrawLine([110,-120],[110,-100]);
+
+                  // ctxCallouts.fillStyle = '#d8d8d8';
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([110,-130],port19,"Roboto",14,"center");
+               }
+               else if (currentPosition == 'left') {
+                  // HS_SimpleCallout([0,-50],0,0,"hotspot_034","",port15,"right",5,200,40);
+
+                  // HS_SetOriginFromHotspot("hotspot_035");
+                  // HS_DrawLine([0,-30],[0,1]); //h
+                  // HS_DrawLine([30,-30],[30,1]); //h2
+                  // HS_DrawLine([30,-30],[0,-30]); //v
+                  // HS_DrawLine([15,-30],[15,-120]); //h3
+
+                  // ctxCallouts.fillStyle = '#d8d8d8';
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([-15,-130],port16,"Roboto",11,"center");
+
+                  // HS_SimpleCallout([0,-40],0,0,"hotspot_036","",port17,"left",5,200,-30);
+
+                  // HS_SetOriginFromHotspot("hotspot_036");
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([205,00],port13,"Roboto",11,"left",180);
+
+                  // HS_SimpleCallout([0,-60],0,0,"Chassis_intrusion_switch_hotspot","",port14,"right",0,200,0);
+
+                  // HS_SimpleCallout([0,-80],0,0,"Right_Antenna_hotspot","",port32,"center",0,200,0);
+               }
+               else if (currentPosition == 'right') {
+
+                  // HS_SimpleCallout([0,-30],0,0,"hotspot_016","",port10,"center",5,300,-10);
+
+                  // HS_SetOriginFromHotspot("hotspot_018");
+                  // HS_DrawLine([-15,-30],[-15,7]); //h
+                  // HS_DrawLine([15,-30],[15,7]); //h2
+                  // HS_DrawLine([15,-30],[-15,-30]); //v
+                  // HS_DrawLine([0,-30],[0,-90]); //h3
+
+                  // ctxCallouts.fillStyle = '#d8d8d8';
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([25,-100],port11,"Roboto",11,"center");
+
+                  // //HS_SimpleCallout([0, -80], 0, 0, "hotspot_018", "", port11, "center", 10, 300, 20);
+                  // HS_SimpleCallout([0,-30],0,0,"hotspot_019","",port12,"center",10,300,20);
+
+                  // HS_SimpleCallout([0,-30],0,0,"Left_Antenna_hotspot","",port32,"center",10,300,5);
+
+                  // HS_SetOriginFromHotspot("hotspot_019");
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([100,10],port13,"Roboto",11,"left",180);
+               }
+               else if (currentPosition == 'explode') {
+                  // HS_SimpleCallout([-290,70],-290,70,"hotspot_040","",port45,"right",0,150,0);
+
+                  // HS_SimpleCallout([220,70],220,70,"hotspot_043","",port46,"center",30,300,50);
+
+                  // HS_SetOriginFromHotspot("hotspot_042");
+                  // HS_DrawLine([260, -100], [25, -20]); //h
+                  // // HS_DrawLine([100, -180], [100, -190]);
+                  // ctxCallouts.fillStyle = '#d8d8d8';
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([150, -140], port47, "Roboto", 14, "left", 200);
+
+                  // HS_SimpleCallout([250,-50],250,-50,"hotspot_042","",port47,"right",10,200,0);
+
+                  // HS_SimpleCallout([-250,-50],-250,-50,"hotspot_041","",port48,"right",10,200,0);
+               }
+            }
+            else {
+               console.log("portrait_mob")
+               if (currentPosition == 'front') {
+                  HS_SetOriginFromHotspot("hotspot_011");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([60,230],port5,"Roboto",11,"left",300);
+
+                  HS_SimpleCallout([0,-25],0,0,"hotspot_010","",port1,"center",25,200,-10);
+
+                  HS_SetOriginFromHotspot("hotspot_012");
+                  HS_DrawLine([40,0],[0,0]);
+                  HS_DrawLine([40,-100],[40,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([70,-130],port3,"Roboto",11,"right",100);
+
+
+                  HS_SetOriginFromHotspot("hotspot_013");
+                  HS_DrawLine([50,0],[0,0]);
+                  HS_DrawLine([50,100],[50,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([55,110],port4,"Roboto",11,"right",100);
+
+                  HS_SetOriginFromHotspot("hotspot_039");
+                  HS_DrawLine([-35,0],[0,0]);
+                  HS_DrawLine([-35,185],[-35,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-32,195],port2,"Roboto",11,"left",200);
+
+               }
+               else if (currentPosition == 'back') {
+                  HS_SetOriginFromHotspot("hotspot_030");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-10,165],port41 + ' <br> ' + port42 + ' <br> ' + port43 + ' <br> ' + port44,"Roboto",11,"left",400);
+
+                  HS_SetOriginFromHotspot("hotspot_030");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-30,-270],port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39 + ' <br> ' + port40,"Roboto",11,"left",300);
+               }
+               else if (currentPosition == 'top') {
+                  HS_SetOriginFromHotspot("hotspot_024");
+                  HS_DrawLine([10,-30],[10,-50]); //h
+                  HS_DrawLine([-30,-50],[-30,160]); //h
+                  HS_DrawLine([255,-50],[255,-30]); //h2
+                  HS_DrawLine([-30,-50],[255,-50]); //v
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-30,170],port20,"Roboto",11,"left",200)
+
+                  HS_SetOriginFromHotspot("hotspot_024");
+                  HS_DrawLine([-10,0],[20,0]);
+                  HS_DrawLine([-10,130],[-10,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-10,140],port22,"Roboto",11,"left");
+
+                  HS_SimpleCallout([0,10],0,-20,"hotspot_025","",port23,"left",10,100,-30);
+
+                  HS_SetOriginFromHotspot("hotspot_026");
+                  HS_DrawLine([70,0],[0,0]);
+                  HS_DrawLine([70,215],[70,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([65,225],port21,"Roboto",11,"right",100);
+
+                  HS_SetOriginFromHotspot("hotspot_037");
+                  HS_DrawLine([0,24],[0,-5]); //h
+                  HS_DrawLine([150,25],[150,-5]); //h2
+                  HS_DrawLine([150,-5],[0,-5]); //v
+                  HS_DrawLine([80,-5],[80,-20]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([60,-30],port19,"Roboto",11,"center");
+
+
+               }
+               else if (currentPosition == 'left') {
+                  HS_SimpleCallout([0,60],0,0,"hotspot_034","",port15,"right",3,200,0);
+
+                  HS_SetOriginFromHotspot("hotspot_035");
+                  HS_DrawLine([0,30],[0,2]); //h
+                  HS_DrawLine([19,30],[19,2]); //h2
+                  HS_DrawLine([19,30],[0,30]); //v
+                  HS_DrawLine([9,30],[9,100]); //h3
+
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([6,100],port16,"Roboto",11,"right",150);
+
+
+                  HS_SimpleCallout([0,60],0,0,"hotspot_036","",port17,"center",4,120,20);
+
+                  HS_SetOriginFromHotspot("hotspot_036");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-250,-230],port13,"Roboto",11,"left",360);
+
+                  HS_SimpleCallout([0,-90],0,0,"Chassis_intrusion_switch_hotspot","",port14,"center",5,200,0);
+
+                  HS_SimpleCallout([0,-60],0,0,"Right_Antenna_hotspot","",port32,"left",5,200,0);
+
+               }
+               else if (currentPosition == 'right') {
+                  HS_SimpleCallout([0,80],0,0,"hotspot_016","",port10,"center",10,300,20);
+
+                  HS_SetOriginFromHotspot("hotspot_018");
+                  HS_DrawLine([-7,-30],[-7,4]); //h
+                  HS_DrawLine([13,-30],[13,4]); //h2
+                  HS_DrawLine([-7,-30],[13,-30]); //v
+                  HS_DrawLine([3,-30],[3,-90]); //h3
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([15,-117],port11,"Roboto",11,"center",100);
+
+                  HS_SimpleCallout([0,80],0,1,"hotspot_019","",port12,"center",10,300,20);
+                  HS_SimpleCallout([0,-60],0,0,"Left_Antenna_hotspot","",port32,"left",5,200,0);
+
+                  HS_SetOriginFromHotspot("hotspot_019");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-155,-220],port13,"Roboto",11,"left",250);
+
+               }
+               else if (currentPosition == 'explode') {
+                  HS_SimpleCallout([-90,120],-90,120,"hotspot_040","",port45,"left",10,120,-40);
+
+                  HS_SimpleCallout([40,90],40,90,"hotspot_043","",port46,"center",10,120,20);
+
+                  // HS_SetOriginFromHotspot("hotspot_042");
+                  // HS_DrawLine([50, -8], [10, -8]);
+                  // HS_DrawLine([50, -195], [50, -8]);
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([115, -225], port47, "Roboto", 11, "right", 150);
+
+                  HS_SimpleCallout([40,-260],40,-260,"hotspot_042","",port47,"center",10,120,20);
+
+
+
+                  // HS_SetOriginFromHotspot("hotspot_041");
+                  // HS_DrawLine([-120, 0], [25, -1]);
+                  // HS_DrawLine([-120, -230], [-120, 0]);
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([-160, -240], port48, "Roboto", 11, "left", 220);
+
+                  HS_SimpleCallout([-80,-230],-80,-230,"hotspot_041","",port48,"center",10,120,20);
+               }
+            }
+         }
+         else if (isipad) {
+
+            if (window.innerWidth > window.innerHeight) {
+               console.log("lanscap_ipad");
+               if (currentPosition == 'front') {
+
+                  HS_SetOriginFromHotspot("hotspot_011");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([170,340],port5,"Roboto",13,"left",350);
+                  // HS_DrawText([110,340],port5,"Roboto",13,"left",300);
+
+                  HS_SimpleCallout([0,-50],0,0,"hotspot_010","",port1,"center",20,300,0);
+
+                  HS_SetOriginFromHotspot("hotspot_012");
+                  HS_DrawLine([40,0],[0,0]);
+                  HS_DrawLine([40,-200],[40,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([45,-220],port3,"Roboto",13,"right",300);
+
+
+                  HS_SetOriginFromHotspot("hotspot_013");
+                  HS_DrawLine([80,0],[0,0]);
+                  HS_DrawLine([80,170],[80,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([80,175],port4,"Roboto",13,"right",100);
+
+                  HS_SetOriginFromHotspot("hotspot_039");
+                  HS_DrawLine([-55,0],[0,0]);
+                  HS_DrawLine([-55,320],[-55,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([105,330],port2,"Roboto",13,"right",250)
+               }
+               else if (currentPosition == 'back') {
+                  HS_SetOriginFromHotspot("hotspot_030");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-10,-270],port41 + ' <br> ' + port42 + ' <br> ' + port43 + ' <br> ' + port44,"Roboto",13,"left",430);
+
+                  HS_SetOriginFromHotspot("hotspot_030");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([530,290],port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39 + ' <br> ' + port40,"Roboto",13,"left",300);
+               }
+               else if (currentPosition == 'top') {
+                  HS_SetOriginFromHotspot("bottom_firing_speakers_02_hotspot");
+                  HS_DrawLine([-520,0],[-520,-20]); //h
+                  HS_DrawLine([-580,0],[-580,0]); //h
+                  HS_DrawLine([10,-20],[10,0]); //h2
+                  HS_DrawLine([10,-20],[-580,-20]); //v
+                  // HS_DrawLine([100, -180], [100, -190]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-580,-35],port20,"Roboto",13,"right",100);
+
+
+                  HS_SetOriginFromHotspot("hotspot_024");
+                  HS_DrawLine([-30,0],[25,0]);
+                  HS_DrawLine([-30,190],[-30,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-30,200],port22,"Roboto",13,"right");
+
+                  HS_SimpleCallout([-3,4],-3,-60,"hotspot_025","",port23,"left",5,220,-20);
+
+                  HS_SetOriginFromHotspot("hotspot_026");
+                  HS_DrawLine([70,0],[0,0]);
+                  HS_DrawLine([70,340],[70,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([90,360],port21,"Roboto",13,"right",120);
+
+                  HS_SetOriginFromHotspot("hotspot_037");
+                  HS_DrawLine([0,45],[0,15]); //h
+                  HS_DrawLine([265,45],[265,15]); //h2
+                  HS_DrawLine([265,15],[0,15]); //v
+                  HS_DrawLine([112,15],[112,10]);
+
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([110,0],port19,"Roboto",13,"center");
+               }
+               else if (currentPosition == 'left') {
+                  HS_SimpleCallout([0,-50],0,0,"hotspot_034","",port15,"center",0,200,0);
+
+                  HS_SetOriginFromHotspot("hotspot_035");
+                  HS_DrawLine([0,-30],[0,2]); //h
+                  HS_DrawLine([30,-30],[30,2]); //h2
+                  HS_DrawLine([30,-30],[0,-30]); //v
+                  HS_DrawLine([15,-30],[15,-120]); //h3
+
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-15,-130],port16,"Roboto",13,"center");
+                  HS_SimpleCallout([0,40],0,0,"hotspot_036","",port17,"left",0,200,5);
+
+                  HS_SetOriginFromHotspot("hotspot_036");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([120,10],port13,"Roboto",13,"left",100);
+
+                  HS_SimpleCallout([0,-60],0,0,"Chassis_intrusion_switch_hotspot","",port14,"right",0,200,0);
+
+                  HS_SimpleCallout([0,-80],0,0,"Right_Antenna_hotspot","",port32,"center",0,200,0);
+               }
+               else if (currentPosition == 'right') {
+                  HS_SimpleCallout([0,-40],0,0,"hotspot_016","",port10,"center",10,300,0);
+
+                  HS_SetOriginFromHotspot("hotspot_018");
+                  HS_DrawLine([-15,-30],[-15,8]); //h
+                  HS_DrawLine([15,-30],[15,8]); //h2
+                  HS_DrawLine([-15,-30],[15,-30]); //v
+                  HS_DrawLine([0,-30],[0,-90]); //h3
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([25,-100],port11,"Roboto",13,"center");
+
+                  HS_SimpleCallout([20,100],20,2,"hotspot_019","",port12,"center",10,300,40);
+                  HS_SimpleCallout([0,-40],0,0,"Left_Antenna_hotspot","",port32,"left",25,150,-45);
+
+                  HS_SetOriginFromHotspot("hotspot_019");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-125,-250],port13,"Roboto",13,"left",180);
+               }
+               else if (currentPosition == 'explode') {
+                  HS_SimpleCallout([-300,10],-300,10,"hotspot_040","",port45,"right",5,150,0);
+
+                  HS_SimpleCallout([70,90],70,90,"hotspot_043","",port46,"left",10,150,0);
+
+                  HS_SimpleCallout([60,-20],60,-20,"hotspot_042","",port47,"center",5,140,40);
+                  HS_SimpleCallout([-235,-50],-235,-50,"hotspot_041","",port48,"center",-5,150,-60);
+
+               }
+            }
+            else {
+               console.log("portrait_ipad");
+               if (currentPosition == 'front') {
+
+                  HS_SetOriginFromHotspot("hotspot_011");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([70,320],port5,"Roboto",13,"left",300);
+
+                  HS_SimpleCallout([0,-50],0,0,"hotspot_010","",port1,"center",30,300,0);
+
+                  HS_SetOriginFromHotspot("hotspot_012");
+                  HS_DrawLine([20,0],[0,0]);
+                  HS_DrawLine([20,-200],[20,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([20,-210],port3,"Roboto",13,"right",300);
+
+
+                  HS_SetOriginFromHotspot("hotspot_013");
+                  HS_DrawLine([60,0],[0,0]);
+                  HS_DrawLine([60,170],[60,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([50,170],port4,"Roboto",13,"right",300);
+
+                  HS_SetOriginFromHotspot("hotspot_039");
+                  HS_DrawLine([-35,0],[5,0]);
+                  HS_DrawLine([-35,260],[-35,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([170,270],port2,"Roboto",13,"right",250);
+
+               }
+               else if (currentPosition == 'back') {
+                  HS_SetOriginFromHotspot("hotspot_030");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-10,-230],port41 + ' <br> ' + port42 + ' <br> ' + port43 + ' <br> ' + port44,"Roboto",13,"left",430);
+
+                  HS_SetOriginFromHotspot("hotspot_030");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([0,220],port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39 + ' <br> ' + port40,"Roboto",13,"left",300);
+               }
+               else if (currentPosition == 'top') {
+                  HS_SetOriginFromHotspot("bottom_firing_speakers_02_hotspot");
+                  HS_DrawLine([-410,0],[-410,-20]); //h
+                  HS_DrawLine([-450,-20],[-450,265]); //h
+                  HS_DrawLine([10,-20],[10,0]); //h2
+                  HS_DrawLine([10,-20],[-450,-20]); //v
+                  // HS_DrawLine([100, -180], [100, -190]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-440,265],port20,"Roboto",13,"left",200);
+
+
+                  HS_SetOriginFromHotspot("hotspot_024");
+                  HS_DrawLine([-10,0],[25,0]);
+                  HS_DrawLine([-10,160],[-10,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-10,170],port22,"Roboto",13,"left");
+
+                  HS_SimpleCallout([0,5],0,-40,"hotspot_025","",port23,"left",10,120,0);
+
+                  HS_SetOriginFromHotspot("hotspot_026");
+                  HS_DrawLine([70,0],[0,0]);
+                  HS_DrawLine([70,270],[70,0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([70,280],port21,"Roboto",13,"right",120);
+
+                  HS_SetOriginFromHotspot("hotspot_037");
+                  HS_DrawLine([0,33],[0,-25]); //h
+                  HS_DrawLine([210,34],[210,-25]); //h2
+                  HS_DrawLine([210,-25],[0,-25]); //v
+                  HS_DrawLine([105,-25],[105,-60]);
+
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([105,-90],port19,"Roboto",13,"center");
+               }
+               else if (currentPosition == 'left') {
+                  HS_SimpleCallout([0,60],0,0,"hotspot_034","",port15,"right",2,150,0);
+
+                  HS_SetOriginFromHotspot("hotspot_035");
+                  HS_DrawLine([0,30],[0,2]); //h
+                  HS_DrawLine([23,30],[23,2]); //h2
+                  HS_DrawLine([25,30],[0,30]); //v
+                  HS_DrawLine([10,30],[10,90]); //h3
+
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([10,95],port16,"Roboto",13,"right");
+
+                  HS_SimpleCallout([0,100],0,0,"hotspot_036","",port17,"center",10,120,0);
+
+                  HS_SetOriginFromHotspot("hotspot_036");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-250,-250],port13,"Roboto",13,"left",180);
+
+                  HS_SimpleCallout([0,-105],0,0,"Chassis_intrusion_switch_hotspot","",port14,"center",25,100,0)
+
+                  HS_SimpleCallout([0,-40],0,0,"Right_Antenna_hotspot","",port32,"left",43,100,-15);
+               }
+               else if (currentPosition == 'right') {
+                  HS_SimpleCallout([0,80],0,0,"hotspot_016","",port10,"center",10,300,0);
+                  //HS_SimpleCallout([0, -80], 0, 0, "hotspot_018", "", port11, "center", 10, 300, 50);
+                  HS_SetOriginFromHotspot("hotspot_018");
+                  HS_DrawLine([-10,-30],[-10,5]); //h
+                  HS_DrawLine([13,-30],[13,5]); //h2
+                  HS_DrawLine([-10,-30],[13,-30]); //v
+                  HS_DrawLine([2,-30],[2,-90]); //h3
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([35,-100],port11,"Roboto",13,"center");
+
+                  HS_SimpleCallout([0,80],0,0,"hotspot_019","",port12,"center",10,300,0);
+                  HS_SimpleCallout([0,-45],0,0,"Left_Antenna_hotspot","",port32,"left",25,150,-40);
+
+                  HS_SetOriginFromHotspot("hotspot_019");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-125,-250],port13,"Roboto",13,"left",180);
+               }
+               else if (currentPosition == 'explode') {
+                  // console.log('explode');
+                  HS_SimpleCallout([-170,70],-170,70,"hotspot_040","",port45,"right",0,150,0);
+
+                  HS_SimpleCallout([120,0],120,0,"hotspot_043","",port46,"left",5,120,0);
+
+                  //   HS_SetOriginFromHotspot("hotspot_042");
+                  //    HS_DrawLine([50, -10], [15, -10]);
+                  //    // HS_DrawLine([50, -330], [50, -10]);
+                  //    ctxCallouts.fillStyle = 'black';
+                  //    HS_DrawText([60, -40], port47, "Roboto", 13, "left", 150);
+
+                  HS_SimpleCallout([50,-40],50,-40,"hotspot_042","",port47,"left",0,150,0);
+
+                  // HS_SetOriginFromHotspot("hotspot_041");
+                  // HS_DrawLine([-120, 0], [35, -2]);
+                  // // HS_DrawLine([-180, -280], [-180, -10]);
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([-220, -20], port48, "Roboto", 13, "left", 120);
+
+                  HS_SimpleCallout([-220,-20],-220,-20,"hotspot_041","",port48,"left",0,100,0);
+               }
+            }
+         }
+         else {
+            //console.log('desktop')
+            if (currentPosition == 'front') {
+               // setHotSpot('hotspot1demo','hotspot_010',50,-15,1.0,port0,200,19,"right");
+
+               HS_SimpleCallout([0,-50],0,0,"Front_Hotspot_1","",port1,"center",30,400,20);
+               // setHotSpot('hotspot2','hotspot_010',110,-112,0,port1,395,18,"center");
+
+               HS_SimpleCallout([50,0],0,0,"Front_Hotspot_2","",port2,"left",10,190,0);
+               // setHotSpot('hotspot3','hotspot_012',351,-12,0,port3,310,18,"center");
+
+            }
+            else if (currentPosition == 'back') {
+               // setHotSpot('hotspot1demo','hotspot_030',50,-15,1.0,port0,200,19,"right");
+               // HS_SetOriginFromHotspot("hotspot_030");
+               // ctxCallouts.fillStyle = 'black';
+               // HS_DrawText([-220,-50],port41 + ' <br> ' + port42 + ' <br> ' + port43 + ' <br> ' + port55 + ' <br> ' + port56 + ' <br> ' + port57,"Roboto",15,"left",180);
+
+
+               // HS_SetOriginFromHotspot("hotspot_030");
+               // ctxCallouts.fillStyle = 'black';
+               // HS_DrawText([660,-50],port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39 + ' <br> ' + port59 + ' <br> ' + port58,"Roboto",15,"left",200);
+               // setHotSpot('hotspot16','hotspot_030',1045,-70,0,port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port53 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39,320,19,"left")
+            }
+            else if (currentPosition == 'top') {
+               // setHotSpot('hotspot1demo','hotspot_025',278,72,0,port0,195,18,"right");
+
+               HS_SimpleCallout([60,45],0,45,"Top_Hotspot_1","",port3,"left",0,190,10);
+               // setHotSpot('hotspot10','hotspot_024',71,-10,0,port22,142,18,"left");
+
+               // HS_SimpleCallout([300,-60],0,-60,"hotspot_025","",port23,"left",10,300,10);
+               // setHotSpot('hotspot14','hotspot_025',659,-85,0,port23,260,18,"left");
+
+               // HS_SimpleCallout([60,0],0,0,"hotspot_026","",port21,"left",10,150,10);
+               // setHotSpot('hotspot13','hotspot_026',378,-10,0,port21,280,18,"left");
+               // //HS_SimpleCallout([60, 0], 0, 0, "hotspot_032", "", port6, "left", 10, 300, 10);
+               // HS_SetOriginFromHotspot("hotspot_032");
+               // HS_DrawLine([-35,-88],[-35,-107]); //h
+               // HS_DrawLine([232,-88],[232,-107]); //h2
+               // HS_DrawLine([232,-107],[-35,-107]); //v
+               // HS_DrawLine([100,-107],[100,-130]);
+
+               // ctxCallouts.fillStyle = '#d8d8d8';
+               // ctxCallouts.fillStyle = 'black';
+               // HS_DrawText([90,-140],port19,"Roboto",15,"center");
+               // setHotSpot('hotspot12','hotspot_032',187,-246,0,port19,405,18,"center");
+
+            }
+            else if (currentPosition == 'left') {
+               setHotSpot('hotspot1demo','Chassis_intrusion_switch_hotspot',50,-15,1.0,port0,200,19,"right");
+               HS_SetOriginFromHotspot("hotspot_036");
+               ctxCallouts.fillStyle = 'black';
+               HS_DrawText([105,30],port13,"Roboto",15,"left",180)
+               // setHotSpot('hotspot29','hotspot_036',488,165,0,port13,195,18,"left");
+
+
+               HS_SimpleCallout([0,-40],0,0,"Chassis_intrusion_switch_hotspot","",port14,"right",10,300,0);
+               // setHotSpot('hotspot24','Chassis_intrusion_switch_hotspot',92,-70,0,port14,195,18,"right");
+
+
+               HS_SimpleCallout([0,-65],0,0,"Right_Antenna_hotspot","",port32,"right",5,300,5);
+               // setHotSpot('hotspot25','Right_Antenna_hotspot',220,-100,0,port40,50,18,"right");
+
+
+               HS_SimpleCallout([0,-100],0,-1,"hotspot_034","",port15,"right",5,300,5);
+               // setHotSpot('hotspot26','hotspot_034',167,-140,0,port15,125,18,"right");
+
+
+               HS_SetOriginFromHotspot("hotspot_035");
+               HS_DrawLine([0,-30],[0,1]); //h
+               HS_DrawLine([37,-30],[37,1]); //h2
+               HS_DrawLine([37,-30],[0,-30]); //v
+               HS_DrawLine([20,-30],[20,-140]); //h3
+               ctxCallouts.fillStyle = 'black';
+               HS_DrawText([25,-150],port16,"Roboto",15,"right",300);
+               // setHotSpot('hotspot27','hotspot_035',68,-190,0,port16,245,18,"right");
+
+
+               HS_SimpleCallout([0,-190],0,-2,"hotspot_036","",port17,"right",5,300,5);
+               // setHotSpot('hotspot28','hotspot_036',210,-245,0,port17,75,18,"right");
+            }
+            else if (currentPosition == 'right') {
+               setHotSpot('hotspot1demo','hotspot_016',278,72,0,port0,195,18,"right");
+
+               HS_SimpleCallout([0,-150],0,0,"hotspot_016","",port10,"left",5,300,-5);
+               // setHotSpot('hotspot30','hotspot_016',274,-200,0,port10,110,18,"left");
+
+               HS_SetOriginFromHotspot("hotspot_018");
+               HS_DrawLine([-20,-30],[-20,9]); //h
+               HS_DrawLine([20,-30],[20,9]); //h2
+               HS_DrawLine([20,-30],[-20,-30]); //v
+               HS_DrawLine([0,-30],[0,-90]); //h3
+               ctxCallouts.fillStyle = '#d8d8d8';
+               ctxCallouts.fillStyle = 'black';
+               HS_DrawText([-5,-105],port11,"Roboto",15,"left");
+               // setHotSpot('hotspot31','hotspot_018',274,-135,0,port11,245,18,"left");
+
+               //HS_SimpleCallout([0, -80], 0, 0, "hotspot_018", "", port11, "center", 10, 300, 20);
+               HS_SimpleCallout([0,-50],0,2,"hotspot_019","",port12,"left",5,300,-5);
+               // setHotSpot('hotspot33','hotspot_019',275,-84,0,port12,155,18,"left");
+
+               HS_SimpleCallout([0,-48],0,0,"Left_Antenna_hotspot","",port32,"left",5,300,-5);
+               // setHotSpot('hotspot32','Left_Antenna_hotspot',275,-84,0,port40,50,18,"left");
+
+               HS_SetOriginFromHotspot("hotspot_019");
+               ctxCallouts.fillStyle = 'black';
+               HS_DrawText([150,35],port13,"Roboto",15,"left",180);
+               // setHotSpot('hotspot34','hotspot_019',564,165,0,port13,195,18,"left");
+            }
+            else if (currentPosition == 'explode') {
+               setHotSpot('hotspot1demo','hotspot_040',50,-15,1.0,port0,200,19,"right");
+
+               HS_SimpleCallout([-250,80],-250,80,"hotspot_040","",port45,"right",20,150,20);
+               // setHotSpot('hotspot23','Hotspot_exploded_05_MB',-338,175,0,port41,305,18,"right");
+               // HS_SimpleCallout([-180,140],0,0,"Hotspot_exploded_02_Storage_b","",port42,"center",30,300,20); 
+
+               HS_SimpleCallout([100,60],100,60,"hotspot_043","",port46,"left",20,200,-10);
+               // setHotSpot('hotspot22','Hotspot_exploded_03_processor',445,148,0,port43,370,18,"center");
+
+               HS_SimpleCallout([70,-30],70,-30,"hotspot_042","",port47,"left",10,240,0);
+               // setHotSpot('hotspot21','Hotspot_exploded_04_ram',528,-208,0,port44,345,19,"center");
+
+               HS_SimpleCallout([-190,-40],-190,-40,"hotspot_041","",port48,"right",10,200,0);
+               // setHotSpot('hotspot20','Hotspot_exploded_05_MB',-398,-138,0,port45,385,18,"right");
+
+            }
+         }
+         /*New HotSpot Assignment End*/
+      }
+
+
+      /*New HotSpot Assignment Functions*/
+
+      function HS_SimpleCallout1(pt,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,txtAlign,txtDist,vrTextShift,maxWidth) {
+         // HS_DrawText_WrapText(txtValue);
+         //txtValue = txtValue.split('<br>');
+         var npt = [pt[0],pt[1]];
+         var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
+         npt[0] /= nptlen;
+         npt[1] /= nptlen;
+         HS_SetOriginFromHotspot(hotspotname);
+         HS_DrawLine(pt,[horizontalShift,verticalShift]);
+
+
+         if (txtNum != '') {
+
+            ctxCallouts.fillStyle = '#d8d8d8';
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
+            ctxCallouts.fillStyle = 'black';
+            HS_DrawText([pt[0] + 5 * npt[0] + 1,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",13,"center");
+         }
+
+         HS_DrawText([pt[0] + (txtDist) * npt[0],pt[1] + (5 + txtDist) * npt[1] - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
+
+      }
+
+
+      function HS_F_smallAtStart_HrCallout(pt,vrLineHeight,distanceBtn2Vr,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,vrTextShift,txtAlign,txtDist,maxWidth) {
+         if (vrTextShift == 'undefined') vrTextShift = 0;
+         //txtValue = txtValue.split('<br>');
+         var npt = [pt[0],pt[1]];
+         var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
+         npt[0] /= nptlen;
+         npt[1] /= nptlen;
+         HS_SetOriginFromHotspot(hotspotname);
+         HS_DrawLine([horizontalShift,vrLineHeight],[horizontalShift,verticalShift]);
+         HS_DrawLine([distanceBtn2Vr,vrLineHeight],[distanceBtn2Vr,verticalShift]);
+         HS_DrawLine(pt,[horizontalShift,vrLineHeight]);
+         if (txtNum != '') {
+            ctxCallouts.fillStyle = '#D8D8D8';
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
+            ctxCallouts.fillStyle = 'black';
+            // HS_DrawText([pt[0] + 5 * npt[0], pt[1] + 6 * npt[1]], txtNum, "Roboto", 14, "center");
+            HS_DrawText([pt[0] + 5 * npt[0] + 2,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",14,"center");
+         }
+         HS_DrawText([pt[0] + (txtDist) * npt[0],pt[1] + (5 + txtDist) * npt[1] - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
+         /*
+         if (direction == 'vr') {
+             HS_DrawText([pt[0] + 5 * npt[0], pt[1] + 6 * npt[1]], txtNum, "Roboto", 14, "center");
+             for (let i = 1; i <= txtValue.length; i++) {
+                 if (i == 1) {
+                     HS_DrawText([pt[0] + ((i * 5) + txtDist) * npt[0], pt[1] + (5 + txtDist) * npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 } else if (i == 2) {
+                     HS_DrawText([pt[0] + (5 + txtDist) * npt[0], pt[1] + (23 + txtDist) + npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 } else if (i == 3) {
+                     HS_DrawText([pt[0] + (5 + txtDist) * npt[0], pt[1] + (20 + txtDist) + npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 }
+             }
+         } else if (direction == 'vr-hr') {
+             HS_DrawText([pt[0] + 5 * npt[0], pt[1] + 5 * npt[1]], txtNum, "Roboto", 14, "center");
+             for (let i = 1; i <= txtValue.length; i++) {
+                 if (i == 1) {
+                     HS_DrawText([pt[0] + ((i * 5) + txtDist) * npt[0], pt[1] + (5 + txtDist) * npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 } else if (i == 2) {
+                     HS_DrawText([pt[0] + (5 + txtDist) * npt[0], pt[1] + (12 + txtDist) + npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 } else if (i == 3) {
+                     HS_DrawText([pt[0] + (5 + txtDist) * npt[0], pt[1] + (20 + txtDist) + npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 }
+             }
+         } else {
+             HS_DrawText([pt[0] + 5 * npt[0], (pt[1] + 5 * npt[1]) + 1], txtNum, "Roboto", 14, "center");
+     
+             for (let i = 1; i <= txtValue.length; i++) {
+                 if (i == 1) {
+                     HS_DrawText([pt[0] + ((i * 5) + txtDist) * npt[0], (pt[1] + (5 + txtDist) * npt[1]) - vrTextShift], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 } else if (i == 2) {
+                     HS_DrawText([pt[0] + (5 + txtDist) * npt[0], pt[1] + (3 + txtDist) + npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 } else if (i == 3) {
+                     HS_DrawText([pt[0] + (5 + txtDist) * npt[0], pt[1] + (20 + txtDist) + npt[1]], txtValue[i - 1], "Roboto", 15, txtAlign);
+                 }
+             }
+         } */
+
+      }
+
+      function HS_U_HrCallout(pt,hrLineWidth,vrLineHeight,hrShift,vrshift,hotspotname,txtNum,txtValue,vrTextShift,txtAlign,txtDist,maxWidth) {
+         var npt = [pt[0],pt[1]];
+         var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
+         npt[0] /= nptlen;
+         npt[1] /= nptlen;
+         HS_SetOriginFromHotspot(hotspotname);
+         HS_DrawLine([hrLineWidth,vrshift],[0,vrshift]);
+         HS_DrawLine([hrLineWidth,vrshift],[hrLineWidth,vrLineHeight]);
+         HS_DrawLine([hrLineWidth,vrLineHeight],[0,vrLineHeight]);
+         HS_DrawLine([pt[0],(vrLineHeight / 2) + vrshift / 2],[-vrLineHeight,(vrLineHeight / 2) + vrshift / 2]);
+
+         // HS_SetOriginFromHotspot(hotspotname);
+         // HS_DrawLine([hrLineWidth, 0], [0, 0]);
+         // HS_DrawLine([hrLineWidth, 0], [hrLineWidth, vrLineHeight]);
+         // HS_DrawLine([hrLineWidth, vrLineHeight], [0, vrLineHeight]);
+         // HS_DrawLine([pt[0], vrLineHeight / 2], [-vrLineHeight, vrLineHeight / 2]);
+         if (txtNum != '') {
+            ctxCallouts.fillStyle = '#d8d8d8';
+            HS_DrawCircle([pt[0] + 5 * npt[0],(pt[1] + 5 * npt[1]) + (vrshift / 2)],13);
+
+            ctxCallouts.fillStyle = 'black';
+            HS_DrawText([pt[0] + 5 * npt[0] + 2,(pt[1] + 5 * npt[1] + 1) + (vrshift / 2)],txtNum,"Roboto",14,"center");
+         }
+         HS_DrawText([pt[0] + (txtDist) * npt[0],(pt[1] + (5 + txtDist) * npt[1]) + (vrshift / 2) - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
+
+      }
+
+      function HS_L_smallAtStart_HrCallout(pt,vrLineHeight,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,vrTextShift,txtAlign,txtDist,maxWidth) {
+         if (vrTextShift == 'undefined') vrTextShift = 0;
+         var npt = [pt[0],pt[1]];
+         var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
+         npt[0] /= nptlen;
+         npt[1] /= nptlen;
+         HS_SetOriginFromHotspot(hotspotname);
+         HS_DrawLine([0,vrLineHeight],[horizontalShift,verticalShift]);
+         HS_DrawLine(pt,[0,vrLineHeight]);
+         if (txtNum != '') {
+            ctxCallouts.fillStyle = '#d8d8d8';
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
+
+            ctxCallouts.fillStyle = 'black';
+            HS_DrawText([pt[0] + 5 * npt[0] + 2,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",14,"center");
+         }
+         HS_DrawText([pt[0] + (txtDist) * npt[0],pt[1] + (5 + txtDist) * npt[1] - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
+
+      }
+
+      function HS_SimpleCallout(pt,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,txtAlign,txtDist,maxWidth,textHorizontalShift) {
+         // HS_DrawText_WrapText(txtValue);
+         //txtValue = txtValue.split('<br>');
+         if (textHorizontalShift == undefined) textHorizontalShift = 0;
+         var npt = [pt[0],pt[1]];
+         var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
+         npt[0] /= nptlen;
+         npt[1] /= nptlen;
+         HS_SetOriginFromHotspot(hotspotname);
+         HS_DrawLine(pt,[horizontalShift,verticalShift]);
+         if (txtNum != '') {
+            ctxCallouts.fillStyle = '#d8d8d8';
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
+            ctxCallouts.fillStyle = 'black';
+            HS_DrawText([pt[0] + 5 * npt[0] + 1,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",13,"center");
+         }
+         if (mob) {
+            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift,pt[1] + (5 + txtDist) * npt[1]],txtValue,"Roboto",11,txtAlign,maxWidth);
+         }
+         else if (isipad) {
+            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift,pt[1] + (5 + txtDist) * npt[1]],txtValue,"Roboto",13,txtAlign,maxWidth);
+         }
+         else {
+            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift,pt[1] + (5 + txtDist) * npt[1]],txtValue,"Roboto",15,txtAlign,maxWidth);
+         }
+      }
+
+      if (mob || isipad) {
+         var lineHeight = 14;
+      } else {
+         var lineHeight = 20;
+      }
+
+      function HS_SetOriginFromHotspot(name) {
+         var pos2D = scene.projectPoint(scene.getObjectLocation(name,true));
+         pos2D[0] = pos2D[0] * 0.5 + 0.5;
+         pos2D[1] = pos2D[1] * 0.5 + 0.5;
+         pos2D[1] = 1.0 - pos2D[1];
+         pos2D[0] *= canvasCallouts.width;
+         pos2D[1] *= canvasCallouts.height;
+         HS_SetOrigin(pos2D);
+      }
+
+      function HS_SetOrigin(pt) {
+         ctxCallouts.resetTransform();
+         ctxCallouts.translate(pt[0],pt[1]);
+         var scale = canvasCallouts.height / 800;
+         ctxCallouts.scale(scale,scale);
+      }
+
+      function HS_DrawLine(pt0,pt1) {
+         ctxCallouts.beginPath();
+         ctxCallouts.moveTo(pt0[0],pt0[1]);
+         ctxCallouts.lineTo(pt1[0],pt1[1]);
+         ctxCallouts.stroke();
+         //ctxCallouts.strokeStyle = '#0076CE';
+         ctxCallouts.strokeStyle = '#979797';
+      }
+
+      function HS_DrawCircle(pt,radius) {
+         ctxCallouts.beginPath();
+         ctxCallouts.ellipse(pt[0],pt[1],radius,radius,0,0,2 * Math.PI);
+         ctxCallouts.fill();
+      }
+
+      function HS_DrawText(pt,text,font,fontsize,txtalign,maxWidth) {
+
+         ctxCallouts.font = fontsize + "px " + font;
+         ctxCallouts.textAlign = txtalign;
+         ctxCallouts.textBaseline = 'middle';
+         //if(text.indexOf("<br>")) {console.log(text.indexOf("<br>"))};
+         var words = text.split(' ');
+         // if (calloutsRTL == true) {
+         //     if (words.length == 1) {
+         //         ctxCallouts.direction = 'ltr';
+         //     } else {
+         //         ctxCallouts.direction = 'rtl';
+         //     }
+         // }
+         var line = '';
+         //console.log(words)
+         for (var n = 0; n < words.length; n++) {
+            var testLine = line + words[n] + ' ';
+            var metrics = ctxCallouts.measureText(testLine);
+            var testWidth = metrics.width;
+            if (testWidth > maxWidth && n > 0 || words[n] == '<br>') {
+               if (words[n] == '<br>') words[n] = '';
+               ctxCallouts.fillText(line,pt[0],pt[1]);
+
+               if (words[n] != '<br>') {
+                  line = words[n] + ' ';
+               }
+               pt[1] += lineHeight;
+            } else {
+               line = testLine;
+            }
+         }
+
+         ctxCallouts.fillText(line,pt[0],pt[1]);
+
+      }
+
+
+
+
+      var canvasCallouts = null,
+         ctxCallouts = null;
+      // /*New HotSpot Assignment Functions End*/
+
+      var userLang;
+      var isUserLang = false;
+      function getLangUrl() {
+         //console.log("langUrl called");
+         var queryString = window.location.href.split('?')[1];
+         //console.log("queryString",queryString);
+         if (queryString) {
+            var params = queryString.split('&');
+            for (var i = 0; i < params.length; i++) {
+               if (params[i].toLowerCase().indexOf("locale=") >= 0) {
+                  userLang = params[i].replace("locale=","");
+                  isUserLang = true;
+                  break;
+               }
+            }
+            if (!isUserLang) {
+               userLang = "EN";
+            }
+         } else {
+            userLang = "EN";
+         }
+         setTimeout(getLangTranscript,1000)
+
+      }
+
+      var XMLHttpFactories = [
+         function () {
+            return new XMLHttpRequest()
+         },
+         function () {
+            return new ActiveXObject("Msxml3.XMLHTTP")
+         },
+         function () {
+            return new ActiveXObject("Msxml2.XMLHTTP.6.0")
+         },
+         function () {
+            return new ActiveXObject("Msxml2.XMLHTTP.3.0")
+         },
+         function () {
+            return new ActiveXObject("Msxml2.XMLHTTP")
+         },
+         function () {
+            return new ActiveXObject("Microsoft.XMLHTTP")
+         }
+      ];
+      function createXMLHTTPObject() {
+         var xmlhttp = false;
+         for (var i = 0; i < XMLHttpFactories.length; i++) {
+            try {
+               xmlhttp = XMLHttpFactories[i]();
+            } catch (e) {
+               continue;
+            }
+            break;
+         }
+         return xmlhttp;
+      }
+      var finalLangues;
+      function getLangTranscript() {
+         var xmlhttp = createXMLHTTPObject();
+         // alert();
+         // console.log("xmlhttp",xmlhttp);
+         xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+               var ldata = JSON.parse(this.responseText);
+               var splitLang = userLang.toLowerCase().split("-")[0];
+
+               // console.log("ldata",ldata);
+               // console.log("finalLangues called...",userLang.toLowerCase());
+               for (var j = 0; j < ldata.config.length; j++) {
+                  if (ldata.config[j].lang.toLowerCase() == userLang.toLowerCase()) {
+                     finalLangues = ldata.config[j];
+                     break;
+                  }
+                  // else if (ldata.config[j].lang.toLowerCase() == splitLang.toLowerCase()) {
+                  //    finalLangues = ldata.config[j];
+                  //    break;
+                  // }
+                  else {
+                     finalLangues = ldata.config[0];
+                  }
+               }
+               // console.log(finalLangues);
+               window.checkgetLangTranscript(true);
+               // console.log("finalLangues called...",userLang.toLowerCase())
+               // if (!finalLangues) {
+               //    console.log("false finallanguage");
+               //     var splitLang = userLang.toLowerCase().split("-")[0];
+
+               //     for (var k = 0; k < ldata.config.length; k++) {
+               //         if (ldata.config[k].lang.toLowerCase() == splitLang.toLowerCase()) {
+               //             finalLangues = ldata.config[k];
+               //             break;
+               //         }
+               //     }
+               // }
+
+               if (finalLangues) {
+                  //  alert();
+                  window.document.getElementById("move_text").innerHTML = finalLangues.move;
+                  window.document.getElementById("move_text_mob").innerHTML = finalLangues.move;
+                  // // document.getElementById("mobmove").innerHTML = finalLangues.move;
+                  document.getElementById("rotate_text").innerHTML = finalLangues.rotate;
+                  document.getElementById("rotate_text_mob").innerHTML = finalLangues.rotate;
+                  // // document.getElementById("mobRotate").innerHTML = finalLangues.rotate;
+                  document.getElementById("zoom_text").innerHTML = finalLangues.zoom;
+                  document.getElementById("zoom_text_mob").innerHTML = finalLangues.zoom;
+
+                  // document.getElementById("mobZoom").innerHTML = finalLangues.zoom;
+
+                  document.querySelector(".exploreBtnCls").innerHTML = finalLangues.exploreProductIn3D;
+                  document.querySelector(".exploreBtnClsMob").innerHTML = finalLangues.exploreProductIn3D;
+
+
+                  port1 = finalLangues.port1;
+                  port2 = finalLangues.port2;
+                  port3 = finalLangues.port3;
+                  port4 = finalLangues.port4;
+                  port5 = finalLangues.port5;
+                  port6 = finalLangues.port6;
+                  // port7 = finalLangues.port7;
+                  port8 = finalLangues.port8;
+                  port9 = finalLangues.port9;
+                  port10 = finalLangues.port10;
+                  port11 = finalLangues.port11;
+                  port12 = finalLangues.port12;
+                  port13 = finalLangues.port13;
+                  port14 = finalLangues.port14;
+                  port16 = finalLangues.port15;
+                  port15 = finalLangues.port16;
+                  port17 = finalLangues.port17;
+                  port18 = finalLangues.port18;
+                  port18_1 = finalLangues.port19;
+                  port18_2 = finalLangues.port20;
+                  port18_3 = finalLangues.port21;
+                  port19 = finalLangues.port22;
+                  port20 = finalLangues.port23;
+                  port21 = finalLangues.port24;
+                  port22 = finalLangues.port25;
+                  port25 = finalLangues.port26;
+                  port24 = finalLangues.port27;
+                  port23 = finalLangues.port28;
+                  port26 = finalLangues.port29;
+                  port27 = finalLangues.port30;
+                  port28 = finalLangues.port31;
+                  port32 = finalLangues.port32
+                  port33 = finalLangues.port33
+                  port34 = finalLangues.port34
+                  port35 = finalLangues.port35
+                  port36 = finalLangues.port36
+                  port37 = finalLangues.port37
+                  port38 = finalLangues.port38
+                  port39 = finalLangues.port39
+                  port40 = finalLangues.port40
+                  port58 = finalLangues.port58
+                  port59 = finalLangues.port59
+                  port41 = finalLangues.port41
+                  port42 = finalLangues.port42
+                  port43 = finalLangues.port43
+                  port44 = finalLangues.port44
+                  port55 = finalLangues.port55
+                  port56 = finalLangues.port56
+                  port57 = finalLangues.port57
+                  port45 = finalLangues.port45
+                  port46 = finalLangues.port46
+                  port47 = finalLangues.port47
+                  port48 = finalLangues.port48
+
+
+
+
+                  if (userLang.toLowerCase() === "de" || finalLangues.lang.toLowerCase() === "it" || finalLangues.lang.toLowerCase() === "ro") {
+                     setTimeout(function () {
+                        document.querySelector("#mobHowToUseText").style.fontSize = '34px';
+                     },0);
+
+                  }
+                  if (finalLangues.lang.toLowerCase() === "ru") {
+                     setTimeout(function () {
+                        document.querySelector("#mobHowToUseText").style.top = '-23%';
+
+                     },0);
+
+
+                  }
+                  if (finalLangues.lang.toLowerCase() === "ro") {
+                     setTimeout(function () {
+                        document.querySelector("#mobHowToUseText").style.top = '-15%';
+
+                     },0);
+                  }
+
+
+                  // if (userLang.toLowerCase() === "de") {
+                  //    setTimeout(function () {
+                  //       document.querySelector("#move_text_mob").style.width = '90px';
+                  //       document.querySelector("#rotate_text_mob").style.width = '90px';
+                  //       document.querySelector("#zoom_text_mob").style.width = '90px';
+                  //    },0);
+                  // }
+               }
+            }
+         };
+         xmlhttp.open("GET","locale.json",true);
+         xmlhttp.send();
+
+      }
+      getLangUrl();
+
+   </script>
+   <style>
+      /* #hotspot1demo {
+         display: none !important;
+      } */
+   </style>
+</head>
+
+<body onload="InfinityRTStart();">
+   <div id="mainload">
+      <div class="loaderimg">
+         <img src="./img/loader.jpg" alt="loader img" id="loadericon" />
+      </div>
+      <div id="Scalable">
+         <div class="desktop">
+            <div id="loading" tabindex="1">
+               <!-- <input type="text" style="border:none" id="setFocus" /> -->
+               <div tabindex="1" id="move"
+                  aria-label="by swiping with two fingers on touchscreen or by clicking the right mouse button">
+                  <span id="move_text"></span><br>
+                  <img style="margin-top: 40px; height: 96px; width: 210px;" src="./img/move.svg" />
+               </div>
+
+               <div tabindex="1" id="rotate" style="margin: 0 137px;">
+                  <span id="rotate_text"></span><br><img style="margin-top: 40px; height: 96px; width: 230px;"
+                     src="./img/rotate.svg" />
+               </div>
+               <div tabindex="1" id="zoom"><span id="zoom_text"></span><br><img
+                     style="margin-top: 40px; height: 96px; width: 210px;" src="./img/zoom.svg" id="zoom_img"
+                     aria-label="by using two fingers to pinch and expand or by using the scroll wheel on the mouse" />
+               </div>
+               <div id="loader"
+                  style="display: none; position:absolute; background: #ffffff; border: 1px; border-style: solid; border-color: #c1c1c1;">
+                  <div id="loaderbar"
+                     style="position:absolute; width:0px; height:5px; overflow:hidden; background: #0076CE;"></div>
+               </div>
+               <button tabindex="1" id="exploreButtton" class="exploreBtnCls"
+                  aria-label="clickable Explore Product in 3D" onclick="exploreFun()">Explore Product in 3D
+               </button></button>
+            </div>
+         </div>
+         <div class="mobile">
+            <div id="loading">
+               <div>
+                  <div id="mobMove" style="display: flex; justify-content: space-between; align-items: end;"><span
+                        style="padding-right:43px;    margin-top: 70px;" id="move_text_mob"
+                        style="position: relative;  top: -29px;"></span><img
+                        style="margin-top: 44px;  height: 76px; width: 146px;" src="./img/move.svg" alt="movesIndex" />
+                  </div>
+                  <div id="mobRotate" style="display: flex; justify-content: space-between; align-items: end;"><span
+                        style="padding-right:43px;    margin-top: 70px;" id="rotate_text_mob"
+                        style="position: relative;  top: -29px;"></span><img
+                        style="margin-top: 44px;  height: 76px; width: 146px;" src="./img/rotate.svg"
+                        alt="rotateIndex" /></div>
+                  <div id="mobZoom"
+                     style="display: flex; justify-content: space-between; align-items: end; text-align: left;"><span
+                        style="padding-right:43px;    margin-top: 70px;" id="zoom_text_mob"
+                        style="position: relative;  top: -29px;"></span><img
+                        style="margin-top: 44px; height: 76px; width: 146px;" src="./img/zoom.svg" alt="zoomIndex" />
+                  </div>
+                  <div id="loaders"
+                     style="display: block; position:absolute; background: #ffffff; border: 1px; border-style: solid; border-color: #c1c1c1;height: 5px;left: 10px;">
+                     <div id="loaderbar"
+                        style="position:absolute; width:0px; height:5px; overflow:hidden; background: #0076CE;"></div>
+                  </div>
+                  <button id="exploreButtton" class="exploreBtnClsMob" onclick="exploreFunMob()" disabled><span
+                        id="exploreButttonTextmob">Explore Product in 3D</span><img
+                        style="height: 20px; width: 24px; padding-left: 12px;" src="./img/arrowIcon.png"
+                        alt="ArrowIndex" /></button>
+
+               </div>
+
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+
+   <div id='root' style="position: absolute;height: 100%;" data-camera='false'></div>
+
+   <canvas id='infinityrt-canvas' style='border: none; ' width='100%' height='100%'></canvas>
+   <canvas id='calloutcanvas' style="margin:0px;left:0px;top:0px;position:absolute;" width='100%'
+      height='100%'></canvas>
+
+   <div id="hotspot_container">
+      <div class="hotspots" id="hotspot1demo" tabindex="-1"></div>
+      <div class="hotspots" id="hotspot1" tabindex="-1"></div>
+      <div class="hotspots" id="hotspot2" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot3" tabindex="-1"></div>
+
+
+      <div class="hotspots" id="hotspot4" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot5" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot6" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot7" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot8" tabindex="-1"></div>
+      <div class="hotspots" id="hotspot9" tabindex="-1"></div>
+      <div class="hotspots" id="hotspot10" tabindex="-1"></div>
+
+
+
+      <div class="hotspots" id="hotspot11" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot12" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot13" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot14" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot15" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot16" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot17" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot18" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot19" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot20" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot21" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot22" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot23" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot24" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot25" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot26" tabindex="-1"></div>
+
+      <div class="hotspots" id="hotspot27" tabindex="-1"></div>
+   </div>
+   <div id="howTousePopup" style="display: none;"></div>
+
+   <div id="footerControlDesk"
+      style="display: block;position: absolute;bottom: 73px;left: 11px; z-index: 2;visibility: hidden;"></div>
+
+   <div id="footerControMob" style="display: block; z-index: 2;visibility: hidden;"></div>
+   <div id="footerControIpad" style="display: block;position: absolute;visibility:hidden;"></div>
+   <div id="howTousePopupDesk" style="position: absolute;z-index: 99;" tabindex="-1;"></div>
+
+
+</body>
+
+</html>
