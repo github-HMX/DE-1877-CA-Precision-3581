@@ -603,6 +603,8 @@ const MainMenu = (props) => {
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
+         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         window.scene.clearRefine();
       })
       if (!(window.isipad || window.mob)) {
          document.getElementById("hotspot1").setAttribute("tabindex","1");
@@ -666,7 +668,7 @@ const MainMenu = (props) => {
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
       // window.scene._nav._panMin = [-10,-6];  //[right, top]
       // console.log("right")
-      // console.log(position.nintyDegree,position.currentPos)
+      console.log("onRightClick")
       var slider = document.getElementById("sliderRange");
 
       if (slider != null) {
@@ -696,7 +698,9 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.right,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
-         // window.localStorage.setItem('hotspot','right')
+         window.localStorage.setItem('hotspot','right')
+         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         window.scene.clearRefine();
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -770,7 +774,7 @@ const MainMenu = (props) => {
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
       // window.scene._nav._panMin = [-10,-6];  //[right, top]
       //Update ZoomBar
-      // console.log(position.nintyDegree,position.currentPos)
+      console.log("onLeftClick")
       var slider = document.getElementById("sliderRange");
 
       if (slider != null) {
@@ -803,7 +807,9 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.left,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
-         // window.localStorage.setItem('hotspot','left')
+         window.localStorage.setItem('hotspot','left')
+         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         window.scene.clearRefine();
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -911,6 +917,8 @@ const MainMenu = (props) => {
          window.scene.groupApplyState("GP_ON");
          window.scene.groupApplyState("Ref_ON");
          window.localStorage.setItem('hotspot','top')
+          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         window.scene.clearRefine();
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -1014,7 +1022,9 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.back,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
-         // window.localStorage.setItem('hotspot','back')
+         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         window.scene.clearRefine();
+         window.localStorage.setItem('hotspot','back')
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -1229,6 +1239,8 @@ const MainMenu = (props) => {
          GotoPosInTimeNamedValue(window.config.default,function () {
             window.scene.groupApplyState("Ref_ON");
             window.scene.groupApplyState("GP_ON");
+            window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+            window.scene.clearRefine();
             // var center = [0,8.926640999999999,0];
             // window.scene._nav.SetRotationCenter(center);
 
@@ -1262,6 +1274,8 @@ const MainMenu = (props) => {
 
             window.scene.groupApplyState("Ref_ON");
             window.scene.groupApplyState("GP_ON");
+            window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+            window.scene.clearRefine();
             // window.scene.groupApplyState("Close_Laptop");
 
             // var center = [0,8.926640999999999,0];
