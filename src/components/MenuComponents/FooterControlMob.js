@@ -65,7 +65,7 @@ export default function FooterControlMob(props) {
          document.getElementById("sliderRange").value = newValue;
 
       }
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " ";
 
 
       /*     //console.log('newValue', newValue)
@@ -251,7 +251,7 @@ export default function FooterControlMob(props) {
    const onLeft = () => {
       // alert("Rotate product left");
       window.scene._nav._navYAng += 0.5;
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " ";
       // console.log(count);
       // window.scene._nav._navYAng = count;
       window.scene.clearRefine();
@@ -263,7 +263,7 @@ export default function FooterControlMob(props) {
       count -= 0.1;
       // console.log(count);
       window.scene._nav._navYAng -= 0.5;;
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " ";
       window.scene.clearRefine();
    }
    return (

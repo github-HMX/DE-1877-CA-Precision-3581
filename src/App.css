@@ -1655,7 +1655,7 @@ and (-webkit-device-pixel-ratio: 3) {
 	}
 	
 	.MuiPaper-root.MuiDrawer-paper.makeStyles-drawerPaper-2.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft.MuiPaper-elevation0 {
-		top: 100px !important;
+		top: 70px !important;
 		left: 64px;
 		border-left: 1px solid #5d5858;
 		overflow: inherit;

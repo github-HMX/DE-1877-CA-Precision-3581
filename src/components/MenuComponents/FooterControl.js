@@ -63,7 +63,7 @@ export default function FooterControl(props) {
 
          //document.getElementById('sliderRange').setAttribute('aria-label', (newValue * 100)+ '%');
       }
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " ";
       var sliderValues = document.getElementById('sliderRange').value * 100;
       // document.getElementById('sliderRange').setAttribute('aria-label',  (parseInt(sliderValues)+'%'));
       document.getElementById('sliderRange').setAttribute('aria-label','');
@@ -315,7 +315,7 @@ export default function FooterControl(props) {
    const onLeft = () => {
 
       window.scene._nav.NavRotation([0,0],[2,0]);
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " ";
       for (let i = 1; i <= document.getElementsByClassName('hotspots').length; i++) {
          if (document.getElementById('hotspot' + i) !== null) {
             document.getElementById('hotspot' + i).style.display = 'none';
@@ -336,7 +336,7 @@ export default function FooterControl(props) {
    const onRight = () => {
 
       window.scene._nav.NavRotation([0,0],[-2,0]);
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " ";
       for (let i = 1; i <= document.getElementsByClassName('hotspots').length; i++) {
          if (document.getElementById('hotspot' + i) !== null) {
             document.getElementById('hotspot' + i).style.display = 'none';

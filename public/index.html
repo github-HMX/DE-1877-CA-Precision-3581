@@ -126,8 +126,8 @@
       @media screen and (min-width:1920px) {
          .loaderimg img {
             width: 882px;
-            margin-left: 291px;
-            margin-top: -93px;
+    margin-left: 171px;
+    margin-top: -126px;
 
          }
       }
@@ -621,7 +621,7 @@
          // $("#reset", window.document).css('display', 'none');
          console.log('End time: ' + (new Date().getTime() - timeStart));
          // window.localStorage.removeItem('Animation');
-         window.localStorage.removeItem('hotspot');
+         window.hotspot = " "
          GotoPosInTimeNamedValue(config.default);
          window.localStorage.setItem('Animation', 'on');
          window.localStorage.setItem("laptop", "laptop360");
@@ -629,7 +629,8 @@
          if (!(window.mob)) {
             document.getElementById("animSwitchValue1").checked = true;
          }
-         window.scene.groupApplyState("Internal_OFF");
+         window.scene.groupApplyState("With_SC_CARD");
+         // window.scene.groupApplyState("Internal_OFF");
 
          if (!(mob || isipad)) {
             hideHotspot();
@@ -891,7 +892,7 @@
                   calloutcanvas.height = canvas.height;
                   // document.getElementById("footerControMob").style.position = "static";
                   if (window.canvasLandscapeMarginTop) {
-                     console.log("check++")
+                     // console.log("check++")
                      calloutcanvas.style.marginTop = canvas.style.marginTop = "-150px",
                         document.getElementById("footerControMob").style.display = "none";
 
@@ -928,7 +929,7 @@
             else {
                //console.log("desktop")
 
-               var marginVal = menu == null ? 0 : menu.offsetWidth;
+               var marginVal = "285"
                calloutcanvas.width = canvas.width = size.width - marginVal;
                calloutcanvas.height = canvas.height = size.height;
                calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
@@ -1052,7 +1053,7 @@
          }
 
          // if (window.innerWidth > window.innerHeight) {
-         window.localStorage.removeItem('hotspot');
+       
          // }
 
          mdown = true;
@@ -1084,10 +1085,11 @@
 
       function mouseMove(ev) {
 
-         // var hotspotContainer = document.getElementById('hotspot_container');
-         // if (hotspotContainer.style.display == "block") {
-         //    hotspotContainer.style.display = "none"
-         // }
+         var hotspotContainer = document.getElementById('hotspot_container');
+         if (hotspotContainer.style.display == "block") {
+            hotspotContainer.style.display = "none"
+         }
+         
 
          if (!mdown)
             return;
@@ -1103,6 +1105,7 @@
             if (s._nav.NavPan(mdelta))
                s.clearRefine();
          }
+         window.hotspot = " ";
 
       }
 
@@ -1112,7 +1115,7 @@
             // console.log(ev.path[i].id)
 
          }
-         window.localStorage.removeItem('hotspot');
+         window.hotspot = ""
 
          var s = getScene(ev);
          var delta = ev.wheelDelta;
@@ -1169,7 +1172,7 @@
          }
          event.stopPropagation();
          // document.getElementById('calloutcanvas').style.display = "none";
-         window.localStorage.removeItem('hotspot');
+         window.hotspot = " "
 
          if (event.target.id != "root") {
             // alert('event.target.id != "root"')
@@ -1453,13 +1456,13 @@
          }*/
 
       }
-
+     
 
       function hotspotPosAsignment() {
          /*New HotSpot Assignment*/
-         var currentPosition = window.localStorage.getItem("hotspot");
-         var currentLaptop = window.localStorage.getItem("laptop");
-         var colorHotspot = window.localStorage.getItem("color");
+         var currentPosition = window.hotspot
+         // var currentLaptop = window.localStorage.getItem("laptop");
+         // var colorHotspot = window.localStorage.getItem("color");
 
          // console.log("hotspot")
 
@@ -1473,245 +1476,156 @@
             if (innerWidth > innerHeight) {
                console.log("landscap_mob")
                if (currentPosition == 'front') {
-                  // HS_SimpleCallout([0,-50],0,0,"hotspot_010","",port1,"center",25,300,0);
+                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 5, 400, 20);
 
-                  // HS_SimpleCallout([-600,0],-540,0,"hotspot_012","",port2,"right",10,150,10);
+                  HS_SimpleCallout([50, 0], 0, 0, "Front_Hotspot_2", "", port2, "left", 5, 190, 0);
 
-                  // HS_SimpleCallout([50,0],0,0,"hotspot_012","",port3,"center",80,300,20);
-
-                  // HS_SimpleCallout([50,0],0,0,"hotspot_013","",port4,"center",55,300,20);
-
-                  // HS_SetOriginFromHotspot("hotspot_013");
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([120,160],port5,"Roboto",11,"left",180);
                }
                else if (currentPosition == 'back') {
-                  // HS_SetOriginFromHotspot("hotspot_030");
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([-220,-50],port41 + ' <br> ' + port42 + ' <br> ' + port43 + ' <br> ' + port44,"Roboto",11,"left",200);
 
-                  // HS_SetOriginFromHotspot("hotspot_030");
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([660,-50],port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39 + ' <br> ' + port40,"Roboto",11,"left",200);
+                  HS_SimpleCallout([120, -5], 0, -5, "Rear_Hotspot_1", "", port13, "left", 0, 190, 10);
 
+                  HS_SetOriginFromHotspot("Rear_Hotspot_3");
+               ctxCallouts.fillStyle = 'black';
+               HS_DrawText([-80, 53], port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4, "Roboto", 10, "left", 250);
+
+
+                  HS_SetOriginFromHotspot("Rear_Hotspot_2");
+               ctxCallouts.fillStyle = 'black';
+               HS_DrawText([-540, -390], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 10, "left", 200);
                }
                else if (currentPosition == 'top') {
 
-                  // HS_SetOriginFromHotspot("bottom_firing_speakers_02_hotspot");
-                  // HS_DrawLine([-515,0],[-515,-40]); //h
-                  // HS_DrawLine([10,-40],[10,0]); //h2
-                  // HS_DrawLine([10,-40],[-575,-40]); //v
-                  // // HS_DrawLine([100, -180], [100, -190]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([-590,-40],port20,"Roboto",11,"right",120);
+                  HS_SimpleCallout([60, 0], 0, 0, "Top_Hotspot_1", "", port3, "left", 0, 190, 10);
 
-                  // HS_SimpleCallout([-60,0],35,0,"hotspot_024","",port22,"left",100,300,10);
+                  HS_SimpleCallout([60, 0], 0, 0, "Top_Hotspot_2", "", port4, "left", 0, 190, 10);
 
-                  // HS_SimpleCallout([300,-60],0,-60,"hotspot_025","",port23,"left",0,300,5);
+                  HS_SimpleCallout([-250, 0], 0, 0, "Top_Hotspot_3", "", port5, "right", 10, 190, 10);
 
-                  // HS_SimpleCallout([60,0],0,0,"hotspot_026","",port21,"left",10,300,10);
-
-                  // HS_SetOriginFromHotspot("hotspot_032");
-                  // HS_DrawLine([-35,-100],[-35,-90]); //h
-                  // HS_DrawLine([235,-100],[235,-90]); //h2
-                  // HS_DrawLine([235,-100],[-35,-100]); //v
-                  // HS_DrawLine([110,-120],[110,-100]);
-
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([110,-130],port19,"Roboto",14,"center");
                }
                else if (currentPosition == 'left') {
-                  // HS_SimpleCallout([0,-50],0,0,"hotspot_034","",port15,"right",5,200,40);
+                  HS_SimpleCallout([0, -170], 0, 0, "Left_Hotspot_1", "", port22, "right", 5, 300, 25);
 
-                  // HS_SetOriginFromHotspot("hotspot_035");
-                  // HS_DrawLine([0,-30],[0,1]); //h
-                  // HS_DrawLine([30,-30],[30,1]); //h2
-                  // HS_DrawLine([30,-30],[0,-30]); //v
-                  // HS_DrawLine([15,-30],[15,-120]); //h3
+                  HS_SimpleCallout([0, -140], 0, 0, "Left_Hotspot_2", "", port10, "right", 5, 300, 25);
 
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([-15,-130],port16,"Roboto",11,"center");
+                  HS_SimpleCallout([0, -80], 0, 0, "Left_Hotspot_3", "", port9, "right", 5, 300, 30);
 
-                  // HS_SimpleCallout([0,-40],0,0,"hotspot_036","",port17,"left",5,200,-30);
+                  HS_SetOriginFromHotspot("Left_Hotspot_5");
+                  HS_DrawLine([0, -60], [0, -2]); //h
+                  HS_DrawLine([43, -60], [43, -2]); //h2
+                  HS_DrawLine([0, -60], [43, -60]); //v
+                  HS_DrawLine([24, -60], [24, -140]); //h3
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([25, -150], port8, "Roboto", 10, "center", 150)
 
-                  // HS_SetOriginFromHotspot("hotspot_036");
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([205,00],port13,"Roboto",11,"left",180);
+                  HS_SimpleCallout([0, -75], 0, 0, "Left_Hotspot_6", "", port7, "center", 18, 80, 0);
 
-                  // HS_SimpleCallout([0,-60],0,0,"Chassis_intrusion_switch_hotspot","",port14,"right",0,200,0);
 
-                  // HS_SimpleCallout([0,-80],0,0,"Right_Antenna_hotspot","",port32,"center",0,200,0);
+                  HS_SimpleCallout([0, -35], 0, 0, "Left_Hotspot_7", "", port6, "center", 20, 80, 0);
+
+
+
                }
                else if (currentPosition == 'right') {
 
-                  // HS_SimpleCallout([0,-30],0,0,"hotspot_016","",port10,"center",5,300,-10);
+                  HS_SetOriginFromHotspot("Right_Hotspot_1");
+                  HS_DrawLine([0, -60], [0, -2]); //h
+                  HS_DrawLine([33, -60], [33, -2]); //h2
+                  HS_DrawLine([0, -60], [33, -60]); //v
+                  HS_DrawLine([17, -60], [17, -140]); //h3
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([25, -150], port11, "Roboto", 10, "center", 120)
 
-                  // HS_SetOriginFromHotspot("hotspot_018");
-                  // HS_DrawLine([-15,-30],[-15,7]); //h
-                  // HS_DrawLine([15,-30],[15,7]); //h2
-                  // HS_DrawLine([15,-30],[-15,-30]); //v
-                  // HS_DrawLine([0,-30],[0,-90]); //h3
+                  HS_SimpleCallout([0, -60], 0, 0, "Right_Hotspot_3", "", port12, "left", 5, 300, -5);
 
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([25,-100],port11,"Roboto",11,"center");
-
-                  // //HS_SimpleCallout([0, -80], 0, 0, "hotspot_018", "", port11, "center", 10, 300, 20);
-                  // HS_SimpleCallout([0,-30],0,0,"hotspot_019","",port12,"center",10,300,20);
-
-                  // HS_SimpleCallout([0,-30],0,0,"Left_Antenna_hotspot","",port32,"center",10,300,5);
-
-                  // HS_SetOriginFromHotspot("hotspot_019");
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([100,10],port13,"Roboto",11,"left",180);
                }
                else if (currentPosition == 'explode') {
-                  // HS_SimpleCallout([-290,70],-290,70,"hotspot_040","",port45,"right",0,150,0);
 
-                  // HS_SimpleCallout([220,70],220,70,"hotspot_043","",port46,"center",30,300,50);
-
-                  // HS_SetOriginFromHotspot("hotspot_042");
-                  // HS_DrawLine([260, -100], [25, -20]); //h
-                  // // HS_DrawLine([100, -180], [100, -190]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([150, -140], port47, "Roboto", 14, "left", 200);
-
-                  // HS_SimpleCallout([250,-50],250,-50,"hotspot_042","",port47,"right",10,200,0);
-
-                  // HS_SimpleCallout([-250,-50],-250,-50,"hotspot_041","",port48,"right",10,200,0);
                }
             }
             else {
                console.log("portrait_mob")
                if (currentPosition == 'front') {
-                  HS_SetOriginFromHotspot("hotspot_011");
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([60, 230], port5, "Roboto", 11, "left", 300);
+                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 5, 400, 20);
 
-                  HS_SimpleCallout([0, -25], 0, 0, "hotspot_010", "", port1, "center", 25, 200, -10);
-
-                  HS_SetOriginFromHotspot("hotspot_012");
+                  HS_SetOriginFromHotspot("Front_Hotspot_2");
                   HS_DrawLine([40, 0], [0, 0]);
-                  HS_DrawLine([40, -100], [40, 0]);
+                  HS_DrawLine([40, 200], [40, 0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([70, -130], port3, "Roboto", 11, "right", 100);
-
-
-                  HS_SetOriginFromHotspot("hotspot_013");
-                  HS_DrawLine([50, 0], [0, 0]);
-                  HS_DrawLine([50, 100], [50, 0]);
-                  ctxCallouts.fillStyle = '#d8d8d8';
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([55, 110], port4, "Roboto", 11, "right", 100);
-
-                  HS_SetOriginFromHotspot("hotspot_039");
-                  HS_DrawLine([-35, 0], [0, 0]);
-                  HS_DrawLine([-35, 185], [-35, 0]);
-                  ctxCallouts.fillStyle = '#d8d8d8';
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-32, 195], port2, "Roboto", 11, "left", 200);
+                  HS_DrawText([40, 205], port2, "Roboto", 10, "right", 300);
 
                }
                else if (currentPosition == 'back') {
-                  HS_SetOriginFromHotspot("hotspot_030");
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-10, 165], port41 + ' <br> ' + port42 + ' <br> ' + port43 + ' <br> ' + port44, "Roboto", 11, "left", 400);
+                  HS_SimpleCallout([0, 50], 0, 0, "Rear_Hotspot_1", "", port13, "center", 5, 190, 0);
 
-                  HS_SetOriginFromHotspot("hotspot_030");
+                  HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-30, -270], port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39 + ' <br> ' + port40, "Roboto", 11, "left", 300);
+                  HS_DrawText([-200, -335], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 10, "left", 200);
+
+                  HS_SetOriginFromHotspot("Rear_Hotspot_3");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-200, -80], port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4, "Roboto", 10, "left", 250);
+
                }
                else if (currentPosition == 'top') {
-                  HS_SetOriginFromHotspot("hotspot_024");
-                  HS_DrawLine([10, -30], [10, -50]); //h
-                  HS_DrawLine([-30, -50], [-30, 160]); //h
-                  HS_DrawLine([255, -50], [255, -30]); //h2
-                  HS_DrawLine([-30, -50], [255, -50]); //v
+
+                  HS_SetOriginFromHotspot("Top_Hotspot_1");
+                  HS_DrawLine([60, 0], [0, 0]);
+                  HS_DrawLine([60, -160], [60, 0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-30, 170], port20, "Roboto", 11, "left", 200)
+                  HS_DrawText([60, -170], port3, "Roboto", 10, "right", 160);
 
-                  HS_SetOriginFromHotspot("hotspot_024");
-                  HS_DrawLine([-10, 0], [20, 0]);
-                  HS_DrawLine([-10, 130], [-10, 0]);
+                  HS_SetOriginFromHotspot("Top_Hotspot_2");
+                  HS_DrawLine([40, 0], [0, 0]);
+                  HS_DrawLine([40, 150], [40, 0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-10, 140], port22, "Roboto", 11, "left");
+                  HS_DrawText([40, 150], port4, "Roboto", 10, "right", 160);
 
-                  HS_SimpleCallout([0, 10], 0, -20, "hotspot_025", "", port23, "left", 10, 100, -30);
-
-                  HS_SetOriginFromHotspot("hotspot_026");
-                  HS_DrawLine([70, 0], [0, 0]);
-                  HS_DrawLine([70, 215], [70, 0]);
-                  ctxCallouts.fillStyle = '#d8d8d8';
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([65, 225], port21, "Roboto", 11, "right", 100);
-
-                  HS_SetOriginFromHotspot("hotspot_037");
-                  HS_DrawLine([0, 24], [0, -5]); //h
-                  HS_DrawLine([150, 25], [150, -5]); //h2
-                  HS_DrawLine([150, -5], [0, -5]); //v
-                  HS_DrawLine([80, -5], [80, -20]);
-                  ctxCallouts.fillStyle = '#d8d8d8';
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([60, -30], port19, "Roboto", 11, "center");
+                  HS_SimpleCallout([0, 76], 0, 0, "Top_Hotspot_3", "", port5, "right", 5, 190, 60)
 
 
                }
                else if (currentPosition == 'left') {
-                  HS_SimpleCallout([0, 60], 0, 0, "hotspot_034", "", port15, "right", 3, 200, 0);
+                  HS_SimpleCallout([0, -40], 0, 0, "Left_Hotspot_7", "", port6, "right", 0, 100, 5);
 
-                  HS_SetOriginFromHotspot("hotspot_035");
-                  HS_DrawLine([0, 30], [0, 2]); //h
-                  HS_DrawLine([19, 30], [19, 2]); //h2
-                  HS_DrawLine([19, 30], [0, 30]); //v
-                  HS_DrawLine([9, 30], [9, 100]); //h3
+                  HS_SimpleCallout([0, -60], 0, 0, "Left_Hotspot_6", "", port7, "center", 18, 80,);
 
-                  ctxCallouts.fillStyle = '#d8d8d8';
+                  HS_SetOriginFromHotspot("Left_Hotspot_5");
+                  HS_DrawLine([0, -50], [0, -2]); //h
+                  HS_DrawLine([23, -50], [23, -2]); //h2
+                  HS_DrawLine([0, -50], [23, -50]); //v
+                  HS_DrawLine([12, -50], [12, -120]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([6, 100], port16, "Roboto", 11, "right", 150);
+                  HS_DrawText([15, -155], port8, "Roboto", 10, "center", 100)
+
+                  HS_SimpleCallout([0, -60], 0, 0, "Left_Hotspot_3", "", port9, "right", 5, 300, 20);
+
+                  HS_SimpleCallout([0, -90], 0, 0, "Left_Hotspot_2", "", port10, "right", 5, 300, 15);
+
+                  HS_SimpleCallout([0, -120], 0, 0, "Left_Hotspot_1", "", port22, "right", 5, 300, 16);
 
 
-                  HS_SimpleCallout([0, 60], 0, 0, "hotspot_036", "", port17, "center", 4, 120, 20);
-
-                  HS_SetOriginFromHotspot("hotspot_036");
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-250, -230], port13, "Roboto", 11, "left", 360);
-
-                  HS_SimpleCallout([0, -90], 0, 0, "Chassis_intrusion_switch_hotspot", "", port14, "center", 5, 200, 0);
-
-                  HS_SimpleCallout([0, -60], 0, 0, "Right_Antenna_hotspot", "", port32, "left", 5, 200, 0);
 
                }
                else if (currentPosition == 'right') {
-                  HS_SimpleCallout([0, 80], 0, 0, "hotspot_016", "", port10, "center", 10, 300, 20);
+                  HS_SimpleCallout([0, -40], 0, 0, "Right_Hotspot_3", "", port12, "left", 0, 300, -5);
 
-                  HS_SetOriginFromHotspot("hotspot_018");
-                  HS_DrawLine([-7, -30], [-7, 4]); //h
-                  HS_DrawLine([13, -30], [13, 4]); //h2
-                  HS_DrawLine([-7, -30], [13, -30]); //v
-                  HS_DrawLine([3, -30], [3, -90]); //h3
-                  ctxCallouts.fillStyle = '#d8d8d8';
+                  HS_SetOriginFromHotspot("Right_Hotspot_1");
+                  HS_DrawLine([0, -40], [0, -2]); //h
+                  HS_DrawLine([18, -40], [18, -2]); //h2
+                  HS_DrawLine([0, -40], [18, -40]); //v
+                  HS_DrawLine([9, -40], [9, -110]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([15, -117], port11, "Roboto", 11, "center", 100);
-
-                  HS_SimpleCallout([0, 80], 0, 1, "hotspot_019", "", port12, "center", 10, 300, 20);
-                  HS_SimpleCallout([0, -60], 0, 0, "Left_Antenna_hotspot", "", port32, "left", 5, 200, 0);
-
-                  HS_SetOriginFromHotspot("hotspot_019");
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-155, -220], port13, "Roboto", 11, "left", 250);
+                  HS_DrawText([10, -134], port11, "Roboto", 10, "center", 80)
 
                }
                else if (currentPosition == 'explode') {
-                  HS_SimpleCallout([-90, 120], -90, 120, "hotspot_040", "", port45, "left", 10, 120, -40);
+                  // HS_SimpleCallout([-90, 120], -90, 120, "hotspot_040", "", port45, "left", 10, 120, -40);
 
-                  HS_SimpleCallout([40, 90], 40, 90, "hotspot_043", "", port46, "center", 10, 120, 20);
+                  // HS_SimpleCallout([40, 90], 40, 90, "hotspot_043", "", port46, "center", 10, 120, 20);
 
                   // HS_SetOriginFromHotspot("hotspot_042");
                   // HS_DrawLine([50, -8], [10, -8]);
@@ -1719,7 +1633,7 @@
                   // ctxCallouts.fillStyle = 'black';
                   // HS_DrawText([115, -225], port47, "Roboto", 11, "right", 150);
 
-                  HS_SimpleCallout([40, -260], 40, -260, "hotspot_042", "", port47, "center", 10, 120, 20);
+                  // HS_SimpleCallout([40, -260], 40, -260, "hotspot_042", "", port47, "center", 10, 120, 20);
 
 
 
@@ -1729,7 +1643,7 @@
                   // ctxCallouts.fillStyle = 'black';
                   // HS_DrawText([-160, -240], port48, "Roboto", 11, "left", 220);
 
-                  HS_SimpleCallout([-80, -230], -80, -230, "hotspot_041", "", port48, "center", 10, 120, 20);
+                  // HS_SimpleCallout([-80, -230], -80, -230, "hotspot_041", "", port48, "center", 10, 120, 20);
                }
             }
          }
@@ -1760,45 +1674,14 @@
                   ctxCallouts.fillStyle = 'black';
                   HS_DrawText([-320, -538], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 13, "left", 200);
 
-                  
+
                }
                else if (currentPosition == 'top') {
-                  // HS_SetOriginFromHotspot("bottom_firing_speakers_02_hotspot");
-                  // HS_DrawLine([-520,0],[-520,-20]); //h
-                  // HS_DrawLine([-580,0],[-580,0]); //h
-                  // HS_DrawLine([10,-20],[10,0]); //h2
-                  // HS_DrawLine([10,-20],[-580,-20]); //v
-                  // // HS_DrawLine([100, -180], [100, -190]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([-580,-35],port20,"Roboto",13,"right",100);
+                  HS_SimpleCallout([40, 0], 0, 0, "Top_Hotspot_1", "", port3, "left", 0, 150, 5);
 
+                  HS_SimpleCallout([40, 0], 0, 0, "Top_Hotspot_2", "", port4, "left", 0, 190, 10);
 
-                  // HS_SetOriginFromHotspot("hotspot_024");
-                  // HS_DrawLine([-30,0],[25,0]);
-                  // HS_DrawLine([-30,190],[-30,0]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([-30,200],port22,"Roboto",13,"right");
-
-                  // HS_SimpleCallout([-3,4],-3,-60,"hotspot_025","",port23,"left",5,220,-20);
-
-                  // HS_SetOriginFromHotspot("hotspot_026");
-                  // HS_DrawLine([70,0],[0,0]);
-                  // HS_DrawLine([70,340],[70,0]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([90,360],port21,"Roboto",13,"right",120);
-
-                  // HS_SetOriginFromHotspot("hotspot_037");
-                  // HS_DrawLine([0,45],[0,15]); //h
-                  // HS_DrawLine([265,45],[265,15]); //h2
-                  // HS_DrawLine([265,15],[0,15]); //v
-                  // HS_DrawLine([112,15],[112,10]);
-
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([110,0],port19,"Roboto",13,"center");
+                  HS_SimpleCallout([0, 120], 0, 0, "Top_Hotspot_3", "", port5, "right", 5, 190, 60)
                }
                else if (currentPosition == 'left') {
 
@@ -1849,7 +1732,7 @@
                console.log("portrait_ipad");
                if (currentPosition == 'front') {
 
-                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 15, 400, 20);
+                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 20, 400, 20);
 
                   HS_SetOriginFromHotspot("Front_Hotspot_2");
                   HS_DrawLine([45, 0], [0, 0]);
@@ -1872,42 +1755,23 @@
 
                }
                else if (currentPosition == 'top') {
-                  // HS_SetOriginFromHotspot("bottom_firing_speakers_02_hotspot");
-                  // HS_DrawLine([-410,0],[-410,-20]); //h
-                  // HS_DrawLine([-450,-20],[-450,265]); //h
-                  // HS_DrawLine([10,-20],[10,0]); //h2
-                  // HS_DrawLine([10,-20],[-450,-20]); //v
-                  // // HS_DrawLine([100, -180], [100, -190]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([-440,265],port20,"Roboto",13,"left",200);
 
+                  HS_SetOriginFromHotspot("Top_Hotspot_1");
+                  HS_DrawLine([90, 0], [0, 0]);
+                  HS_DrawLine([90, -180], [90, 0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([90, -190], port3, "Roboto", 13, "right", 160);
 
-                  // HS_SetOriginFromHotspot("hotspot_024");
-                  // HS_DrawLine([-10,0],[25,0]);
-                  // HS_DrawLine([-10,160],[-10,0]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([-10,170],port22,"Roboto",13,"left");
+                  HS_SetOriginFromHotspot("Top_Hotspot_2");
+                  HS_DrawLine([60, 0], [0, 0]);
+                  HS_DrawLine([60, 190], [60, 0]);
+                  ctxCallouts.fillStyle = '#d8d8d8';
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([60, 190], port4, "Roboto", 13, "right", 160);
 
-                  // HS_SimpleCallout([0,5],0,-40,"hotspot_025","",port23,"left",10,120,0);
-
-                  // HS_SetOriginFromHotspot("hotspot_026");
-                  // HS_DrawLine([70,0],[0,0]);
-                  // HS_DrawLine([70,270],[70,0]);
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([70,280],port21,"Roboto",13,"right",120);
-
-                  // HS_SetOriginFromHotspot("hotspot_037");
-                  // HS_DrawLine([0,33],[0,-25]); //h
-                  // HS_DrawLine([210,34],[210,-25]); //h2
-                  // HS_DrawLine([210,-25],[0,-25]); //v
-                  // HS_DrawLine([105,-25],[105,-60]);
-
-                  // ctxCallouts.fillStyle = '#d8d8d8';
-                  // ctxCallouts.fillStyle = 'black';
-                  // HS_DrawText([105,-90],port19,"Roboto",13,"center");
+                   HS_SimpleCallout([0, 90], 0, 0, "Top_Hotspot_3", "", port5, "right", 5, 190, 60)
+                     
                }
                else if (currentPosition == 'left') {
                   HS_SimpleCallout([0, -45], 0, 0, "Left_Hotspot_7", "", port6, "center", 15, 100, -5);
@@ -1938,7 +1802,7 @@
                   HS_DrawLine([0, -60], [28, -60]); //v
                   HS_DrawLine([15, -60], [15, -140]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([25, -164], port11, "Roboto", 15, "center", 120)
+                  HS_DrawText([25, -164], port11, "Roboto", 13, "center", 120)
                }
                else if (currentPosition == 'explode') {
                   // console.log('explode');
@@ -2031,8 +1895,8 @@
                // setHotSpot('hotspot1demo','hotspot_016',278,72,0,port0,195,18,"right");
 
                HS_SetOriginFromHotspot("Right_Hotspot_1");
-               HS_DrawLine([0, -60], [0, -2]); //h
-               HS_DrawLine([33, -60], [33, -2]); //h2
+               HS_DrawLine([0, -60], [0, -1]); //h
+               HS_DrawLine([33, -60], [33, -1]); //h2
                HS_DrawLine([0, -60], [33, -60]); //v
                HS_DrawLine([17, -60], [17, -140]); //h3
                ctxCallouts.fillStyle = 'black';
@@ -2211,7 +2075,7 @@
             HS_DrawText([pt[0] + 5 * npt[0] + 1, pt[1] + 5 * npt[1] + 1], txtNum, "Roboto", 13, "center");
          }
          if (mob) {
-            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift, pt[1] + (5 + txtDist) * npt[1]], txtValue, "Roboto", 11, txtAlign, maxWidth);
+            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift, pt[1] + (5 + txtDist) * npt[1]], txtValue, "Roboto", 10, txtAlign, maxWidth);
          }
          else if (isipad) {
             HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift, pt[1] + (5 + txtDist) * npt[1]], txtValue, "Roboto", 13, txtAlign, maxWidth);

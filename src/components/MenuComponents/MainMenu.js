@@ -266,8 +266,8 @@ const MainMenu = (props) => {
       window.scene.clearRefine();
    }
    const posClicked1 = () => {
-      window.localStorage.removeItem('hotspot');
-      window.localStorage.removeItem('color');
+      // window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('color');
       window.scene.animPlayInTime("Screen_grp_timeline_01",0,animTime);
 
    }
@@ -309,7 +309,7 @@ const MainMenu = (props) => {
 
       window.localStorage.setItem("position","reset");
       window.localStorage.setItem("laptop","laptop180");
-      window.localStorage.removeItem('color');
+      // window.localStorage.removeItem('color');
 
       var radiobtn1 = document.getElementById('twoinoneRadio');
       radiobtn1.checked = false;
@@ -327,7 +327,7 @@ const MainMenu = (props) => {
       // nextSibling2.classList.add('PrivateRadioButtonIcon-checked-16')
       document.getElementById("laptopRadio").tabIndex = 1;
 
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
       document.getElementById('whiteBtn').classList.add('select');
       document.getElementById('whiteBtn').classList.add('active');
 
@@ -461,7 +461,7 @@ const MainMenu = (props) => {
 
       // document.getElementById("blackBtn").setAttribute("tabindex", "-1");
 
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
       // window.scene.groupApplyState("screen_180");
       // window.scene.groupApplyState("GP_open");
       // window.localStorage.setItem("position","reset");
@@ -469,7 +469,7 @@ const MainMenu = (props) => {
       // window.scene.groupApplyState("dynamic_reset");
 
       window.localStorage.setItem("laptop","laptop360");
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
 
       var radiobtn1 = document.getElementById('laptopRadio');
       radiobtn1.checked = false;
@@ -484,7 +484,7 @@ const MainMenu = (props) => {
       var selectSVG2 = nextSibling2.lastChild;
       selectSVG2.style.transform = 'scale(1)'
 
-      window.localStorage.removeItem('color');
+      // window.localStorage.removeItem('color');
       document.getElementById("twoinoneRadio").tabIndex = 1;
 
 
@@ -582,7 +582,7 @@ const MainMenu = (props) => {
          alreadySelected.classList.remove('active');
       }
       document.getElementById('frontBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
+      window.hotspot = " " ;
       var currentPosName = position.currentPos;
 
 
@@ -593,13 +593,13 @@ const MainMenu = (props) => {
          document.getElementById('nextView').setAttribute('aria-label','Front view');
       }
 
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
       resetBacklitCloseImg();
       // window.scene.groupApplyState("Backlit_OFF");
       GotoPosInTimeNamedValue(window.config.front,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
-         window.localStorage.setItem('hotspot','front')
+         window.hotspot ="front" ;
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -682,7 +682,7 @@ const MainMenu = (props) => {
 
          document.getElementById('nextView').setAttribute('aria-label','right view');
       }
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " "
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
@@ -690,7 +690,7 @@ const MainMenu = (props) => {
 
       document.getElementById('rightBtn').classList.add('active');
 
-      window.localStorage.setItem("position","reset");
+      window.hotspot = " " ;;
 
       // window.localStorage.removeItem('hotspot');
       resetBacklitCloseImg();
@@ -698,7 +698,7 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.right,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
-         window.localStorage.setItem('hotspot','right')
+         window.hotspot = "right"
          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          window.scene.clearRefine();
          // if (isNextPrevious != true) {
@@ -788,7 +788,7 @@ const MainMenu = (props) => {
 
          document.getElementById('nextView').setAttribute('aria-label','left view');
       }
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " " ;;
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
@@ -796,9 +796,9 @@ const MainMenu = (props) => {
 
       document.getElementById('leftBtn').classList.add('active');
 
-      window.localStorage.setItem("position","reset");
+      window.hotspot = " " ;;
 
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " " ;;
 
       resetBacklitCloseImg();
 
@@ -807,8 +807,8 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.left,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
-         window.localStorage.setItem('hotspot','left')
-         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         window.hotspot = "left"
+          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          window.scene.clearRefine();
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
@@ -873,7 +873,7 @@ const MainMenu = (props) => {
    const onTopClick = (isNextPrevious) => {
       reverseAll();
       //Update ZoomBar
-      // window.scene._nav._panMax = [10,5];    //[left, bottom];
+      window.scene._nav._panMax = [10,2];    //[left, bottom];
       // window.scene._nav._panMin = [-10,-6];  //[right, top]
 
       // console.log(position.top,position.currentPos)
@@ -891,7 +891,7 @@ const MainMenu = (props) => {
       //    window.scene.groupApplyState("screenfill_360");
       // }
 
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " " ;;
 
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
@@ -900,7 +900,7 @@ const MainMenu = (props) => {
 
 
       document.getElementById('topBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
+      window.hotspot = " " ;;
       // window.scene.groupApplyState("screen_180");
       // if (laptop180) {
       //    window.scene.groupApplyState("screenfill_180");
@@ -916,7 +916,7 @@ const MainMenu = (props) => {
          // window.scene._nav.SetRotationCenter(center);
          window.scene.groupApplyState("GP_ON");
          window.scene.groupApplyState("Ref_ON");
-         window.localStorage.setItem('hotspot','top')
+         window.hotspot = "top"
           window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          window.scene.clearRefine();
          // if (isNextPrevious != true) {
@@ -981,7 +981,7 @@ const MainMenu = (props) => {
       // }
       else {
          // console.log("else")
-         window.scene.animPlayAllChildrenInTime("Orchid_Bay_MLK_5480",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
 
       }
       position.currentPos = 'top';
@@ -1008,7 +1008,7 @@ const MainMenu = (props) => {
          alreadySelected.classList.remove('active');
       }
       document.getElementById('backBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
+      window.hotspot = " " ;;
       var currentPosName = position.currentPos;
 
       selectedButton = 'onBackClick';
@@ -1017,14 +1017,14 @@ const MainMenu = (props) => {
 
          document.getElementById('nextView').setAttribute('aria-label','Front view');
       }
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " " ;;
 
       GotoPosInTimeNamedValue(window.config.back,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          window.scene.clearRefine();
-         window.localStorage.setItem('hotspot','back')
+         window.hotspot = "back"
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -1202,7 +1202,7 @@ const MainMenu = (props) => {
 
 
       var fromPos = window.localStorage.getItem('hotspot')
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " " ;
       window.localStorage.setItem('closeMode','on');
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
@@ -1236,6 +1236,7 @@ const MainMenu = (props) => {
          setOpenCloseOnOff(false);
          setOpenClose("./img/Lid_open.svg");
          // window.scene.groupApplyState("Open_Laptop");
+         // window.scene.groupApplyState("With_SC_CARD");
          GotoPosInTimeNamedValue(window.config.default,function () {
             window.scene.groupApplyState("Ref_ON");
             window.scene.groupApplyState("GP_ON");
@@ -1326,7 +1327,7 @@ const MainMenu = (props) => {
       }
 
       selectedButton = 'backliteClick';
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
@@ -1334,7 +1335,7 @@ const MainMenu = (props) => {
 
       document.getElementById('backlitBtn').classList.add('active');
 
-      window.localStorage.setItem("position","reset");
+      window.hotspot = " " ;;
       // window.scene.groupApplyState("screen_180");/
       // window.scene.groupApplyState("dynamic_reset");
 
@@ -1439,7 +1440,7 @@ const MainMenu = (props) => {
       selectedButton = 'FPRClick';
 
 
-      window.localStorage.removeItem('hotspot');
+      window.hotspot = " " ;;
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
@@ -1456,8 +1457,9 @@ const MainMenu = (props) => {
       // window.scene.groupApplyState("GP_0_and_50_Frame:0_frame");
       // window.scene.groupApplyState("Backlit_ON_and_OFF:Backlit_OFF");
       GotoPosInTimeNamedValue(window.config.top,function () {
-
-
+         var center = [0,8.926640999999999,0];
+         window.scene._nav.SetRotationCenter(center);
+      
          window.scene.clearRefine();
       })
 
@@ -1485,11 +1487,13 @@ const MainMenu = (props) => {
             document.getElementById('previousView').setAttribute('aria-label','FPR off');
             document.getElementById('nextView').setAttribute('aria-label','FPR off');
          }
+         window.scene.groupApplyState("FPR_OFF");
          GotoPosInTimeNamedValue(window.config.top,function () {
+            var center = [0,8.926640999999999,0];
+            window.scene._nav.SetRotationCenter(center);
+            // window.localStorage.setItem('hotspot','FPROff');
 
-            window.localStorage.setItem('hotspot','FPROff');
-
-            window.scene.groupApplyState("FPR_OFF");
+           
          })
 
 
@@ -1503,9 +1507,11 @@ const MainMenu = (props) => {
          setFPROnOff(true);
          // console.log("on");
          setFPRIcon("./img/with-FPR.svg");
+         window.scene.groupApplyState("FPR_ON");
          GotoPosInTimeNamedValue(window.config.top,function () {
-
-            window.scene.groupApplyState("FPR_ON");
+            var center = [0,8.926640999999999,0];
+            window.scene._nav.SetRotationCenter(center);
+           
             // window.localStorage.setItem('hotspot','FPROn');
          })
 
@@ -1858,7 +1864,7 @@ const MainMenu = (props) => {
       setOpenClose("./img/Lid_open.svg");
       setBackliteOnOff(false);
       setBacklite("./img/Backlite_Off.svg");
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Tent_Cam_F53_Tent',function () {
          // window.scene.groupApplyState("GP_tent");
       });
@@ -1893,7 +1899,7 @@ const MainMenu = (props) => {
       document.getElementById('theaterBtn').classList.add('active');
       // window.scene.groupApplyState("screen_180");
 
-      window.localStorage.removeItem('closeMode')
+      // window.localStorage.removeItem('closeMode')
       selectedButton = 'TheaterModeClick';
       if (!(mob || isipad)) {
          document.getElementById('previousView').setAttribute('aria-label','Theater Mode');
@@ -1907,7 +1913,7 @@ const MainMenu = (props) => {
       setBackliteOnOff(false);
       setBacklite("./img/Backlite_Off.svg");
 
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue('Render_Cam_F100_Stand');
 
       var currentPosName = position.currentPos;
@@ -1953,7 +1959,7 @@ const MainMenu = (props) => {
       setBackliteOnOff(false);
       setBacklite("./img/Backlite_Off.svg");
 
-      window.localStorage.removeItem('hotspot');
+      // window.localStorage.removeItem('hotspot');
       GotoPosInTimeNamedValue(window.config.close);
 
       var currentPosName = position.currentPos;
@@ -1968,13 +1974,12 @@ const MainMenu = (props) => {
    const reverseAll = () => {
       // window.scene._nav._navMinDolly = 13.0; //110
       // window.scene._nav._navMaxDolly = 28.0; //110
-      // window.scene._nav._panMax = [15,10];    //[left, bottom];
+      window.scene._nav._panMax = [15,10];    //[left, bottom];
       // window.scene._nav._panMin = [-15,-7];
       // window.scene.groupApplyState("internal_off");
       // window.scene.groupApplyState("Internals_OFF");
       // window.scene.animPlayInTime("D_COVER",0,0);
       window.scene.groupApplyState("Backlight_OFF");
-      window.scene.groupApplyState("FPR_OFF");
       var center = [0,0,0];
       window.scene._nav.SetRotationCenter(center);
 
@@ -2036,7 +2041,7 @@ const MainMenu = (props) => {
       else if (selectedButton == 'onRightClick') {
          onRightClick();
          GotoPosInTimeNamedValue(window.config.right,function () {
-            window.localStorage.setItem('hotspot','right')
+            window.hotspot = "right"
 
          })
 
@@ -2044,7 +2049,7 @@ const MainMenu = (props) => {
       else if (selectedButton == 'onLeftClick') {
          onLeftClick();
          GotoPosInTimeNamedValue(window.config.left,function () {
-            window.localStorage.setItem('hotspot','left')
+            window.hotspot = "left"
 
          })
       }
@@ -2053,9 +2058,9 @@ const MainMenu = (props) => {
       // }
 
       else if (selectedButton == 'backliteClick') {
-         window.scene._nav._navMaxDolly = 28.0; //110
-         window.scene._nav._panMax = [15,10];    //[left, bottom];
-         window.scene._nav._panMin = [-15,-7];
+         // window.scene._nav._navMaxDolly = 28.0; //110
+         // window.scene._nav._panMax = [15,10];    //[left, bottom];
+         // window.scene._nav._panMin = [-15,-7];
          // window.scene.groupApplyState("internal_off");
          // window.scene.groupApplyState("Internals_OFF");
          // window.scene.animPlayInTime("D_COVER",0,0);
@@ -2071,26 +2076,31 @@ const MainMenu = (props) => {
          })
 
       }
-      // else if (selectedButton == 'FPRClick') {
+      else if (selectedButton == 'FPRClick') {
+         var center = [0,0,0];
+         window.scene._nav.SetRotationCenter(center);
 
-      //    if (FPROnOff) {
-      //       setFPROnOff(false);
+         if (FPROnOff) {
+            setFPROnOff(false);
 
-      //       GotoPosInTimeNamedValue(window.config.top,function () {
-      //          // window.localStorage.setItem('hotspot','FPROff');
+            GotoPosInTimeNamedValue(window.config.top,function () {
+               // window.localStorage.setItem('hotspot','FPROff');
+               var center = [0,8.926640999999999,0];
+               window.scene._nav.SetRotationCenter(center);
 
-      //       })
-      //    } else {
-      //       setFPROnOff(true);
+            })
+         } else {
+            setFPROnOff(true);
 
-      //       GotoPosInTimeNamedValue(window.config.top,function () {
-      //          // window.localStorage.setItem('hotspot','FPROn');
+            GotoPosInTimeNamedValue(window.config.top,function () {
+               // window.localStorage.setItem('hotspot','FPROn');
+               var center = [0,8.926640999999999,0];
+               window.scene._nav.SetRotationCenter(center);
+            })
+         }
+         window.scene.clearRefine();
 
-      //       })
-      //    }
-      //    window.scene.clearRefine();
-
-      // }
+      }
       else if (selectedButton == 'openCloseClick') {
          if (openCloseOnOff) {
             GotoPosInTimeNamedValue(window.config.close,function () {
