@@ -93,9 +93,9 @@
 
       @media screen and (min-width:992px) {
          .loaderimg img {
-            width: 969px;
-            margin-left: 3px;
-            margin-top: -94px;
+            width: 736px;
+    margin-left: 232px;
+    margin-top: -104px;
          }
       }
 
@@ -142,9 +142,9 @@
 
       @media screen and (max-width: 991px) {
          .loaderimg img {
-            margin-top: -4px;
-            margin-left: -6px;
-            width: calc(100vw - 221px);
+            margin-top: -100px;
+            margin-left: 26px;
+            width: calc(100vw - 82px);
          }
 
       }
@@ -403,6 +403,8 @@
          }
 
       }
+
+
 
       #infinityrt-canvas {
          transition: margin 1s;
@@ -769,14 +771,14 @@
          if (canvas != null) {
             if (isipad) {
 
-               //console.log("ipad")
+               console.log("ipad")
                var reslimit = { w: 1920, h: 1080 };
                if (scene && scene._glVersionNum > 1) reslimit = { w: 3840, h: 2160 };
                var w = window.innerWidth * dpr; //canvas.parentElement.offsetWidth * dpr;
                var h = window.innerHeight * dpr; //canvas.parentElement.offsetHeight * dpr;
 
                if (window.innerHeight > window.innerWidth) {
-                  // console.log("ipad Portrait")
+                  console.log("ipad Portrait")
                   h = window.innerHeight * 1 * dpr; //canvas.parentElement.offsetHeight * dpr;
                   if (w > reslimit.w || h > reslimit.h) {
                      var scale = Math.min(reslimit.w / w, reslimit.h / h);
@@ -842,7 +844,7 @@
                }); */
             }
             else if (window.innerWidth < 991) {
-               //console.log('mobile');
+               console.log('mobile');
                // scene.setProjectionOffset(40,65);
 
                var reslimit = { w: 1920, h: 1080 };
@@ -852,7 +854,7 @@
 
 
                if (window.innerHeight < window.innerWidth) {
-                  //console.log('mobile landscap');
+                  console.log('mobile landscap');
 
                   if (w > reslimit.w || h > reslimit.h) {
                      var scale = Math.min(reslimit.w / w, reslimit.h / h);
@@ -870,14 +872,18 @@
                   // })
                   document.getElementById("footerControMob").style.position = "absolute";
                   if (window.canvasLandscapeMarginTop) {
-                     console.log("check)))")
+                     // console.log("check)))")
                      // document.getElementById("footerControMob").style.display = "block";
                      calloutcanvas.style.marginTop = canvas.style.marginTop = "0px";
 
                   }
                }
                else {
-                  // console.log('mobile potrait');
+                  console.log('mobile potrait');
+                  var marginVal = "0"
+               calloutcanvas.width = canvas.width = size.width - marginVal;
+               calloutcanvas.height = canvas.height = size.height;
+               calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
 
                   h = window.innerHeight * 1 * dpr;//canvas.parentElement.offsetHeight * dpr;
                   if (w > reslimit.w || h > reslimit.h) {
@@ -1349,8 +1355,8 @@
       var modal;
       var port0 = "";
       // front hotspot
-      var port1 = 'Up to •FHD IR w/EMZA proximity sensor, privacy shutter, ExpressSignin';
-      var port2 = '•Up to FHD, 100% sRGB, 400nits, PremierColor. Touch and ComfortView Plus optional';
+      var port1 = 'Up to FHD IR w/EMZA proximity sensor, privacy shutter, ExpressSignin';
+      var port2 = 'Up to FHD, 100% sRGB, 400nits, PremierColor. Touch and ComfortView Plus optional';
       var port3 = 'Optional fingerprint reader on the power button';
       var port4 = 'Pro2 Keyboard';
       var port5 = 'Large, glass-like clickpad';
@@ -1369,7 +1375,7 @@
       var port14_2 = "ISV Certifications";
       var port14_3 = "MIL-STD Tested";
       var port14_4 = "EPEAT Gold Certified";
-      var port15 = "•Up to 4-cell 54Whr Long";
+      var port15 = "Up to 4-cell 54Whr Long";
       var port15_2 = "Lifecycle battery,";
       var port15_3 = "ExpressCharge and ExpressCharge Boost";
       var port16 = "Up to NVIDIA RTX A3000 Graphics (8GB)";
@@ -1672,7 +1678,7 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-320, -538], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 13, "left", 200);
+                  HS_DrawText([-320, -538], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4, "Roboto", 13, "left", 200);
 
 
                }
@@ -1751,7 +1757,7 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-220, -423], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 13, "left", 200);
+                  HS_DrawText([-220, -423], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4, "Roboto", 13, "left", 200);
 
                }
                else if (currentPosition == 'top') {
@@ -1850,7 +1856,7 @@
 
                HS_SetOriginFromHotspot("Rear_Hotspot_2");
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-580, -410], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 15, "left", 200);
+               HS_DrawText([-580, -410], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4, "Roboto", 15, "left", 200);
 
                // setHotSpot('hotspot16','hotspot_030',1045,-70,0,port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port53 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39,320,19,"left")
             }
