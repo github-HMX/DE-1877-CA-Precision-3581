@@ -1314,7 +1314,7 @@ const MainMenu = (props) => {
 
    const backliteClick = () => {
       reverseAll();
-      // window.scene._nav._panMax = [16,5];    //[left, bottom];
+      window.scene._nav._panMax = [10,2];    //[left, bottom]; //[left, bottom];
       // window.scene._nav._panMin = [-16,-8];  //[right, top]
 
       //Update ZoomBar
@@ -1427,7 +1427,7 @@ const MainMenu = (props) => {
 
    const FPRClick = () => {
       reverseAll();
-      // window.scene._nav._panMax = [16,5];    //[left, bottom];
+     window.scene._nav._panMax = [10,2];    //[left, bottom];   //[left, bottom];
       // window.scene._nav._panMin = [-16,-8];  //[right, top]
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
@@ -1493,7 +1493,12 @@ const MainMenu = (props) => {
             window.scene._nav.SetRotationCenter(center);
             // window.localStorage.setItem('hotspot','FPROff');
 
-           
+            var slider = document.getElementById("sliderRange");
+
+      if (slider != null) {
+         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+      }
          })
 
 
@@ -1513,6 +1518,12 @@ const MainMenu = (props) => {
             window.scene._nav.SetRotationCenter(center);
            
             // window.localStorage.setItem('hotspot','FPROn');
+            var slider = document.getElementById("sliderRange");
+
+            if (slider != null) {
+               document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+               setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+            }
          })
 
 
