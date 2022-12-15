@@ -21,8 +21,8 @@ var infinityrt_navigation = function (scene,w,h) {
 
    //DESKTOP NAVIGATION VALUES*************************
    this._navRotationSpeed = 0.015;
-   this._navDollySpeed = 0.00015;
-   this._navPanSpeed = 0.06;
+   this._navDollySpeed = 0.00020;
+   this._navPanSpeed = 0.04;
    this._navDecay = 0.3;
    this._navMode2DecayHalflife = 150;	// General decay
    this._navDesiredTargetSpeed = 0.1;
