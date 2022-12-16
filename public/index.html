@@ -46,7 +46,7 @@
       #menubar {
          position: relative;
          z-index: 11;
-         top: -30px;
+         top: 6px;
       }
 
       canvas {
@@ -159,7 +159,7 @@
          #menubar {
             position: relative;
             z-index: 11;
-            top: -31px;
+            top: 6px;
          }
       }
 
@@ -1059,8 +1059,8 @@
                         n /= s;
                   canvas.width = i,
                      canvas.height = r,
-                     canvas.style.marginLeft = "",
-                     calloutcanvas.style.marginLeft = "",
+                     canvas.style.marginLeft = "175",
+                     calloutcanvas.style.marginLeft = "175",
                      calloutcanvas.width = canvas.width,
                      calloutcanvas.height = canvas.height,
                      null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
@@ -1084,7 +1084,7 @@
             } else {
                // console.log("desktop");
                var d;
-               c = null == e ? 0 : e.offsetWidth;
+               c = "285"
                if (calloutcanvas.width = canvas.width = t.width - c,
                   calloutcanvas.height = canvas.height = t.height,
                   calloutcanvas.style.marginLeft = canvas.style.marginLeft = c + "px",
@@ -1126,12 +1126,17 @@
                opt = {};
             opt.zang = gp.pos[5];
          }
-         if (isipad && window.innerWidth < window.innerHeight) {
+         // if (isipad && window.innerWidth < window.innerHeight) {
 
-            scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] - 30,gp.time,onComplete,onSample,opt);
-         } else {
-            scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
-         }
+         //    scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 30,gp.time,onComplete,onSample,opt);
+         // } else {
+         //    scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+         // }
+         if (mob || isipad) {
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13 ,gp.time,onComplete,onSample,opt);
+      } else {
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+      }
 
       }
 
@@ -1496,6 +1501,7 @@
       var port3 = 'Optional fingerprint reader on the power button';
       var port4 = 'Pro2 Keyboard';
       var port5 = 'Large, glass-like clickpad';
+      var port50 = "Optional card reader"
 
       var port6 = 'uSD Card Reader';
 
@@ -1629,12 +1635,12 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-80,53],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
+                  HS_DrawText([-80,0],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
 
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-540,-390],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3,"Roboto",10,"left",200);
+                  HS_DrawText([-0,-0],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3,"Roboto",10,"left",200);
                }
                else if (currentPosition == 'top') {
 
@@ -1643,6 +1649,8 @@
                   HS_SimpleCallout([60,0],0,0,"Top_Hotspot_2","",port4,"left",0,190,10);
 
                   HS_SimpleCallout([-250,0],0,0,"Top_Hotspot_3","",port5,"right",10,190,10);
+
+                  HS_SimpleCallout([100,-10],-80,-10,"Top_Hotspot_4","",port50,"left",0,100,10);
 
                }
                else if (currentPosition == 'left') {
@@ -1703,11 +1711,11 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-200,-335],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3,"Roboto",10,"left",200);
+                  HS_DrawText([-150,-120],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3,"Roboto",10,"left",200);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-200,-80],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
+                  HS_DrawText([60,-120],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
 
                }
                else if (currentPosition == 'top') {
@@ -1727,6 +1735,8 @@
                   HS_DrawText([40,150],port4,"Roboto",10,"right",160);
 
                   HS_SimpleCallout([0,76],0,0,"Top_Hotspot_3","",port5,"right",5,190,60)
+
+                  HS_SimpleCallout([-43,120],-43,-7,"Top_Hotspot_4","",port50,"left",5,100,0)
 
 
                }
@@ -1810,11 +1820,11 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-250,-80],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",13,"left",250);
+                  HS_DrawText([60,-130],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",13,"left",250);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-320,-538],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",13,"left",200);
+                  HS_DrawText([-150,-130],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",13,"left",200);
 
 
                }
@@ -1824,6 +1834,9 @@
                   HS_SimpleCallout([40,0],0,0,"Top_Hotspot_2","",port4,"left",0,190,10);
 
                   HS_SimpleCallout([0,120],0,0,"Top_Hotspot_3","",port5,"right",5,190,60)
+                  HS_SimpleCallout([-75,100],-75,-10,"Top_Hotspot_4","",port50,"left",5,100,0)
+
+                 
                }
                else if (currentPosition == 'left') {
 
@@ -1889,11 +1902,11 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-250,-80],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",13,"left",250);
+                  HS_DrawText([60,-120],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",13,"left",250);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-220,-433],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",13,"left",200);
+                  HS_DrawText([-160,-120],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",13,"left",200);
 
                }
                else if (currentPosition == 'top') {
@@ -1913,6 +1926,10 @@
                   HS_DrawText([60,190],port4,"Roboto",13,"right",160);
 
                   HS_SimpleCallout([0,90],0,0,"Top_Hotspot_3","",port5,"right",5,190,60)
+
+                  HS_SimpleCallout([-57,120],-57,-10,"Top_Hotspot_4","",port50,"left",5,100,0)
+
+
 
                }
                else if (currentPosition == 'left') {
@@ -1986,16 +2003,16 @@
 
                if (navigator.userAgent.indexOf("Safari") != -1 && (window.innerWidth >= 1300 || window.innerWidth <= 1750)) {
 
-                  HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,50,10);
+                  // HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,50,10);
 
-                  // setHotSpot('hotspot1demo','hotspot_030',50,-15,1.0,port0,200,19,"right");
-                  HS_SetOriginFromHotspot("Rear_Hotspot_3");
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-80,53],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"left",50);
+                  // // setHotSpot('hotspot1demo','hotspot_030',50,-15,1.0,port0,200,19,"right");
+                  // HS_SetOriginFromHotspot("Rear_Hotspot_3");
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([0,0],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"left",50);
 
-                  HS_SetOriginFromHotspot("Rear_Hotspot_2");
-                  ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-580,-410],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",50);
+                  // HS_SetOriginFromHotspot("Rear_Hotspot_2");
+                  // ctxCallouts.fillStyle = 'black';
+                  // HS_DrawText([0,0],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",50);
                }
 
 
@@ -2005,11 +2022,11 @@
                // setHotSpot('hotspot1demo','hotspot_030',50,-15,1.0,port0,200,19,"right");
                HS_SetOriginFromHotspot("Rear_Hotspot_3");
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-80,53],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"left",250);
+               HS_DrawText([-135,0],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"left",250);
 
                HS_SetOriginFromHotspot("Rear_Hotspot_2");
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-580,-410],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",200);
+               HS_DrawText([-45,0],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",200);
 
                // setHotSpot('hotspot16','hotspot_030',1045,-70,0,port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port53 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39,320,19,"left")
             }
@@ -2021,9 +2038,14 @@
 
 
                HS_SimpleCallout([60,0],0,0,"Top_Hotspot_2","",port4,"left",0,190,10);
+
                // setHotSpot('hotspot14','hotspot_025',659,-85,0,port23,260,18,"left");
 
                HS_SimpleCallout([-250,0],0,0,"Top_Hotspot_3","",port5,"right",10,190,10);
+               
+               HS_SimpleCallout([100,-15],-80,-15,"Top_Hotspot_4","",port50,"left",0,100,10);
+
+
 
 
             }
@@ -2446,6 +2468,7 @@
                   port3 = finalLangues.port3;
                   port4 = finalLangues.port4;
                   port5 = finalLangues.port5;
+                  port50 = finalLangues.port50;
                   port6 = finalLangues.port6;
                   port7 = finalLangues.port7;
                   port8 = finalLangues.port8;

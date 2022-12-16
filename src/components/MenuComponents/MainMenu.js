@@ -161,11 +161,16 @@ const MainMenu = (props) => {
       //    // }
 
       // } else {
-      window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
+      // window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
       // }
 
 
       // console.log(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
+      if (mob || isipad) {
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13 ,gp.time,onComplete,onSample,opt);
+      } else {
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+      }
    }
    //end
    const slowInOut = (x) => {
