@@ -94,8 +94,8 @@
       @media screen and (min-width:992px) {
          .loaderimg img {
             width: 736px;
-    margin-left: 232px;
-    margin-top: -104px;
+            margin-left: 232px;
+            margin-top: -104px;
          }
       }
 
@@ -126,8 +126,8 @@
       @media screen and (min-width:1920px) {
          .loaderimg img {
             width: 882px;
-    margin-left: 171px;
-    margin-top: -126px;
+            margin-left: 171px;
+            margin-top: -126px;
 
          }
       }
@@ -424,7 +424,7 @@
    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    <script type="text/javascript">
 
-      var animationLoading, _scenePollInterval, timeStart, loaderbarWidth = 0;
+      var animationLoading,_scenePollInterval,timeStart,loaderbarWidth = 0;
       var updateEnabled = true;
       var canvas = null;
       var calloutcanvas = null;
@@ -449,8 +449,8 @@
 
          timeStart = new Date().getTime();
          touch = new Vector3();
-         touches = [new Vector3(), new Vector3(), new Vector3()]; InfinityRTStart
-         prevTouches = [new Vector3(), new Vector3(), new Vector3()];
+         touches = [new Vector3(),new Vector3(),new Vector3()]; InfinityRTStart
+         prevTouches = [new Vector3(),new Vector3(),new Vector3()];
          var loaderDiv = document.getElementById('loader');
 
          var loaderDivs = document.getElementById('loaders');
@@ -474,7 +474,7 @@
 
             // document.querySelector('#menubar').style.display = "none";
 
-         }, 0);
+         },0);
          // if(!(mob || isipad)){
          //    console.log("**")
          //    document.querySelector('.openCloseBtn').style.display = "none";
@@ -487,7 +487,7 @@
             loaderbarWidth++;
             if (loaderbarWidth > 50) loaderbarWidth = 50;
             document.getElementById('loaderbar').style.width = loaderbarWidth + "px"
-         }, 100);
+         },100);
          try {
             canvas = document.getElementById("infinityrt-canvas");
             calloutcanvas = document.getElementById("calloutcanvas");
@@ -497,25 +497,25 @@
             uifooterControlDesk = document.getElementById("footerControlDesk");
             uifooterControIpad = document.getElementById("footerControIpad");
             if (typeof (canvas) != 'undefined') {
-               var gl = infinityrt_getwebglcontextHMX(canvas, { xrCompatible: true, antialias: true, depth: true });
+               var gl = infinityrt_getwebglcontextHMX(canvas,{ xrCompatible: true,antialias: true,depth: true });
                if (!gl) {
                   alert("***Could not initialise WebGL canvas");
                }
                else {
-                  scene = new infinityrt_scene({ rtgl: gl, useDraco: false }, urlDataPath, canvas.width, canvas.height, undefined, undefined, undefined, function () { }, function () { });
-                  scene._nav = new infinityrt_navigation(scene, canvas.width, canvas.height);
+                  scene = new infinityrt_scene({ rtgl: gl,useDraco: false },urlDataPath,canvas.width,canvas.height,undefined,undefined,undefined,function () { },function () { });
+                  scene._nav = new infinityrt_navigation(scene,canvas.width,canvas.height);
                   scene._jitRadius = 2;
-                  scene.gotoPosInTime(0.998110, -0.032676, 1.520975, 5.866925, 72.177856, 1, undefined, undefined, { fovy: 37.849300, zang: -0.003371 })
+                  scene.gotoPosInTime(0.998110,-0.032676,1.520975,5.866925,72.177856,1,undefined,undefined,{ fovy: 37.849300,zang: -0.003371 })
                   //scene.fovy = 37.849285;
                   resizeCanvas2();
                   scene.start();
-                  _scenePollInterval = setInterval("isInfinityRTReady()", 100);
+                  _scenePollInterval = setInterval("isInfinityRTReady()",100);
                   addMouseListeners(canvas);
                   addMouseListeners(ui);
                   addMouseListeners(uifooterControMob);
                   addMouseListeners(uifooterControlDesk);
                   addMouseListeners(uifooterControIpad);
-                  window.addEventListener('keypress', keyPress, false);
+                  window.addEventListener('keypress',keyPress,false);
                }
             }
          }
@@ -585,18 +585,18 @@
          close: "Render_Cam_F1_Close",
          exploded: "Render_Cam_F75_Explode"
       }
-      var hideIndexId = ["colorBtn", "selectProductBtn", "closeIcon", "productViewBtn", "feature", "animswtich", "positionBtn", "rLeft", "rRight", "zoomOut", "sliderRange", "previousView", "zoomIn", "resetView", "nextView", "HowToUseHeader"];
+      var hideIndexId = ["colorBtn","selectProductBtn","closeIcon","productViewBtn","feature","animswtich","positionBtn","rLeft","rRight","zoomOut","sliderRange","previousView","zoomIn","resetView","nextView","HowToUseHeader"];
 
       var time = (new Date().getTime() - timeStart);
       function onInfinityRTReady() {
          if (time < 60000) {
-            RT_RecordTiming("Load", time, config.name);
+            RT_RecordTiming("Load",time,config.name);
          }
 
          document.getElementById("loading").focus();
          setTimeout(function () {
             document.getElementById("loading").removeAttribute("tabIndex");
-         }, 3000);
+         },3000);
          document.getElementById('loader').style.opacity = '0';
          document.getElementById('loaders').style.opacity = '0';
          document.getElementById('root').style.display = "block"
@@ -625,8 +625,8 @@
          // window.localStorage.removeItem('Animation');
          window.hotspot = " "
          GotoPosInTimeNamedValue(config.default);
-         window.localStorage.setItem('Animation', 'on');
-         window.localStorage.setItem("laptop", "laptop360");
+         window.localStorage.setItem('Animation','on');
+         window.localStorage.setItem("laptop","laptop360");
          // document.getElementById("animSwitchValue").checked = true;
          if (!(window.mob)) {
             document.getElementById("animSwitchValue1").checked = true;
@@ -636,34 +636,34 @@
 
          if (!(mob || isipad)) {
             hideHotspot();
-            document.getElementById("hotspot1").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot2").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot3").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot4").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot5").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot6").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot7").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot8").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot9").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot10").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot11").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot12").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot13").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot14").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot15").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot16").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot17").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot18").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot19").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot20").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot21").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot22").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot23").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot24").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot25").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot26").setAttribute("tabindex", "-1");
-            document.getElementById("hotspot27").setAttribute("tabindex", "-1");
-            document.getElementById("LeftMenuWrapper").setAttribute("tabindex", "-1");
+            document.getElementById("hotspot1").setAttribute("tabindex","-1");
+            document.getElementById("hotspot2").setAttribute("tabindex","-1");
+            document.getElementById("hotspot3").setAttribute("tabindex","-1");
+            document.getElementById("hotspot4").setAttribute("tabindex","-1");
+            document.getElementById("hotspot5").setAttribute("tabindex","-1");
+            document.getElementById("hotspot6").setAttribute("tabindex","-1");
+            document.getElementById("hotspot7").setAttribute("tabindex","-1");
+            document.getElementById("hotspot8").setAttribute("tabindex","-1");
+            document.getElementById("hotspot9").setAttribute("tabindex","-1");
+            document.getElementById("hotspot10").setAttribute("tabindex","-1");
+            document.getElementById("hotspot11").setAttribute("tabindex","-1");
+            document.getElementById("hotspot12").setAttribute("tabindex","-1");
+            document.getElementById("hotspot13").setAttribute("tabindex","-1");
+            document.getElementById("hotspot14").setAttribute("tabindex","-1");
+            document.getElementById("hotspot15").setAttribute("tabindex","-1");
+            document.getElementById("hotspot16").setAttribute("tabindex","-1");
+            document.getElementById("hotspot17").setAttribute("tabindex","-1");
+            document.getElementById("hotspot18").setAttribute("tabindex","-1");
+            document.getElementById("hotspot19").setAttribute("tabindex","-1");
+            document.getElementById("hotspot20").setAttribute("tabindex","-1");
+            document.getElementById("hotspot21").setAttribute("tabindex","-1");
+            document.getElementById("hotspot22").setAttribute("tabindex","-1");
+            document.getElementById("hotspot23").setAttribute("tabindex","-1");
+            document.getElementById("hotspot24").setAttribute("tabindex","-1");
+            document.getElementById("hotspot25").setAttribute("tabindex","-1");
+            document.getElementById("hotspot26").setAttribute("tabindex","-1");
+            document.getElementById("hotspot27").setAttribute("tabindex","-1");
+            document.getElementById("LeftMenuWrapper").setAttribute("tabindex","-1");
             // setTimeout(function () {
             //    hideTabIndexes();
             // }, 400);
@@ -706,21 +706,21 @@
       function hideTabIndexes() {
          for (let i = 0; i < hideIndexId.length; i++) {
             if (window.document.getElementById(hideIndexId[i])) {
-               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex", "-1");
+               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex","-1");
             }
          }
 
       }
       function addMouseListeners(canvas) {
-         canvas.addEventListener('mousemove', mouseMove, false);
-         canvas.addEventListener('mousedown', mouseDown, false);
-         window.addEventListener('mouseup', mouseUp, false);
-         canvas.addEventListener('wheel', mouseWheel, false);
-         canvas.addEventListener('DOMMouseScroll', mouseWheel, false);
-         canvas.addEventListener('touchstart', touchStart, false);
-         canvas.addEventListener('touchmove', touchMove, false);
-         canvas.addEventListener('touchend', touchEnd, false);
-         canvas.addEventListener('mouseout', mouseOut);
+         canvas.addEventListener('mousemove',mouseMove,false);
+         canvas.addEventListener('mousedown',mouseDown,false);
+         window.addEventListener('mouseup',mouseUp,false);
+         canvas.addEventListener('wheel',mouseWheel,false);
+         canvas.addEventListener('DOMMouseScroll',mouseWheel,false);
+         canvas.addEventListener('touchstart',touchStart,false);
+         canvas.addEventListener('touchmove',touchMove,false);
+         canvas.addEventListener('touchend',touchEnd,false);
+         canvas.addEventListener('mouseout',mouseOut);
       }
       var sceneViewMatrix;
       function frameUpdate() {
@@ -729,7 +729,7 @@
          //     return;
          setTimeout(function () {
             window.requestAnimationFrame(frameUpdate);
-         }, scene.backoff);
+         },scene.backoff);
          sceneViewMatrix = scene._nav.NavCreateViewMatrix(scene._initialNavMatrix);
          scene.setViewMatrix(sceneViewMatrix);
          if (scene._refineCount < 64) frameUpdateForScene(scene);
@@ -755,234 +755,364 @@
             scene._bDoF = false;
          }
       }
-      window.addEventListener('resize', resizeCanvas2, false);
+      window.addEventListener('resize',resizeCanvas2,false);
 
+      // function resizeCanvas2() {
+
+
+
+
+      //    var leftMenu = document.getElementById('mainMenu');
+      //    var size = scene.get3DCanvasSize("infinityrt-canvas",window.innerWidth,window.innerHeight);
+      //    var menu = document.querySelector('#LeftMenuWrapper div');
+      //    //calloutcanvas = document.getElementById('calloutcanvas');
+      //    var dpr = window.devicePixelRatio;
+      //    var dprccs = 1.0 / dpr;
+      //    if (canvas != null) {
+      //       if (isipad) {
+
+      //          console.log("ipad")
+      //          var reslimit = { w: 1920,h: 1080 };
+      //          if (scene && scene._glVersionNum > 1) reslimit = { w: 3840,h: 2160 };
+      //          var w = window.innerWidth * dpr; //canvas.parentElement.offsetWidth * dpr;
+      //          var h = window.innerHeight * dpr; //canvas.parentElement.offsetHeight * dpr;
+
+      //          if (window.innerHeight > window.innerWidth) {
+      //             console.log("ipad Portrait")
+      //             h = window.innerHeight * 1 * dpr; //canvas.parentElement.offsetHeight * dpr;
+      //             if (w > reslimit.w || h > reslimit.h) {
+      //                var scale = Math.min(reslimit.w / w,reslimit.h / h);
+      //                w *= scale;
+      //                h *= scale;
+      //                dprccs /= scale;
+      //             }
+      //             canvas.width = w;
+      //             canvas.height = h;
+      //             canvas.style.marginLeft = "";
+      //             calloutcanvas.style.marginLeft = "";
+      //             calloutcanvas.width = canvas.width;
+      //             calloutcanvas.height = canvas.height;
+      //             if (scene != null) {
+      //                scene._nav.canvasResize(canvas.width,canvas.height);
+      //                scene.resize(canvas.width,canvas.height);
+      //                scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+      //                scene.resize(calloutcanvas.width,calloutcanvas.height);
+      //             }
+      //             window.checkOrientationStatus(true);
+      //             $("#infinityrt-canvas, #calloutcanvas").css({
+      //                marginLeft: ''
+      //             })
+      //          }
+      //          else if (window.innerHeight < window.innerWidth) {
+      //             console.log("ipad Landscape")
+      //             window.checkOrientationStatus(false);
+
+      //             if (window.innerWidth < 991) {
+      //                var marginVal = "50"
+      //             } else {
+      //                var marginVal = "170";
+      //             }
+
+      //             // var marginVal = "170";
+      //             calloutcanvas.width = canvas.width = size.width - marginVal;
+      //             calloutcanvas.height = canvas.height = size.height;
+      //             calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
+      //             if (window.innerWidth > window.innerHeight) {
+      //                var scalePopup = ((window.innerWidth / window.innerHeight) - window.devicePixelRatio);
+      //                if (scalePopup < 0.5) scalePopup = 0.5;
+      //                if (scalePopup > 1) scalePopup = 1;
+      //             }
+      //             if (scene != null) {
+      //                scene._nav.canvasResize(canvas.width,canvas.height);
+      //                scene.resize(canvas.width,canvas.height);
+      //                scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+      //                scene.resize(calloutcanvas.width,calloutcanvas.height);
+      //             }
+      //          }
+
+      //          /* $("#infinityrt-canvas, #calloutcanvas").css({
+      //             'transform': 'scale(' + dprccs + ')',
+      //             'transform-origin': '0% 0%',
+      //             '-webkit-transform': 'scale(' + dprccs + ')',
+      //             '-webkit-transform-origin': '0% 0%',
+      //             '-moz-transform': 'scale(' + dprccs + ')',
+      //             '-moz-transform-origin': '0% 0%',
+      //             '-o-transform': 'scale(' + dprccs + ')',
+      //             '-o-transform-origin': '0% 0%',
+      //             '-ms-transform': 'scale(' + dprccs + ')',
+      //             '-ms-transform-origin': '0% 0%',
+      //          }); */
+      //       }
+      //       else if (window.innerWidth < 991) {
+      //          console.log('mobile');
+      //          // scene.setProjectionOffset(40,65);
+
+      //          var reslimit = { w: 1920,h: 1080 };
+      //          if (scene && scene._glVersionNum > 1) reslimit = { w: 3840,h: 2160 };
+      //          var w = window.innerWidth * dpr;//canvas.parentElement.offsetWidth * dpr;
+      //          var h = window.innerHeight * dpr;//canvas.parentElement.offsetHeight * dpr;
+
+
+      //          if (window.innerHeight < window.innerWidth) {
+      //             console.log('mobile landscap');
+
+      //             if (w > reslimit.w || h > reslimit.h) {
+      //                var scale = Math.min(reslimit.w / w,reslimit.h / h);
+      //                w *= scale;
+      //                h *= scale;
+      //                dprccs /= scale;
+      //             }
+      //             canvas.width = w;
+      //             canvas.height = h;
+      //             calloutcanvas.width = canvas.width;
+      //             calloutcanvas.height = canvas.height;
+      //             // $("#infinityrt-canvas, #calloutcanvas").css({
+      //             //    // marginLeft: '',
+      //             //    marginTop: ''
+      //             // })
+      //             document.getElementById("footerControMob").style.position = "absolute";
+      //             if (window.canvasLandscapeMarginTop) {
+      //                // console.log("check)))")
+      //                // document.getElementById("footerControMob").style.display = "block";
+      //                calloutcanvas.style.marginTop = canvas.style.marginTop = "0px";
+
+      //             }
+      //          }
+      //          else {
+      //             console.log('mobile potrait');
+      //             var marginVal = "0"
+      //             calloutcanvas.width = canvas.width = size.width - marginVal;
+      //             calloutcanvas.height = canvas.height = size.height;
+      //             calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
+
+      //             h = window.innerHeight * 1 * dpr;//canvas.parentElement.offsetHeight * dpr;
+      //             if (w > reslimit.w || h > reslimit.h) {
+      //                var scale = Math.min(reslimit.w / w,reslimit.h / h);
+      //                w *= scale;
+      //                h *= scale;
+      //                dprccs /= scale;
+      //             }
+      //             canvas.width = w;
+      //             canvas.height = h;
+      //             calloutcanvas.width = canvas.width;
+      //             calloutcanvas.height = canvas.height;
+      //             // document.getElementById("footerControMob").style.position = "static";
+      //             if (window.canvasLandscapeMarginTop) {
+      //                // console.log("check++")
+      //                calloutcanvas.style.marginTop = canvas.style.marginTop = "-150px",
+      //                   document.getElementById("footerControMob").style.display = "none";
+
+      //             }
+
+      //          }
+
+      //          if (scene != null) {
+      //             scene._nav.canvasResize(canvas.width,canvas.height);
+      //             scene.resize(canvas.width,canvas.height);
+      //             scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+      //             scene.resize(calloutcanvas.width,calloutcanvas.height);
+      //          }
+
+
+
+      //          //   document.getElementById('popupContainer').style.display = 'none';
+      //          /* $("#infinityrt-canvas, #calloutcanvas").css({
+      //             'transform': 'scale(' + dprccs + ')',
+      //             'transform-origin': '0% 0%',
+      //             '-webkit-transform': 'scale(' + dprccs + ')',
+      //             '-webkit-transform-origin': '0% 0%',
+      //             '-moz-transform': 'scale(' + dprccs + ')',
+      //             '-moz-transform-origin': '0% 0%',
+      //             '-o-transform': 'scale(' + dprccs + ')',
+      //             '-o-transform-origin': '0% 0%',
+      //             '-ms-transform': 'scale(' + dprccs + ')',
+      //             '-ms-transform-origin': '0% 0%',
+      //             'margin-left': ''
+      //          }); */
+      //          window.checkOrientationStatus(false);
+
+      //       }
+      //       else {
+      //          //console.log("desktop")
+
+      //          var marginVal = "285"
+      //          calloutcanvas.width = canvas.width = size.width - marginVal;
+      //          calloutcanvas.height = canvas.height = size.height;
+      //          calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
+      //          if (window.innerWidth > window.innerHeight) {
+      //             var scalePopup = ((window.innerWidth / window.innerHeight) - window.devicePixelRatio);
+      //             if (scalePopup < 0.5) scalePopup = 0.5;
+      //             if (scalePopup > 1) scalePopup = 1;
+      //          }
+      //          if (scene != null) {
+      //             scene._nav.canvasResize(canvas.width,canvas.height);
+      //             scene.resize(canvas.width,canvas.height);
+      //             scene._nav.canvasResize(calloutcanvas.width,calloutcanvas.height);
+      //             scene.resize(calloutcanvas.width,calloutcanvas.height);
+      //          }
+      //          /* $("#infinityrt-canvas, #calloutcanvas").css({
+      //             'transform': 'scale(' + dprccs + ')',
+      //             'transform-origin': '0% 0%',
+      //             '-webkit-transform': 'scale(' + dprccs + ')',
+      //             '-webkit-transform-origin': '0% 0%',
+      //             '-moz-transform': 'scale(' + dprccs + ')',
+      //             '-moz-transform-origin': '0% 0%',
+      //             '-o-transform': 'scale(' + dprccs + ')',
+      //             '-o-transform-origin': '0% 0%',
+      //             '-ms-transform': 'scale(' + dprccs + ')',
+      //             '-ms-transform-origin': '0% 0%',
+      //          }); */
+      //          window.checkOrientationStatus(false);
+
+      //       }
+
+      //       $("#infinityrt-canvas, #calloutcanvas").css({
+      //          'transform': 'scale(' + dprccs + ')',
+      //          'transform-origin': '0% 0%',
+      //          '-webkit-transform': 'scale(' + dprccs + ')',
+      //          '-webkit-transform-origin': '0% 0%',
+      //          '-moz-transform': 'scale(' + dprccs + ')',
+      //          '-moz-transform-origin': '0% 0%',
+      //          '-o-transform': 'scale(' + dprccs + ')',
+      //          '-o-transform-origin': '0% 0%',
+      //          '-ms-transform': 'scale(' + dprccs + ')',
+      //          '-ms-transform-origin': '0% 0%',
+      //       });
+      //    }
+      // }
       function resizeCanvas2() {
+         document.getElementById("mainMenu");
+         var t = scene.get3DCanvasSize("infinityrt-canvas",window.innerWidth,window.innerHeight)
+            ,e = document.querySelector("#LeftMenuWrapper div")
+            ,o = window.devicePixelRatio
+            ,n = 1 / o
+            ,l = document.getElementById("footerControlDesk");
+         if ("hidden" == l.style.visibility && (l.style.display = "hidden"),
+            "visible" == l.style.visibility && (l.style.display = "visible"),
+            null != canvas) {
+            if (mob) {
+               // console.log("mobile");
+               var a = {
+                  w: 1920,
+                  h: 1080
+               };
+               scene && scene._glVersionNum > 1 && (a = {
+                  w: 3840,
+                  h: 2160
+               });
+               var i = window.innerWidth * o
+                  ,r = window.innerHeight * o;
+               if (window.innerHeight < window.innerWidth || screen.height < screen.width) {
+                  if (console.log("mobile landscap"),
+                     i > a.w || r > a.h)
+                     i *= s = Math.min(a.w / i,a.h / r),
+                        r *= s,
+                        n /= s;
+                  canvas.width = i,
+                     canvas.height = r,
+                     calloutcanvas.width = canvas.width,
+                     calloutcanvas.height = canvas.height,
+                     document.getElementById("root") && (document.getElementById("root").style.zIndex = "1"),
+                     $("#infinityrt-canvas, #calloutcanvas").css({
+                        marginTop: ""
+                     })
+                  //    if (window.canvasLandscapeMarginTop) {
+                  //    console.log("check)))")
+                  //    // document.getElementById("footerControMob").style.display = "block";
 
+                  // }
+                  calloutcanvas.style.marginTop = canvas.style.marginTop = "0px";
 
-
-
-         var leftMenu = document.getElementById('mainMenu');
-         var size = scene.get3DCanvasSize("infinityrt-canvas", window.innerWidth, window.innerHeight);
-         var menu = document.querySelector('#LeftMenuWrapper div');
-         //calloutcanvas = document.getElementById('calloutcanvas');
-         var dpr = window.devicePixelRatio;
-         var dprccs = 1.0 / dpr;
-         if (canvas != null) {
-            if (isipad) {
-
-               console.log("ipad")
-               var reslimit = { w: 1920, h: 1080 };
-               if (scene && scene._glVersionNum > 1) reslimit = { w: 3840, h: 2160 };
-               var w = window.innerWidth * dpr; //canvas.parentElement.offsetWidth * dpr;
-               var h = window.innerHeight * dpr; //canvas.parentElement.offsetHeight * dpr;
-
+               } else {
+                  if (console.log("mobile potrait"),
+                     r = 1 * window.innerHeight * o,
+                     i > a.w || r > a.h)
+                     i *= s = Math.min(a.w / i,a.h / r),
+                        r *= s,
+                        n /= s;
+                  canvas.width = i,
+                     canvas.height = r,
+                     calloutcanvas.width = canvas.width,
+                     calloutcanvas.height = canvas.height
+               }
+               null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
+                  scene.resize(canvas.width,canvas.height)),
+                  window.checkOrientationStatus(!1)
+            } else if (isipad) {
+               // console.log("ipad");
+               a = {
+                  w: 1920,
+                  h: 1080
+               };
+               scene && scene._glVersionNum > 1 && (a = {
+                  w: 3840,
+                  h: 2160
+               });
+               i = window.innerWidth * o,
+                  r = window.innerHeight * o;
                if (window.innerHeight > window.innerWidth) {
-                  console.log("ipad Portrait")
-                  h = window.innerHeight * 1 * dpr; //canvas.parentElement.offsetHeight * dpr;
-                  if (w > reslimit.w || h > reslimit.h) {
-                     var scale = Math.min(reslimit.w / w, reslimit.h / h);
-                     w *= scale;
-                     h *= scale;
-                     dprccs /= scale;
-                  }
-                  canvas.width = w;
-                  canvas.height = h;
-                  canvas.style.marginLeft = "";
-                  calloutcanvas.style.marginLeft = "";
-                  calloutcanvas.width = canvas.width;
-                  calloutcanvas.height = canvas.height;
-                  if (scene != null) {
-                     scene._nav.canvasResize(canvas.width, canvas.height);
-                     scene.resize(canvas.width, canvas.height);
-                     scene._nav.canvasResize(calloutcanvas.width, calloutcanvas.height);
-                     scene.resize(calloutcanvas.width, calloutcanvas.height);
-                  }
-                  window.checkOrientationStatus(true);
-                  $("#infinityrt-canvas, #calloutcanvas").css({
-                     marginLeft: ''
-                  })
+                  var s;
+                  if (r = 1 * window.innerHeight * o,
+                     i > a.w || r > a.h)
+                     i *= s = Math.min(a.w / i,a.h / r),
+                        r *= s,
+                        n /= s;
+                  canvas.width = i,
+                     canvas.height = r,
+                     canvas.style.marginLeft = "",
+                     calloutcanvas.style.marginLeft = "",
+                     calloutcanvas.width = canvas.width,
+                     calloutcanvas.height = canvas.height,
+                     null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
+                        scene.resize(canvas.width,canvas.height)),
+                     window.checkOrientationStatus(!0),
+                     $("#infinityrt-canvas, #calloutcanvas").css({
+                        marginLeft: ""
+                     })
+               } else if (window.innerHeight < window.innerWidth) {
+                  window.checkOrientationStatus(!1);
+                  var c = "175";
+                  if (calloutcanvas.width = canvas.width = t.width - c,
+                     calloutcanvas.height = canvas.height = t.height,
+                     calloutcanvas.style.marginLeft = canvas.style.marginLeft = c + "px",
+                     window.innerWidth > window.innerHeight)
+                     (d = window.innerWidth / window.innerHeight - window.devicePixelRatio) < .5 && (d = .5),
+                        d > 1 && (d = 1);
+                  null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
+                     scene.resize(canvas.width,canvas.height))
                }
-               else if (window.innerHeight < window.innerWidth) {
-                  console.log("ipad Landscape")
-                  window.checkOrientationStatus(false);
-
-                  if (window.innerWidth < 991) {
-                     var marginVal = "50"
-                  } else {
-                     var marginVal = "170";
-                  }
-
-                  // var marginVal = "170";
-                  calloutcanvas.width = canvas.width = size.width - marginVal;
-                  calloutcanvas.height = canvas.height = size.height;
-                  calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
-                  if (window.innerWidth > window.innerHeight) {
-                     var scalePopup = ((window.innerWidth / window.innerHeight) - window.devicePixelRatio);
-                     if (scalePopup < 0.5) scalePopup = 0.5;
-                     if (scalePopup > 1) scalePopup = 1;
-                  }
-                  if (scene != null) {
-                     scene._nav.canvasResize(canvas.width, canvas.height);
-                     scene.resize(canvas.width, canvas.height);
-                     scene._nav.canvasResize(calloutcanvas.width, calloutcanvas.height);
-                     scene.resize(calloutcanvas.width, calloutcanvas.height);
-                  }
-               }
-
-               /* $("#infinityrt-canvas, #calloutcanvas").css({
-                  'transform': 'scale(' + dprccs + ')',
-                  'transform-origin': '0% 0%',
-                  '-webkit-transform': 'scale(' + dprccs + ')',
-                  '-webkit-transform-origin': '0% 0%',
-                  '-moz-transform': 'scale(' + dprccs + ')',
-                  '-moz-transform-origin': '0% 0%',
-                  '-o-transform': 'scale(' + dprccs + ')',
-                  '-o-transform-origin': '0% 0%',
-                  '-ms-transform': 'scale(' + dprccs + ')',
-                  '-ms-transform-origin': '0% 0%',
-               }); */
+            } else {
+               // console.log("desktop");
+               var d;
+               c = null == e ? 0 : e.offsetWidth;
+               if (calloutcanvas.width = canvas.width = t.width - c,
+                  calloutcanvas.height = canvas.height = t.height,
+                  calloutcanvas.style.marginLeft = canvas.style.marginLeft = c + "px",
+                  window.innerWidth > window.innerHeight)
+                  (d = window.innerWidth / window.innerHeight - window.devicePixelRatio) < .5 && (d = .5),
+                     d > 1 && (d = 1);
+               null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
+                  scene.resize(canvas.width,canvas.height)),
+                  window.checkOrientationStatus(!1)
             }
-            else if (window.innerWidth < 991) {
-               console.log('mobile');
-               // scene.setProjectionOffset(40,65);
-
-               var reslimit = { w: 1920, h: 1080 };
-               if (scene && scene._glVersionNum > 1) reslimit = { w: 3840, h: 2160 };
-               var w = window.innerWidth * dpr;//canvas.parentElement.offsetWidth * dpr;
-               var h = window.innerHeight * dpr;//canvas.parentElement.offsetHeight * dpr;
-
-
-               if (window.innerHeight < window.innerWidth) {
-                  console.log('mobile landscap');
-
-                  if (w > reslimit.w || h > reslimit.h) {
-                     var scale = Math.min(reslimit.w / w, reslimit.h / h);
-                     w *= scale;
-                     h *= scale;
-                     dprccs /= scale;
-                  }
-                  canvas.width = w;
-                  canvas.height = h;
-                  calloutcanvas.width = canvas.width;
-                  calloutcanvas.height = canvas.height;
-                  // $("#infinityrt-canvas, #calloutcanvas").css({
-                  //    // marginLeft: '',
-                  //    marginTop: ''
-                  // })
-                  document.getElementById("footerControMob").style.position = "absolute";
-                  if (window.canvasLandscapeMarginTop) {
-                     // console.log("check)))")
-                     // document.getElementById("footerControMob").style.display = "block";
-                     calloutcanvas.style.marginTop = canvas.style.marginTop = "0px";
-
-                  }
-               }
-               else {
-                  console.log('mobile potrait');
-                  var marginVal = "0"
-               calloutcanvas.width = canvas.width = size.width - marginVal;
-               calloutcanvas.height = canvas.height = size.height;
-               calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
-
-                  h = window.innerHeight * 1 * dpr;//canvas.parentElement.offsetHeight * dpr;
-                  if (w > reslimit.w || h > reslimit.h) {
-                     var scale = Math.min(reslimit.w / w, reslimit.h / h);
-                     w *= scale;
-                     h *= scale;
-                     dprccs /= scale;
-                  }
-                  canvas.width = w;
-                  canvas.height = h;
-                  calloutcanvas.width = canvas.width;
-                  calloutcanvas.height = canvas.height;
-                  // document.getElementById("footerControMob").style.position = "static";
-                  if (window.canvasLandscapeMarginTop) {
-                     // console.log("check++")
-                     calloutcanvas.style.marginTop = canvas.style.marginTop = "-150px",
-                        document.getElementById("footerControMob").style.display = "none";
-
-                  }
-
-               }
-
-               if (scene != null) {
-                  scene._nav.canvasResize(canvas.width, canvas.height);
-                  scene.resize(canvas.width, canvas.height);
-                  scene._nav.canvasResize(calloutcanvas.width, calloutcanvas.height);
-                  scene.resize(calloutcanvas.width, calloutcanvas.height);
-               }
-
-
-
-               //   document.getElementById('popupContainer').style.display = 'none';
-               /* $("#infinityrt-canvas, #calloutcanvas").css({
-                  'transform': 'scale(' + dprccs + ')',
-                  'transform-origin': '0% 0%',
-                  '-webkit-transform': 'scale(' + dprccs + ')',
-                  '-webkit-transform-origin': '0% 0%',
-                  '-moz-transform': 'scale(' + dprccs + ')',
-                  '-moz-transform-origin': '0% 0%',
-                  '-o-transform': 'scale(' + dprccs + ')',
-                  '-o-transform-origin': '0% 0%',
-                  '-ms-transform': 'scale(' + dprccs + ')',
-                  '-ms-transform-origin': '0% 0%',
-                  'margin-left': ''
-               }); */
-               window.checkOrientationStatus(false);
-
-            }
-            else {
-               //console.log("desktop")
-
-               var marginVal = "285"
-               calloutcanvas.width = canvas.width = size.width - marginVal;
-               calloutcanvas.height = canvas.height = size.height;
-               calloutcanvas.style.marginLeft = canvas.style.marginLeft = marginVal + 'px';
-               if (window.innerWidth > window.innerHeight) {
-                  var scalePopup = ((window.innerWidth / window.innerHeight) - window.devicePixelRatio);
-                  if (scalePopup < 0.5) scalePopup = 0.5;
-                  if (scalePopup > 1) scalePopup = 1;
-               }
-               if (scene != null) {
-                  scene._nav.canvasResize(canvas.width, canvas.height);
-                  scene.resize(canvas.width, canvas.height);
-                  scene._nav.canvasResize(calloutcanvas.width, calloutcanvas.height);
-                  scene.resize(calloutcanvas.width, calloutcanvas.height);
-               }
-               /* $("#infinityrt-canvas, #calloutcanvas").css({
-                  'transform': 'scale(' + dprccs + ')',
-                  'transform-origin': '0% 0%',
-                  '-webkit-transform': 'scale(' + dprccs + ')',
-                  '-webkit-transform-origin': '0% 0%',
-                  '-moz-transform': 'scale(' + dprccs + ')',
-                  '-moz-transform-origin': '0% 0%',
-                  '-o-transform': 'scale(' + dprccs + ')',
-                  '-o-transform-origin': '0% 0%',
-                  '-ms-transform': 'scale(' + dprccs + ')',
-                  '-ms-transform-origin': '0% 0%',
-               }); */
-               window.checkOrientationStatus(false);
-
-            }
-
             $("#infinityrt-canvas, #calloutcanvas").css({
-               'transform': 'scale(' + dprccs + ')',
-               'transform-origin': '0% 0%',
-               '-webkit-transform': 'scale(' + dprccs + ')',
-               '-webkit-transform-origin': '0% 0%',
-               '-moz-transform': 'scale(' + dprccs + ')',
-               '-moz-transform-origin': '0% 0%',
-               '-o-transform': 'scale(' + dprccs + ')',
-               '-o-transform-origin': '0% 0%',
-               '-ms-transform': 'scale(' + dprccs + ')',
-               '-ms-transform-origin': '0% 0%',
-            });
+               transform: "scale(" + n + ")",
+               "transform-origin": "0% 0%",
+               "-webkit-transform": "scale(" + n + ")",
+               "-webkit-transform-origin": "0% 0%",
+               "-moz-transform": "scale(" + n + ")",
+               "-moz-transform-origin": "0% 0%",
+               "-o-transform": "scale(" + n + ")",
+               "-o-transform-origin": "0% 0%",
+               "-ms-transform": "scale(" + n + ")",
+               "-ms-transform-origin": "0% 0%"
+            })
          }
       }
 
 
-      function GotoPosInTimeNamedValue(gotoposname, onComplete, onSample) {
+
+      function GotoPosInTimeNamedValue(gotoposname,onComplete,onSample) {
 
          var opt = undefined,
             gp = jsonobject.positions[gotoposname];
@@ -996,7 +1126,13 @@
                opt = {};
             opt.zang = gp.pos[5];
          }
-         scene.gotoPosInTime(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
+         if (isipad && window.innerWidth < window.innerHeight) {
+
+            scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] - 30,gp.time,onComplete,onSample,opt);
+         } else {
+            scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+         }
+
       }
 
 
@@ -1006,7 +1142,7 @@
       function getCameraValues(uijson) {
          var jsonhttp = new XMLHttpRequest();
          jsonhttp.skin = this;
-         jsonhttp.open("GET", uijson, true);
+         jsonhttp.open("GET",uijson,true);
          jsonhttp.onload = function (e) {
             if (jsonhttp.status >= 200 && jsonhttp.status <= 299) {
                var s = jsonhttp.skin;
@@ -1016,7 +1152,7 @@
          };
          jsonhttp.send("");
       }
-      window.addEventListener('DOMContentLoaded', function () {
+      window.addEventListener('DOMContentLoaded',function () {
          getCameraValues("./model_gl/config.json");
       });
 
@@ -1027,14 +1163,14 @@
             scene._nav._navMX = scene._nav._navMY = 0;
             scene._nav._navXAng = scene._nav._navYAng = 0;
             scene._nav._navDolly = 0.0;
-            scene._nav._navPan = [0.0, 0.0];
+            scene._nav._navPan = [0.0,0.0];
             scene.clearRefine();
          }
       }
       function getScene(ev) {
          return scene;
       }
-      var mpos = [0, 0];
+      var mpos = [0,0];
       var mdown = false;
       var panNav = false;
       function mouseDown(ev) {
@@ -1059,13 +1195,13 @@
          }
 
          // if (window.innerWidth > window.innerHeight) {
-       
+
          // }
 
          mdown = true;
          if (ev.which == 3 || ev.which == 2)
             panNav = true;
-         mpos = [ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop];
+         mpos = [ev.clientX - canvas.offsetLeft,ev.clientY - canvas.offsetTop];
       }
       function mouseUp(ev) {
          // console.log('mouseUp');
@@ -1080,7 +1216,7 @@
       function mouseOut(ev) {
          for (let i = 0; i < hideIndexId.length; i++) {
             if (window.document.getElementById(hideIndexId[i])) {
-               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex", "-1");
+               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex","-1");
             }
          }
 
@@ -1095,16 +1231,16 @@
          if (hotspotContainer.style.display == "block") {
             hotspotContainer.style.display = "none"
          }
-         
+
 
          if (!mdown)
             return;
          var s = getScene(ev);
-         var mousePos = [ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop];
-         var mdelta = [(mpos[0] - mousePos[0]), (mpos[1] - mousePos[1])];
-         mpos = [mousePos[0], mousePos[1]];
+         var mousePos = [ev.clientX - canvas.offsetLeft,ev.clientY - canvas.offsetTop];
+         var mdelta = [(mpos[0] - mousePos[0]),(mpos[1] - mousePos[1])];
+         mpos = [mousePos[0],mousePos[1]];
          if (!panNav) {
-            if (s._nav.NavRotation(mpos, mdelta))
+            if (s._nav.NavRotation(mpos,mdelta))
                s.clearRefine();
          }
          else {
@@ -1132,15 +1268,15 @@
          // var delta = -ev.deltaY;
          var deltaScene = delta * 4.3;
 
-         if (s._nav.NavChangeDolly(deltaScene, true)) {
+         if (s._nav.NavChangeDolly(deltaScene,true)) {
             // console.log(s._nav._navDolly);
             document.getElementById("sliderRange").value = s._nav.getZoomFactor();
             s.clearRefine();
          }
-         setTimeout(function () { document.getElementById("sliderRange").value = s._nav.getZoomFactor(); }, 100);
+         setTimeout(function () { document.getElementById("sliderRange").value = s._nav.getZoomFactor(); },100);
       }
 
-      var touch, touches, prevTouches, prevDistance = null;
+      var touch,touches,prevTouches,prevDistance = null;
       //TOUCH VARIABLES NAVIGATION ************************
       var touchSensitivity = 500.0;
       var touchZoom = 0.06;
@@ -1152,12 +1288,12 @@
          var screenY = document.getElementById('infinityrt-canvas').clientHeight;
          switch (event.touches.length) {
             case 1:
-               touches[0].set(event.touches[0].pageX, event.touches[0].pageY, 0);
-               touches[1].set(event.touches[0].pageX, event.touches[0].pageY, 0);
+               touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+               touches[1].set(event.touches[0].pageX,event.touches[0].pageY,0);
                break;
             case 2:
-               touches[0].set(event.touches[0].pageX, event.touches[0].pageY, 0);
-               touches[1].set(event.touches[1].pageX, event.touches[1].pageY, 0);
+               touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+               touches[1].set(event.touches[1].pageX,event.touches[1].pageY,0);
                prevDistance = touches[0].distanceTo(touches[1]);
                break;
          }
@@ -1191,7 +1327,7 @@
             }
 
          }
-         var getClosest = function (touch, touches) {
+         var getClosest = function (touch,touches) {
             var closest = touches[0];
             for (var i in touches) {
                if (closest.distanceTo(touch) > touches[i].distanceTo(touch)) closest = touches[i];
@@ -1201,38 +1337,38 @@
          switch (event.touches.length) {
             case 1:
                if (doubleTouch == false) {
-                  touches[0].set(event.touches[0].pageX, event.touches[0].pageY, 0);
-                  touches[1].set(event.touches[0].pageX, event.touches[0].pageY, 0);
-                  if (s._nav.NavRotation([touches[0].x, touches[0].y], [(prevTouches[0].x - touches[0].x) * touchSensitivity / screenX, (prevTouches[0].y - touches[0].y) * touchSensitivity / screenY])) s.clearRefine();
+                  touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+                  touches[1].set(event.touches[0].pageX,event.touches[0].pageY,0);
+                  if (s._nav.NavRotation([touches[0].x,touches[0].y],[(prevTouches[0].x - touches[0].x) * touchSensitivity / screenX,(prevTouches[0].y - touches[0].y) * touchSensitivity / screenY])) s.clearRefine();
                   //scope.rotate( touches[ 0 ].sub( getClosest( touches[ 0 ] ,prevTouches ) ).multiplyScalar( - 0.005 ) );
                   if (firstInteraction) {
                      firstInteraction = false;
-                     RT_RecordEvent("First 3D Interaction", "First 3D Interaction", config.name);
+                     RT_RecordEvent("First 3D Interaction","First 3D Interaction",config.name);
                   } else {
-                     RT_RecordEvent("3D Model Interaction", "Rotating", config.name);
+                     RT_RecordEvent("3D Model Interaction","Rotating",config.name);
                   }
                }
                break;
             case 2:
                doubleTouch = true;
-               touches[0].set(event.touches[0].pageX, event.touches[0].pageY, 0);
-               touches[1].set(event.touches[1].pageX, event.touches[1].pageY, 0);
+               touches[0].set(event.touches[0].pageX,event.touches[0].pageY,0);
+               touches[1].set(event.touches[1].pageX,event.touches[1].pageY,0);
                var distance = touches[0].distanceTo(touches[1]);
                var deltaScene = (prevDistance - distance) * touchZoom * screenX;
-               if (s._nav.NavChangeDolly(-deltaScene, true)) {
+               if (s._nav.NavChangeDolly(-deltaScene,true)) {
                   s.clearRefine();
-                  RT_RecordEvent("3D Model Interaction", "Zooming", config.name);
+                  RT_RecordEvent("3D Model Interaction","Zooming",config.name);
                   if (document.getElementById("sliderRange") !== null) {
                      document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
                   }
                }
                //scope.zoom( new Vector3( 0, 0, prevDistance - distance ) );
                prevDistance = distance;
-               var offset0 = touches[0].clone().sub(getClosest(touches[0], prevTouches));
-               var offset1 = touches[1].clone().sub(getClosest(touches[1], prevTouches));
+               var offset0 = touches[0].clone().sub(getClosest(touches[0],prevTouches));
+               var offset1 = touches[1].clone().sub(getClosest(touches[1],prevTouches));
                offset0.x = -offset0.x;
                offset1.x = -offset1.x;
-               var mdelta2 = [offset1.x * touchPan / screenX, -offset1.y * touchPan / screenY];
+               var mdelta2 = [offset1.x * touchPan / screenX,-offset1.y * touchPan / screenY];
                if (s._nav.NavPan(mdelta2)) s.clearRefine();
                //scope.pan( offset0.add( offset1 ).multiplyScalar( 0.5 ) );
                break;
@@ -1242,9 +1378,9 @@
       }
 
       function touchEnd(event) {
-         setTimeout(function () { doubleTouch = false; }, 1000);
+         setTimeout(function () { doubleTouch = false; },1000);
       }
-      window.addEventListener('DOMContentLoaded', function () {
+      window.addEventListener('DOMContentLoaded',function () {
          var resetBtn = document.getElementById('reset');
       });
       function exploreFun() {
@@ -1282,7 +1418,7 @@
             document.getElementById('loader').style.display = "none";
          }
          if (document.getElementById('LeftMenuWrapper')) {
-            window.document.getElementById('LeftMenuWrapper').setAttribute('aria-hidden', 'false');
+            window.document.getElementById('LeftMenuWrapper').setAttribute('aria-hidden','false');
          }
          if (document.getElementById('loaders')) {
             document.getElementById('loaders').style.display = "none";
@@ -1293,7 +1429,7 @@
                if (document.getElementById("sliderRange")) {
                   document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
                }
-            }, 1000);
+            },1000);
          }
 
          if (!(mob || isipad)) {
@@ -1326,7 +1462,7 @@
          }
          if (document.getElementById("sliderRange") !== null) {
             document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-            setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); }, 500);
+            setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },500);
          }
          document.getElementById('loaders').style.display = "none";
          // document.querySelector('#menubar').style.display = 'block';
@@ -1338,7 +1474,7 @@
 
          for (let i = 0; i < hideIndexId.length; i++) {
             if (window.document.getElementById(hideIndexId[i])) {
-               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex", "1");
+               window.document.getElementById(hideIndexId[i]).setAttribute("tabindex","1");
             }
          }
 
@@ -1355,7 +1491,7 @@
       var modal;
       var port0 = "";
       // front hotspot
-      var port1 = 'Up to FHD IR w/EMZA proximity sensor, privacy shutter, ExpressSignin';
+      var port1 = 'Up to FHD IR w/EMZA proximity sensor, privacy shutter, ExpressSign-in';
       var port2 = 'Up to FHD, 100% sRGB, 400nits, PremierColor. Touch and ComfortView Plus optional';
       var port3 = 'Optional fingerprint reader on the power button';
       var port4 = 'Pro2 Keyboard';
@@ -1390,12 +1526,12 @@
 
 
 
-      function setHotSpot(divid, hotsoptName, leftNum, topNum, hotspotopacityspeed, text, maxwidth, fontsize, txtAligns) {
-         var viewCameraZV = [sceneViewMatrix[8], sceneViewMatrix[9], sceneViewMatrix[10]];
+      function setHotSpot(divid,hotsoptName,leftNum,topNum,hotspotopacityspeed,text,maxwidth,fontsize,txtAligns) {
+         var viewCameraZV = [sceneViewMatrix[8],sceneViewMatrix[9],sceneViewMatrix[10]];
          var hotspotopacityspeedConst = 3.0;
          var pos2Dpoint = [];
          var norm3Dpoint1 = scene.getObjectNormal(hotsoptName);
-         var hotspotopacity1 = infinityrt_dp(norm3Dpoint1, viewCameraZV) * hotspotopacityspeedConst - hotspotopacityspeed;
+         var hotspotopacity1 = infinityrt_dp(norm3Dpoint1,viewCameraZV) * hotspotopacityspeedConst - hotspotopacityspeed;
 
          if (hotspotopacity1 > 0 && (hotspotOn == false)) hotspotopacity1 = 1.0;
          if (hotspotopacity1 < 0.0) hotspotopacity1 = 1.0;
@@ -1406,7 +1542,7 @@
          var hotspotClass = document.getElementsByClassName("hotspots");
          if (hotspotopacity1 == 0) {
             document.getElementById(divid).style.display = "none";
-            document.getElementById(divid).setAttribute("tabindex", "-1");
+            document.getElementById(divid).setAttribute("tabindex","-1");
             // for(var i=0; hotspotClass.length; i++){
             //     console.log(hotspotClass[i])
 
@@ -1416,7 +1552,7 @@
          }
          else {
             document.getElementById(divid).style.display = "block";
-            document.getElementById(divid).setAttribute("tabindex", "0");
+            document.getElementById(divid).setAttribute("tabindex","0");
             // for(var i=0; hotspotClass.length; i++){
             //     console.log(hotspotClass[i])
             //     hotspotClass[i].setAttribute("tabindex", "0");
@@ -1424,7 +1560,7 @@
             // document.getElementsByClassName("hotspots").setAttribute("tabindex", "0");
 
          }
-         pos2Dpoint = scene.projectPoint(scene.getObjectLocation(hotsoptName, true));
+         pos2Dpoint = scene.projectPoint(scene.getObjectLocation(hotsoptName,true));
          /*
              var leftPosPoint = (pos2Dpoint[0] * 50) + leftNum;
              var toptPosPoint = -((pos2Dpoint[1] * 50) - topNum);
@@ -1462,7 +1598,7 @@
          }*/
 
       }
-     
+
 
       function hotspotPosAsignment() {
          /*New HotSpot Assignment*/
@@ -1477,57 +1613,57 @@
             ctxCallouts = canvasCallouts.getContext("2d");
          }
          ctxCallouts.resetTransform();
-         ctxCallouts.clearRect(0, 0, canvasCallouts.width, canvasCallouts.height);
+         ctxCallouts.clearRect(0,0,canvasCallouts.width,canvasCallouts.height);
          if (mob) {
             if (innerWidth > innerHeight) {
                console.log("landscap_mob")
                if (currentPosition == 'front') {
-                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 5, 400, 20);
+                  HS_SimpleCallout([0,-50],0,0,"Front_Hotspot_1","",port1,"center",5,400,20);
 
-                  HS_SimpleCallout([50, 0], 0, 0, "Front_Hotspot_2", "", port2, "left", 5, 190, 0);
+                  HS_SimpleCallout([50,0],0,0,"Front_Hotspot_2","",port2,"left",5,190,0);
 
                }
                else if (currentPosition == 'back') {
 
-                  HS_SimpleCallout([120, -5], 0, -5, "Rear_Hotspot_1", "", port13, "left", 0, 190, 10);
+                  HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,190,10);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
-               ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-80, 53], port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4, "Roboto", 10, "left", 250);
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-80,53],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
 
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
-               ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-540, -390], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 10, "left", 200);
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-540,-390],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3,"Roboto",10,"left",200);
                }
                else if (currentPosition == 'top') {
 
-                  HS_SimpleCallout([60, 0], 0, 0, "Top_Hotspot_1", "", port3, "left", 0, 190, 10);
+                  HS_SimpleCallout([60,0],0,0,"Top_Hotspot_1","",port3,"left",0,190,10);
 
-                  HS_SimpleCallout([60, 0], 0, 0, "Top_Hotspot_2", "", port4, "left", 0, 190, 10);
+                  HS_SimpleCallout([60,0],0,0,"Top_Hotspot_2","",port4,"left",0,190,10);
 
-                  HS_SimpleCallout([-250, 0], 0, 0, "Top_Hotspot_3", "", port5, "right", 10, 190, 10);
+                  HS_SimpleCallout([-250,0],0,0,"Top_Hotspot_3","",port5,"right",10,190,10);
 
                }
                else if (currentPosition == 'left') {
-                  HS_SimpleCallout([0, -170], 0, 0, "Left_Hotspot_1", "", port22, "right", 5, 300, 25);
+                  HS_SimpleCallout([0,-170],0,0,"Left_Hotspot_1","",port22,"right",5,300,25);
 
-                  HS_SimpleCallout([0, -140], 0, 0, "Left_Hotspot_2", "", port10, "right", 5, 300, 25);
+                  HS_SimpleCallout([0,-140],0,0,"Left_Hotspot_2","",port10,"right",5,300,25);
 
-                  HS_SimpleCallout([0, -80], 0, 0, "Left_Hotspot_3", "", port9, "right", 5, 300, 30);
+                  HS_SimpleCallout([0,-80],0,0,"Left_Hotspot_3","",port9,"right",5,300,30);
 
                   HS_SetOriginFromHotspot("Left_Hotspot_5");
-                  HS_DrawLine([0, -60], [0, -2]); //h
-                  HS_DrawLine([43, -60], [43, -2]); //h2
-                  HS_DrawLine([0, -60], [43, -60]); //v
-                  HS_DrawLine([24, -60], [24, -140]); //h3
+                  HS_DrawLine([0,-60],[0,-2]); //h
+                  HS_DrawLine([43,-60],[43,-2]); //h2
+                  HS_DrawLine([0,-60],[43,-60]); //v
+                  HS_DrawLine([24,-60],[24,-140]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([25, -150], port8, "Roboto", 10, "center", 150)
+                  HS_DrawText([25,-160],port8,"Roboto",10,"center",150)
 
-                  HS_SimpleCallout([0, -75], 0, 0, "Left_Hotspot_6", "", port7, "center", 18, 80, 0);
+                  HS_SimpleCallout([0,-75],0,0,"Left_Hotspot_6","",port7,"center",18,80,0);
 
 
-                  HS_SimpleCallout([0, -35], 0, 0, "Left_Hotspot_7", "", port6, "center", 20, 80, 0);
+                  HS_SimpleCallout([0,-35],0,0,"Left_Hotspot_7","",port6,"center",20,80,-15);
 
 
 
@@ -1535,14 +1671,14 @@
                else if (currentPosition == 'right') {
 
                   HS_SetOriginFromHotspot("Right_Hotspot_1");
-                  HS_DrawLine([0, -60], [0, -2]); //h
-                  HS_DrawLine([33, -60], [33, -2]); //h2
-                  HS_DrawLine([0, -60], [33, -60]); //v
-                  HS_DrawLine([17, -60], [17, -140]); //h3
+                  HS_DrawLine([0,-60],[0,-2]); //h
+                  HS_DrawLine([33,-60],[33,-2]); //h2
+                  HS_DrawLine([0,-60],[33,-60]); //v
+                  HS_DrawLine([17,-60],[17,-140]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([25, -150], port11, "Roboto", 10, "center", 120)
+                  HS_DrawText([25,-150],port11,"Roboto",10,"center",120)
 
-                  HS_SimpleCallout([0, -60], 0, 0, "Right_Hotspot_3", "", port12, "left", 5, 300, -5);
+                  HS_SimpleCallout([0,-60],0,0,"Right_Hotspot_3","",port12,"left",5,300,-5);
 
                }
                else if (currentPosition == 'explode') {
@@ -1552,80 +1688,80 @@
             else {
                console.log("portrait_mob")
                if (currentPosition == 'front') {
-                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 5, 400, 20);
+                  HS_SimpleCallout([0,-50],0,0,"Front_Hotspot_1","",port1,"center",5,400,20);
 
                   HS_SetOriginFromHotspot("Front_Hotspot_2");
-                  HS_DrawLine([40, 0], [0, 0]);
-                  HS_DrawLine([40, 200], [40, 0]);
+                  HS_DrawLine([40,0],[0,0]);
+                  HS_DrawLine([40,200],[40,0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([40, 205], port2, "Roboto", 10, "right", 300);
+                  HS_DrawText([40,205],port2,"Roboto",10,"right",300);
 
                }
                else if (currentPosition == 'back') {
-                  HS_SimpleCallout([0, 50], 0, 0, "Rear_Hotspot_1", "", port13, "center", 5, 190, 0);
+                  HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-200, -335], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3, "Roboto", 10, "left", 200);
+                  HS_DrawText([-200,-335],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_3,"Roboto",10,"left",200);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-200, -80], port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4, "Roboto", 10, "left", 250);
+                  HS_DrawText([-200,-80],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
 
                }
                else if (currentPosition == 'top') {
 
                   HS_SetOriginFromHotspot("Top_Hotspot_1");
-                  HS_DrawLine([60, 0], [0, 0]);
-                  HS_DrawLine([60, -160], [60, 0]);
+                  HS_DrawLine([60,0],[0,0]);
+                  HS_DrawLine([60,-160],[60,0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([60, -170], port3, "Roboto", 10, "right", 160);
+                  HS_DrawText([60,-170],port3,"Roboto",10,"right",160);
 
                   HS_SetOriginFromHotspot("Top_Hotspot_2");
-                  HS_DrawLine([40, 0], [0, 0]);
-                  HS_DrawLine([40, 150], [40, 0]);
+                  HS_DrawLine([40,0],[0,0]);
+                  HS_DrawLine([40,150],[40,0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([40, 150], port4, "Roboto", 10, "right", 160);
+                  HS_DrawText([40,150],port4,"Roboto",10,"right",160);
 
-                  HS_SimpleCallout([0, 76], 0, 0, "Top_Hotspot_3", "", port5, "right", 5, 190, 60)
+                  HS_SimpleCallout([0,76],0,0,"Top_Hotspot_3","",port5,"right",5,190,60)
 
 
                }
                else if (currentPosition == 'left') {
-                  HS_SimpleCallout([0, -40], 0, 0, "Left_Hotspot_7", "", port6, "right", 0, 100, 5);
+                  HS_SimpleCallout([0,-40],0,0,"Left_Hotspot_7","",port6,"right",0,100,5);
 
-                  HS_SimpleCallout([0, -60], 0, 0, "Left_Hotspot_6", "", port7, "center", 18, 80,);
+                  HS_SimpleCallout([0,-60],0,0,"Left_Hotspot_6","",port7,"center",18,80,);
 
                   HS_SetOriginFromHotspot("Left_Hotspot_5");
-                  HS_DrawLine([0, -50], [0, -2]); //h
-                  HS_DrawLine([23, -50], [23, -2]); //h2
-                  HS_DrawLine([0, -50], [23, -50]); //v
-                  HS_DrawLine([12, -50], [12, -120]); //h3
+                  HS_DrawLine([0,-50],[0,-2]); //h
+                  HS_DrawLine([23,-50],[23,-2]); //h2
+                  HS_DrawLine([0,-50],[23,-50]); //v
+                  HS_DrawLine([12,-50],[12,-120]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([15, -155], port8, "Roboto", 10, "center", 100)
+                  HS_DrawText([15,-155],port8,"Roboto",10,"center",100)
 
-                  HS_SimpleCallout([0, -60], 0, 0, "Left_Hotspot_3", "", port9, "right", 5, 300, 20);
+                  HS_SimpleCallout([0,-60],0,0,"Left_Hotspot_3","",port9,"right",5,300,20);
 
-                  HS_SimpleCallout([0, -90], 0, 0, "Left_Hotspot_2", "", port10, "right", 5, 300, 15);
+                  HS_SimpleCallout([0,-90],0,0,"Left_Hotspot_2","",port10,"right",5,300,15);
 
-                  HS_SimpleCallout([0, -120], 0, 0, "Left_Hotspot_1", "", port22, "right", 5, 300, 16);
+                  HS_SimpleCallout([0,-120],0,0,"Left_Hotspot_1","",port22,"right",5,300,16);
 
 
 
                }
                else if (currentPosition == 'right') {
-                  HS_SimpleCallout([0, -40], 0, 0, "Right_Hotspot_3", "", port12, "left", 0, 300, -5);
+                  HS_SimpleCallout([0,-40],0,0,"Right_Hotspot_3","",port12,"left",0,300,-5);
 
                   HS_SetOriginFromHotspot("Right_Hotspot_1");
-                  HS_DrawLine([0, -40], [0, -2]); //h
-                  HS_DrawLine([18, -40], [18, -2]); //h2
-                  HS_DrawLine([0, -40], [18, -40]); //v
-                  HS_DrawLine([9, -40], [9, -110]); //h3
+                  HS_DrawLine([0,-40],[0,-2]); //h
+                  HS_DrawLine([18,-40],[18,-2]); //h2
+                  HS_DrawLine([0,-40],[18,-40]); //v
+                  HS_DrawLine([9,-40],[9,-110]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([10, -134], port11, "Roboto", 10, "center", 80)
+                  HS_DrawText([30,-134],port11,"Roboto",10,"center",80)
 
                }
                else if (currentPosition == 'explode') {
@@ -1658,70 +1794,70 @@
             if (window.innerWidth > window.innerHeight) {
                console.log("lanscap_ipad");
                if (currentPosition == 'front') {
-                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 15, 400, 20);
+                  HS_SimpleCallout([0,-50],0,0,"Front_Hotspot_1","",port1,"center",15,400,20);
 
                   HS_SetOriginFromHotspot("Front_Hotspot_2");
-                  HS_DrawLine([60, 0], [0, 0]);
-                  HS_DrawLine([60, 280], [60, 0]);
+                  HS_DrawLine([60,0],[0,0]);
+                  HS_DrawLine([60,280],[60,0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([60, 290], port2, "Roboto", 13, "right", 300);
+                  HS_DrawText([60,290],port2,"Roboto",13,"right",300);
 
 
                }
                else if (currentPosition == 'back') {
-                  HS_SimpleCallout([0, 50], 0, 0, "Rear_Hotspot_1", "", port13, "center", 5, 190, 0);
+                  HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-250, -80], port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4, "Roboto", 13, "left", 250);
+                  HS_DrawText([-250,-80],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",13,"left",250);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-320, -538], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4, "Roboto", 13, "left", 200);
+                  HS_DrawText([-320,-538],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",13,"left",200);
 
 
                }
                else if (currentPosition == 'top') {
-                  HS_SimpleCallout([40, 0], 0, 0, "Top_Hotspot_1", "", port3, "left", 0, 150, 5);
+                  HS_SimpleCallout([40,0],0,0,"Top_Hotspot_1","",port3,"left",0,150,5);
 
-                  HS_SimpleCallout([40, 0], 0, 0, "Top_Hotspot_2", "", port4, "left", 0, 190, 10);
+                  HS_SimpleCallout([40,0],0,0,"Top_Hotspot_2","",port4,"left",0,190,10);
 
-                  HS_SimpleCallout([0, 120], 0, 0, "Top_Hotspot_3", "", port5, "right", 5, 190, 60)
+                  HS_SimpleCallout([0,120],0,0,"Top_Hotspot_3","",port5,"right",5,190,60)
                }
                else if (currentPosition == 'left') {
 
-                  HS_SimpleCallout([0, -45], 0, 0, "Left_Hotspot_7", "", port6, "center", 15, 100, -5);
+                  HS_SimpleCallout([0,-45],0,0,"Left_Hotspot_7","",port6,"center",15,100,-25);
 
-                  HS_SimpleCallout([0, -190], 0, 0, "Left_Hotspot_1", "", port22, "right", 5, 300, 25);
+                  HS_SimpleCallout([0,-190],0,0,"Left_Hotspot_1","",port22,"right",5,300,25);
 
-                  HS_SimpleCallout([0, -160], 0, 0, "Left_Hotspot_2", "", port10, "right", 5, 300, 25);
+                  HS_SimpleCallout([0,-160],0,0,"Left_Hotspot_2","",port10,"right",5,300,25);
 
-                  HS_SimpleCallout([0, -100], 0, 0, "Left_Hotspot_3", "", port9, "right", 5, 300, 30);
+                  HS_SimpleCallout([0,-100],0,0,"Left_Hotspot_3","",port9,"right",5,300,30);
 
                   HS_SetOriginFromHotspot("Left_Hotspot_5");
-                  HS_DrawLine([0, -60], [0, -2]); //h
-                  HS_DrawLine([43, -60], [43, -2]); //h2
-                  HS_DrawLine([0, -60], [43, -60]); //v
-                  HS_DrawLine([24, -60], [24, -165]); //h3
+                  HS_DrawLine([0,-60],[0,-2]); //h
+                  HS_DrawLine([43,-60],[43,-2]); //h2
+                  HS_DrawLine([0,-60],[43,-60]); //v
+                  HS_DrawLine([24,-60],[24,-165]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([25, -190], port8, "Roboto", 13, "center", 150)
+                  HS_DrawText([25,-190],port8,"Roboto",13,"center",150)
 
-                  HS_SimpleCallout([0, -95], 0, 0, "Left_Hotspot_6", "", port7, "center", 24, 100, 0);
+                  HS_SimpleCallout([0,-95],0,0,"Left_Hotspot_6","",port7,"center",24,100,0);
 
                }
                else if (currentPosition == 'right') {
 
-                  HS_SimpleCallout([0, -60], 0, 0, "Right_Hotspot_3", "", port12, "left", 5, 300, -5);
+                  HS_SimpleCallout([0,-60],0,0,"Right_Hotspot_3","",port12,"left",5,300,-5);
 
 
                   HS_SetOriginFromHotspot("Right_Hotspot_1");
-                  HS_DrawLine([0, -60], [0, -2]); //h
-                  HS_DrawLine([33, -60], [33, -2]); //h2
-                  HS_DrawLine([0, -60], [33, -60]); //v
-                  HS_DrawLine([17, -60], [17, -140]); //h3
+                  HS_DrawLine([0,-60],[0,-2]); //h
+                  HS_DrawLine([33,-60],[33,-2]); //h2
+                  HS_DrawLine([0,-60],[33,-60]); //v
+                  HS_DrawLine([17,-60],[17,-140]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([20, -160], port11, "Roboto", 13, "center", 120)
+                  HS_DrawText([20,-160],port11,"Roboto",13,"center",120)
 
                }
                else if (currentPosition == 'explode') {
@@ -1738,77 +1874,77 @@
                console.log("portrait_ipad");
                if (currentPosition == 'front') {
 
-                  HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 20, 400, 20);
+                  HS_SimpleCallout([0,-50],0,0,"Front_Hotspot_1","",port1,"center",20,400,20);
 
                   HS_SetOriginFromHotspot("Front_Hotspot_2");
-                  HS_DrawLine([45, 0], [0, 0]);
-                  HS_DrawLine([45, 250], [45, 0]);
+                  HS_DrawLine([45,0],[0,0]);
+                  HS_DrawLine([45,250],[45,0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([45, 255], port2, "Roboto", 13, "right", 300);
+                  HS_DrawText([45,255],port2,"Roboto",13,"right",300);
 
                }
                else if (currentPosition == 'back') {
-                  HS_SimpleCallout([0, 50], 0, 0, "Rear_Hotspot_1", "", port13, "center", 5, 190, 0);
+                  HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-250, -80], port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4, "Roboto", 13, "left", 250);
+                  HS_DrawText([-250,-80],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",13,"left",250);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-220, -423], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4, "Roboto", 13, "left", 200);
+                  HS_DrawText([-220,-433],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",13,"left",200);
 
                }
                else if (currentPosition == 'top') {
 
                   HS_SetOriginFromHotspot("Top_Hotspot_1");
-                  HS_DrawLine([90, 0], [0, 0]);
-                  HS_DrawLine([90, -180], [90, 0]);
+                  HS_DrawLine([90,0],[0,0]);
+                  HS_DrawLine([90,-180],[90,0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([90, -190], port3, "Roboto", 13, "right", 160);
+                  HS_DrawText([90,-190],port3,"Roboto",13,"right",160);
 
                   HS_SetOriginFromHotspot("Top_Hotspot_2");
-                  HS_DrawLine([60, 0], [0, 0]);
-                  HS_DrawLine([60, 190], [60, 0]);
+                  HS_DrawLine([60,0],[0,0]);
+                  HS_DrawLine([60,190],[60,0]);
                   ctxCallouts.fillStyle = '#d8d8d8';
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([60, 190], port4, "Roboto", 13, "right", 160);
+                  HS_DrawText([60,190],port4,"Roboto",13,"right",160);
 
-                   HS_SimpleCallout([0, 90], 0, 0, "Top_Hotspot_3", "", port5, "right", 5, 190, 60)
-                     
+                  HS_SimpleCallout([0,90],0,0,"Top_Hotspot_3","",port5,"right",5,190,60)
+
                }
                else if (currentPosition == 'left') {
-                  HS_SimpleCallout([0, -45], 0, 0, "Left_Hotspot_7", "", port6, "center", 15, 100, -5);
+                  HS_SimpleCallout([0,-45],0,0,"Left_Hotspot_7","",port6,"center",15,100,-25);
 
-                  HS_SimpleCallout([0, -95], 0, 0, "Left_Hotspot_6", "", port7, "center", 18, 100,);
+                  HS_SimpleCallout([0,-95],0,0,"Left_Hotspot_6","",port7,"center",18,100,);
 
                   HS_SetOriginFromHotspot("Left_Hotspot_5");
-                  HS_DrawLine([0, -60], [0, -2]); //h
-                  HS_DrawLine([33, -60], [33, -2]); //h2
-                  HS_DrawLine([0, -60], [33, -60]); //v
-                  HS_DrawLine([17, -60], [17, -140]); //h3
+                  HS_DrawLine([0,-60],[0,-2]); //h
+                  HS_DrawLine([33,-60],[33,-2]); //h2
+                  HS_DrawLine([0,-60],[33,-60]); //v
+                  HS_DrawLine([17,-60],[17,-140]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([25, -160], port8, "Roboto", 13, "center", 150)
+                  HS_DrawText([25,-160],port8,"Roboto",13,"center",150)
 
-                  HS_SimpleCallout([0, -100], 0, 0, "Left_Hotspot_3", "", port9, "right", 5, 300, 30);
+                  HS_SimpleCallout([0,-100],0,0,"Left_Hotspot_3","",port9,"right",5,300,30);
 
-                  HS_SimpleCallout([0, -60], 0, 0, "Left_Hotspot_2", "", port10, "right", 5, 300, 15);
+                  HS_SimpleCallout([0,-60],0,0,"Left_Hotspot_2","",port10,"right",5,300,15);
 
-                  HS_SimpleCallout([0, -190], 0, 0, "Left_Hotspot_1", "", port22, "right", 5, 300, 16);
+                  HS_SimpleCallout([0,-190],0,0,"Left_Hotspot_1","",port22,"right",5,300,16);
 
                }
                else if (currentPosition == 'right') {
-                  HS_SimpleCallout([0, -60], 0, 0, "Right_Hotspot_3", "", port12, "left", 5, 300, -5);
+                  HS_SimpleCallout([0,-60],0,0,"Right_Hotspot_3","",port12,"left",5,300,-5);
 
                   HS_SetOriginFromHotspot("Right_Hotspot_1");
-                  HS_DrawLine([0, -60], [0, -2]); //h
-                  HS_DrawLine([28, -60], [28, -2]); //h2
-                  HS_DrawLine([0, -60], [28, -60]); //v
-                  HS_DrawLine([15, -60], [15, -140]); //h3
+                  HS_DrawLine([0,-60],[0,-2]); //h
+                  HS_DrawLine([28,-60],[28,-2]); //h2
+                  HS_DrawLine([0,-60],[28,-60]); //v
+                  HS_DrawLine([15,-60],[15,-140]); //h3
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([25, -164], port11, "Roboto", 13, "center", 120)
+                  HS_DrawText([25,-164],port11,"Roboto",13,"center",120)
                }
                else if (currentPosition == 'explode') {
                   // console.log('explode');
@@ -1839,92 +1975,109 @@
             if (currentPosition == 'front') {
                // setHotSpot('hotspot1demo','Front_Hotspot_1',50,-15,1.0,port0,200,19,"right");
 
-               HS_SimpleCallout([0, -50], 0, 0, "Front_Hotspot_1", "", port1, "center", 24, 400, 20);
+               HS_SimpleCallout([0,-50],0,0,"Front_Hotspot_1","",port1,"center",24,400,20);
                // setHotSpot('hotspot2','hotspot_010',110,-112,0,port1,395,18,"center");
 
-               HS_SimpleCallout([50, 0], 0, 0, "Front_Hotspot_2", "", port2, "left", 10, 190, 0);
+               HS_SimpleCallout([50,0],0,0,"Front_Hotspot_2","",port2,"left",10,190,0);
                // setHotSpot('hotspot3','hotspot_012',351,-12,0,port3,310,18,"center");
 
             }
             else if (currentPosition == 'back') {
-               HS_SimpleCallout([120, -5], 0, -5, "Rear_Hotspot_1", "", port13, "left", 0, 190, 10);
+
+               if (navigator.userAgent.indexOf("Safari") != -1 && (window.innerWidth >= 1300 || window.innerWidth <= 1750)) {
+
+                  HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,50,10);
+
+                  // setHotSpot('hotspot1demo','hotspot_030',50,-15,1.0,port0,200,19,"right");
+                  HS_SetOriginFromHotspot("Rear_Hotspot_3");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-80,53],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"left",50);
+
+                  HS_SetOriginFromHotspot("Rear_Hotspot_2");
+                  ctxCallouts.fillStyle = 'black';
+                  HS_DrawText([-580,-410],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",50);
+               }
+
+
+
+               HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,190,10);
 
                // setHotSpot('hotspot1demo','hotspot_030',50,-15,1.0,port0,200,19,"right");
                HS_SetOriginFromHotspot("Rear_Hotspot_3");
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-80, 53], port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4, "Roboto", 15, "left", 250);
+               HS_DrawText([-80,53],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"left",250);
 
                HS_SetOriginFromHotspot("Rear_Hotspot_2");
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-580, -410], port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4, "Roboto", 15, "left", 200);
+               HS_DrawText([-580,-410],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",200);
 
                // setHotSpot('hotspot16','hotspot_030',1045,-70,0,port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port53 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39,320,19,"left")
             }
             else if (currentPosition == 'top') {
                // setHotSpot('hotspot1demo','Top_Hotspot_1',278,72,0,port0,195,18,"right");
 
-               HS_SimpleCallout([60, 0], 0, 0, "Top_Hotspot_1", "", port3, "left", 0, 190, 10);
+               HS_SimpleCallout([60,0],0,0,"Top_Hotspot_1","",port3,"left",0,190,10);
                // setHotSpot('hotspot10','hotspot_024',71,-10,0,port22,142,18,"left");
 
 
-               HS_SimpleCallout([60, 0], 0, 0, "Top_Hotspot_2", "", port4, "left", 0, 190, 10);
+               HS_SimpleCallout([60,0],0,0,"Top_Hotspot_2","",port4,"left",0,190,10);
                // setHotSpot('hotspot14','hotspot_025',659,-85,0,port23,260,18,"left");
 
-               HS_SimpleCallout([-250, 0], 0, 0, "Top_Hotspot_3", "", port5, "right", 10, 190, 10);
+               HS_SimpleCallout([-250,0],0,0,"Top_Hotspot_3","",port5,"right",10,190,10);
 
 
             }
             else if (currentPosition == 'left') {
                // setHotSpot('hotspot1demo','Chassis_intrusion_switch_hotspot',50,-15,1.0,port0,200,19,"right");
 
-               HS_SimpleCallout([0, -190], 0, 0, "Left_Hotspot_1", "", port22, "right", 5, 300, 25);
+               HS_SimpleCallout([0,-190],0,0,"Left_Hotspot_1","",port22,"right",5,300,25);
 
-               HS_SimpleCallout([0, -160], 0, 0, "Left_Hotspot_2", "", port10, "right", 5, 300, 25);
+               HS_SimpleCallout([0,-160],0,0,"Left_Hotspot_2","",port10,"right",5,300,25);
 
-               HS_SimpleCallout([0, -100], 0, 0, "Left_Hotspot_3", "", port9, "right", 5, 300, 30);
+               HS_SimpleCallout([0,-100],0,0,"Left_Hotspot_3","",port9,"right",5,300,30);
 
                HS_SetOriginFromHotspot("Left_Hotspot_5");
-               HS_DrawLine([0, -60], [0, -2]); //h
-               HS_DrawLine([43, -60], [43, -2]); //h2
-               HS_DrawLine([0, -60], [43, -60]); //v
-               HS_DrawLine([24, -60], [24, -140]); //h3
+               HS_DrawLine([0,-60],[0,-2]); //h
+               HS_DrawLine([43,-60],[43,-2]); //h2
+               HS_DrawLine([0,-60],[43,-60]); //v
+               HS_DrawLine([24,-60],[24,-140]); //h3
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([25, -190], port8, "Roboto", 15, "center", 150)
+               HS_DrawText([25,-190],port8,"Roboto",15,"center",150)
 
-               HS_SimpleCallout([0, -95], 0, 0, "Left_Hotspot_6", "", port7, "center", 24, 100, 0);
+               HS_SimpleCallout([0,-95],0,0,"Left_Hotspot_6","",port7,"center",24,100,0);
 
 
-               HS_SimpleCallout([0, -35], 0, 0, "Left_Hotspot_7", "", port6, "center", 25, 100, -5);
+               HS_SimpleCallout([0,-35],0,0,"Left_Hotspot_7","",port6,"center",25,100,-5);
 
             }
             else if (currentPosition == 'right') {
                // setHotSpot('hotspot1demo','hotspot_016',278,72,0,port0,195,18,"right");
 
                HS_SetOriginFromHotspot("Right_Hotspot_1");
-               HS_DrawLine([0, -60], [0, -1]); //h
-               HS_DrawLine([33, -60], [33, -1]); //h2
-               HS_DrawLine([0, -60], [33, -60]); //v
-               HS_DrawLine([17, -60], [17, -140]); //h3
+               HS_DrawLine([0,-60],[0,-1]); //h
+               HS_DrawLine([33,-60],[33,-1]); //h2
+               HS_DrawLine([0,-60],[33,-60]); //v
+               HS_DrawLine([17,-60],[17,-140]); //h3
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([25, -174], port11, "Roboto", 15, "center", 120)
+               HS_DrawText([25,-174],port11,"Roboto",15,"center",120)
 
-               HS_SimpleCallout([0, -60], 0, 0, "Right_Hotspot_3", "", port12, "left", 5, 300, -5);
+               HS_SimpleCallout([0,-60],0,0,"Right_Hotspot_3","",port12,"left",5,300,-5);
 
             }
             else if (currentPosition == 'explode') {
-               setHotSpot('hotspot1demo', 'hotspot_040', 50, -15, 1.0, port0, 200, 19, "right");
+               setHotSpot('hotspot1demo','hotspot_040',50,-15,1.0,port0,200,19,"right");
 
-               HS_SimpleCallout([-250, 80], -250, 80, "hotspot_040", "", port45, "right", 20, 150, 20);
+               HS_SimpleCallout([-250,80],-250,80,"hotspot_040","",port45,"right",20,150,20);
                // setHotSpot('hotspot23','Hotspot_exploded_05_MB',-338,175,0,port41,305,18,"right");
                // HS_SimpleCallout([-180,140],0,0,"Hotspot_exploded_02_Storage_b","",port42,"center",30,300,20); 
 
-               HS_SimpleCallout([100, 60], 100, 60, "hotspot_043", "", port46, "left", 20, 200, -10);
+               HS_SimpleCallout([100,60],100,60,"hotspot_043","",port46,"left",20,200,-10);
                // setHotSpot('hotspot22','Hotspot_exploded_03_processor',445,148,0,port43,370,18,"center");
 
-               HS_SimpleCallout([70, -30], 70, -30, "hotspot_042", "", port47, "left", 10, 240, 0);
+               HS_SimpleCallout([70,-30],70,-30,"hotspot_042","",port47,"left",10,240,0);
                // setHotSpot('hotspot21','Hotspot_exploded_04_ram',528,-208,0,port44,345,19,"center");
 
-               HS_SimpleCallout([-190, -40], -190, -40, "hotspot_041", "", port48, "right", 10, 200, 0);
+               HS_SimpleCallout([-190,-40],-190,-40,"hotspot_041","",port48,"right",10,200,0);
                // setHotSpot('hotspot20','Hotspot_exploded_05_MB',-398,-138,0,port45,385,18,"right");
 
             }
@@ -1935,49 +2088,49 @@
 
       /*New HotSpot Assignment Functions*/
 
-      function HS_SimpleCallout1(pt, horizontalShift, verticalShift, hotspotname, txtNum, txtValue, txtAlign, txtDist, vrTextShift, maxWidth) {
+      function HS_SimpleCallout1(pt,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,txtAlign,txtDist,vrTextShift,maxWidth) {
          // HS_DrawText_WrapText(txtValue);
          //txtValue = txtValue.split('<br>');
-         var npt = [pt[0], pt[1]];
+         var npt = [pt[0],pt[1]];
          var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
          npt[0] /= nptlen;
          npt[1] /= nptlen;
          HS_SetOriginFromHotspot(hotspotname);
-         HS_DrawLine(pt, [horizontalShift, verticalShift]);
+         HS_DrawLine(pt,[horizontalShift,verticalShift]);
 
 
          if (txtNum != '') {
 
             ctxCallouts.fillStyle = '#d8d8d8';
-            HS_DrawCircle([pt[0] + 5 * npt[0], pt[1] + 5 * npt[1]], 13);
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
             ctxCallouts.fillStyle = 'black';
-            HS_DrawText([pt[0] + 5 * npt[0] + 1, pt[1] + 5 * npt[1] + 1], txtNum, "Roboto", 13, "center");
+            HS_DrawText([pt[0] + 5 * npt[0] + 1,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",13,"center");
          }
 
-         HS_DrawText([pt[0] + (txtDist) * npt[0], pt[1] + (5 + txtDist) * npt[1] - vrTextShift], txtValue, "Roboto", 15, txtAlign, maxWidth);
+         HS_DrawText([pt[0] + (txtDist) * npt[0],pt[1] + (5 + txtDist) * npt[1] - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
 
       }
 
 
-      function HS_F_smallAtStart_HrCallout(pt, vrLineHeight, distanceBtn2Vr, horizontalShift, verticalShift, hotspotname, txtNum, txtValue, vrTextShift, txtAlign, txtDist, maxWidth) {
+      function HS_F_smallAtStart_HrCallout(pt,vrLineHeight,distanceBtn2Vr,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,vrTextShift,txtAlign,txtDist,maxWidth) {
          if (vrTextShift == 'undefined') vrTextShift = 0;
          //txtValue = txtValue.split('<br>');
-         var npt = [pt[0], pt[1]];
+         var npt = [pt[0],pt[1]];
          var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
          npt[0] /= nptlen;
          npt[1] /= nptlen;
          HS_SetOriginFromHotspot(hotspotname);
-         HS_DrawLine([horizontalShift, vrLineHeight], [horizontalShift, verticalShift]);
-         HS_DrawLine([distanceBtn2Vr, vrLineHeight], [distanceBtn2Vr, verticalShift]);
-         HS_DrawLine(pt, [horizontalShift, vrLineHeight]);
+         HS_DrawLine([horizontalShift,vrLineHeight],[horizontalShift,verticalShift]);
+         HS_DrawLine([distanceBtn2Vr,vrLineHeight],[distanceBtn2Vr,verticalShift]);
+         HS_DrawLine(pt,[horizontalShift,vrLineHeight]);
          if (txtNum != '') {
             ctxCallouts.fillStyle = '#D8D8D8';
-            HS_DrawCircle([pt[0] + 5 * npt[0], pt[1] + 5 * npt[1]], 13);
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
             ctxCallouts.fillStyle = 'black';
             // HS_DrawText([pt[0] + 5 * npt[0], pt[1] + 6 * npt[1]], txtNum, "Roboto", 14, "center");
-            HS_DrawText([pt[0] + 5 * npt[0] + 2, pt[1] + 5 * npt[1] + 1], txtNum, "Roboto", 14, "center");
+            HS_DrawText([pt[0] + 5 * npt[0] + 2,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",14,"center");
          }
-         HS_DrawText([pt[0] + (txtDist) * npt[0], pt[1] + (5 + txtDist) * npt[1] - vrTextShift], txtValue, "Roboto", 15, txtAlign, maxWidth);
+         HS_DrawText([pt[0] + (txtDist) * npt[0],pt[1] + (5 + txtDist) * npt[1] - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
          /*
          if (direction == 'vr') {
              HS_DrawText([pt[0] + 5 * npt[0], pt[1] + 6 * npt[1]], txtNum, "Roboto", 14, "center");
@@ -2017,16 +2170,16 @@
 
       }
 
-      function HS_U_HrCallout(pt, hrLineWidth, vrLineHeight, hrShift, vrshift, hotspotname, txtNum, txtValue, vrTextShift, txtAlign, txtDist, maxWidth) {
-         var npt = [pt[0], pt[1]];
+      function HS_U_HrCallout(pt,hrLineWidth,vrLineHeight,hrShift,vrshift,hotspotname,txtNum,txtValue,vrTextShift,txtAlign,txtDist,maxWidth) {
+         var npt = [pt[0],pt[1]];
          var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
          npt[0] /= nptlen;
          npt[1] /= nptlen;
          HS_SetOriginFromHotspot(hotspotname);
-         HS_DrawLine([hrLineWidth, vrshift], [0, vrshift]);
-         HS_DrawLine([hrLineWidth, vrshift], [hrLineWidth, vrLineHeight]);
-         HS_DrawLine([hrLineWidth, vrLineHeight], [0, vrLineHeight]);
-         HS_DrawLine([pt[0], (vrLineHeight / 2) + vrshift / 2], [-vrLineHeight, (vrLineHeight / 2) + vrshift / 2]);
+         HS_DrawLine([hrLineWidth,vrshift],[0,vrshift]);
+         HS_DrawLine([hrLineWidth,vrshift],[hrLineWidth,vrLineHeight]);
+         HS_DrawLine([hrLineWidth,vrLineHeight],[0,vrLineHeight]);
+         HS_DrawLine([pt[0],(vrLineHeight / 2) + vrshift / 2],[-vrLineHeight,(vrLineHeight / 2) + vrshift / 2]);
 
          // HS_SetOriginFromHotspot(hotspotname);
          // HS_DrawLine([hrLineWidth, 0], [0, 0]);
@@ -2035,59 +2188,59 @@
          // HS_DrawLine([pt[0], vrLineHeight / 2], [-vrLineHeight, vrLineHeight / 2]);
          if (txtNum != '') {
             ctxCallouts.fillStyle = '#d8d8d8';
-            HS_DrawCircle([pt[0] + 5 * npt[0], (pt[1] + 5 * npt[1]) + (vrshift / 2)], 13);
+            HS_DrawCircle([pt[0] + 5 * npt[0],(pt[1] + 5 * npt[1]) + (vrshift / 2)],13);
 
             ctxCallouts.fillStyle = 'black';
-            HS_DrawText([pt[0] + 5 * npt[0] + 2, (pt[1] + 5 * npt[1] + 1) + (vrshift / 2)], txtNum, "Roboto", 14, "center");
+            HS_DrawText([pt[0] + 5 * npt[0] + 2,(pt[1] + 5 * npt[1] + 1) + (vrshift / 2)],txtNum,"Roboto",14,"center");
          }
-         HS_DrawText([pt[0] + (txtDist) * npt[0], (pt[1] + (5 + txtDist) * npt[1]) + (vrshift / 2) - vrTextShift], txtValue, "Roboto", 15, txtAlign, maxWidth);
+         HS_DrawText([pt[0] + (txtDist) * npt[0],(pt[1] + (5 + txtDist) * npt[1]) + (vrshift / 2) - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
 
       }
 
-      function HS_L_smallAtStart_HrCallout(pt, vrLineHeight, horizontalShift, verticalShift, hotspotname, txtNum, txtValue, vrTextShift, txtAlign, txtDist, maxWidth) {
+      function HS_L_smallAtStart_HrCallout(pt,vrLineHeight,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,vrTextShift,txtAlign,txtDist,maxWidth) {
          if (vrTextShift == 'undefined') vrTextShift = 0;
-         var npt = [pt[0], pt[1]];
+         var npt = [pt[0],pt[1]];
          var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
          npt[0] /= nptlen;
          npt[1] /= nptlen;
          HS_SetOriginFromHotspot(hotspotname);
-         HS_DrawLine([0, vrLineHeight], [horizontalShift, verticalShift]);
-         HS_DrawLine(pt, [0, vrLineHeight]);
+         HS_DrawLine([0,vrLineHeight],[horizontalShift,verticalShift]);
+         HS_DrawLine(pt,[0,vrLineHeight]);
          if (txtNum != '') {
             ctxCallouts.fillStyle = '#d8d8d8';
-            HS_DrawCircle([pt[0] + 5 * npt[0], pt[1] + 5 * npt[1]], 13);
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
 
             ctxCallouts.fillStyle = 'black';
-            HS_DrawText([pt[0] + 5 * npt[0] + 2, pt[1] + 5 * npt[1] + 1], txtNum, "Roboto", 14, "center");
+            HS_DrawText([pt[0] + 5 * npt[0] + 2,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",14,"center");
          }
-         HS_DrawText([pt[0] + (txtDist) * npt[0], pt[1] + (5 + txtDist) * npt[1] - vrTextShift], txtValue, "Roboto", 15, txtAlign, maxWidth);
+         HS_DrawText([pt[0] + (txtDist) * npt[0],pt[1] + (5 + txtDist) * npt[1] - vrTextShift],txtValue,"Roboto",15,txtAlign,maxWidth);
 
       }
 
-      function HS_SimpleCallout(pt, horizontalShift, verticalShift, hotspotname, txtNum, txtValue, txtAlign, txtDist, maxWidth, textHorizontalShift) {
+      function HS_SimpleCallout(pt,horizontalShift,verticalShift,hotspotname,txtNum,txtValue,txtAlign,txtDist,maxWidth,textHorizontalShift) {
          // HS_DrawText_WrapText(txtValue);
          //txtValue = txtValue.split('<br>');
          if (textHorizontalShift == undefined) textHorizontalShift = 0;
-         var npt = [pt[0], pt[1]];
+         var npt = [pt[0],pt[1]];
          var nptlen = Math.sqrt(npt[0] * npt[0] + npt[1] * npt[1]);
          npt[0] /= nptlen;
          npt[1] /= nptlen;
          HS_SetOriginFromHotspot(hotspotname);
-         HS_DrawLine(pt, [horizontalShift, verticalShift]);
+         HS_DrawLine(pt,[horizontalShift,verticalShift]);
          if (txtNum != '') {
             ctxCallouts.fillStyle = '#d8d8d8';
-            HS_DrawCircle([pt[0] + 5 * npt[0], pt[1] + 5 * npt[1]], 13);
+            HS_DrawCircle([pt[0] + 5 * npt[0],pt[1] + 5 * npt[1]],13);
             ctxCallouts.fillStyle = 'black';
-            HS_DrawText([pt[0] + 5 * npt[0] + 1, pt[1] + 5 * npt[1] + 1], txtNum, "Roboto", 13, "center");
+            HS_DrawText([pt[0] + 5 * npt[0] + 1,pt[1] + 5 * npt[1] + 1],txtNum,"Roboto",13,"center");
          }
          if (mob) {
-            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift, pt[1] + (5 + txtDist) * npt[1]], txtValue, "Roboto", 10, txtAlign, maxWidth);
+            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift,pt[1] + (5 + txtDist) * npt[1]],txtValue,"Roboto",10,txtAlign,maxWidth);
          }
          else if (isipad) {
-            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift, pt[1] + (5 + txtDist) * npt[1]], txtValue, "Roboto", 13, txtAlign, maxWidth);
+            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift,pt[1] + (5 + txtDist) * npt[1]],txtValue,"Roboto",13,txtAlign,maxWidth);
          }
          else {
-            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift, pt[1] + (5 + txtDist) * npt[1]], txtValue, "Roboto", 15, txtAlign, maxWidth);
+            HS_DrawText([pt[0] + ((txtDist) * npt[0]) + textHorizontalShift,pt[1] + (5 + txtDist) * npt[1]],txtValue,"Roboto",15,txtAlign,maxWidth);
          }
       }
 
@@ -2098,7 +2251,7 @@
       }
 
       function HS_SetOriginFromHotspot(name) {
-         var pos2D = scene.projectPoint(scene.getObjectLocation(name, true));
+         var pos2D = scene.projectPoint(scene.getObjectLocation(name,true));
          pos2D[0] = pos2D[0] * 0.5 + 0.5;
          pos2D[1] = pos2D[1] * 0.5 + 0.5;
          pos2D[1] = 1.0 - pos2D[1];
@@ -2109,27 +2262,27 @@
 
       function HS_SetOrigin(pt) {
          ctxCallouts.resetTransform();
-         ctxCallouts.translate(pt[0], pt[1]);
+         ctxCallouts.translate(pt[0],pt[1]);
          var scale = canvasCallouts.height / 800;
-         ctxCallouts.scale(scale, scale);
+         ctxCallouts.scale(scale,scale);
       }
 
-      function HS_DrawLine(pt0, pt1) {
+      function HS_DrawLine(pt0,pt1) {
          ctxCallouts.beginPath();
-         ctxCallouts.moveTo(pt0[0], pt0[1]);
-         ctxCallouts.lineTo(pt1[0], pt1[1]);
+         ctxCallouts.moveTo(pt0[0],pt0[1]);
+         ctxCallouts.lineTo(pt1[0],pt1[1]);
          ctxCallouts.stroke();
          //ctxCallouts.strokeStyle = '#0076CE';
          ctxCallouts.strokeStyle = '#979797';
       }
 
-      function HS_DrawCircle(pt, radius) {
+      function HS_DrawCircle(pt,radius) {
          ctxCallouts.beginPath();
-         ctxCallouts.ellipse(pt[0], pt[1], radius, radius, 0, 0, 2 * Math.PI);
+         ctxCallouts.ellipse(pt[0],pt[1],radius,radius,0,0,2 * Math.PI);
          ctxCallouts.fill();
       }
 
-      function HS_DrawText(pt, text, font, fontsize, txtalign, maxWidth) {
+      function HS_DrawText(pt,text,font,fontsize,txtalign,maxWidth) {
 
          ctxCallouts.font = fontsize + "px " + font;
          ctxCallouts.textAlign = txtalign;
@@ -2151,7 +2304,7 @@
             var testWidth = metrics.width;
             if (testWidth > maxWidth && n > 0 || words[n] == '<br>') {
                if (words[n] == '<br>') words[n] = '';
-               ctxCallouts.fillText(line, pt[0], pt[1]);
+               ctxCallouts.fillText(line,pt[0],pt[1]);
 
                if (words[n] != '<br>') {
                   line = words[n] + ' ';
@@ -2162,7 +2315,7 @@
             }
          }
 
-         ctxCallouts.fillText(line, pt[0], pt[1]);
+         ctxCallouts.fillText(line,pt[0],pt[1]);
 
       }
 
@@ -2183,7 +2336,7 @@
             var params = queryString.split('&');
             for (var i = 0; i < params.length; i++) {
                if (params[i].toLowerCase().indexOf("locale=") >= 0) {
-                  userLang = params[i].replace("locale=", "");
+                  userLang = params[i].replace("locale=","");
                   isUserLang = true;
                   break;
                }
@@ -2194,7 +2347,7 @@
          } else {
             userLang = "EN";
          }
-         setTimeout(getLangTranscript, 1000)
+         setTimeout(getLangTranscript,1000)
 
       }
 
@@ -2329,14 +2482,14 @@
                   if (userLang.toLowerCase() === "de" || finalLangues.lang.toLowerCase() === "it" || finalLangues.lang.toLowerCase() === "ro") {
                      setTimeout(function () {
                         document.querySelector("#mobHowToUseText").style.fontSize = '34px';
-                     }, 0);
+                     },0);
 
                   }
                   if (finalLangues.lang.toLowerCase() === "ru") {
                      setTimeout(function () {
                         document.querySelector("#mobHowToUseText").style.top = '-23%';
 
-                     }, 0);
+                     },0);
 
 
                   }
@@ -2344,7 +2497,7 @@
                      setTimeout(function () {
                         document.querySelector("#mobHowToUseText").style.top = '-15%';
 
-                     }, 0);
+                     },0);
                   }
 
 
@@ -2358,7 +2511,7 @@
                }
             }
          };
-         xmlhttp.open("GET", "locale.json", true);
+         xmlhttp.open("GET","locale.json",true);
          xmlhttp.send();
 
       }
