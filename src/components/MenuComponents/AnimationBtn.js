@@ -9,7 +9,7 @@ const animText = {
 }
 const Animationbtns = {
 
-   textAlign: "center",marginTop: "15px",position: "relative",marginRight: "50px",
+   textAlign: "center",marginTop: "15px",position: "relative",marginRight: "20px",
    display: "flex",justifyContent: "center",alignItems: "center"
 
 }

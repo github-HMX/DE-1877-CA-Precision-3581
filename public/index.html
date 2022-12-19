@@ -1133,10 +1133,10 @@
          //    scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
          // }
          if (mob || isipad) {
-         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13 ,gp.time,onComplete,onSample,opt);
-      } else {
-         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
-      }
+            window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13,gp.time,onComplete,onSample,opt);
+         } else {
+            window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+         }
 
       }
 
@@ -1508,7 +1508,7 @@
       var port7 = 'Universal headset';
       var port8 = '(2) USB 3.2 Gen 1 (one with power enabled)';
       var port9 = '"HDMI 2.0';
-      var port10 = 'RJ45';
+      var port10 = 'RJ-45';
       var port22 = "Lock slot";
       var port11 = '(2) THunderbolt 4 Type C';
       var port12 = 'Smart Card Reader';
@@ -1836,7 +1836,7 @@
                   HS_SimpleCallout([0,120],0,0,"Top_Hotspot_3","",port5,"right",5,190,60)
                   HS_SimpleCallout([-75,100],-75,-10,"Top_Hotspot_4","",port50,"left",5,100,0)
 
-                 
+
                }
                else if (currentPosition == 'left') {
 
@@ -2042,7 +2042,7 @@
                // setHotSpot('hotspot14','hotspot_025',659,-85,0,port23,260,18,"left");
 
                HS_SimpleCallout([-250,0],0,0,"Top_Hotspot_3","",port5,"right",10,190,10);
-               
+
                HS_SimpleCallout([100,-15],-80,-15,"Top_Hotspot_4","",port50,"left",0,100,10);
 
 

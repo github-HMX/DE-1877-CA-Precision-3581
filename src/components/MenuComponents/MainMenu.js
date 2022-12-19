@@ -71,8 +71,9 @@ const MainMenu = (props) => {
    };
    const [camData,setCamData] = useState("");
    var animationSwitch = window.localStorage.getItem('Animation');
-   var animTime = 1;
+   var animTime = 100;
    var animTimes = 1;
+   console.log(animTime);
 
    const getData = () => {
       fetch('./model_gl/config.json')
@@ -167,7 +168,7 @@ const MainMenu = (props) => {
 
       // console.log(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
       if (mob || isipad) {
-         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13 ,gp.time,onComplete,onSample,opt);
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13,gp.time,onComplete,onSample,opt);
       } else {
          window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
       }
@@ -599,9 +600,12 @@ const MainMenu = (props) => {
       }
 
       // window.localStorage.removeItem('hotspot');
+      window.localStorage.setItem("position","reset");
+
       resetBacklitCloseImg();
       // window.scene.groupApplyState("Backlit_OFF");
       GotoPosInTimeNamedValue(window.config.front,function () {
+
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
          window.hotspot = "front";
@@ -687,7 +691,7 @@ const MainMenu = (props) => {
 
          document.getElementById('nextView').setAttribute('aria-label','right view');
       }
-      window.hotspot = " "
+      // window.hotspot = " "
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
@@ -696,16 +700,17 @@ const MainMenu = (props) => {
       document.getElementById('rightBtn').classList.add('active');
 
       window.hotspot = " ";;
-
+      window.localStorage.setItem("position","reset");
       // window.localStorage.removeItem('hotspot');
       resetBacklitCloseImg();
       // window.scene.groupApplyState("Backlit_OFF");
       GotoPosInTimeNamedValue(window.config.right,function () {
-         window.scene.groupApplyState("Ref_ON");
+
          window.scene.groupApplyState("GP_ON");
-         window.hotspot = "right"
-         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-         window.scene.clearRefine();
+         window.scene.groupApplyState("Ref_ON");
+         // window.hotspot = "right"
+         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         // window.scene.clearRefine();
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -800,18 +805,21 @@ const MainMenu = (props) => {
       }
 
       document.getElementById('leftBtn').classList.add('active');
+      window.localStorage.setItem("position","reset");
 
-      window.hotspot = " ";;
 
-      window.hotspot = " ";;
+      // window.hotspot = " ";;
+
+      // window.hotspot = " ";;
 
       resetBacklitCloseImg();
 
       // window.scene.groupApplyState("Backlit_OFF");
 
       GotoPosInTimeNamedValue(window.config.left,function () {
-         window.scene.groupApplyState("Ref_ON");
+
          window.scene.groupApplyState("GP_ON");
+         window.scene.groupApplyState("Ref_ON");
          window.hotspot = "left"
          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          window.scene.clearRefine();
@@ -905,13 +913,14 @@ const MainMenu = (props) => {
 
 
       document.getElementById('topBtn').classList.add('active');
-      window.hotspot = " ";;
+      // window.hotspot = " ";;
       // window.scene.groupApplyState("screen_180");
       // if (laptop180) {
       //    window.scene.groupApplyState("screenfill_180");
       // } else {
       //    window.scene.groupApplyState("screenfill_360");
       // }
+      window.localStorage.setItem("position","reset");
       resetBacklitCloseImg();
       // window.scene.groupApplyState("Backlit_OFF");
       // window.scene.groupApplyState("GP_OFF");
@@ -1013,7 +1022,7 @@ const MainMenu = (props) => {
          alreadySelected.classList.remove('active');
       }
       document.getElementById('backBtn').classList.add('active');
-      window.hotspot = " ";;
+      // window.hotspot = " ";;
       var currentPosName = position.currentPos;
 
       selectedButton = 'onBackClick';
@@ -1023,7 +1032,7 @@ const MainMenu = (props) => {
          document.getElementById('nextView').setAttribute('aria-label','Front view');
       }
       window.hotspot = " ";;
-
+      window.localStorage.setItem("position","reset");
       GotoPosInTimeNamedValue(window.config.back,function () {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");

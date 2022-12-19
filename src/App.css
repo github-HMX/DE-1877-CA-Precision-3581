@@ -363,8 +363,8 @@ span.MuiButtonBase-root.MuiIconButton-root.PrivateSwitchBase-root-14.MuiSwitch-s
 	vertical-align: middle;
 	width: 62px;
 	height: 28px;
-	left: 5px;
-	top: -2px;
+	/* left: 5px; */
+	/* top: -2px; */
 }
 
 .switch input {
@@ -1244,7 +1244,7 @@ and (-webkit-device-pixel-ratio: 3) {
 		height: 95%;
 		top: 35px !important;
 		padding-right: 1px;
-		background-color: #f9f9f9;
+		/* background-color: #f9f9f9; */
 		z-index: 99999;
 	}
 }
