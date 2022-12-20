@@ -119,18 +119,19 @@ const MainMenu = (props) => {
    //For Animation Switch 
    // console.log('animationSwitch anim', animationSwitch)
 
-   if (animationSwitch == 'on') { animTime = 1000; animTimes = 2000 }
+   if (animationSwitch == 'on') { animTime = 800; animTimes = 2000 }
    else { animTime = 1; animTimes = 1 }
    // console.log('animTime', animTime)
 
    //new camera function
    const GotoPosInTimeNamedValue = (gotoposname,onComplete,onSample) => {
+   
       // console.log(gotoposname + "check")
       // below code is updated in it.  
       // updated code ends here
 
       var opt = undefined,gp = camData[gotoposname];
-
+      console.log('gotopose',gp)
       //    console.log(gp)
       if (gp.fovy && window.scene.fovy != gp.fovy)
          opt = { fovy: gp.fovy };
@@ -140,14 +141,14 @@ const MainMenu = (props) => {
          opt.zang = gp.pos[5];
       }
       // console.log('animationSwitch', animationSwitch)
-      if (animationSwitch == 'off') {
-         gp.time = 1
-         // console.log('animationSwitch iffff', gp.time)
-      }
-      else {
-         gp.time = animTime;
-         // console.log('animationSwitch elseeee', gp.time)
-      }
+      // if (animationSwitch == 'off') {
+      //    gp.time = 1
+      //    // console.log('animationSwitch iffff', gp.time)
+      // }
+      // else {
+      //    gp.time = animTime;
+      //    // console.log('animationSwitch elseeee', gp.time)
+      // }
       // console.log('animationSwitch',animationSwitch);
       // console.log('gp.time',gp.time);
       // window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
@@ -167,10 +168,11 @@ const MainMenu = (props) => {
 
 
       // console.log(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
+      console.log(gp.time)
       if (mob || isipad) {
          window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13,gp.time,onComplete,onSample,opt);
       } else {
-         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,onSample,opt);
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],800,onComplete,onSample,opt);
       }
    }
    //end
@@ -613,7 +615,7 @@ const MainMenu = (props) => {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-         window.scene.clearRefine();
+      
       })
       if (!(window.isipad || window.mob)) {
          document.getElementById("hotspot1").setAttribute("tabindex","1");
@@ -660,7 +662,7 @@ const MainMenu = (props) => {
       //    window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
       // }
       else {
-         // console.log("else")
+         console.log("animation time",animTime)
          window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       }
 
@@ -769,6 +771,7 @@ const MainMenu = (props) => {
       // }
       // else {
       // console.log("else")
+      console.log(animTime)
       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       // }
       position.currentPos = 'nintyDegree';
@@ -822,7 +825,6 @@ const MainMenu = (props) => {
          window.scene.groupApplyState("Ref_ON");
          window.hotspot = "left"
          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-         window.scene.clearRefine();
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -932,7 +934,7 @@ const MainMenu = (props) => {
          window.scene.groupApplyState("Ref_ON");
          window.hotspot = "top"
          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-         window.scene.clearRefine();
+ 
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -1037,7 +1039,7 @@ const MainMenu = (props) => {
          window.scene.groupApplyState("Ref_ON");
          window.scene.groupApplyState("GP_ON");
          window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-         window.scene.clearRefine();
+
          window.hotspot = "back"
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
@@ -1255,7 +1257,7 @@ const MainMenu = (props) => {
             window.scene.groupApplyState("Ref_ON");
             window.scene.groupApplyState("GP_ON");
             window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-            window.scene.clearRefine();
+ 
             // var center = [0,8.926640999999999,0];
             // window.scene._nav.SetRotationCenter(center);
 
@@ -1269,7 +1271,7 @@ const MainMenu = (props) => {
          window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
 
          window.RT_RecordEvent("Features","Open Lid",window.config.name);
-         window.scene.clearRefine();
+    
          position.currentPos = 'reset';
       } else {
          // console.log("close")
@@ -1369,7 +1371,7 @@ const MainMenu = (props) => {
             setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
          }
 
-         window.scene.clearRefine();
+        
       })
 
       //add for tab issues
@@ -1405,7 +1407,7 @@ const MainMenu = (props) => {
 
          })
          window.scene.groupApplyState("Backlight_OFF");
-         window.scene.clearRefine();
+    
          window.RT_RecordEvent("Features","Backlite Off",window.config.name);
 
       }
@@ -1426,7 +1428,7 @@ const MainMenu = (props) => {
          })
          window.scene.groupApplyState("Backlight_ON");
          window.RT_RecordEvent("Features","Backlite On",window.config.name);
-         window.scene.clearRefine();
+  
 
       }
       var currentPosName = position.currentPos;
@@ -1475,7 +1477,6 @@ const MainMenu = (props) => {
             setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
          }
 
-         window.scene.clearRefine();
       })
 
       //add for tab issues
@@ -1542,7 +1543,7 @@ const MainMenu = (props) => {
          })
 
 
-         window.scene.clearRefine();
+       
 
       }
       var currentPosName = position.currentPos;
