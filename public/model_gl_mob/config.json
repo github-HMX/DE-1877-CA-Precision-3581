@@ -1,5 +1,5 @@
 {
-    "displaylayers": [ "BEZEL_Variations", "Backlight_ON_OFF", "FPR_ON_OFF", "GP_ON_OFF", "Ref_ON_OFF", "SC_CARD" ],
+    "displaylayers": [ "BEZEL_Variations", "Backlight_ON_OFF", "FPR_ON_OFF", "GP_ON_OFF", "Ref_ON_OFF", "SC_CARD", "spot_ON_OFF" ],
     "positions": {
         "Bake_Camera": {
             "doffocusdist": 5.000000,
@@ -94,6 +94,6 @@
             "time": 0
         }
     },
-    "states": [ "7410_RND_RESET_v09_exr", "EMZA_ALS_Bezel", "FHD_RGB_Bezel", "FHD_RGB_IR_Bezel", "Backlight_OFF", "Backlight_ON", "FPR_OFF", "FPR_ON", "GP_OFF", "GP_ON", "Ref_OFF", "Ref_ON", "With_SC_CARD", "Without_SC_CARD" ],
+    "states": [ "7410_RND_RESET_v09_exr", "EMZA_ALS_Bezel", "FHD_RGB_Bezel", "FHD_RGB_IR_Bezel", "Backlight_OFF", "Backlight_ON", "FPR_OFF", "FPR_ON", "GP_OFF", "GP_ON", "Ref_OFF", "Ref_ON", "With_SC_CARD", "Without_SC_CARD", "SPOT_OFF", "SPOT_ON" ],
     "ver": "v2.0.560"
 }

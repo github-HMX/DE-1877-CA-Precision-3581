@@ -710,7 +710,7 @@ const MainMenu = (props) => {
 
          window.scene.groupApplyState("GP_ON");
          window.scene.groupApplyState("Ref_ON");
-         // window.hotspot = "right"
+         window.hotspot = "right"
          // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          // window.scene.clearRefine();
          // if (isNextPrevious != true) {
