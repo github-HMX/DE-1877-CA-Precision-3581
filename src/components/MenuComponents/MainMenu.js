@@ -73,7 +73,7 @@ const MainMenu = (props) => {
    var animationSwitch = window.localStorage.getItem('Animation');
    var animTime = 100;
    var animTimes = 1;
-   console.log(animTime);
+   // console.log(animTime);
 
    const getData = () => {
       fetch('./model_gl/config.json')
@@ -131,7 +131,7 @@ const MainMenu = (props) => {
       // updated code ends here
 
       var opt = undefined,gp = camData[gotoposname];
-      console.log('gotopose',gp)
+      // console.log('gotopose',gp)
       //    console.log(gp)
       if (gp.fovy && window.scene.fovy != gp.fovy)
          opt = { fovy: gp.fovy };
@@ -168,11 +168,11 @@ const MainMenu = (props) => {
 
 
       // console.log(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
-      console.log(gp.time)
+      // console.log(animTime)
       if (mob || isipad) {
-         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13,gp.time,onComplete,onSample,opt);
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13,animTime,onComplete,onSample,opt);
       } else {
-         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],800,onComplete,onSample,opt);
+         window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],animTime,onComplete,onSample,opt);
       }
    }
    //end
@@ -196,380 +196,380 @@ const MainMenu = (props) => {
       window.scene.clearRefine();
 
    }
-   const resetTimeline1 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_01_A')) window.scene.getAnim("Screen_grp_timeline_01_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_01_A')) window.scene.getAnim("Hinge_grp_timeline_01_A").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_01_A')) window.scene.getAnim("Main_grp_timeline_01_A").stop();
+   // const resetTimeline1 = (revers90Degree = true) => {
+   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
+   //    //window.scene.instanceSet("GP_Stand", "visible", false);
+   //    //window.scene.instanceSet("GP_Tent", "visible", false);
+   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
+   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
+   //    if (window.scene.animIsPlaying('Screen_grp_timeline_01_A')) window.scene.getAnim("Screen_grp_timeline_01_A").stop();
+   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_01_A')) window.scene.getAnim("Hinge_grp_timeline_01_A").stop();
+   //    if (window.scene.animIsPlaying('Main_grp_timeline_01_A')) window.scene.getAnim("Main_grp_timeline_01_A").stop();
 
-      if (revers90Degree) {
-         // window.scene.animPlayInTime("Screen_90_degree", 0, 0);
-         // window.scene.animPlayInTime("Screen_90_to_close180", 0, 0);
-         // window.scene.animPlayInTime("Screen_90_to_close360", 0, 0);
-      }
-      window.scene.animPlayInTime("Screen_grp_timeline_01_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_01_A",0,0);
-      window.scene.animPlayInTime("Main_grp_timeline_01_A",0,0);
-      window.scene.clearRefine();
-   }
-   const resetTimeline2 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_02_A')) window.scene.getAnim("Screen_grp_timeline_02_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_02_A')) window.scene.getAnim("Hinge_grp_timeline_02_A").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_02_A')) window.scene.getAnim("Main_grp_timeline_02_A").stop();
-      if (revers90Degree) {
-         // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-         // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
+   //    if (revers90Degree) {
+   //       // window.scene.animPlayInTime("Screen_90_degree", 0, 0);
+   //       // window.scene.animPlayInTime("Screen_90_to_close180", 0, 0);
+   //       // window.scene.animPlayInTime("Screen_90_to_close360", 0, 0);
+   //    }
+   //    window.scene.animPlayInTime("Screen_grp_timeline_01_A",0,0);
+   //    window.scene.animPlayInTime("Hinge_grp_timeline_01_A",0,0);
+   //    window.scene.animPlayInTime("Main_grp_timeline_01_A",0,0);
+   //    window.scene.clearRefine();
+   // }
+   // const resetTimeline2 = (revers90Degree = true) => {
+   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
+   //    //window.scene.instanceSet("GP_Stand", "visible", false);
+   //    //window.scene.instanceSet("GP_Tent", "visible", false);
+   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
+   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
+   //    if (window.scene.animIsPlaying('Screen_grp_timeline_02_A')) window.scene.getAnim("Screen_grp_timeline_02_A").stop();
+   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_02_A')) window.scene.getAnim("Hinge_grp_timeline_02_A").stop();
+   //    if (window.scene.animIsPlaying('Main_grp_timeline_02_A')) window.scene.getAnim("Main_grp_timeline_02_A").stop();
+   //    if (revers90Degree) {
+   //       // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
+   //       // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
 
-      }
-      window.scene.animPlayInTime("Screen_grp_timeline_02_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_02_A",0,0);
-      window.scene.animPlayInTime("Main_grp_timeline_02_A",0,0);
-      window.scene.clearRefine();
-   }
-   const resetTimeline3 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_03_A')) window.scene.getAnim("Screen_grp_timeline_03_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_03_A')) window.scene.getAnim("Hinge_grp_timeline_03_A").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_03_A')) window.scene.getAnim("Main_grp_timeline_03_A").stop();
-      if (revers90Degree) {
-         // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-         // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
+   //    }
+   //    window.scene.animPlayInTime("Screen_grp_timeline_02_A",0,0);
+   //    window.scene.animPlayInTime("Hinge_grp_timeline_02_A",0,0);
+   //    window.scene.animPlayInTime("Main_grp_timeline_02_A",0,0);
+   //    window.scene.clearRefine();
+   // }
+   // const resetTimeline3 = (revers90Degree = true) => {
+   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
+   //    //window.scene.instanceSet("GP_Stand", "visible", false);
+   //    //window.scene.instanceSet("GP_Tent", "visible", false);
+   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
+   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
+   //    if (window.scene.animIsPlaying('Screen_grp_timeline_03_A')) window.scene.getAnim("Screen_grp_timeline_03_A").stop();
+   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_03_A')) window.scene.getAnim("Hinge_grp_timeline_03_A").stop();
+   //    if (window.scene.animIsPlaying('Main_grp_timeline_03_A')) window.scene.getAnim("Main_grp_timeline_03_A").stop();
+   //    if (revers90Degree) {
+   //       // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
+   //       // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
 
-      }
-      window.scene.animPlayInTime("Screen_grp_timeline_03_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_03_A",0,0);
-      window.scene.animPlayInTime("Main_grp_timeline_03_A",0,0);
-      window.scene.clearRefine();
-   }
-   const resetTimeline4 = (revers90Degree = true) => {
-      //window.scene.instanceSet("GP_Close_360", "visible", false);
-      //window.scene.instanceSet("GP_Stand", "visible", false);
-      //window.scene.instanceSet("GP_Tent", "visible", false);
-      //window.scene.instanceSet("GP_Tablet", "visible", false);
-      if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-      if (window.scene.animIsPlaying('Main_grp_timeline_04_A')) window.scene.getAnim("Main_grp_timeline_04_A").stop();
-      if (window.scene.animIsPlaying('Hinge_grp_timeline_04_A')) window.scene.getAnim("Hinge_grp_timeline_04_A").stop();
-      if (window.scene.animIsPlaying('Screen_grp_timeline_04_A')) window.scene.getAnim("Screen_grp_timeline_04_A").stop();
-      if (revers90Degree) {
-         // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-         // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
+   //    }
+   //    window.scene.animPlayInTime("Screen_grp_timeline_03_A",0,0);
+   //    window.scene.animPlayInTime("Hinge_grp_timeline_03_A",0,0);
+   //    window.scene.animPlayInTime("Main_grp_timeline_03_A",0,0);
+   //    window.scene.clearRefine();
+   // }
+   // const resetTimeline4 = (revers90Degree = true) => {
+   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
+   //    //window.scene.instanceSet("GP_Stand", "visible", false);
+   //    //window.scene.instanceSet("GP_Tent", "visible", false);
+   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
+   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
+   //    if (window.scene.animIsPlaying('Main_grp_timeline_04_A')) window.scene.getAnim("Main_grp_timeline_04_A").stop();
+   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_04_A')) window.scene.getAnim("Hinge_grp_timeline_04_A").stop();
+   //    if (window.scene.animIsPlaying('Screen_grp_timeline_04_A')) window.scene.getAnim("Screen_grp_timeline_04_A").stop();
+   //    if (revers90Degree) {
+   //       // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
+   //       // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
 
-      }
-      window.scene.animPlayInTime("Main_grp_timeline_04_A",0,0);
-      window.scene.animPlayInTime("Hinge_grp_timeline_04_A",0,0);
-      window.scene.animPlayInTime("Screen_grp_timeline_04_A",0,0);
-      window.scene.clearRefine();
-   }
-   const posClicked1 = () => {
-      // window.localStorage.removeItem('hotspot');
-      // window.localStorage.removeItem('color');
-      window.scene.animPlayInTime("Screen_grp_timeline_01",0,animTime);
+   //    }
+   //    window.scene.animPlayInTime("Main_grp_timeline_04_A",0,0);
+   //    window.scene.animPlayInTime("Hinge_grp_timeline_04_A",0,0);
+   //    window.scene.animPlayInTime("Screen_grp_timeline_04_A",0,0);
+   //    window.scene.clearRefine();
+   // }
+   // const posClicked1 = () => {
+   //    // window.localStorage.removeItem('hotspot');
+   //    // window.localStorage.removeItem('color');
+   //    window.scene.animPlayInTime("Screen_grp_timeline_01",0,animTime);
 
-   }
+   // }
 
 
    //MenuSelectProduct
-   const [laptop360,setlaptop360] = useState(true);
+   // const [laptop360,setlaptop360] = useState(true);
 
    const [laptop180,setlaptop180] = useState(false);
 
-   const laptopClick = (event) => {
+   // const laptopClick = (event) => {
 
-      setlaptop180(true);
-      setlaptop360(false);
-      // console.log(laptop180);
-      setCounter(0);
-      selectedButton = 'onResetMode';
-      setValue(event.target.value);
-      setDisplayed(true);
-      // setExpandedPanel(false);
-      setHidden(false);
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    setlaptop180(true);
+   //    setlaptop360(false);
+   //    // console.log(laptop180);
+   //    setCounter(0);
+   //    selectedButton = 'onResetMode';
+   //    setValue(event.target.value);
+   //    setDisplayed(true);
+   //    // setExpandedPanel(false);
+   //    setHidden(false);
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
 
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('active');
+   //    }
 
-      document.getElementById('laptop').setAttribute('aria-label','laptop radio butoon selected');
-      // window.scene.groupApplyState("screen_180");
-      // window.scene.groupApplyState("GP_open");
-      // window.scene.groupApplyState("dynamic_reset");
-      // window.scene.groupApplyState("screenfill_180");
+   //    document.getElementById('laptop').setAttribute('aria-label','laptop radio butoon selected');
+   //    // window.scene.groupApplyState("screen_180");
+   //    // window.scene.groupApplyState("GP_open");
+   //    // window.scene.groupApplyState("dynamic_reset");
+   //    // window.scene.groupApplyState("screenfill_180");
 
-      setLaptop360FrontImg("./img/front180White.png");
-      setLaptop360TopImg("./img/top180White.png");
-      setLaptop360LefttImg("./img/180_white_left.png");
-      setLaptop360RightImg("./img/180_white_right.png");
-      resetBacklitCloseImg();
+   //    setLaptop360FrontImg("./img/front180White.png");
+   //    setLaptop360TopImg("./img/top180White.png");
+   //    setLaptop360LefttImg("./img/180_white_left.png");
+   //    setLaptop360RightImg("./img/180_white_right.png");
+   //    resetBacklitCloseImg();
 
-      window.localStorage.setItem("position","reset");
-      window.localStorage.setItem("laptop","laptop180");
-      // window.localStorage.removeItem('color');
+   //    window.localStorage.setItem("position","reset");
+   //    window.localStorage.setItem("laptop","laptop180");
+   //    // window.localStorage.removeItem('color');
 
-      var radiobtn1 = document.getElementById('twoinoneRadio');
-      radiobtn1.checked = false;
-      var radioSelector1 = document.querySelector('#twoinoneRadio')
-      var nextSibling1 = radioSelector1.nextElementSibling;
-      var selectSVG1 = nextSibling1.lastChild;
-      selectSVG1.style.transform = 'scale(0)'
-      // nextSibling1.classList.remove('PrivateRadioButtonIcon-checked-16')
-      var radiobtn2 = document.getElementById('laptopRadio');
-      radiobtn2.checked = true;
-      var radioSelector2 = document.querySelector('#laptopRadio')
-      var nextSibling2 = radioSelector2.nextElementSibling;
-      var selectSVG2 = nextSibling2.lastChild;
-      selectSVG2.style.transform = 'scale(1)'
-      // nextSibling2.classList.add('PrivateRadioButtonIcon-checked-16')
-      document.getElementById("laptopRadio").tabIndex = 1;
+   //    var radiobtn1 = document.getElementById('twoinoneRadio');
+   //    radiobtn1.checked = false;
+   //    var radioSelector1 = document.querySelector('#twoinoneRadio')
+   //    var nextSibling1 = radioSelector1.nextElementSibling;
+   //    var selectSVG1 = nextSibling1.lastChild;
+   //    selectSVG1.style.transform = 'scale(0)'
+   //    // nextSibling1.classList.remove('PrivateRadioButtonIcon-checked-16')
+   //    var radiobtn2 = document.getElementById('laptopRadio');
+   //    radiobtn2.checked = true;
+   //    var radioSelector2 = document.querySelector('#laptopRadio')
+   //    var nextSibling2 = radioSelector2.nextElementSibling;
+   //    var selectSVG2 = nextSibling2.lastChild;
+   //    selectSVG2.style.transform = 'scale(1)'
+   //    // nextSibling2.classList.add('PrivateRadioButtonIcon-checked-16')
+   //    document.getElementById("laptopRadio").tabIndex = 1;
 
-      // window.localStorage.removeItem('hotspot');
-      document.getElementById('whiteBtn').classList.add('select');
-      document.getElementById('whiteBtn').classList.add('active');
+   //    // window.localStorage.removeItem('hotspot');
+   //    document.getElementById('whiteBtn').classList.add('select');
+   //    document.getElementById('whiteBtn').classList.add('active');
 
-      // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      //  alreadySelected.classList.remove('active');
+   //    // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    //  alreadySelected.classList.remove('active');
 
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-      document.getElementById('whiteBtn').classList.add('active');
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.select');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('select');
-      }
-      window.RT_RecordEvent("Product Type","Laptop",window.config.name);
-      //add for tab issues
-      document.getElementById("hotspot1").setAttribute("tabindex","-1");
-      // document.getElementById("tentBtn").setAttribute("tabindex", "-1");
-      // document.getElementById("theaterBtn").setAttribute("tabindex", "-1");
-      // document.getElementById("tabletBtn").setAttribute("tabindex", "-1");
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('active');
+   //    }
+   //    document.getElementById('whiteBtn').classList.add('active');
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.select');
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('select');
+   //    }
+   //    window.RT_RecordEvent("Product Type","Laptop",window.config.name);
+   //    //add for tab issues
+   //    document.getElementById("hotspot1").setAttribute("tabindex","-1");
+   //    // document.getElementById("tentBtn").setAttribute("tabindex", "-1");
+   //    // document.getElementById("theaterBtn").setAttribute("tabindex", "-1");
+   //    // document.getElementById("tabletBtn").setAttribute("tabindex", "-1");
 
-      document.getElementById("hotspot2").setAttribute("tabindex","-1");
-      document.getElementById("hotspot3").setAttribute("tabindex","-1");
-      document.getElementById("hotspot4").setAttribute("tabindex","-1");
-      document.getElementById("hotspot5").setAttribute("tabindex","-1");
-      document.getElementById("hotspot6").setAttribute("tabindex","-1");
-      document.getElementById("hotspot7").setAttribute("tabindex","-1");
-      document.getElementById("hotspot8").setAttribute("tabindex","-1");
-      document.getElementById("hotspot9").setAttribute("tabindex","-1");
-      document.getElementById("hotspot10").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot2").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot3").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot4").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot5").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot6").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot7").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot8").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot9").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot10").setAttribute("tabindex","-1");
 
-      document.getElementById("hotspot11").setAttribute("tabindex","-1");
-      document.getElementById("hotspot12").setAttribute("tabindex","-1");
-      document.getElementById("hotspot13").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot11").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot12").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot13").setAttribute("tabindex","-1");
 
-      document.getElementById("tentBtn").setAttribute("tabindex","-1");
-      document.getElementById("theaterBtn").setAttribute("tabindex","-1");
-      document.getElementById("tabletBtn").setAttribute("tabindex","-1");
+   //    document.getElementById("tentBtn").setAttribute("tabindex","-1");
+   //    document.getElementById("theaterBtn").setAttribute("tabindex","-1");
+   //    document.getElementById("tabletBtn").setAttribute("tabindex","-1");
 
-      //  document.getElementById('laptop2in1').classList.remove('select');
-      document.getElementById('laptop').classList.add('active');
-      document.getElementById('laptop2in1').classList.remove('active');
-      document.getElementById('laptop2in1').classList.remove('select');
+   //    //  document.getElementById('laptop2in1').classList.remove('select');
+   //    document.getElementById('laptop').classList.add('active');
+   //    document.getElementById('laptop2in1').classList.remove('active');
+   //    document.getElementById('laptop2in1').classList.remove('select');
 
-      GotoPosInTimeNamedValue(window.config.default,function () {
+   //    GotoPosInTimeNamedValue(window.config.default,function () {
 
-         // window.scene.groupApplyState("Silver_180");
-         // window.scene.groupApplyState("screenfill_180");
-      });
+   //       // window.scene.groupApplyState("Silver_180");
+   //       // window.scene.groupApplyState("screenfill_180");
+   //    });
 
-      // document.querySelector('#blackBtn').classList.add('Btnsubmenus');
-      document.querySelector('#blackBtn').classList.remove('Mui-disabled');
-      // document.querySelector('#blackBtn').style.pointerEvents = 'auto';
-      document.querySelector('#blackBtn').style.pointerEvents = "auto";
-      // document.querySelector('#blackBtn').setAttribute = ("onclick");
-      // document.querySelector('#menucolor').setAttribute = ("onBlackBtnClick");
-
-
-      // document.querySelector('#tentBtn').classList.add('Mui-disabled');
-      document.querySelector('#tentBtn').style.pointerEvents = 'none';
-      // document.querySelector('#tentBtn').setAttribute("tabindex", "-1");
-
-      // document.querySelector('#theaterBtn').classList.add('Mui-disabled');
-      document.querySelector('#theaterBtn').style.pointerEvents = 'none';
-      // document.querySelector('#theaterBtn').setAttribute("tabindex", "-1");
-
-      // document.querySelector('#tabletBtn').classList.add('Mui-disabled');
-      document.querySelector('#tabletBtn').style.pointerEvents = 'none';
-      // document.querySelector('#tabletBtn').setAttribute("tabindex", "-1");
-      document.getElementById("blackBtn").setAttribute("tabindex","1");
-
-      // document.getElementById("tentBtn1").setAttribute("tabindex", "-1");
-      // document.getElementById("theaterBtn1").setAttribute("tabindex", "-1");
-      // document.getElementById("tabletBtn1").setAttribute("tabindex", "-1");
-
-      if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-         var currentPosName = position.currentPos;
-         if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-         window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version1",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-         window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-         window.scene.clearRefine();
-         position.currentPos = 'reset';
-         window.scene.clearRefine();
-      } else {
-         var currentPosName = position.currentPos;
-         if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-         window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-         window.scene.clearRefine();
-         position.currentPos = 'reset';
-         window.scene.clearRefine();
-      }
+   //    // document.querySelector('#blackBtn').classList.add('Btnsubmenus');
+   //    document.querySelector('#blackBtn').classList.remove('Mui-disabled');
+   //    // document.querySelector('#blackBtn').style.pointerEvents = 'auto';
+   //    document.querySelector('#blackBtn').style.pointerEvents = "auto";
+   //    // document.querySelector('#blackBtn').setAttribute = ("onclick");
+   //    // document.querySelector('#menucolor').setAttribute = ("onBlackBtnClick");
 
 
-   }
+   //    // document.querySelector('#tentBtn').classList.add('Mui-disabled');
+   //    document.querySelector('#tentBtn').style.pointerEvents = 'none';
+   //    // document.querySelector('#tentBtn').setAttribute("tabindex", "-1");
 
-   const [value,setValue] = useState('2 in 1');
+   //    // document.querySelector('#theaterBtn').classList.add('Mui-disabled');
+   //    document.querySelector('#theaterBtn').style.pointerEvents = 'none';
+   //    // document.querySelector('#theaterBtn').setAttribute("tabindex", "-1");
 
-   const select2in1Click = (event) => {
-      setlaptop360(true);
-      setlaptop180(false);
-      // console.log(laptop360);
-      selectedButton = 'onResetMode';
-      setValue(event.target.value);
-      setDisplayed(false);
-      setHidden(true);
-      // setExpandedPanel(false);
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-      document.getElementById('laptop2in1').setAttribute('aria-label','2in1 radio butoon selected');
-      var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-      if (alreadySelecte != null) {
-         alreadySelecte.classList.remove('select');
-      }
+   //    // document.querySelector('#tabletBtn').classList.add('Mui-disabled');
+   //    document.querySelector('#tabletBtn').style.pointerEvents = 'none';
+   //    // document.querySelector('#tabletBtn').setAttribute("tabindex", "-1");
+   //    document.getElementById("blackBtn").setAttribute("tabindex","1");
 
-      // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      // if(alreadySelected != null){
-      //   alreadySelected.classList.remove('active');
-      // }
-      document.getElementById('laptop2in1').classList.add('active');
-      document.getElementById('laptop2in1').classList.add('select');
-      document.getElementById('whiteBtn').classList.add('select');
-      document.getElementById('whiteBtn').classList.add('active');
-      document.getElementById('laptop').classList.remove('active');
-      document.getElementById('laptop').classList.remove('select');
-      document.getElementById("tentBtn").setAttribute("tabindex","1");
-      document.getElementById("theaterBtn").setAttribute("tabindex","1");
-      document.getElementById("tabletBtn").setAttribute("tabindex","1");
+   //    // document.getElementById("tentBtn1").setAttribute("tabindex", "-1");
+   //    // document.getElementById("theaterBtn1").setAttribute("tabindex", "-1");
+   //    // document.getElementById("tabletBtn1").setAttribute("tabindex", "-1");
 
-      // document.getElementById("blackBtn").setAttribute("tabindex", "-1");
-
-      // window.localStorage.removeItem('hotspot');
-      // window.scene.groupApplyState("screen_180");
-      // window.scene.groupApplyState("GP_open");
-      // window.localStorage.setItem("position","reset");
-      // window.scene.groupApplyState("screenfill_360");
-      // window.scene.groupApplyState("dynamic_reset");
-
-      window.localStorage.setItem("laptop","laptop360");
-      // window.localStorage.removeItem('hotspot');
-
-      var radiobtn1 = document.getElementById('laptopRadio');
-      radiobtn1.checked = false;
-      var radioSelector1 = document.querySelector('#laptopRadio')
-      var nextSibling1 = radioSelector1.nextElementSibling;
-      var selectSVG1 = nextSibling1.lastChild;
-      selectSVG1.style.transform = 'scale(0)'
-      var radiobtn2 = document.getElementById('twoinoneRadio');
-      radiobtn2.checked = true;
-      var radioSelector2 = document.querySelector('#twoinoneRadio')
-      var nextSibling2 = radioSelector2.nextElementSibling;
-      var selectSVG2 = nextSibling2.lastChild;
-      selectSVG2.style.transform = 'scale(1)'
-
-      // window.localStorage.removeItem('color');
-      document.getElementById("twoinoneRadio").tabIndex = 1;
+   //    if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+   //       var currentPosName = position.currentPos;
+   //       if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
+   //       window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version1",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+   //       window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+   //       window.scene.clearRefine();
+   //       position.currentPos = 'reset';
+   //       window.scene.clearRefine();
+   //    } else {
+   //       var currentPosName = position.currentPos;
+   //       if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
+   //       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+   //       window.scene.clearRefine();
+   //       position.currentPos = 'reset';
+   //       window.scene.clearRefine();
+   //    }
 
 
-      window.RT_RecordEvent("Product Type","2 in 1",window.config.name);
-      //add for tab issues
-      document.getElementById("hotspot1").setAttribute("tabindex","-1");
-      document.getElementById("hotspot2").setAttribute("tabindex","-1");
-      document.getElementById("hotspot3").setAttribute("tabindex","-1");
-      document.getElementById("hotspot4").setAttribute("tabindex","-1");
-      document.getElementById("hotspot5").setAttribute("tabindex","-1");
-      document.getElementById("hotspot6").setAttribute("tabindex","-1");
-      document.getElementById("hotspot7").setAttribute("tabindex","-1");
-      document.getElementById("hotspot8").setAttribute("tabindex","-1");
-      document.getElementById("hotspot9").setAttribute("tabindex","-1");
-      document.getElementById("hotspot10").setAttribute("tabindex","-1");
+   // }
 
-      document.getElementById("hotspot11").setAttribute("tabindex","-1");
-      document.getElementById("hotspot12").setAttribute("tabindex","-1");
-      document.getElementById("hotspot13").setAttribute("tabindex","-1");
+   // const [value,setValue] = useState('2 in 1');
+
+   // const select2in1Click = (event) => {
+   //    setlaptop360(true);
+   //    setlaptop180(false);
+   //    // console.log(laptop360);
+   //    selectedButton = 'onResetMode';
+   //    setValue(event.target.value);
+   //    setDisplayed(false);
+   //    setHidden(true);
+   //    // setExpandedPanel(false);
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('active');
+   //    }
+   //    document.getElementById('laptop2in1').setAttribute('aria-label','2in1 radio butoon selected');
+   //    var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
+   //    if (alreadySelecte != null) {
+   //       alreadySelecte.classList.remove('select');
+   //    }
+
+   //    // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    // if(alreadySelected != null){
+   //    //   alreadySelected.classList.remove('active');
+   //    // }
+   //    document.getElementById('laptop2in1').classList.add('active');
+   //    document.getElementById('laptop2in1').classList.add('select');
+   //    document.getElementById('whiteBtn').classList.add('select');
+   //    document.getElementById('whiteBtn').classList.add('active');
+   //    document.getElementById('laptop').classList.remove('active');
+   //    document.getElementById('laptop').classList.remove('select');
+   //    document.getElementById("tentBtn").setAttribute("tabindex","1");
+   //    document.getElementById("theaterBtn").setAttribute("tabindex","1");
+   //    document.getElementById("tabletBtn").setAttribute("tabindex","1");
+
+   //    // document.getElementById("blackBtn").setAttribute("tabindex", "-1");
+
+   //    // window.localStorage.removeItem('hotspot');
+   //    // window.scene.groupApplyState("screen_180");
+   //    // window.scene.groupApplyState("GP_open");
+   //    // window.localStorage.setItem("position","reset");
+   //    // window.scene.groupApplyState("screenfill_360");
+   //    // window.scene.groupApplyState("dynamic_reset");
+
+   //    window.localStorage.setItem("laptop","laptop360");
+   //    // window.localStorage.removeItem('hotspot');
+
+   //    var radiobtn1 = document.getElementById('laptopRadio');
+   //    radiobtn1.checked = false;
+   //    var radioSelector1 = document.querySelector('#laptopRadio')
+   //    var nextSibling1 = radioSelector1.nextElementSibling;
+   //    var selectSVG1 = nextSibling1.lastChild;
+   //    selectSVG1.style.transform = 'scale(0)'
+   //    var radiobtn2 = document.getElementById('twoinoneRadio');
+   //    radiobtn2.checked = true;
+   //    var radioSelector2 = document.querySelector('#twoinoneRadio')
+   //    var nextSibling2 = radioSelector2.nextElementSibling;
+   //    var selectSVG2 = nextSibling2.lastChild;
+   //    selectSVG2.style.transform = 'scale(1)'
+
+   //    // window.localStorage.removeItem('color');
+   //    document.getElementById("twoinoneRadio").tabIndex = 1;
 
 
-      setLaptop360FrontImg("./img/front360.png");
-      setLaptop360TopImg("./img/top360.png");
-      setLaptop360LefttImg("./img/360_left.png");
-      setLaptop360RightImg("./img/360_right.png");
+   //    window.RT_RecordEvent("Product Type","2 in 1",window.config.name);
+   //    //add for tab issues
+   //    document.getElementById("hotspot1").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot2").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot3").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot4").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot5").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot6").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot7").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot8").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot9").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot10").setAttribute("tabindex","-1");
 
-      resetBacklitCloseImg();
-
-      GotoPosInTimeNamedValue(window.config.default,function () {
-         // window.scene.groupApplyState("Silver");
-
-      });
-      // document.querySelector('#blackBtn').classList.add('Mui-disabled');
-      document.querySelector('#blackBtn').style.pointerEvents = "auto";
-      // document.querySelector('#blackBtns').classList.remove('Btnsubmenus');
-
-      // document.querySelector('#blackBtn').removeAttribute = ("onclick");
-
-      // document.querySelector('#menucolor').removeAttribute = ("onBlackBtnClick");
+   //    document.getElementById("hotspot11").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot12").setAttribute("tabindex","-1");
+   //    document.getElementById("hotspot13").setAttribute("tabindex","-1");
 
 
-      document.querySelector('#tentBtn').classList.remove('Mui-disabled');
-      document.querySelector('#tentBtn').style.pointerEvents = 'auto';
-      // document.querySelector('#tentBtn').setAttribute("tabindex", "1");
+   //    setLaptop360FrontImg("./img/front360.png");
+   //    setLaptop360TopImg("./img/top360.png");
+   //    setLaptop360LefttImg("./img/360_left.png");
+   //    setLaptop360RightImg("./img/360_right.png");
 
-      document.querySelector('#theaterBtn').classList.remove('Mui-disabled');
-      document.querySelector('#theaterBtn').style.pointerEvents = 'auto';
-      // document.querySelector('#theaterBtn').setAttribute("tabindex", "1");
+   //    resetBacklitCloseImg();
 
-      document.querySelector('#tabletBtn').classList.remove('Mui-disabled');
-      document.querySelector('#tabletBtn').style.pointerEvents = 'auto';
-      // document.querySelector('#tabletBtn').setAttribute("tabindex", "1");
-      document.getElementById("blackBtn").setAttribute("tabindex","1");
+   //    GotoPosInTimeNamedValue(window.config.default,function () {
+   //       // window.scene.groupApplyState("Silver");
 
-      // document.getElementById("tentBtn1").setAttribute("tabindex", "1");
-      // document.getElementById("theaterBtn1").setAttribute("tabindex", "1");
-      // document.getElementById("tabletBtn1").setAttribute("tabindex", "1");
+   //    });
+   //    // document.querySelector('#blackBtn').classList.add('Mui-disabled');
+   //    document.querySelector('#blackBtn').style.pointerEvents = "auto";
+   //    // document.querySelector('#blackBtns').classList.remove('Btnsubmenus');
 
-      if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-         var currentPosName = position.currentPos;
-         if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-         window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version1",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-         window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-         window.scene.clearRefine();
-         position.currentPos = 'reset';
-         window.scene.clearRefine();
-      }
-      else {
-         var currentPosName = position.currentPos;
-         if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-         window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-         window.scene.clearRefine();
-         position.currentPos = 'reset';
-         window.scene.clearRefine();
-      }
+   //    // document.querySelector('#blackBtn').removeAttribute = ("onclick");
 
-   }
+   //    // document.querySelector('#menucolor').removeAttribute = ("onBlackBtnClick");
+
+
+   //    document.querySelector('#tentBtn').classList.remove('Mui-disabled');
+   //    document.querySelector('#tentBtn').style.pointerEvents = 'auto';
+   //    // document.querySelector('#tentBtn').setAttribute("tabindex", "1");
+
+   //    document.querySelector('#theaterBtn').classList.remove('Mui-disabled');
+   //    document.querySelector('#theaterBtn').style.pointerEvents = 'auto';
+   //    // document.querySelector('#theaterBtn').setAttribute("tabindex", "1");
+
+   //    document.querySelector('#tabletBtn').classList.remove('Mui-disabled');
+   //    document.querySelector('#tabletBtn').style.pointerEvents = 'auto';
+   //    // document.querySelector('#tabletBtn').setAttribute("tabindex", "1");
+   //    document.getElementById("blackBtn").setAttribute("tabindex","1");
+
+   //    // document.getElementById("tentBtn1").setAttribute("tabindex", "1");
+   //    // document.getElementById("theaterBtn1").setAttribute("tabindex", "1");
+   //    // document.getElementById("tabletBtn1").setAttribute("tabindex", "1");
+
+   //    // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
+   //    //    var currentPosName = position.currentPos;
+   //    //    if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
+   //    //    window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version1",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+   //    //    window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+   //    //    window.scene.clearRefine();
+   //    //    position.currentPos = 'reset';
+   //    //    window.scene.clearRefine();
+   //    // }
+   //    // else {
+   //       var currentPosName = position.currentPos;
+   //       if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
+   //       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+   //       window.scene.clearRefine();
+   //       position.currentPos = 'reset';
+   //       window.scene.clearRefine();
+   //    // }
+
+   // }
 
    //MenuProductView
 
@@ -608,13 +608,13 @@ const MainMenu = (props) => {
       // window.scene.groupApplyState("Backlit_OFF");
       GotoPosInTimeNamedValue(window.config.front,function () {
 
-         window.scene.groupApplyState("Ref_ON");
-         window.scene.groupApplyState("GP_ON");
+         // window.scene.groupApplyState("Ref_ON");
+         // window.scene.groupApplyState("GP_ON");
          window.hotspot = "front";
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
-         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
       
       })
       if (!(window.isipad || window.mob)) {
@@ -662,8 +662,9 @@ const MainMenu = (props) => {
       //    window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
       // }
       else {
-         console.log("animation time",animTime)
+         // console.log("animation time",animTime)
          window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         window.scene.animPlayAllChildrenInTime("Ref_Geo",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       }
 
       window.RT_RecordEvent("Product Type","nintyDegree",window.config.name);
@@ -679,7 +680,7 @@ const MainMenu = (props) => {
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
       // window.scene._nav._panMin = [-10,-6];  //[right, top]
       // console.log("right")
-      console.log("onRightClick")
+      // console.log("onRightClick")
       var slider = document.getElementById("sliderRange");
 
       if (slider != null) {
@@ -708,8 +709,8 @@ const MainMenu = (props) => {
       // window.scene.groupApplyState("Backlit_OFF");
       GotoPosInTimeNamedValue(window.config.right,function () {
 
-         window.scene.groupApplyState("GP_ON");
-         window.scene.groupApplyState("Ref_ON");
+         // window.scene.groupApplyState("GP_ON");
+         // window.scene.groupApplyState("Ref_ON");
          window.hotspot = "right"
          // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          // window.scene.clearRefine();
@@ -771,8 +772,9 @@ const MainMenu = (props) => {
       // }
       // else {
       // console.log("else")
-      console.log(animTime)
+      // console.log(animTime)
       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      window.scene.animPlayAllChildrenInTime("Ref_Geo",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       // }
       position.currentPos = 'nintyDegree';
 
@@ -787,7 +789,7 @@ const MainMenu = (props) => {
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
       // window.scene._nav._panMin = [-10,-6];  //[right, top]
       //Update ZoomBar
-      console.log("onLeftClick")
+      // console.log("onLeftClick")
       var slider = document.getElementById("sliderRange");
 
       if (slider != null) {
@@ -821,10 +823,10 @@ const MainMenu = (props) => {
 
       GotoPosInTimeNamedValue(window.config.left,function () {
 
-         window.scene.groupApplyState("GP_ON");
-         window.scene.groupApplyState("Ref_ON");
+         // window.scene.groupApplyState("GP_ON");
+         // window.scene.groupApplyState("Ref_ON");
          window.hotspot = "left"
-         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
          // }
@@ -879,12 +881,14 @@ const MainMenu = (props) => {
       // else {
       // console.log("else")
       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      window.scene.animPlayAllChildrenInTime("Ref_Geo",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       // }
       position.currentPos = 'nintyDegree';
 
       window.RT_RecordEvent("Product Type","left",window.config.name);
       window.scene.clearRefine();
    }
+
    const onTopClick = (isNextPrevious) => {
       reverseAll();
       //Update ZoomBar
@@ -930,10 +934,10 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.top,function () {
          // var center = [0, 11.717319, 0];
          // window.scene._nav.SetRotationCenter(center);
-         window.scene.groupApplyState("GP_ON");
-         window.scene.groupApplyState("Ref_ON");
+         // window.scene.groupApplyState("GP_ON");
+         // window.scene.groupApplyState("Ref_ON");
          window.hotspot = "top"
-         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
  
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
@@ -998,6 +1002,7 @@ const MainMenu = (props) => {
       else {
          // console.log("else")
          window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         window.scene.animPlayAllChildrenInTime("Ref_Geo",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
 
       }
       position.currentPos = 'top';
@@ -1036,10 +1041,10 @@ const MainMenu = (props) => {
       window.hotspot = " ";;
       window.localStorage.setItem("position","reset");
       GotoPosInTimeNamedValue(window.config.back,function () {
-         window.scene.groupApplyState("Ref_ON");
-         window.scene.groupApplyState("GP_ON");
-         window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-
+         // window.scene.groupApplyState("Ref_ON");
+         // window.scene.groupApplyState("GP_ON");
+         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+         window.scene.groupApplyState("SPOT_ON");
          window.hotspot = "back"
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
@@ -1088,6 +1093,7 @@ const MainMenu = (props) => {
       if (position.back == position[currentPosName]) { position.currentPos = 'back'; return; }
       // window.scene.animPlayAllChildrenInTime("SCREEN",position.nintyDegree,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.back,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      window.scene.animPlayAllChildrenInTime("Ref_Geo",position.back,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
 
       window.scene.clearRefine();
       position.currentPos = 'back';
@@ -1095,103 +1101,103 @@ const MainMenu = (props) => {
 
    }
 
-   const onExplodeClick = (isNextPrevious) => {
+   // const onExplodeClick = (isNextPrevious) => {
 
-      // reverseAll();
-      // window.scene._nav._navMinDolly = 17.0; //110
-      window.scene._nav._navMaxDolly = 35.0; //110
-      // var center = [0, 0, 0];
-      // window.scene._nav.SetRotationCenter(center);
+   //    // reverseAll();
+   //    // window.scene._nav._navMinDolly = 17.0; //110
+   //    window.scene._nav._navMaxDolly = 35.0; //110
+   //    // var center = [0, 0, 0];
+   //    // window.scene._nav.SetRotationCenter(center);
 
-      // console.log(position.exploaded,position.currentPos)
-      setOpenClose("./img/Lid_open.svg");
-      // window.scene.groupApplyState("Open_Laptop");
-
-
-
-      selectedButton = 'onExplodeClick';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Top view');
-
-         document.getElementById('nextView').setAttribute('aria-label','Top view');
-      }
+   //    // console.log(position.exploaded,position.currentPos)
+   //    setOpenClose("./img/Lid_open.svg");
+   //    // window.scene.groupApplyState("Open_Laptop");
 
 
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
-      resetBacklitCloseImg();
-      // window.scene.groupApplyState("Internals_ON");
-      window.scene.groupApplyState("Ref_OFF");
-      // window.scene.groupApplyState("GP_OFF");
-      window.scene.groupApplyState("Backlight_OFF");
 
-      window.localStorage.removeItem('hotspot');
+   //    selectedButton = 'onExplodeClick';
+   //    if (!(mob || isipad)) {
+   //       document.getElementById('previousView').setAttribute('aria-label','Top view');
 
-      document.getElementById('explodeBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
-      GotoPosInTimeNamedValue(window.config.exploded,function () {
-         // window.scene.groupApplyState("internal_on");
-         window.scene.animPlayInTime("D_COVER",3.1250000,1000);
+   //       document.getElementById('nextView').setAttribute('aria-label','Top view');
+   //    }
 
-         window.scene.animPlayInTime("SCREEN",3.1250000,1000,function () {
-            window.localStorage.setItem('hotspot','explode')
-         });
-         window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.exploaded,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-         var slider = document.getElementById("sliderRange");
 
-         if (slider != null) {
-            document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-            setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-         }
-      });
-      if (!(window.isipad || window.mob)) {
-         document.getElementById("hotspot1").setAttribute("tabindex","-1");
-         document.getElementById("hotspot2").setAttribute("tabindex","-1");
-         document.getElementById("hotspot3").setAttribute("tabindex","-1");
-         document.getElementById("hotspot4").setAttribute("tabindex","-1");
-         document.getElementById("hotspot5").setAttribute("tabindex","-1");
-         document.getElementById("hotspot6").setAttribute("tabindex","-1");
-         document.getElementById("hotspot7").setAttribute("tabindex","-1");
-         document.getElementById("hotspot8").setAttribute("tabindex","-1");
-         document.getElementById("hotspot9").setAttribute("tabindex","-1");
-         document.getElementById("hotspot10").setAttribute("tabindex","-1");
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('active');
+   //    }
+   //    resetBacklitCloseImg();
+   //    // window.scene.groupApplyState("Internals_ON");
+   //    window.scene.groupApplyState("Ref_OFF");
+   //    // window.scene.groupApplyState("GP_OFF");
+   //    window.scene.groupApplyState("Backlight_OFF");
 
-         document.getElementById("hotspot11").setAttribute("tabindex","-1");
-         document.getElementById("hotspot12").setAttribute("tabindex","-1");
-         document.getElementById("hotspot13").setAttribute("tabindex","-1");
-         document.getElementById("hotspot14").setAttribute("tabindex","-1");
-         document.getElementById("hotspot15").setAttribute("tabindex","-1");
-         document.getElementById("hotspot16").setAttribute("tabindex","-1");
-         document.getElementById("hotspot17").setAttribute("tabindex","-1");
-         document.getElementById("hotspot18").setAttribute("tabindex","-1");
-         document.getElementById("hotspot19").setAttribute("tabindex","-1");
-         document.getElementById("hotspot20").setAttribute("tabindex","-1");
-         document.getElementById("hotspot21").setAttribute("tabindex","1");
-         document.getElementById("hotspot22").setAttribute("tabindex","1");
-         document.getElementById("hotspot23").setAttribute("tabindex","1");
-         document.getElementById("hotspot24").setAttribute("tabindex","1");
-         document.getElementById("hotspot25").setAttribute("tabindex","1");
-         document.getElementById("hotspot26").setAttribute("tabindex","-1");
-         document.getElementById("hotspot27").setAttribute("tabindex","-1");
-         document.getElementById("rLeft").setAttribute("tabindex","0");
-         document.getElementById("rRight").setAttribute("tabindex","0");
-         document.getElementById("zoomOut").setAttribute("tabindex","0");
-         document.getElementById("sliderRange").setAttribute("tabindex","0");
-         document.getElementById("zoomIn").setAttribute("tabindex","0");
-         document.getElementById("previousView").setAttribute("tabindex","0");
-         document.getElementById("resetView").setAttribute("tabindex","0");
-         document.getElementById("nextView").setAttribute("tabindex","0");
+   //    window.localStorage.removeItem('hotspot');
 
-      }
-      var currentPosName = position.currentPos;
-      if (position.explode == position[currentPosName]) { position.currentPos = 'explode'; return; }
-      // window.scene.groupApplyState("Internals_On");
-      position.currentPos = 'explode';
-      window.RT_RecordEvent("Product Type","Explode",window.config.name);
-      window.scene.clearRefine();
-   }
+   //    document.getElementById('explodeBtn').classList.add('active');
+   //    window.localStorage.setItem("position","reset");
+   //    GotoPosInTimeNamedValue(window.config.exploded,function () {
+   //       // window.scene.groupApplyState("internal_on");
+   //       window.scene.animPlayInTime("D_COVER",3.1250000,1000);
+
+   //       window.scene.animPlayInTime("SCREEN",3.1250000,1000,function () {
+   //          window.localStorage.setItem('hotspot','explode')
+   //       });
+   //       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.exploaded,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+   //       var slider = document.getElementById("sliderRange");
+
+   //       if (slider != null) {
+   //          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+   //          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+   //       }
+   //    });
+   //    if (!(window.isipad || window.mob)) {
+   //       document.getElementById("hotspot1").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot2").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot3").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot4").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot5").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot6").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot7").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot8").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot9").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot10").setAttribute("tabindex","-1");
+
+   //       document.getElementById("hotspot11").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot12").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot13").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot14").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot15").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot16").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot17").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot18").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot19").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot20").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot21").setAttribute("tabindex","1");
+   //       document.getElementById("hotspot22").setAttribute("tabindex","1");
+   //       document.getElementById("hotspot23").setAttribute("tabindex","1");
+   //       document.getElementById("hotspot24").setAttribute("tabindex","1");
+   //       document.getElementById("hotspot25").setAttribute("tabindex","1");
+   //       document.getElementById("hotspot26").setAttribute("tabindex","-1");
+   //       document.getElementById("hotspot27").setAttribute("tabindex","-1");
+   //       document.getElementById("rLeft").setAttribute("tabindex","0");
+   //       document.getElementById("rRight").setAttribute("tabindex","0");
+   //       document.getElementById("zoomOut").setAttribute("tabindex","0");
+   //       document.getElementById("sliderRange").setAttribute("tabindex","0");
+   //       document.getElementById("zoomIn").setAttribute("tabindex","0");
+   //       document.getElementById("previousView").setAttribute("tabindex","0");
+   //       document.getElementById("resetView").setAttribute("tabindex","0");
+   //       document.getElementById("nextView").setAttribute("tabindex","0");
+
+   //    }
+   //    var currentPosName = position.currentPos;
+   //    if (position.explode == position[currentPosName]) { position.currentPos = 'explode'; return; }
+   //    // window.scene.groupApplyState("Internals_On");
+   //    position.currentPos = 'explode';
+   //    window.RT_RecordEvent("Product Type","Explode",window.config.name);
+   //    window.scene.clearRefine();
+   // }
 
    //MenuFeatureView
 
@@ -1254,9 +1260,9 @@ const MainMenu = (props) => {
          // window.scene.groupApplyState("Open_Laptop");
          // window.scene.groupApplyState("With_SC_CARD");
          GotoPosInTimeNamedValue(window.config.default,function () {
-            window.scene.groupApplyState("Ref_ON");
-            window.scene.groupApplyState("GP_ON");
-            window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+            // window.scene.groupApplyState("Ref_ON");
+            // window.scene.groupApplyState("GP_ON");
+            // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
  
             // var center = [0,8.926640999999999,0];
             // window.scene._nav.SetRotationCenter(center);
@@ -1268,7 +1274,8 @@ const MainMenu = (props) => {
          // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version1",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
          // window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
          window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-         window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         window.scene.animPlayAllChildrenInTime("Ref_Geo",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         
 
          window.RT_RecordEvent("Features","Open Lid",window.config.name);
     
@@ -1289,9 +1296,9 @@ const MainMenu = (props) => {
 
          GotoPosInTimeNamedValue(window.config.close,function () {
 
-            window.scene.groupApplyState("Ref_ON");
-            window.scene.groupApplyState("GP_ON");
-            window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+            // window.scene.groupApplyState("Ref_ON");
+            // window.scene.groupApplyState("GP_ON");
+            // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
             window.scene.clearRefine();
             // window.scene.groupApplyState("Close_Laptop");
 
@@ -1316,6 +1323,8 @@ const MainMenu = (props) => {
          else {
             // console.log("else")
             window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.close,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+            window.scene.animPlayAllChildrenInTime("Ref_Geo",position.close,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+            
 
          }
 
@@ -1334,7 +1343,7 @@ const MainMenu = (props) => {
       // window.scene._nav._panMin = [-16,-8];  //[right, top]
 
       //Update ZoomBar
-      console.log("backliteClick");
+      // console.log("backliteClick");
 
 
       selectedButton = 'backliteClick';
@@ -1556,6 +1565,7 @@ const MainMenu = (props) => {
       else {
          // console.log("else")
          window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         window.scene.animPlayAllChildrenInTime("Ref_Geo",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       }
       window.scene.clearRefine();
       position.currentPos = 'top';
@@ -1862,142 +1872,142 @@ const MainMenu = (props) => {
    const [nextClick,setNextClick] = useState(false);
    const [prevClick,setPrevClick] = useState(false);
 
-   const TentModeClick = () => {
-      // console.log(position.tent,position.currentPos)
+   // const TentModeClick = () => {
+   //    // console.log(position.tent,position.currentPos)
 
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
+   //    //Update ZoomBar
+   //    var slider = document.getElementById("sliderRange");
 
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
+   //    if (slider != null) {
+   //       document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+   //       setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+   //    }
 
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('active');
+   //    }
 
-      document.getElementById('tentBtn').classList.add('active');
-      // window.scene.groupApplyState("screen_360");
+   //    document.getElementById('tentBtn').classList.add('active');
+   //    // window.scene.groupApplyState("screen_360");
 
-      selectedButton = 'TentModeClick';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Tent Mode');
+   //    selectedButton = 'TentModeClick';
+   //    if (!(mob || isipad)) {
+   //       document.getElementById('previousView').setAttribute('aria-label','Tent Mode');
 
-         document.getElementById('nextView').setAttribute('aria-label','Tent Mode');
-      }
-      setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
-      setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
-      // window.localStorage.removeItem('hotspot');
-      GotoPosInTimeNamedValue('Tent_Cam_F53_Tent',function () {
-         // window.scene.groupApplyState("GP_tent");
-      });
+   //       document.getElementById('nextView').setAttribute('aria-label','Tent Mode');
+   //    }
+   //    setOpenCloseOnOff(false);
+   //    setOpenClose("./img/Lid_open.svg");
+   //    setBackliteOnOff(false);
+   //    setBacklite("./img/Backlite_Off.svg");
+   //    // window.localStorage.removeItem('hotspot');
+   //    GotoPosInTimeNamedValue('Tent_Cam_F53_Tent',function () {
+   //       // window.scene.groupApplyState("GP_tent");
+   //    });
 
-      var currentPosName = position.currentPos;
-      if (position.tent == position[currentPosName]) { position.currentPos = 'tent'; return; }
-      window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
-      window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
+   //    var currentPosName = position.currentPos;
+   //    if (position.tent == position[currentPosName]) { position.currentPos = 'tent'; return; }
+   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
+   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
 
-      window.RT_RecordEvent("Positions","Tent",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'tent';
+   //    window.RT_RecordEvent("Positions","Tent",window.config.name);
+   //    window.scene.clearRefine();
+   //    position.currentPos = 'tent';
 
-   }
+   // }
 
-   const TheaterModeClick = () => {
-      // console.log(position.theatre,position.currentPos)
+   // const TheaterModeClick = () => {
+   //    // console.log(position.theatre,position.currentPos)
 
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
+   //    //Update ZoomBar
+   //    var slider = document.getElementById("sliderRange");
 
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
+   //    if (slider != null) {
+   //       document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+   //       setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+   //    }
 
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('active');
+   //    }
 
-      document.getElementById('theaterBtn').classList.add('active');
-      // window.scene.groupApplyState("screen_180");
+   //    document.getElementById('theaterBtn').classList.add('active');
+   //    // window.scene.groupApplyState("screen_180");
 
-      // window.localStorage.removeItem('closeMode')
-      selectedButton = 'TheaterModeClick';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Theater Mode');
+   //    // window.localStorage.removeItem('closeMode')
+   //    selectedButton = 'TheaterModeClick';
+   //    if (!(mob || isipad)) {
+   //       document.getElementById('previousView').setAttribute('aria-label','Theater Mode');
 
-         document.getElementById('nextView').setAttribute('aria-label','Theater Mode');
-      }
-      // window.scene.groupApplyState("Backlit_OFF");
-      // window.scene.groupApplyState("all_GP_off");
-      setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
-      setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
+   //       document.getElementById('nextView').setAttribute('aria-label','Theater Mode');
+   //    }
+   //    // window.scene.groupApplyState("Backlit_OFF");
+   //    // window.scene.groupApplyState("all_GP_off");
+   //    setOpenCloseOnOff(false);
+   //    setOpenClose("./img/Lid_open.svg");
+   //    setBackliteOnOff(false);
+   //    setBacklite("./img/Backlite_Off.svg");
 
-      // window.localStorage.removeItem('hotspot');
-      GotoPosInTimeNamedValue('Render_Cam_F100_Stand');
+   //    // window.localStorage.removeItem('hotspot');
+   //    GotoPosInTimeNamedValue('Render_Cam_F100_Stand');
 
-      var currentPosName = position.currentPos;
-      if (position.theatre == position[currentPosName]) { position.currentPos = 'theatre'; return; }
-      window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],9);
-      window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
+   //    var currentPosName = position.currentPos;
+   //    if (position.theatre == position[currentPosName]) { position.currentPos = 'theatre'; return; }
+   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],9);
+   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
 
-      window.RT_RecordEvent("Positions","Theatre",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'theatre';
+   //    window.RT_RecordEvent("Positions","Theatre",window.config.name);
+   //    window.scene.clearRefine();
+   //    position.currentPos = 'theatre';
 
-   }
-   const TabletModeClick = () => {
-      // console.log(position.tent,position.currentPos)
+   // }
+   // const TabletModeClick = () => {
+   //    // console.log(position.tent,position.currentPos)
 
-      //Update ZoomBar
-      var slider = document.getElementById("sliderRange");
+   //    //Update ZoomBar
+   //    var slider = document.getElementById("sliderRange");
 
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
+   //    if (slider != null) {
+   //       document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+   //       setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+   //    }
 
-      var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-      if (alreadySelected != null) {
-         alreadySelected.classList.remove('active');
-      }
+   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
+   //    if (alreadySelected != null) {
+   //       alreadySelected.classList.remove('active');
+   //    }
 
 
-      document.getElementById('tabletBtn').classList.add('active');
-      // window.scene.groupApplyState("screen_180");
-      // window.scene.groupApplyState("all_GP_off");
+   //    document.getElementById('tabletBtn').classList.add('active');
+   //    // window.scene.groupApplyState("screen_180");
+   //    // window.scene.groupApplyState("all_GP_off");
 
-      selectedButton = 'TabletModeClick';
-      if (!(mob || isipad)) {
-         document.getElementById('previousView').setAttribute('aria-label','Tablet Mode');
+   //    selectedButton = 'TabletModeClick';
+   //    if (!(mob || isipad)) {
+   //       document.getElementById('previousView').setAttribute('aria-label','Tablet Mode');
 
-         document.getElementById('nextView').setAttribute('aria-label','Tablet Mode');
-      }
-      // window.scene.groupApplyState("Backlit_OFF");
-      setOpenCloseOnOff(false);
-      setOpenClose("./img/Lid_open.svg");
-      setBackliteOnOff(false);
-      setBacklite("./img/Backlite_Off.svg");
+   //       document.getElementById('nextView').setAttribute('aria-label','Tablet Mode');
+   //    }
+   //    // window.scene.groupApplyState("Backlit_OFF");
+   //    setOpenCloseOnOff(false);
+   //    setOpenClose("./img/Lid_open.svg");
+   //    setBackliteOnOff(false);
+   //    setBacklite("./img/Backlite_Off.svg");
 
-      // window.localStorage.removeItem('hotspot');
-      GotoPosInTimeNamedValue(window.config.close);
+   //    // window.localStorage.removeItem('hotspot');
+   //    GotoPosInTimeNamedValue(window.config.close);
 
-      var currentPosName = position.currentPos;
-      if (position.tablet == position[currentPosName]) { position.currentPos = 'tablet'; return; }
-      window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-      window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+   //    var currentPosName = position.currentPos;
+   //    if (position.tablet == position[currentPosName]) { position.currentPos = 'tablet'; return; }
+   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
+   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
 
-      window.RT_RecordEvent("Positions","Tablet",window.config.name);
-      window.scene.clearRefine();
-      position.currentPos = 'tablet';
-   }
+   //    window.RT_RecordEvent("Positions","Tablet",window.config.name);
+   //    window.scene.clearRefine();
+   //    position.currentPos = 'tablet';
+   // }
    const reverseAll = () => {
       // window.scene._nav._navMinDolly = 13.0; //110
       // window.scene._nav._navMaxDolly = 28.0; //110
@@ -2006,6 +2016,7 @@ const MainMenu = (props) => {
       // window.scene.groupApplyState("internal_off");
       // window.scene.groupApplyState("Internals_OFF");
       // window.scene.animPlayInTime("D_COVER",0,0);
+      window.scene.groupApplyState("SPOT_OFF");
       window.scene.groupApplyState("Backlight_OFF");
       var center = [0,0,0];
       window.scene._nav.SetRotationCenter(center);
@@ -2099,7 +2110,7 @@ const MainMenu = (props) => {
          // backliteClick();
          GotoPosInTimeNamedValue(window.config.top,function () {
             //   window.localStorage.setItem('hotspot','backlit');
-            window.scene.clearRefine();
+            window.scene.clearRefine()
          })
 
       }
