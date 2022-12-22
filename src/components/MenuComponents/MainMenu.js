@@ -683,7 +683,6 @@ const MainMenu = (props) => {
       // console.log("right")
       // console.log("onRightClick")
       var slider = document.getElementById("sliderRange");
-
       if (slider != null) {
          document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
          setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
