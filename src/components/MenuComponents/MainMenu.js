@@ -24,6 +24,7 @@ var prevCounter = 0;
 var nextClicked = false;
 var prevClicked = false;
 var buttonSeq = ['onResetMode','TentModeClick','TheaterModeClick','TabletModeClick','onFrontClick','onTopClick','onRightClick','onLeftClick','onBackClick','backliteClick','FPRClick','openCloseClick']; //backliteClick','FPRClick',onExplodeClick
+var buttonSeq = ['onResetMode','TentModeClick','TheaterModeClick','TabletModeClick','onFrontClick','onTopClick','onRightClick','onLeftClick','onBackClick','backliteClick','FPRClick','openCloseClick']; //backliteClick','FPRClick',onExplodeClick
 var buttonSeq180 = ['onResetMode','onFrontClick','onTopClick','onRightClick','onLeftClick','onBackClick','onExplodeClick','backliteClick','FPRClick','openCloseClick'];
 var selectedButton = 'onResetMode';
 
@@ -1040,11 +1041,12 @@ const MainMenu = (props) => {
       }
       window.hotspot = " ";;
       window.localStorage.setItem("position","reset");
+      window.scene.groupApplyState("SPOT_ON");
       GotoPosInTimeNamedValue(window.config.back,function () {
          // window.scene.groupApplyState("Ref_ON");
          // window.scene.groupApplyState("GP_ON");
          // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-         window.scene.groupApplyState("SPOT_ON");
+         
          window.hotspot = "back"
          // if (isNextPrevious != true) {
          //    window.document.getElementById("hotspot1demo").focus();
