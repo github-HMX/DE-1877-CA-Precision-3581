@@ -128,7 +128,7 @@ infinityrt_skin.prototype.createSkinButton = function (btnID, className, btnData
     return btn;
 };
 
-infinityrt_skin.prototype.createSkinSlider = function (sldID, sceneObject, element, sldMin, sldMax, sldStep, div) {
+infinityrt_skin.prototype.createSkinSlider = function (sldID, sceneObject, element, sldMin, sldMax, sldStep, div, toggle) {
 	var label = document.createElement("span");
 	label.id = "label" + element;
 	label.innerHTML = sldID + ": ";
@@ -188,12 +188,12 @@ infinityrt_skin.prototype.createSkinSlider = function (sldID, sceneObject, eleme
 	});	
 	
 	var divlabel = document.createElement("div");
-	divlabel.className="col-sm-4";
+	divlabel.className= toggle ? "col-sm-7" : "col-sm-4";
 	divlabel.style["padding-left"]="5px";
 	divlabel.style["padding-right"]="5px";
 	
 	var divslider = document.createElement("div");
-	divslider.className="col-sm-5";
+	divslider.className= toggle ? "col-sm-2" : "col-sm-5";
 	divslider.style["padding-left"]="5px";
 	divslider.style["padding-right"]="5px";
 	
@@ -510,6 +510,17 @@ infinityrt_skin.prototype.createUI = function (opt) {
             });
         }
     }
+	//New OPTIONS controls
+	if (scene){
+		div = this.createDD("Options");
+		div.id = "divOptions";
+		
+		//GLOBAL OPTIONS
+		
+		//Material transition
+		this.createSkinSlider("Enable Material Transition", scene, "enableMaterialTransition", "0", "1", "1", div, true);	
+	}
+	
 	//New Appearance controls
 	if (scene){
 		div = this.createDD("GlobalCam");
@@ -704,6 +715,8 @@ infinityrt_skin.prototype.createUI = function (opt) {
 };
 //TODO: Add function to update navigation controls with the current scene._nav variables.
 
-window.addEventListener('DOMContentLoaded', function () {
+function skinLoad() {
 	setTimeout(function () { skin = new infinityrt_skin("config.json"); }, 500);
-});
+}
+
+window.addEventListener('DOMContentLoaded', skinLoad);

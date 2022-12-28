@@ -35,7 +35,7 @@ var position = {
    'reset': 2.0833333,
    'top': 1.4160000,
    'exploaded': 3.1250000,
-   'back': 0.9160000
+   'back': 1.125
 }
 
 const MainMenu = (props) => {
@@ -1041,10 +1041,14 @@ const MainMenu = (props) => {
       window.hotspot = " ";;
       window.localStorage.setItem("position","reset");
       window.scene.groupApplyState("SPOT_ON");
+      // window.scene.animPlayInTime("SCREEN",1.083,0);
+      // window.scene.animPlayInTime("CA_Precision_3581",1.1250000,0);
       GotoPosInTimeNamedValue(window.config.back,function () {
          // window.scene.groupApplyState("Ref_ON");
          // window.scene.groupApplyState("GP_ON");
-         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
+
+      
+         window.scene.clearRefine();
          
          window.hotspot = "back"
          // if (isNextPrevious != true) {
@@ -2019,6 +2023,8 @@ const MainMenu = (props) => {
       // window.scene.animPlayInTime("D_COVER",0,0);
       window.scene.groupApplyState("SPOT_OFF");
       window.scene.groupApplyState("Backlight_OFF");
+      //  window.scene.animPlayInTime("SCREEN",0,0);
+        window.scene.animPlayInTime("CA_Precision_3581",0,0);
       var center = [0,0,0];
       window.scene._nav.SetRotationCenter(center);
 

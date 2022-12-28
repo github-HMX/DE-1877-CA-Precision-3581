@@ -105,17 +105,17 @@ var infinityrt_navigation = function (scene,w,h) {
 	this.InitGotoPosHelper();
 	//TODO: UPDATE nav values from file
 	return; //TODO: Remove to load navigation settings 
-	if (this.IsMobilePlatform()){
-		this.UpdateNavFromJSON("navsettings_mobile.json");
-		if (this.IsAndroidPlatform())
-			this.UpdateNavFromJSON("navsettings_mobile_android.json");
-		else if (this.IsIPadPlatform())
-			this.UpdateNavFromJSON("navsettings_mobile_ipad.json");
-		else
-			this.UpdateNavFromJSON("navsettings_mobile_ios.json");
-	} else {
-		this.UpdateNavFromJSON("navsettings_desktop.json");
-	}
+	// if (this.IsMobilePlatform()){
+		// this.UpdateNavFromJSON("navsettings_mobile.json");
+		// if (this.IsAndroidPlatform())
+			// this.UpdateNavFromJSON("navsettings_mobile_android.json");
+		// else if (this.IsIPadPlatform())
+			// this.UpdateNavFromJSON("navsettings_mobile_ipad.json");
+		// else
+			// this.UpdateNavFromJSON("navsettings_mobile_ios.json");
+	// } else {
+		// this.UpdateNavFromJSON("navsettings_desktop.json");
+	// }
    
 };
 
@@ -128,26 +128,29 @@ infinityrt_navigation.prototype.IsAndroidPlatform = function () {
 };
 
 infinityrt_navigation.prototype.UpdateNavFromJSON = function (filename) {
-	fetch(filename)
-    .then(async response => {
-        const isJson = response.headers.get('content-type') && response.headers.get('content-type').includes('application/json');
-        const newNav = isJson ? await response.json() : null;
+	// fetch(filename)
+    // .then(async response => {
+        // const isJson = response.headers.get('content-type') && response.headers.get('content-type').includes('application/json');
+// //      const newNav = isJson ? await response.json() : null;
+        // const newNav = null;
+        // if (isJson)
+            // newNav = await response.json();
 
-        // check for error response
-        if (!response.ok) {
-            // get error message from body or default to response status
-            const error = (newNav && newNav.message) || response.status;
-            return Promise.reject(error);
-        }
+        // // check for error response
+        // if (!response.ok) {
+            // // get error message from body or default to response status
+            // const error = (newNav && newNav.message) || response.status;
+            // return Promise.reject(error);
+        // }
 
-        console.log(JSON.stringify(newNav, null, 4));
-        for (const property in newNav) {
-		  this[property] = newNav[property];
-		}
-    })
-    .catch(error => {
-        console.error('There was an error!', error);
-    });
+        // console.log(JSON.stringify(newNav, null, 4));
+        // for (const property in newNav) {
+		  // this[property] = newNav[property];
+		// }
+    // })
+    // .catch(error => {
+        // console.error('There was an error!', error);
+    // });
 
 };
 
