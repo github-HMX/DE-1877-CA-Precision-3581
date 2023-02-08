@@ -48,9 +48,9 @@ const MenuProductView = (props) => {
             <AccordionDetails tabIndex="1" aria-label="Back" id="backBtn" onKeyPress={props.onBackBtnClick} onClick={props.onBackBtnClick}>
                <MenuBtn aria-hidden="true" style={AccordianIcons} submenu={window.finalLangues.back} source={props.imgback} />
             </AccordionDetails>
-            {/* <AccordionDetails className='Mui-disabled' tabIndex="1" aria-label="Explode" id="explodeBtn" onKeyPress={props.onExplodeBtnClick} onClick={props.onExplodeBtnClick}>
+            <AccordionDetails className='Mui-disabled' tabIndex="1" aria-label="Explode" id="explodeBtn" onKeyPress={props.onExplodeBtnClick} onClick={props.onExplodeBtnClick}>
                <MenuBtn aria-hidden="true" style={AccordianIcons} submenu={window.finalLangues.internals} source={props.imgexplode} />
-            </AccordionDetails> */}
+            </AccordionDetails>
          </Accordion>
       </div>
    );
