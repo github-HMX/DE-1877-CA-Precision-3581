@@ -23,8 +23,7 @@ export const userContext = React.createContext();
 var prevCounter = 0;
 var nextClicked = false;
 var prevClicked = false;
-var buttonSeq = ['onResetMode','TentModeClick','TheaterModeClick','TabletModeClick','onFrontClick','onTopClick','onRightClick','onLeftClick','onBackClick','backliteClick','FPRClick','openCloseClick']; //backliteClick','FPRClick',onExplodeClick
-var buttonSeq = ['onResetMode','TentModeClick','TheaterModeClick','TabletModeClick','onFrontClick','onTopClick','onRightClick','onLeftClick','onBackClick','backliteClick','FPRClick','openCloseClick']; //backliteClick','FPRClick',onExplodeClick
+var buttonSeq = ['onResetMode','TentModeClick','TheaterModeClick','TabletModeClick','onFrontClick','onTopClick','onRightClick','onLeftClick','onBackClick','onExplodeClick','backliteClick','FPRClick','openCloseClick']; //backliteClick','FPRClick',onExplodeClick
 var buttonSeq180 = ['onResetMode','onFrontClick','onTopClick','onRightClick','onLeftClick','onBackClick','onExplodeClick','backliteClick','FPRClick','openCloseClick'];
 var selectedButton = 'onResetMode';
 
@@ -576,6 +575,7 @@ const MainMenu = (props) => {
 
    const onFrontClick = (isNextPrevious) => {
       reverseAll();
+      reverseAnimation();
       // window.scene._nav._navMinDolly = 14.0; //110
       // window.scene._nav._navMaxDolly = 32.0; //110
       var slider = document.getElementById("sliderRange");
@@ -676,6 +676,7 @@ const MainMenu = (props) => {
 
    const onRightClick = (isNextPrevious) => {
       reverseAll();
+      reverseAnimation();
       // window.scene._nav._navMinDolly = 13.0; //110
       // window.scene._nav._navMaxDolly = 24.0; //110
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
@@ -784,6 +785,7 @@ const MainMenu = (props) => {
 
    const onLeftClick = (isNextPrevious) => {
       reverseAll();
+      reverseAnimation();
       // window.scene._nav._navMinDolly = 13.0; //110
       // window.scene._nav._navMaxDolly = 24.0; //110
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
@@ -892,6 +894,7 @@ const MainMenu = (props) => {
    const onTopClick = (isNextPrevious) => {
       reverseAll();
       //Update ZoomBar
+      reverseAnimation();
       window.scene._nav._panMax = [10,2];    //[left, bottom];
       // window.scene._nav._panMin = [-10,-6];  //[right, top]
 
@@ -1013,6 +1016,7 @@ const MainMenu = (props) => {
 
    const onBackClick = (isNextPrevious) => {
       reverseAll();
+      reverseAnimation();
       // window.scene._nav._navMinDolly = 14.0; //110
       // window.scene._nav._navMaxDolly = 28.0; //110
       //Update ZoomBar
@@ -1108,6 +1112,7 @@ const MainMenu = (props) => {
 
    const onExplodeClick = (isNextPrevious) => {
       reverseAll();
+      
       window.scene._nav._navMaxDolly = 35.0; //110
       window.scene._nav._navMinDolly = 16.0
       window.scene._nav._panMax = [15,13];
@@ -1134,23 +1139,23 @@ const MainMenu = (props) => {
        //window.scene.animPlayInTime("SCREEN",3.1250000,1000);
        window.scene.groupApplyState("GP_OFF");
        window.scene.groupApplyState("Ref_OFF");
-       window.scene.groupApplyState("Internals_ON");
-       window.scene.groupApplyState("mb_on");
-       window.scene.groupApplyState("Screen_OFF");
+       window.scene.groupApplyState("INTERNALS_ON");
+      //  window.scene.groupApplyState("mb_on");
+      //  window.scene.groupApplyState("Screen_OFF");
       GotoPosInTimeNamedValue(window.config.exploded,function () {
          if(window.firstTime == false){
             
-            window.scene.groupApplyState("CCover_ON");
-            window.scene.animPlayInTime("new_d_cover.001", 3.1250000,1000);
-            window.scene.animPlayInTime("MOTHERBOARD", 3.1250000,1000);
-            window.scene.animPlayInTime("BATTERY", 3.1250000,1000);
-            window.scene.animPlayInTime("Thermal_Assy", 3.0409999,1000);
-            window.scene.animPlayInTime("_RAM_2", 3.1250000,1000);
-            window.scene.animPlayInTime("_RAM_1", 3.1250000,1000);
-            window.scene.animPlayInTime("SCREEN",3.1250000,1000);
-            window.scene.animPlayInTime("keys",3.1250000,1000,function () {
+            //window.scene.groupApplyState("CCover_ON");
+           // window.scene.animPlayInTime("new_d_cover.001", 3.1250000,1000);
+            // window.scene.animPlayInTime("MOTHERBOARD", 3.1250000,1000);
+            // window.scene.animPlayInTime("BATTERY", 3.1250000,1000);
+            // window.scene.animPlayInTime("Thermal_Assy", 3.0409999,1000);
+            // window.scene.animPlayInTime("_RAM_2", 3.1250000,1000);
+            // window.scene.animPlayInTime("_RAM_1", 3.1250000,1000);
+           // window.scene.animPlayInTime("SCREEN",3.1250000,1000);
+           // window.scene.animPlayInTime("mb_part",3.1250000,1000,function () {
                window.hotspot = 'explode';
-            });
+           // });
             window.firstTime = true;
          }
          
@@ -1172,15 +1177,14 @@ const MainMenu = (props) => {
          }
       }
       var currentPosName = position.currentPos;
-      if (position.explode == position[currentPosName]) { position.currentPos = 'explode'; return; }
-      window.scene.animPlayAllChildrenInTime("Latitude_5540_RT",position.explode,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+      if (position.exploaded == position[currentPosName]) { position.currentPos = 'exploaded'; return; }
+      window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.exploaded,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       // window.scene.animPlayAllChildrenInTime("Ref_Box",position.explode,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       // window.scene.animPlayAllChildrenInTime("Ref_Box_anim",position.explode,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
       
-      position.currentPos = 'explode';
-
-      window.RT_RecordEvent("Product Type","explode",window.config.name);
       window.scene.clearRefine();
+      position.currentPos = 'exploaded';
+      window.RT_RecordEvent("Product Type","explode",window.config.name);
    }
 
    //MenuFeatureView
@@ -1195,15 +1199,12 @@ const MainMenu = (props) => {
 
    const openCloseClick = () => {
       reverseAll();
-
+      reverseAnimation();
       // console.log(position.close,position.currentPos)
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
 
-      if (slider != null) {
-         document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-         setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-      }
+     
       selectedButton = 'openCloseClick';
 
 
@@ -1244,6 +1245,10 @@ const MainMenu = (props) => {
          // window.scene.groupApplyState("Open_Laptop");
          // window.scene.groupApplyState("With_SC_CARD");
          GotoPosInTimeNamedValue(window.config.default,function () {
+            if (slider != null) {
+               document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+               setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+            }
             // window.scene.groupApplyState("Ref_ON");
             // window.scene.groupApplyState("GP_ON");
             // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
@@ -1279,7 +1284,10 @@ const MainMenu = (props) => {
 
 
          GotoPosInTimeNamedValue(window.config.close,function () {
-
+            if (slider != null) {
+               document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
+               setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
+            }
             // window.scene.groupApplyState("Ref_ON");
             // window.scene.groupApplyState("GP_ON");
             // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
@@ -1323,6 +1331,7 @@ const MainMenu = (props) => {
 
    const backliteClick = () => {
       reverseAll();
+      reverseAnimation();
       window.scene._nav._panMax = [10,2];    //[left, bottom]; //[left, bottom];
       // window.scene._nav._panMin = [-16,-8];  //[right, top]
 
@@ -1384,7 +1393,7 @@ const MainMenu = (props) => {
       document.getElementById("hotspot13").setAttribute("tabindex","-1");
 
       if (backliteOnOff) {
-
+         reverseAnimation();
          // console.log("off");
          setBackliteOnOff(false);
          document.getElementById('backlitBtn').setAttribute('aria-label','');
@@ -1405,6 +1414,7 @@ const MainMenu = (props) => {
 
       }
       else {
+         reverseAnimation();
          document.getElementById('backlitBtn').setAttribute('aria-label','');
          document.getElementById('backlitOnnOff').innerHTML = 'Backlit on';
          if (!(mob || isipad)) {
@@ -1428,8 +1438,8 @@ const MainMenu = (props) => {
       if (position.top == position[currentPosName]) { position.currentPos = 'top'; return; }
 
       else {
-         // console.log("else")
-         window.scene.animPlayAllChildrenInTime("SCREEN",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
+         window.scene.animPlayAllChildrenInTime("Ref_Geo",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0); 
       }
       window.scene.clearRefine();
       position.currentPos = 'top';
@@ -1437,6 +1447,7 @@ const MainMenu = (props) => {
 
    const FPRClick = () => {
       reverseAll();
+      reverseAnimation();
       window.scene._nav._panMax = [10,2];    //[left, bottom];   //[left, bottom];
       // window.scene._nav._panMin = [-16,-8];  //[right, top]
       //Update ZoomBar
@@ -1489,7 +1500,7 @@ const MainMenu = (props) => {
          // console.log("off");
          setFPROnOff(false);
          setFPRIcon("./img/without-FPR.png");
-
+         reverseAnimation();
          // document.getElementById('FPRBtn').setAttribute('aria-label','');
          // document.getElementById('backlitOnnOff').innerHTML = 'FPR On';
          if (!(mob || isipad)) {
@@ -1512,6 +1523,7 @@ const MainMenu = (props) => {
 
 
       } else {
+         reverseAnimation();
          // document.getElementById('backlitBtn').setAttribute('aria-label','');
          // document.getElementById('backlitOnnOff').innerHTML = 'Backlit on';
          if (!(mob || isipad)) {
@@ -1547,10 +1559,9 @@ const MainMenu = (props) => {
       //    window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
       // }
       else {
-         // console.log("else")
          window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
          window.scene.animPlayAllChildrenInTime("Ref_Geo",position.top,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-      }
+ }
       window.scene.clearRefine();
       position.currentPos = 'top';
    }
@@ -2005,8 +2016,20 @@ const MainMenu = (props) => {
       //  window.scene.animPlayInTime("SCREEN",0,0);
         window.scene.animPlayInTime("CA_Precision_3581",0,0);
       var center = [0,0,0];
+      window.firstTime = false;
       window.scene._nav.SetRotationCenter(center);
 
+   }
+   const reverseAnimation = () => {
+      let stopAnim = ['new_d_cover.001','_RAM_2','_RAM_1','_RAM_2','MOTHERBOARD','BATTERY','keys','Thermal_Assy',"SDD",'SDD1','mb_part'];
+      stopAnim.forEach((item) => {
+         if (window.scene.animIsPlaying(item)) {
+            window.scene.getAnim(item).stop();
+         }
+         window.scene.animPlayInTime(item,0,0);
+      })
+      
+      window.scene.clearRefine();
    }
    const resetMode = () => {
       selectedButton = 'onResetMode';
@@ -2199,10 +2222,10 @@ const MainMenu = (props) => {
          onBackClick(true);
          setExpandedPanel("panel1");
       }
-      // else if (prevButton == 'onExplodeClick') {
-      //    onExplodeClick(true);
-      //    setExpandedPanel("panel1");
-      // }
+      else if (prevButton == 'onExplodeClick') {
+         onExplodeClick(true);
+         setExpandedPanel("panel1");
+      }
       else if (prevButton == 'backliteClick') {
          setExpandedPanel("panel3");
          backliteClick(true);
@@ -2280,10 +2303,10 @@ const MainMenu = (props) => {
          onBackClick(true);
          setExpandedPanel("panel1");
       }
-      // else if (nextButton == 'onExplodeClick') {
-      //    onExplodeClick(true);
-      //    setExpandedPanel("panel1");
-      // }
+      else if (nextButton == 'onExplodeClick') {
+         onExplodeClick(true);
+         setExpandedPanel("panel1");
+      }
 
       else if (nextButton == 'FPRClick') {
          FPRClick(true);

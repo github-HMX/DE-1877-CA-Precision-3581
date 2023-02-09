@@ -63,10 +63,10 @@
 			"port15_4": "Express Charge Boost",
 			"port16": "Up to NVIDIA RTX A3000 Graphics (8GB)",
 			"port17": "Up to IntelCore i9 (45W) processor",
-			"port18": "Up to 4TB of Gen4 storage",
-			"port19": "Advanced thermals",
-			"port20": "Up to 64GB of 4800MHz memory",
-			"port21": "Panels"
+			"port18": "Panels",
+			"port19": "Up to NVIDIA RTX A3000 Graphics (8GB)",
+			"port20": "Advanced thermals",
+			"port21": "Up to 64GB of 4800MHz memory"
 		},
 		{
 			"lang": "EN-US",
