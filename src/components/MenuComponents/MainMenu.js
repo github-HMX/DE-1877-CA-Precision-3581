@@ -90,18 +90,6 @@ const MainMenu = (props) => {
       animationSwitch = window.localStorage.getItem('Animation');
       moblandscap = (mob && window.innerWidth > window.innerHeight);
 
-      //window.localStorage.setItem('tent', false);
-      //window.localStorage.setItem('tablet', false);
-      //window.localStorage.setItem('theater', false);
-      //window.localStorage.setItem('close', false);
-      window.localStorage.setItem("position","reset");
-
-
-      // document.getElementById('whiteBtn').classList.add('select');
-      // window.xmlhttp.open("GET", "locale.json", true);
-      // window.xmlhttp.send();
-      // alert('moblandscap '+moblandscap )
-
    },[]);
 
    useEffect((event) => {
@@ -140,35 +128,7 @@ const MainMenu = (props) => {
             opt = {};
          opt.zang = gp.pos[5];
       }
-      // console.log('animationSwitch', animationSwitch)
-      // if (animationSwitch == 'off') {
-      //    gp.time = 1
-      //    // console.log('animationSwitch iffff', gp.time)
-      // }
-      // else {
-      //    gp.time = animTime;
-      //    // console.log('animationSwitch elseeee', gp.time)
-      // }
-      // console.log('animationSwitch',animationSwitch);
-      // console.log('gp.time',gp.time);
-      // window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
-      // if ((mob || isipad)) {
-      //    // if (gotoposname == "window.config.top" || gotoposname == "window.config.exploded" || gotoposname == "window.config.close") {
-
-      //       window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] * 1.2,gp.time,onComplete,slowInOut,opt);
-      //    // }
-      //    // else {
-
-      //    //    window.scene.gotoPosInTime(gp.pos[0],gp.pos[1] * -0.0001,gp.pos[2],gp.pos[3],gp.pos[4] * 1.2,gp.time,onComplete,slowInOut,opt);
-      //    // }
-
-      // } else {
-      // window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4],gp.time,onComplete,slowInOut,opt);
-      // }
-
-
-      // console.log(gp.pos[0], gp.pos[1], gp.pos[2], gp.pos[3], gp.pos[4], gp.time, onComplete, onSample, opt);
-      // console.log(animTime)
+     
       if (mob || isipad) {
          window.scene.gotoPosInTime(gp.pos[0],gp.pos[1],gp.pos[2],gp.pos[3],gp.pos[4] + 13,animTime,onComplete,onSample,opt);
       } else {
@@ -196,382 +156,11 @@ const MainMenu = (props) => {
       window.scene.clearRefine();
 
    }
-   // const resetTimeline1 = (revers90Degree = true) => {
-   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
-   //    //window.scene.instanceSet("GP_Stand", "visible", false);
-   //    //window.scene.instanceSet("GP_Tent", "visible", false);
-   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
-   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-   //    if (window.scene.animIsPlaying('Screen_grp_timeline_01_A')) window.scene.getAnim("Screen_grp_timeline_01_A").stop();
-   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_01_A')) window.scene.getAnim("Hinge_grp_timeline_01_A").stop();
-   //    if (window.scene.animIsPlaying('Main_grp_timeline_01_A')) window.scene.getAnim("Main_grp_timeline_01_A").stop();
-
-   //    if (revers90Degree) {
-   //       // window.scene.animPlayInTime("Screen_90_degree", 0, 0);
-   //       // window.scene.animPlayInTime("Screen_90_to_close180", 0, 0);
-   //       // window.scene.animPlayInTime("Screen_90_to_close360", 0, 0);
-   //    }
-   //    window.scene.animPlayInTime("Screen_grp_timeline_01_A",0,0);
-   //    window.scene.animPlayInTime("Hinge_grp_timeline_01_A",0,0);
-   //    window.scene.animPlayInTime("Main_grp_timeline_01_A",0,0);
-   //    window.scene.clearRefine();
-   // }
-   // const resetTimeline2 = (revers90Degree = true) => {
-   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
-   //    //window.scene.instanceSet("GP_Stand", "visible", false);
-   //    //window.scene.instanceSet("GP_Tent", "visible", false);
-   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
-   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-   //    if (window.scene.animIsPlaying('Screen_grp_timeline_02_A')) window.scene.getAnim("Screen_grp_timeline_02_A").stop();
-   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_02_A')) window.scene.getAnim("Hinge_grp_timeline_02_A").stop();
-   //    if (window.scene.animIsPlaying('Main_grp_timeline_02_A')) window.scene.getAnim("Main_grp_timeline_02_A").stop();
-   //    if (revers90Degree) {
-   //       // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-   //       // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
-
-   //    }
-   //    window.scene.animPlayInTime("Screen_grp_timeline_02_A",0,0);
-   //    window.scene.animPlayInTime("Hinge_grp_timeline_02_A",0,0);
-   //    window.scene.animPlayInTime("Main_grp_timeline_02_A",0,0);
-   //    window.scene.clearRefine();
-   // }
-   // const resetTimeline3 = (revers90Degree = true) => {
-   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
-   //    //window.scene.instanceSet("GP_Stand", "visible", false);
-   //    //window.scene.instanceSet("GP_Tent", "visible", false);
-   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
-   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-   //    if (window.scene.animIsPlaying('Screen_grp_timeline_03_A')) window.scene.getAnim("Screen_grp_timeline_03_A").stop();
-   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_03_A')) window.scene.getAnim("Hinge_grp_timeline_03_A").stop();
-   //    if (window.scene.animIsPlaying('Main_grp_timeline_03_A')) window.scene.getAnim("Main_grp_timeline_03_A").stop();
-   //    if (revers90Degree) {
-   //       // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-   //       // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
-
-   //    }
-   //    window.scene.animPlayInTime("Screen_grp_timeline_03_A",0,0);
-   //    window.scene.animPlayInTime("Hinge_grp_timeline_03_A",0,0);
-   //    window.scene.animPlayInTime("Main_grp_timeline_03_A",0,0);
-   //    window.scene.clearRefine();
-   // }
-   // const resetTimeline4 = (revers90Degree = true) => {
-   //    //window.scene.instanceSet("GP_Close_360", "visible", false);
-   //    //window.scene.instanceSet("GP_Stand", "visible", false);
-   //    //window.scene.instanceSet("GP_Tent", "visible", false);
-   //    //window.scene.instanceSet("GP_Tablet", "visible", false);
-   //    if (window.scene.animIsPlaying('Screen_90_degree')) window.scene.getAnim("Screen_90_degree").stop();
-   //    if (window.scene.animIsPlaying('Main_grp_timeline_04_A')) window.scene.getAnim("Main_grp_timeline_04_A").stop();
-   //    if (window.scene.animIsPlaying('Hinge_grp_timeline_04_A')) window.scene.getAnim("Hinge_grp_timeline_04_A").stop();
-   //    if (window.scene.animIsPlaying('Screen_grp_timeline_04_A')) window.scene.getAnim("Screen_grp_timeline_04_A").stop();
-   //    if (revers90Degree) {
-   //       // window.scene.animPlayInTime('Screen_90_degree', 0, 0);
-   //       // window.scene.animPlayInTime('Screen_90_degree_180', 0, 0);
-
-   //    }
-   //    window.scene.animPlayInTime("Main_grp_timeline_04_A",0,0);
-   //    window.scene.animPlayInTime("Hinge_grp_timeline_04_A",0,0);
-   //    window.scene.animPlayInTime("Screen_grp_timeline_04_A",0,0);
-   //    window.scene.clearRefine();
-   // }
-   // const posClicked1 = () => {
-   //    // window.localStorage.removeItem('hotspot');
-   //    // window.localStorage.removeItem('color');
-   //    window.scene.animPlayInTime("Screen_grp_timeline_01",0,animTime);
-
-   // }
-
-
-   //MenuSelectProduct
-   // const [laptop360,setlaptop360] = useState(true);
+   
 
    const [laptop180,setlaptop180] = useState(false);
 
-   // const laptopClick = (event) => {
-
-   //    setlaptop180(true);
-   //    setlaptop360(false);
-   //    // console.log(laptop180);
-   //    setCounter(0);
-   //    selectedButton = 'onResetMode';
-   //    setValue(event.target.value);
-   //    setDisplayed(true);
-   //    // setExpandedPanel(false);
-   //    setHidden(false);
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('active');
-   //    }
-
-   //    document.getElementById('laptop').setAttribute('aria-label','laptop radio butoon selected');
-   //    // window.scene.groupApplyState("screen_180");
-   //    // window.scene.groupApplyState("GP_open");
-   //    // window.scene.groupApplyState("dynamic_reset");
-   //    // window.scene.groupApplyState("screenfill_180");
-
-   //    setLaptop360FrontImg("./img/front180White.png");
-   //    setLaptop360TopImg("./img/top180White.png");
-   //    setLaptop360LefttImg("./img/180_white_left.png");
-   //    setLaptop360RightImg("./img/180_white_right.png");
-   //    resetBacklitCloseImg();
-
-   //    window.localStorage.setItem("position","reset");
-   //    window.localStorage.setItem("laptop","laptop180");
-   //    // window.localStorage.removeItem('color');
-
-   //    var radiobtn1 = document.getElementById('twoinoneRadio');
-   //    radiobtn1.checked = false;
-   //    var radioSelector1 = document.querySelector('#twoinoneRadio')
-   //    var nextSibling1 = radioSelector1.nextElementSibling;
-   //    var selectSVG1 = nextSibling1.lastChild;
-   //    selectSVG1.style.transform = 'scale(0)'
-   //    // nextSibling1.classList.remove('PrivateRadioButtonIcon-checked-16')
-   //    var radiobtn2 = document.getElementById('laptopRadio');
-   //    radiobtn2.checked = true;
-   //    var radioSelector2 = document.querySelector('#laptopRadio')
-   //    var nextSibling2 = radioSelector2.nextElementSibling;
-   //    var selectSVG2 = nextSibling2.lastChild;
-   //    selectSVG2.style.transform = 'scale(1)'
-   //    // nextSibling2.classList.add('PrivateRadioButtonIcon-checked-16')
-   //    document.getElementById("laptopRadio").tabIndex = 1;
-
-   //    // window.localStorage.removeItem('hotspot');
-   //    document.getElementById('whiteBtn').classList.add('select');
-   //    document.getElementById('whiteBtn').classList.add('active');
-
-   //    // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    //  alreadySelected.classList.remove('active');
-
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('active');
-   //    }
-   //    document.getElementById('whiteBtn').classList.add('active');
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.select');
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('select');
-   //    }
-   //    window.RT_RecordEvent("Product Type","Laptop",window.config.name);
-   //    //add for tab issues
-   //    document.getElementById("hotspot1").setAttribute("tabindex","-1");
-   //    // document.getElementById("tentBtn").setAttribute("tabindex", "-1");
-   //    // document.getElementById("theaterBtn").setAttribute("tabindex", "-1");
-   //    // document.getElementById("tabletBtn").setAttribute("tabindex", "-1");
-
-   //    document.getElementById("hotspot2").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot3").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot4").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot5").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot6").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot7").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot8").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot9").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot10").setAttribute("tabindex","-1");
-
-   //    document.getElementById("hotspot11").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot12").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot13").setAttribute("tabindex","-1");
-
-   //    document.getElementById("tentBtn").setAttribute("tabindex","-1");
-   //    document.getElementById("theaterBtn").setAttribute("tabindex","-1");
-   //    document.getElementById("tabletBtn").setAttribute("tabindex","-1");
-
-   //    //  document.getElementById('laptop2in1').classList.remove('select');
-   //    document.getElementById('laptop').classList.add('active');
-   //    document.getElementById('laptop2in1').classList.remove('active');
-   //    document.getElementById('laptop2in1').classList.remove('select');
-
-   //    GotoPosInTimeNamedValue(window.config.default,function () {
-
-   //       // window.scene.groupApplyState("Silver_180");
-   //       // window.scene.groupApplyState("screenfill_180");
-   //    });
-
-   //    // document.querySelector('#blackBtn').classList.add('Btnsubmenus');
-   //    document.querySelector('#blackBtn').classList.remove('Mui-disabled');
-   //    // document.querySelector('#blackBtn').style.pointerEvents = 'auto';
-   //    document.querySelector('#blackBtn').style.pointerEvents = "auto";
-   //    // document.querySelector('#blackBtn').setAttribute = ("onclick");
-   //    // document.querySelector('#menucolor').setAttribute = ("onBlackBtnClick");
-
-
-   //    // document.querySelector('#tentBtn').classList.add('Mui-disabled');
-   //    document.querySelector('#tentBtn').style.pointerEvents = 'none';
-   //    // document.querySelector('#tentBtn').setAttribute("tabindex", "-1");
-
-   //    // document.querySelector('#theaterBtn').classList.add('Mui-disabled');
-   //    document.querySelector('#theaterBtn').style.pointerEvents = 'none';
-   //    // document.querySelector('#theaterBtn').setAttribute("tabindex", "-1");
-
-   //    // document.querySelector('#tabletBtn').classList.add('Mui-disabled');
-   //    document.querySelector('#tabletBtn').style.pointerEvents = 'none';
-   //    // document.querySelector('#tabletBtn').setAttribute("tabindex", "-1");
-   //    document.getElementById("blackBtn").setAttribute("tabindex","1");
-
-   //    // document.getElementById("tentBtn1").setAttribute("tabindex", "-1");
-   //    // document.getElementById("theaterBtn1").setAttribute("tabindex", "-1");
-   //    // document.getElementById("tabletBtn1").setAttribute("tabindex", "-1");
-
-   //    if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-   //       var currentPosName = position.currentPos;
-   //       if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-   //       window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version1",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-   //       window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-   //       window.scene.clearRefine();
-   //       position.currentPos = 'reset';
-   //       window.scene.clearRefine();
-   //    } else {
-   //       var currentPosName = position.currentPos;
-   //       if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-   //       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-   //       window.scene.clearRefine();
-   //       position.currentPos = 'reset';
-   //       window.scene.clearRefine();
-   //    }
-
-
-   // }
-
-   // const [value,setValue] = useState('2 in 1');
-
-   // const select2in1Click = (event) => {
-   //    setlaptop360(true);
-   //    setlaptop180(false);
-   //    // console.log(laptop360);
-   //    selectedButton = 'onResetMode';
-   //    setValue(event.target.value);
-   //    setDisplayed(false);
-   //    setHidden(true);
-   //    // setExpandedPanel(false);
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('active');
-   //    }
-   //    document.getElementById('laptop2in1').setAttribute('aria-label','2in1 radio butoon selected');
-   //    var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //    if (alreadySelecte != null) {
-   //       alreadySelecte.classList.remove('select');
-   //    }
-
-   //    // var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    // if(alreadySelected != null){
-   //    //   alreadySelected.classList.remove('active');
-   //    // }
-   //    document.getElementById('laptop2in1').classList.add('active');
-   //    document.getElementById('laptop2in1').classList.add('select');
-   //    document.getElementById('whiteBtn').classList.add('select');
-   //    document.getElementById('whiteBtn').classList.add('active');
-   //    document.getElementById('laptop').classList.remove('active');
-   //    document.getElementById('laptop').classList.remove('select');
-   //    document.getElementById("tentBtn").setAttribute("tabindex","1");
-   //    document.getElementById("theaterBtn").setAttribute("tabindex","1");
-   //    document.getElementById("tabletBtn").setAttribute("tabindex","1");
-
-   //    // document.getElementById("blackBtn").setAttribute("tabindex", "-1");
-
-   //    // window.localStorage.removeItem('hotspot');
-   //    // window.scene.groupApplyState("screen_180");
-   //    // window.scene.groupApplyState("GP_open");
-   //    // window.localStorage.setItem("position","reset");
-   //    // window.scene.groupApplyState("screenfill_360");
-   //    // window.scene.groupApplyState("dynamic_reset");
-
-   //    window.localStorage.setItem("laptop","laptop360");
-   //    // window.localStorage.removeItem('hotspot');
-
-   //    var radiobtn1 = document.getElementById('laptopRadio');
-   //    radiobtn1.checked = false;
-   //    var radioSelector1 = document.querySelector('#laptopRadio')
-   //    var nextSibling1 = radioSelector1.nextElementSibling;
-   //    var selectSVG1 = nextSibling1.lastChild;
-   //    selectSVG1.style.transform = 'scale(0)'
-   //    var radiobtn2 = document.getElementById('twoinoneRadio');
-   //    radiobtn2.checked = true;
-   //    var radioSelector2 = document.querySelector('#twoinoneRadio')
-   //    var nextSibling2 = radioSelector2.nextElementSibling;
-   //    var selectSVG2 = nextSibling2.lastChild;
-   //    selectSVG2.style.transform = 'scale(1)'
-
-   //    // window.localStorage.removeItem('color');
-   //    document.getElementById("twoinoneRadio").tabIndex = 1;
-
-
-   //    window.RT_RecordEvent("Product Type","2 in 1",window.config.name);
-   //    //add for tab issues
-   //    document.getElementById("hotspot1").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot2").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot3").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot4").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot5").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot6").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot7").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot8").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot9").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot10").setAttribute("tabindex","-1");
-
-   //    document.getElementById("hotspot11").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot12").setAttribute("tabindex","-1");
-   //    document.getElementById("hotspot13").setAttribute("tabindex","-1");
-
-
-   //    setLaptop360FrontImg("./img/front360.png");
-   //    setLaptop360TopImg("./img/top360.png");
-   //    setLaptop360LefttImg("./img/360_left.png");
-   //    setLaptop360RightImg("./img/360_right.png");
-
-   //    resetBacklitCloseImg();
-
-   //    GotoPosInTimeNamedValue(window.config.default,function () {
-   //       // window.scene.groupApplyState("Silver");
-
-   //    });
-   //    // document.querySelector('#blackBtn').classList.add('Mui-disabled');
-   //    document.querySelector('#blackBtn').style.pointerEvents = "auto";
-   //    // document.querySelector('#blackBtns').classList.remove('Btnsubmenus');
-
-   //    // document.querySelector('#blackBtn').removeAttribute = ("onclick");
-
-   //    // document.querySelector('#menucolor').removeAttribute = ("onBlackBtnClick");
-
-
-   //    document.querySelector('#tentBtn').classList.remove('Mui-disabled');
-   //    document.querySelector('#tentBtn').style.pointerEvents = 'auto';
-   //    // document.querySelector('#tentBtn').setAttribute("tabindex", "1");
-
-   //    document.querySelector('#theaterBtn').classList.remove('Mui-disabled');
-   //    document.querySelector('#theaterBtn').style.pointerEvents = 'auto';
-   //    // document.querySelector('#theaterBtn').setAttribute("tabindex", "1");
-
-   //    document.querySelector('#tabletBtn').classList.remove('Mui-disabled');
-   //    document.querySelector('#tabletBtn').style.pointerEvents = 'auto';
-   //    // document.querySelector('#tabletBtn').setAttribute("tabindex", "1");
-   //    document.getElementById("blackBtn").setAttribute("tabindex","1");
-
-   //    // document.getElementById("tentBtn1").setAttribute("tabindex", "1");
-   //    // document.getElementById("theaterBtn1").setAttribute("tabindex", "1");
-   //    // document.getElementById("tabletBtn1").setAttribute("tabindex", "1");
-
-   //    // if (position.currentPos == 'theatre' || position.currentPos == 'tablet') {
-   //    //    var currentPosName = position.currentPos;
-   //    //    if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-   //    //    window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version1",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-   //    //    window.scene.animPlayAllChildrenInTime("Latitude_7410_Chromebook_Enterprise_360_Version2",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-   //    //    window.scene.clearRefine();
-   //    //    position.currentPos = 'reset';
-   //    //    window.scene.clearRefine();
-   //    // }
-   //    // else {
-   //       var currentPosName = position.currentPos;
-   //       if (position.reset == position[currentPosName]) { position.currentPos = 'reset'; return; }
-   //       window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.reset,animTime,undefined,undefined,undefined,true,position[currentPosName],0);
-   //       window.scene.clearRefine();
-   //       position.currentPos = 'reset';
-   //       window.scene.clearRefine();
-   //    // }
-
-   // }
-
-   //MenuProductView
+ 
 
    const onFrontClick = (isNextPrevious) => {
       reverseAll();
@@ -603,7 +192,7 @@ const MainMenu = (props) => {
       }
 
       // window.localStorage.removeItem('hotspot');
-      window.localStorage.setItem("position","reset");
+      // window.localStorage.setItem("position","reset");
 
       resetBacklitCloseImg();
       // window.scene.groupApplyState("Backlit_OFF");
@@ -612,11 +201,7 @@ const MainMenu = (props) => {
          // window.scene.groupApplyState("Ref_ON");
          // window.scene.groupApplyState("GP_ON");
          window.hotspot = "front";
-         // if (isNextPrevious != true) {
-         //    window.document.getElementById("hotspot1demo").focus();
-         // }
-         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
-      
+    
       })
       if (!(window.isipad || window.mob)) {
          document.getElementById("hotspot1").setAttribute("tabindex","1");
@@ -704,7 +289,7 @@ const MainMenu = (props) => {
       document.getElementById('rightBtn').classList.add('active');
 
       window.hotspot = " ";;
-      window.localStorage.setItem("position","reset");
+      // window.localStorage.setItem("position","reset");
       // window.localStorage.removeItem('hotspot');
       resetBacklitCloseImg();
       // window.scene.groupApplyState("Backlit_OFF");
@@ -812,7 +397,7 @@ const MainMenu = (props) => {
       }
 
       document.getElementById('leftBtn').classList.add('active');
-      window.localStorage.setItem("position","reset");
+      // window.localStorage.setItem("position","reset");
 
 
       // window.hotspot = " ";;
@@ -922,29 +507,11 @@ const MainMenu = (props) => {
 
 
       document.getElementById('topBtn').classList.add('active');
-      // window.hotspot = " ";;
-      // window.scene.groupApplyState("screen_180");
-      // if (laptop180) {
-      //    window.scene.groupApplyState("screenfill_180");
-      // } else {
-      //    window.scene.groupApplyState("screenfill_360");
       // }
-      window.localStorage.setItem("position","reset");
+      // window.localStorage.setItem("position","reset");
       resetBacklitCloseImg();
-      // window.scene.groupApplyState("Backlit_OFF");
-      // window.scene.groupApplyState("GP_OFF");
-      // window.scene.groupApplyState("Global_Ref_off");
       GotoPosInTimeNamedValue(window.config.top,function () {
-         // var center = [0, 11.717319, 0];
-         // window.scene._nav.SetRotationCenter(center);
-         // window.scene.groupApplyState("GP_ON");
-         // window.scene.groupApplyState("Ref_ON");
          window.hotspot = "top"
-         // window.scene.animPlayInTime("Ref_Geo",1.0416666,0)
- 
-         // if (isNextPrevious != true) {
-         //    window.document.getElementById("hotspot1demo").focus();
-         // }
          var center = [0,8.926640999999999,0];
          window.scene._nav.SetRotationCenter(center);
          var slider = document.getElementById("sliderRange");
@@ -1043,7 +610,7 @@ const MainMenu = (props) => {
          document.getElementById('nextView').setAttribute('aria-label','Front view');
       }
       window.hotspot = " ";;
-      window.localStorage.setItem("position","reset");
+      // window.localStorage.setItem("position","reset");
       window.scene.groupApplyState("SPOT_ON");
       // window.scene.animPlayInTime("SCREEN",1.083,0);
       // window.scene.animPlayInTime("CA_Precision_3581",1.1250000,0);
@@ -1112,16 +679,14 @@ const MainMenu = (props) => {
 
    const onExplodeClick = (isNextPrevious) => {
       reverseAll();
-      
-      window.scene._nav._navMaxDolly = 35.0; //110
-      window.scene._nav._navMinDolly = 16.0
-      window.scene._nav._panMax = [15,13];
+      // window.scene._nav._navMaxDolly = 35.0; //110
+      // window.scene._nav._navMinDolly = 16.0
+      // window.scene._nav._panMax = [15,13];
       setOpenClose("./img/Lid_open.svg");
       window.scene.groupApplyState("Open_Laptop");
       selectedButton = 'onExplodeClick';
       if (!(mob || isipad)) {
          document.getElementById('previousView').setAttribute('aria-label','Top view');
-
          document.getElementById('nextView').setAttribute('aria-label','Top view');
       }
 
@@ -1144,16 +709,7 @@ const MainMenu = (props) => {
       //  window.scene.groupApplyState("Screen_OFF");
       GotoPosInTimeNamedValue(window.config.exploded,function () {
          if(window.firstTime == false){
-            
-            //window.scene.groupApplyState("CCover_ON");
-           // window.scene.animPlayInTime("new_d_cover.001", 3.1250000,1000);
-            // window.scene.animPlayInTime("MOTHERBOARD", 3.1250000,1000);
-            // window.scene.animPlayInTime("BATTERY", 3.1250000,1000);
-            // window.scene.animPlayInTime("Thermal_Assy", 3.0409999,1000);
-            // window.scene.animPlayInTime("_RAM_2", 3.1250000,1000);
-            // window.scene.animPlayInTime("_RAM_1", 3.1250000,1000);
-           // window.scene.animPlayInTime("SCREEN",3.1250000,1000);
-           // window.scene.animPlayInTime("mb_part",3.1250000,1000,function () {
+   
                window.hotspot = 'explode';
            // });
             window.firstTime = true;
@@ -1208,9 +764,9 @@ const MainMenu = (props) => {
       selectedButton = 'openCloseClick';
 
 
-      var fromPos = window.localStorage.getItem('hotspot')
+      // var fromPos = window.localStorage.getItem('hotspot')
       window.hotspot = " ";
-      window.localStorage.setItem('closeMode','on');
+      // window.localStorage.setItem('closeMode','on');
       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
       if (alreadySelected != null) {
          alreadySelected.classList.remove('active');
@@ -1365,7 +921,7 @@ const MainMenu = (props) => {
       GotoPosInTimeNamedValue(window.config.top,function () {
 
 
-         window.localStorage.setItem('hotspot','backlit');
+         // window.localStorage.setItem('hotspot','backlit');
          var slider = document.getElementById("sliderRange");
 
          if (slider != null) {
@@ -1463,7 +1019,7 @@ const MainMenu = (props) => {
 
       document.getElementById('FPRBtn').classList.add('active');
 
-      window.localStorage.setItem("position","reset");
+      // window.localStorage.setItem("position","reset");
 
       window.scene.groupApplyState("dynamic_reset");
       window.scene.groupApplyState("Backlit_OFF");
@@ -1566,297 +1122,7 @@ const MainMenu = (props) => {
       position.currentPos = 'top';
    }
 
-   //menucolor
-
-   // const color1Click = () => {
-
-   //    // window.scene.groupApplyState("Millenio_5G_OFF");
-
-
-   //    // window.storeData.currentState = "sky";
-   //    //   var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //    // alreadySelecte.classList.remove('select');
-   //    console.log("click1");
-   //    var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //    if (alreadySelecte != null) {
-   //       alreadySelecte.classList.remove('select');
-   //    }
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('active');
-   //    }
-   //    document.getElementById('blackBtn').classList.add('select');
-   //    document.getElementById('blackBtn').classList.add('active');
-   //    document.getElementById('whiteBtn').classList.remove('active');
-
-   //    window.localStorage.setItem("position","reset");
-
-   //    setOpenCloseOnOff(false);
-   //    // setOpenClose("./img/Folio_W.png");
-   //    setBackliteOnOff(false);
-   //    // setBacklite("./img/stylus_W.png");
-   //    // setLaptop360FrontImg("./img/front180White.png");
-   //    // setLaptop360TopImg("./img/top180White.png");
-   //    // setLaptop360LefttImg("./img/180_white_left.png");
-   //    // setLaptop360RightImg("./img/180_white_right.png");
-   //    // setLaptop360BackImg("./img/180_white_back.png");
-   //    // setLaptop360BottomImg("./img/180_white_Bottom.png");
-   //    // window.scene.groupApplyState("screenfill_180");
-   //    // window.localStorage.setItem("color","laptopSilver");
-   //    setPort4Click(false);
-   //    // if (window.localStorage.getItem('laptop') == 'laptop360') {
-   //    //    console.log('a')
-   //    //    window.scene.groupApplyState("Silver");  
-
-   //    // }
-   //    // else if (window.localStorage.getItem('laptop') == 'laptop180') {
-   //    //    console.log('b')
-   //    //    window.scene.groupApplyState("Silver_180");
-   //    //    window.scene.groupApplyState("screenfill_180");
-
-   //    // }
-
-   //    if (window.localStorage.getItem('features') == "folio") {
-   //       // window.scene.groupApplyState("Folio_Sky");
-   //       // window.scene.groupApplyState("Folio_Sky_shadow");
-
-   //       // setOpenClose("./img/Folio_W.png");
-   //       // console.log("sky se folio ");
-   //    }
-   //    else if (window.localStorage.getItem('features') == "stylus") {
-   //       // window.scene.groupApplyState("Stylus_Sky");
-   //       // setOpenClose("./img/Folio_B.png");
-   //       // console.log("sky se Stylus_Sky ");
-   //    }
-   //    else {
-   //       // window.scene.groupApplyState("Millenio_WIFI_ON");
-   //    }
-
-   //    if (selectedButton == 'xpsFolioClick' || selectedButton == 'xpsStylusClick') {
-   //       // window.scene.groupApplyState("Tab_Reflection_OFF");
-   //    }
-   //    else {
-   //       // console.log('reflection on');
-   //       // window.scene.groupApplyState("Tab_Reflection_ON");
-   //    }
-
-
-
-   //    // window.localStorage.setItem("silver",true);
-   //    window.RT_RecordEvent("Color","Aluminium",window.config.name);
-   //    window.scene.clearRefine();
-
-
-
-   // }
-
-   // const color2Click = () => {
-   //    // window.scene.groupApplyState("Millenio_WIFI_OFF");
-
-   //    // window.storeData.currentState = "slate";
-   //    console.log("click2");
-
-   //    // window.localStorage.setItem("position","reset");
-   //    // window.localStorage.setItem("color","laptopBlack");
-   //    // window.localStorage.removeItem('closeMode');
-
-
-
-
-   //    setOpenCloseOnOff(false);
-   //    // setOpenClose("./img/Folio_B.png");
-   //    setBackliteOnOff(false);
-   //    // setBacklite("./img/stylus_W.sec.png");
-   //    // setLaptop360FrontImg("./img/front360_black.png");
-   //    // setLaptop360TopImg("./img/top360.png");
-   //    // setLaptop360LefttImg("./img/360_left.png");
-   //    // setLaptop360RightImg("./img/360_right.png");
-
-   //    // setLaptop360BackImg("./img/360_back.png");
-   //    // setLaptop360BottomImg("./img/360_Bottom.png");
-   //    // window.scene.groupApplyState("screenfill_180");
-   //    setPort2Click(false);
-   //    setPort1Click(false);
-   //    setPort3Click(false);
-   //    setPort4Click(false);
-
-
-   //    window.localStorage.setItem("Carbon_Fibre",true);
-   //    if (window.localStorage.getItem('laptop') == 'laptop360') {
-   //       // console.log('a')
-   //       //         var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       // alreadySelecte.classList.remove('select');
-
-   //       var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       if (alreadySelecte != null) {
-   //          alreadySelecte.classList.remove('select');
-   //       }
-
-   //       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //       if (alreadySelected != null) {
-   //          alreadySelected.classList.remove('active');
-   //       }
-   //       document.getElementById('blackBtn').classList.remove('select');
-   //       document.getElementById('blackBtn').classList.remove('active');
-
-   //       document.getElementById('whiteBtn').classList.add('select');
-   //       document.getElementById('whiteBtn').classList.add('active');
-   //       // window.scene.groupApplyState("Silver");  
-
-   //    }
-   //    else if (window.localStorage.getItem('laptop') == 'laptop180') {
-   //       // console.log('b')
-   //       //         var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       // alreadySelecte.classList.remove('select');
-
-   //       var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       if (alreadySelecte != null) {
-   //          alreadySelecte.classList.remove('select');
-   //       }
-
-   //       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //       if (alreadySelected != null) {
-   //          alreadySelected.classList.remove('active');
-   //       }
-   //       document.getElementById('blackBtn').classList.add('select');
-   //       document.getElementById('blackBtn').classList.add('active');
-
-   //       document.getElementById('whiteBtn').classList.remove('select');
-   //       document.getElementById('whiteBtn').classList.remove('active');
-
-
-   //       // window.scene.groupApplyState("Carbon_Black");
-   //       // window.scene.groupApplyState("screenfill_180");
-
-   //    }
-
-   //    if (window.localStorage.getItem('features') == "folio") {
-   //       // window.scene.groupApplyState("Folio_Slate");
-   //       // setOpenClose("./img/Folio_W.png");
-   //       // console.log("slate se folio ");
-   //    }
-   //    else if (window.localStorage.getItem('features') == "stylus") {
-   //       // window.scene.groupApplyState("Stylus_Slate");
-   //       // setOpenClose("./img/Folio_B.png");
-   //       // console.log("slate se Stylus_Sky ");
-   //    }
-   //    else {
-
-   //       // window.scene.groupApplyState("Millenio_5G_ON");
-   //    }
-
-   //    if (selectedButton == 'xpsFolioClick' || selectedButton == 'xpsStylusClick') {
-   //       // window.scene.groupApplyState("Tab_Reflection_OFF");
-   //    }
-   //    else {
-   //       // window.scene.groupApplyState("Tab_Reflection_ON");
-   //    }
-   //    window.RT_RecordEvent("Color","Carbon Fiber",window.config.name);
-   //    window.scene.clearRefine();
-   // }
-
-   // const color3Click = () => {
-   //    // window.scene.groupApplyState("Millenio_WIFI_OFF");
-
-   //    // window.storeData.currentState = "slate";
-   //    console.log("click3");
-
-   //    // window.localStorage.setItem("position","reset");
-   //    // window.localStorage.setItem("color","laptopBlack");
-   //    // window.localStorage.removeItem('closeMode');
-
-   //    // setOpenCloseOnOff(false);
-   //    // setOpenClose("./img/Folio_B.png");
-   //    // setBackliteOnOff(false);
-   //    // setBacklite("./img/stylus_W.sec.png");
-   //    // setLaptop360FrontImg("./img/front360_black.png");
-   //    // setLaptop360TopImg("./img/top360.png");
-   //    // setLaptop360LefttImg("./img/360_left.png");
-   //    // setLaptop360RightImg("./img/360_right.png");
-
-   //    // setLaptop360BackImg("./img/360_back.png");
-   //    // setLaptop360BottomImg("./img/360_Bottom.png");
-   //    // window.scene.groupApplyState("screenfill_180");
-   //    setPort2Click(false);
-   //    setPort1Click(false);
-   //    setPort3Click(false);
-   //    setPort4Click(false);
-
-
-   //    window.localStorage.setItem("Carbon_Fibre",true);
-   //    if (window.localStorage.getItem('laptop') == 'laptop360') {
-   //       // console.log('a')
-   //       //         var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       // alreadySelecte.classList.remove('select');
-
-   //       var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       if (alreadySelecte != null) {
-   //          alreadySelecte.classList.remove('select');
-   //       }
-
-   //       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //       if (alreadySelected != null) {
-   //          alreadySelected.classList.remove('active');
-   //       }
-   //       document.getElementById('pinkBtn').classList.remove('select');
-   //       document.getElementById('pinkBtn').classList.remove('active');
-
-   //       document.getElementById('pinkBtn').classList.add('select');
-   //       document.getElementById('pinkBtn').classList.add('active');
-   //       // window.scene.groupApplyState("Silver");  
-
-   //    }
-   //    else if (window.localStorage.getItem('laptop') == 'laptop180') {
-   //       // console.log('b')
-   //       //         var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       // alreadySelecte.classList.remove('select');
-
-   //       var alreadySelecte = document.querySelector('.MuiAccordionDetails-root.select');
-   //       if (alreadySelecte != null) {
-   //          alreadySelecte.classList.remove('select');
-   //       }
-
-   //       var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //       if (alreadySelected != null) {
-   //          alreadySelected.classList.remove('active');
-   //       }
-   //       document.getElementById('pinkBtn').classList.add('select');
-   //       document.getElementById('pinkBtn').classList.add('active');
-
-   //       document.getElementById('pinkBtn').classList.remove('select');
-   //       document.getElementById('pinkBtn').classList.remove('active');
-
-
-   //       // window.scene.groupApplyState("Carbon_Black");
-   //       // window.scene.groupApplyState("screenfill_180");
-
-   //    }
-
-   //    if (window.localStorage.getItem('features') == "folio") {
-   //       // window.scene.groupApplyState("Folio_Slate");
-   //       // setOpenClose("./img/Folio_W.png");
-   //       // console.log("slate se folio ");
-   //    }
-   //    else if (window.localStorage.getItem('features') == "stylus") {
-   //       // window.scene.groupApplyState("Stylus_Slate");
-   //       // setOpenClose("./img/Folio_B.png");
-   //       // console.log("slate se Stylus_Sky ");
-   //    }
-   //    else {
-
-   //       // window.scene.groupApplyState("Millenio_5G_ON");
-   //    }
-
-   //    if (selectedButton == 'xpsFolioClick' || selectedButton == 'xpsStylusClick') {
-   //       // window.scene.groupApplyState("Tab_Reflection_OFF");
-   //    }
-   //    else {
-   //       // window.scene.groupApplyState("Tab_Reflection_ON");
-   //    }
-   //    window.RT_RecordEvent("Color","Carbon Fiber",window.config.name);
-   //    window.scene.clearRefine();
-   // }
-   //Menu Position
+   
 
    const [port1Click,setPort1Click] = useState(false);
    const [port2Click,setPort2Click] = useState(false);
@@ -1867,154 +1133,13 @@ const MainMenu = (props) => {
    const [nextClick,setNextClick] = useState(false);
    const [prevClick,setPrevClick] = useState(false);
 
-   // const TentModeClick = () => {
-   //    // console.log(position.tent,position.currentPos)
-
-   //    //Update ZoomBar
-   //    var slider = document.getElementById("sliderRange");
-
-   //    if (slider != null) {
-   //       document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-   //       setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-   //    }
-
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('active');
-   //    }
-
-   //    document.getElementById('tentBtn').classList.add('active');
-   //    // window.scene.groupApplyState("screen_360");
-
-   //    selectedButton = 'TentModeClick';
-   //    if (!(mob || isipad)) {
-   //       document.getElementById('previousView').setAttribute('aria-label','Tent Mode');
-
-   //       document.getElementById('nextView').setAttribute('aria-label','Tent Mode');
-   //    }
-   //    setOpenCloseOnOff(false);
-   //    setOpenClose("./img/Lid_open.svg");
-   //    setBackliteOnOff(false);
-   //    setBacklite("./img/Backlite_Off.svg");
-   //    // window.localStorage.removeItem('hotspot');
-   //    GotoPosInTimeNamedValue('Tent_Cam_F53_Tent',function () {
-   //       // window.scene.groupApplyState("GP_tent");
-   //    });
-
-   //    var currentPosName = position.currentPos;
-   //    if (position.tent == position[currentPosName]) { position.currentPos = 'tent'; return; }
-   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
-   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tent,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
-
-   //    window.RT_RecordEvent("Positions","Tent",window.config.name);
-   //    window.scene.clearRefine();
-   //    position.currentPos = 'tent';
-
-   // }
-
-   // const TheaterModeClick = () => {
-   //    // console.log(position.theatre,position.currentPos)
-
-   //    //Update ZoomBar
-   //    var slider = document.getElementById("sliderRange");
-
-   //    if (slider != null) {
-   //       document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-   //       setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-   //    }
-
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('active');
-   //    }
-
-   //    document.getElementById('theaterBtn').classList.add('active');
-   //    // window.scene.groupApplyState("screen_180");
-
-   //    // window.localStorage.removeItem('closeMode')
-   //    selectedButton = 'TheaterModeClick';
-   //    if (!(mob || isipad)) {
-   //       document.getElementById('previousView').setAttribute('aria-label','Theater Mode');
-
-   //       document.getElementById('nextView').setAttribute('aria-label','Theater Mode');
-   //    }
-   //    // window.scene.groupApplyState("Backlit_OFF");
-   //    // window.scene.groupApplyState("all_GP_off");
-   //    setOpenCloseOnOff(false);
-   //    setOpenClose("./img/Lid_open.svg");
-   //    setBackliteOnOff(false);
-   //    setBacklite("./img/Backlite_Off.svg");
-
-   //    // window.localStorage.removeItem('hotspot');
-   //    GotoPosInTimeNamedValue('Render_Cam_F100_Stand');
-
-   //    var currentPosName = position.currentPos;
-   //    if (position.theatre == position[currentPosName]) { position.currentPos = 'theatre'; return; }
-   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],9);
-   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.theatre,animTime,undefined,undefined,undefined,true,position[currentPosName],4);
-
-   //    window.RT_RecordEvent("Positions","Theatre",window.config.name);
-   //    window.scene.clearRefine();
-   //    position.currentPos = 'theatre';
-
-   // }
-   // const TabletModeClick = () => {
-   //    // console.log(position.tent,position.currentPos)
-
-   //    //Update ZoomBar
-   //    var slider = document.getElementById("sliderRange");
-
-   //    if (slider != null) {
-   //       document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor();
-   //       setTimeout(function () { document.getElementById("sliderRange").value = window.scene._nav.getZoomFactor(); },1000);
-   //    }
-
-   //    var alreadySelected = document.querySelector('.MuiAccordionDetails-root.active');
-   //    if (alreadySelected != null) {
-   //       alreadySelected.classList.remove('active');
-   //    }
-
-
-   //    document.getElementById('tabletBtn').classList.add('active');
-   //    // window.scene.groupApplyState("screen_180");
-   //    // window.scene.groupApplyState("all_GP_off");
-
-   //    selectedButton = 'TabletModeClick';
-   //    if (!(mob || isipad)) {
-   //       document.getElementById('previousView').setAttribute('aria-label','Tablet Mode');
-
-   //       document.getElementById('nextView').setAttribute('aria-label','Tablet Mode');
-   //    }
-   //    // window.scene.groupApplyState("Backlit_OFF");
-   //    setOpenCloseOnOff(false);
-   //    setOpenClose("./img/Lid_open.svg");
-   //    setBackliteOnOff(false);
-   //    setBacklite("./img/Backlite_Off.svg");
-
-   //    // window.localStorage.removeItem('hotspot');
-   //    GotoPosInTimeNamedValue(window.config.close);
-
-   //    var currentPosName = position.currentPos;
-   //    if (position.tablet == position[currentPosName]) { position.currentPos = 'tablet'; return; }
-   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-   //    window.scene.animPlayAllChildrenInTime("CA_Precision_3581",position.tablet,animTime,undefined,undefined,undefined,true,position[currentPosName],10);
-
-   //    window.RT_RecordEvent("Positions","Tablet",window.config.name);
-   //    window.scene.clearRefine();
-   //    position.currentPos = 'tablet';
-   // }
+  
    const reverseAll = () => {
-      // window.scene._nav._navMinDolly = 13.0; //110
-      // window.scene._nav._navMaxDolly = 28.0; //110
-      window.scene._nav._panMax = [15,10];    //[left, bottom];
-      // window.scene._nav._panMin = [-15,-7];
-      // window.scene.groupApplyState("internal_off");
-      // window.scene.groupApplyState("Internals_OFF");
-      // window.scene.animPlayInTime("D_COVER",0,0);
+      window.scene._nav._panMax = [15,10]; 
       window.scene.groupApplyState("SPOT_OFF");
       window.scene.groupApplyState("Backlight_OFF");
       //  window.scene.animPlayInTime("SCREEN",0,0);
-        window.scene.animPlayInTime("CA_Precision_3581",0,0);
+      //   window.scene.animPlayInTime("CA_Precision_3581",0,0);
       var center = [0,0,0];
       window.firstTime = false;
       window.scene._nav.SetRotationCenter(center);
@@ -2100,18 +1225,12 @@ const MainMenu = (props) => {
 
          })
       }
-      // else if (selectedButton == 'onExplodeClick') {
-      //    onExplodeClick();
-      // }
+      else if (selectedButton == 'onExplodeClick') {
+         onExplodeClick();
+      }
 
       else if (selectedButton == 'backliteClick') {
-         // window.scene._nav._navMaxDolly = 28.0; //110
-         // window.scene._nav._panMax = [15,10];    //[left, bottom];
-         // window.scene._nav._panMin = [-15,-7];
-         // window.scene.groupApplyState("internal_off");
-         // window.scene.groupApplyState("Internals_OFF");
-         // window.scene.animPlayInTime("D_COVER",0,0);
-         // window.scene.groupApplyState("Open_Laptop");
+      
          var center = [0,0,0];
          window.scene._nav.SetRotationCenter(center);
          // window.scene.groupApplyState("screen_180");

@@ -147,7 +147,7 @@ export default function FooterControlMob(props) {
    }
    //only for mob
    const [camData,setCamData] = useState("");
-   var animationSwitch = window.localStorage.getItem('Animation');
+   var animationSwitch = window.anim;
    var animTime = 1;
 
 

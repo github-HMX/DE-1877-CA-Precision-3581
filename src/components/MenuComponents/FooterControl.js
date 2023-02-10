@@ -149,7 +149,7 @@ export default function FooterControl(props) {
    }
    //only for mob
    const [camData,setCamData] = useState("");
-   var animationSwitch = window.localStorage.getItem('Animation');
+   var animationSwitch = window.anim
    var animTime = 1;
    const getData = () => {
       fetch('./model_gl/config.json')
@@ -163,7 +163,7 @@ export default function FooterControl(props) {
    }
    useEffect(() => {
       getData();
-      animationSwitch = window.localStorage.getItem('Animation');
+      animationSwitch = window.anim;
       //window.localStorage.setItem('tent', false);
       //window.localStorage.setItem('tablet', false);
       //window.localStorage.setItem('theater', false);
@@ -195,7 +195,7 @@ export default function FooterControl(props) {
             opt = {};
          opt.zang = gp.pos[5];
       }
-      var animationSwitch = window.localStorage.getItem('Animation');
+      var animationSwitch = window.anim;
       if (animationSwitch == 'off') { gp.time = 1 }
       else {
          gp.time = animTime;
