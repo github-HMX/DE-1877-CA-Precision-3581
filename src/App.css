@@ -1244,6 +1244,7 @@ and (-webkit-device-pixel-ratio: 3) {
 		height: 95%;
 		top: 35px !important;
 		padding-right: 1px;
+		overflow-x: hidden;
 		/* background-color: #f9f9f9; */
 		z-index: 99999;
 	}
@@ -1941,7 +1942,7 @@ and (-webkit-device-pixel-ratio: 3) {
 
 @media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1.5) {
 	#howToUSE {
-		top: 30px !important;
+		top: 60px !important;
 		height: 400px !important;
 		transform: scale(0.8) translate(-30px);
 	}

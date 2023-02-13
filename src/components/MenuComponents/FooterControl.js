@@ -168,7 +168,7 @@ export default function FooterControl(props) {
       //window.localStorage.setItem('tablet', false);
       //window.localStorage.setItem('theater', false);
       //window.localStorage.setItem('close', false);
-      window.localStorage.setItem("position","reset");
+     // window.localStorage.setItem("position","reset");
       return () => {
          return false
       }
@@ -370,7 +370,7 @@ export default function FooterControl(props) {
       <React.Fragment>
          {ReactDOM.createPortal(
 
-            <div id='footerControls'>
+            <div id='footerControls' class="footerControlDesk">
                <Hidden only={['xs','sm','md']}>
                   <div className="threebtns">
                      <div className="zoombarandRotateContainer">

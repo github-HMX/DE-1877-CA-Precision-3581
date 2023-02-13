@@ -270,7 +270,7 @@ export default function FooterControlMob(props) {
       <React.Fragment>
 
          {ReactDOM.createPortal(
-            <div id='footerControls'>
+            <div id='footerControls' class="footerControMob">
                {/* <Hidden only={['sm','md','lg','xl']}>  */}
 
                <div className="threebtns">

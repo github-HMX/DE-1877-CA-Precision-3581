@@ -26,14 +26,14 @@ const MenuPositions =(props)=>{
   
 
   const handleOpen = () => {
-    if(window.localStorage.getItem('laptop') == 'laptop180'){
-      setOpen(true);
-      // console.log('a')
-    }
-    else if(window.localStorage.getItem('laptop') == 'laptop360') {
-      setOpen(false);
-      // console.log('b')
-    }
+    // if(window.localStorage.getItem('laptop') == 'laptop180'){
+    //   setOpen(true);
+    //   // console.log('a')
+    // }
+    // else if(window.localStorage.getItem('laptop') == 'laptop360') {
+    //   setOpen(false);
+    //   // console.log('b')
+    // }
    
   };
   const handleClose = () => {

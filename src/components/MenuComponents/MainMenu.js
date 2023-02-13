@@ -19,6 +19,10 @@ var mobPortrait = (mob && window.innerHeight > window.innerWidth);
 var moblandscap = (mob && window.innerWidth > window.innerHeight);
 var isipad = navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2 && (navigator.userAgent.indexOf("iPhone") == -1);
 
+// var isipad = (/CriOS/i.test(navigator.userAgent) && /ipad/i.test(navigator.userAgent)) || (navigator.userAgent.indexOf('iPad') != -1) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+
+// var mob = (navigator.userAgent.indexOf("iPhone") != -1) || ((navigator.userAgent.indexOf("Android") != -1)) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15") || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15");
+
 export const userContext = React.createContext();
 var prevCounter = 0;
 var nextClicked = false;
@@ -70,7 +74,7 @@ const MainMenu = (props) => {
 
    };
    const [camData,setCamData] = useState("");
-   var animationSwitch = window.localStorage.getItem('Animation');
+   var animationSwitch = window.anim;
    var animTime = 100;
    var animTimes = 1;
    // console.log(animTime);
@@ -87,7 +91,7 @@ const MainMenu = (props) => {
    }
    useEffect(() => {
       getData();
-      animationSwitch = window.localStorage.getItem('Animation');
+      animationSwitch = window.anim;
       moblandscap = (mob && window.innerWidth > window.innerHeight);
 
    },[]);
@@ -165,6 +169,7 @@ const MainMenu = (props) => {
    const onFrontClick = (isNextPrevious) => {
       reverseAll();
       reverseAnimation();
+      revReflection();
       // window.scene._nav._navMinDolly = 14.0; //110
       // window.scene._nav._navMaxDolly = 32.0; //110
       var slider = document.getElementById("sliderRange");
@@ -262,6 +267,7 @@ const MainMenu = (props) => {
    const onRightClick = (isNextPrevious) => {
       reverseAll();
       reverseAnimation();
+      revReflection();
       // window.scene._nav._navMinDolly = 13.0; //110
       // window.scene._nav._navMaxDolly = 24.0; //110
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
@@ -371,6 +377,7 @@ const MainMenu = (props) => {
    const onLeftClick = (isNextPrevious) => {
       reverseAll();
       reverseAnimation();
+      revReflection();
       // window.scene._nav._navMinDolly = 13.0; //110
       // window.scene._nav._navMaxDolly = 24.0; //110
       // window.scene._nav._panMax = [10,14];    //[left, bottom];
@@ -480,6 +487,7 @@ const MainMenu = (props) => {
       reverseAll();
       //Update ZoomBar
       reverseAnimation();
+      revReflection();
       window.scene._nav._panMax = [10,2];    //[left, bottom];
       // window.scene._nav._panMin = [-10,-6];  //[right, top]
 
@@ -584,6 +592,7 @@ const MainMenu = (props) => {
    const onBackClick = (isNextPrevious) => {
       reverseAll();
       reverseAnimation();
+      revReflection();
       // window.scene._nav._navMinDolly = 14.0; //110
       // window.scene._nav._navMaxDolly = 28.0; //110
       //Update ZoomBar
@@ -756,6 +765,7 @@ const MainMenu = (props) => {
    const openCloseClick = () => {
       reverseAll();
       reverseAnimation();
+      revReflection();
       // console.log(position.close,position.currentPos)
       //Update ZoomBar
       var slider = document.getElementById("sliderRange");
@@ -888,6 +898,7 @@ const MainMenu = (props) => {
    const backliteClick = () => {
       reverseAll();
       reverseAnimation();
+      revReflection();
       window.scene._nav._panMax = [10,2];    //[left, bottom]; //[left, bottom];
       // window.scene._nav._panMin = [-16,-8];  //[right, top]
 
@@ -1004,6 +1015,7 @@ const MainMenu = (props) => {
    const FPRClick = () => {
       reverseAll();
       reverseAnimation();
+      revReflection();
       window.scene._nav._panMax = [10,2];    //[left, bottom];   //[left, bottom];
       // window.scene._nav._panMin = [-16,-8];  //[right, top]
       //Update ZoomBar
@@ -1133,11 +1145,19 @@ const MainMenu = (props) => {
    const [nextClick,setNextClick] = useState(false);
    const [prevClick,setPrevClick] = useState(false);
 
-  
+  const revReflection = () => {
+   setTimeout(() => {
+      window.scene.groupApplyState("GP_ON");
+      window.scene.groupApplyState("Ref_ON");
+   }, 800);
+  }
+
    const reverseAll = () => {
       window.scene._nav._panMax = [15,10]; 
       window.scene.groupApplyState("SPOT_OFF");
       window.scene.groupApplyState("Backlight_OFF");
+     
+     
       //  window.scene.animPlayInTime("SCREEN",0,0);
       //   window.scene.animPlayInTime("CA_Precision_3581",0,0);
       var center = [0,0,0];
@@ -1448,7 +1468,7 @@ const MainMenu = (props) => {
 
    useEffect(() => {
       // console.log('useeffect working');
-      window.localStorage.setItem('Animation','on');
+       window.anim = 'on';
       setAnimValue("On");
       document.getElementById("animSwitchValue").checked = true;
       document.getElementsByClassName('onOff')[0].style.left = "-17px";
@@ -1474,7 +1494,7 @@ const MainMenu = (props) => {
          document.getElementById("animSwitchValue").checked = false;
          setAnimValue("Off");
          document.getElementsByClassName('onOff')[0].style.left = "9px";
-         window.localStorage.setItem('Animation','off');
+          window.anim = 'off';
          window.RT_RecordEvent("Animations","Off",window.config.name);
 
          // alert("Animation On");
@@ -1484,7 +1504,7 @@ const MainMenu = (props) => {
          document.getElementById("animSwitchValue").checked = true;
 
          setAnimValue("On");
-         window.localStorage.setItem('Animation','on');
+          window.anim = 'on';
          document.getElementsByClassName('onOff')[0].style.left = "-17px";
          // alert("Animation Off");
          window.RT_RecordEvent("Animations","On",window.config.name);
@@ -1496,7 +1516,7 @@ const MainMenu = (props) => {
 
       if (isChecked == true) {
          setAnimValue("On");
-         window.localStorage.setItem('Animation','on');
+          window.anim = 'on';
          document.getElementsByClassName('onOff')[0].style.left = "-17px";
          document.getElementById('animSwitchValue').setAttribute('aria-label','clickable checkbox checked On');
          // alert("Animation On");
@@ -1504,7 +1524,7 @@ const MainMenu = (props) => {
       } else {
          setAnimValue("Off");
          document.getElementsByClassName('onOff')[0].style.left = "9px";
-         window.localStorage.setItem('Animation','off');
+          window.anim = 'off';
          document.getElementById('animSwitchValue').setAttribute('aria-label','clickable checkbox checked Off');
          // alert("Animation Off");
 

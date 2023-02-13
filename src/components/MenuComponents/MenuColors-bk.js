@@ -88,14 +88,14 @@ const color1Click = () => {
     const [open1, setOpen1] = useState(false);
 
     const handleOpen1 = () => {
-      if(window.localStorage.getItem('laptop') == 'laptop360'){
-        setOpen1(true);
-        // console.log('a')
-      }
-      else if(window.localStorage.getItem('laptop') == 'laptop180') {
-        setOpen1(false);
-        // console.log('b')
-      }
+      // if(window.localStorage.getItem('laptop') == 'laptop360'){
+      //   setOpen1(true);
+      //   // console.log('a')
+      // }
+      // else if(window.localStorage.getItem('laptop') == 'laptop180') {
+      //   setOpen1(false);
+      //   // console.log('b')
+      // }
      
     };
     const handleClose1 = () => {

@@ -432,13 +432,12 @@
       ctxCallouts = null;
       var checkOrientationStatus = null;
       window.canvasLandscapeMarginTop = false;
-      window.anim = '';
+      var anim;
 
 
-      var isipad = (/CriOS/i.test(navigator.userAgent) && /ipad/i.test(navigator.userAgent)) || (navigator.userAgent.indexOf('iPad') !== -1) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
+      var isipad = (/CriOS/i.test(navigator.userAgent) && /ipad/i.test(navigator.userAgent)) || (navigator.userAgent.indexOf('iPad') != -1) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
 
-      var mob = (navigator.userAgent.indexOf("iPhone") !== -1) || ((navigator.userAgent.indexOf("Android") !== -1)) || (navigator.userAgent.indexOf('iPod') !== -1) || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15");
-
+      var mob = (navigator.userAgent.indexOf("iPhone") != -1) || ((navigator.userAgent.indexOf("Android") != -1)) || (navigator.userAgent.indexOf('iPod') != -1) || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Safari/605.1.15") || (navigator.userAgent == "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6,2 Safari/605.1.15");
       function InfinityRTStart() {
 
          if (mob || isipad) {
@@ -494,9 +493,9 @@
             calloutcanvas = document.getElementById("calloutcanvas");
 
             ui = document.getElementById("root");
-            uifooterControMob = document.getElementById("footerControMob");
-            uifooterControlDesk = document.getElementById("footerControlDesk");
-            uifooterControIpad = document.getElementById("footerControIpad");
+            uifooterControMob = document.querySelector(".footerControMob");
+            uifooterControlDesk = document.querySelector(".footerControlDesk");
+           
             if (typeof (canvas) != 'undefined') {
                var gl = infinityrt_getwebglcontextHMX(canvas,{ xrCompatible: true,antialias: true,depth: true });
                if (!gl) {
@@ -515,13 +514,13 @@
                   addMouseListeners(ui);
                   addMouseListeners(uifooterControMob);
                   addMouseListeners(uifooterControlDesk);
-                  addMouseListeners(uifooterControIpad);
+                 
                   window.addEventListener('keypress',keyPress,false);
                }
             }
          }
          catch (e) {
-            console.log(e);
+            // console.log(e);
          }
          if (scene != null) {
             window.requestAnimationFrame(frameUpdate);
@@ -628,12 +627,15 @@
          window.hotspot = " "
          GotoPosInTimeNamedValue(config.default);
          // window.localStorage.setItem('Animation','on');
-         // window.anim = 'on'
+         window.anim = 'on';
          // window.localStorage.setItem("laptop","laptop360");
          // document.getElementById("animSwitchValue").checked = true;
          if (!(window.mob)) {
-            document.getElementById("animSwitchValue1").checked = true;
+            if(document.getElementById("animSwitchValue1") != null){
+               document.getElementById("animSwitchValue1").checked = true;
+            }
          }
+         
          window.scene.groupApplyState("With_SC_CARD");
          // window.scene.groupApplyState("Internal_OFF");
 
@@ -666,7 +668,10 @@
             document.getElementById("hotspot25").setAttribute("tabindex","-1");
             document.getElementById("hotspot26").setAttribute("tabindex","-1");
             document.getElementById("hotspot27").setAttribute("tabindex","-1");
-            document.getElementById("LeftMenuWrapper").setAttribute("tabindex","-1");
+            if (document.getElementById('LeftMenuWrapper') != null) {
+            window.document.getElementById("LeftMenuWrapper").setAttribute("tabindex","-1");
+         }
+            
             // setTimeout(function () {
             //    hideTabIndexes();
             // }, 400);
@@ -751,12 +756,12 @@
             // setTimeout(function(){ document.getElementById("sliderRange").value = parseInt(60+100-window.scene._nav._navDolly); }, 500);
          }
 
-         if (scene._nav._navDolly < 65) {
-            scene._bDoF = true;
-         }
-         else {
-            scene._bDoF = false;
-         }
+         // if (scene._nav._navDolly < 65) {
+         //    scene._bDoF = true;
+         // }
+         // else {
+         //    scene._bDoF = false;
+         // }
       }
       window.addEventListener('resize',resizeCanvas2,false);
 
@@ -1240,7 +1245,9 @@
             hotspotContainer.style.display = "none"
          }
 
-
+         if(ev.target.id!=='root'){
+            return;
+         }
          if (!mdown)
             return;
          var s = getScene(ev);
@@ -1425,7 +1432,7 @@
          if (document.getElementById('loader')) {
             document.getElementById('loader').style.display = "none";
          }
-         if (document.getElementById('LeftMenuWrapper')) {
+         if (document.getElementById('LeftMenuWrapper') != null) {
             window.document.getElementById('LeftMenuWrapper').setAttribute('aria-hidden','false');
          }
          if (document.getElementById('loaders')) {
@@ -1701,25 +1708,25 @@
                else if (currentPosition == 'explode') {
                   HS_SimpleCallout([40, 0], 0, 0, "internal_hotspot_01", "", port18, "left", 10, 120,0);
 
-HS_SimpleCallout([180, -13], 0, -13, "internal_hotspot_02", "", port19, "left", 10, 200,0);
+                  HS_SimpleCallout([180, -13], 0, -13, "internal_hotspot_02", "", port19, "left", 10, 200,0);
 
-HS_SimpleCallout([30, -15], -10, -15, "internal_hotspot_03", "", port20, "left", 0, 200,5);
+                  HS_SimpleCallout([30, -15], -10, -15, "internal_hotspot_03", "", port20, "left", 0, 200,5);
 
 
-//HS_SimpleCallout([-150, 0], 0, 0, "internal_hotspot_04", "", port21, "right", 10, 120,0);            
-HS_SetOriginFromHotspot("internal_hotspot_06");
-HS_DrawLine([0,15],[0,-12]); //v1
-HS_DrawLine([-105,15],[-105,-12]); //v2
-HS_DrawLine([-270,15],[0,15]); //h1
-HS_DrawText([-275,15],port24,"Roboto",10,"right",300);
+                  //HS_SimpleCallout([-150, 0], 0, 0, "internal_hotspot_04", "", port21, "right", 10, 120,0);            
+                  HS_SetOriginFromHotspot("internal_hotspot_06");
+                  HS_DrawLine([0,15],[0,-12]); //v1
+                  HS_DrawLine([-105,15],[-105,-12]); //v2
+                  HS_DrawLine([-270,15],[0,15]); //h1
+                  HS_DrawText([-275,15],port24,"Roboto",10,"right",120);
 
-HS_SetOriginFromHotspot("internal_hotspot_05");
-HS_DrawLine([0,0],[0,-18]); //v1
-HS_DrawLine([-105,0],[-105,-18]); //v2
-HS_DrawLine([-250,0],[0,0]); //h1
-HS_DrawText([-255,0],port21,"Roboto",10,"right",300);
+                  HS_SetOriginFromHotspot("internal_hotspot_05");
+                  HS_DrawLine([0,0],[0,-18]); //v1
+                  HS_DrawLine([-105,0],[-105,-18]); //v2
+                  HS_DrawLine([-250,0],[0,0]); //h1
+                  HS_DrawText([-255,0],port21,"Roboto",10,"right",300);
 
-HS_SimpleCallout([-210, -13], 0, -13, "internal_hotspot_08", "", port23, "right", 5, 300,0);
+                  HS_SimpleCallout([-210, -13], 0, -13, "internal_hotspot_08", "", port23, "right", 5, 120,0);
                }
             }
             else {
@@ -1915,15 +1922,15 @@ HS_SetOriginFromHotspot("internal_hotspot_06");
 HS_DrawLine([0,15],[0,-12]); //v1
 HS_DrawLine([-105,15],[-105,-12]); //v2
 HS_DrawLine([-270,15],[0,15]); //h1
-HS_DrawText([-275,15],port24,"Roboto",15,"right",300);
+HS_DrawText([-275,15],port24,"Roboto",15,"right",130);
 
 HS_SetOriginFromHotspot("internal_hotspot_05");
 HS_DrawLine([0,0],[0,-18]); //v1
 HS_DrawLine([-105,0],[-105,-18]); //v2
 HS_DrawLine([-250,0],[0,0]); //h1
-HS_DrawText([-255,0],port21,"Roboto",15,"right",300);
+HS_DrawText([-255,0],port21,"Roboto",15,"right",140);
 
-HS_SimpleCallout([-210, -13], 0, -13, "internal_hotspot_08", "", port23, "right", 5, 300,0);
+HS_SimpleCallout([-210, -13], 0, -13, "internal_hotspot_08", "", port23, "right", 5, 120,0);
          }
             }
             else {
