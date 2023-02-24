@@ -590,6 +590,7 @@ const MainMenu = (props) => {
    }
 
    const onBackClick = (isNextPrevious) => {
+      
       reverseAll();
       reverseAnimation();
       revReflection();
@@ -621,6 +622,8 @@ const MainMenu = (props) => {
       window.hotspot = " ";;
       // window.localStorage.setItem("position","reset");
       window.scene.groupApplyState("SPOT_ON");
+      
+      
       // window.scene.animPlayInTime("SCREEN",1.083,0);
       // window.scene.animPlayInTime("CA_Precision_3581",1.1250000,0);
       GotoPosInTimeNamedValue(window.config.back,function () {
@@ -918,7 +921,7 @@ const MainMenu = (props) => {
       window.hotspot = " ";;
       // window.scene.groupApplyState("screen_180");/
       // window.scene.groupApplyState("dynamic_reset");
-
+      window.scene.groupApplyState("INTERNALS_OFF");
       if (laptop180) {
          window.scene.groupApplyState("screenfill_180");
       } else {

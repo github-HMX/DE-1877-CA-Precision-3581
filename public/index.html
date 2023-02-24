@@ -1508,8 +1508,8 @@
       // front hotspot
       var port1 = 'Up to FHD IR w/EMZA proximity sensor, privacy shutter, ExpressSign-in';
       var port2 = 'Up to FHD, 100% sRGB, 400nits, PremierColor. Touch and ComfortView Plus optional';
-      var port3 = 'Optional fingerprint reader on the power button';
-      var port4 = 'Pro2 Keyboard';
+      var port3 = 'Optional fingerprint reader on power button';
+      var port4 = 'Pro2 backlit Keyboard';
       var port5 = 'Large, glass-like clickpad';
       var port50 = "Optional card reader"
 
@@ -1522,7 +1522,7 @@
       var port22 = "Lock slot";
       var port11 = '(2) THunderbolt 4 Type C';
       var port12 = 'Smart Card Reader';
-      var port13 = "xx degree hinge";
+      // var port13 = "xx degree hinge";
       var port14 = "Dell Optimizer for Precision";
       var port14_2 = "ISV Certifications";
       var port14_3 = "MIL-STD Tested";
@@ -1538,11 +1538,11 @@
       // var port21 = "Panels";
 
       var port18 = "Panels"
-      var port19 = "Up to NVIDIA RTX A3000 Graphics (8GB)"
+      var port19 = "Up to NVIDIA RTX 3000 Ada Generation Graphics (8GB)"
       var port20 = "Advanced thermals"
       var port21 = "Up to 64GB of 4800MHz memory"
-      var port24 = "Up to 4TB of Gen4 storage"
-      var port23 = "Up to Intel Core i9 (45W) processor"
+      var port24 = "Up to 3TB of Gen4 storage"
+      var port23 = "Up to Intel Core i7 (28W) processor"
     
 
 
@@ -1647,7 +1647,7 @@
                }
                else if (currentPosition == 'back') {
 
-                  HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,190,10);
+                  // HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,190,10);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
@@ -1742,7 +1742,7 @@
 
                }
                else if (currentPosition == 'back') {
-                  HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
+                  // HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
@@ -1852,7 +1852,7 @@
 
                }
                else if (currentPosition == 'back') {
-                  HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
+                  // HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
@@ -1948,7 +1948,7 @@ HS_SimpleCallout([-210, -13], 0, -13, "internal_hotspot_08", "", port23, "right"
 
                }
                else if (currentPosition == 'back') {
-                  HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
+                  // HS_SimpleCallout([0,50],0,0,"Rear_Hotspot_1","",port13,"center",5,190,0);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
@@ -2068,16 +2068,16 @@ HS_SimpleCallout([-210, -13], 0, -13, "internal_hotspot_08", "", port23, "right"
 
 
 
-               HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,190,10);
+               // HS_SimpleCallout([120,-5],0,-5,"Rear_Hotspot_1","",port13,"left",0,190,10);
 
                // setHotSpot('hotspot1demo','hotspot_030',50,-15,1.0,port0,200,19,"right");
                HS_SetOriginFromHotspot("Rear_Hotspot_3");
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-135,0],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"left",250);
+               HS_DrawText([40,0],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",15,"right",250);
 
                HS_SetOriginFromHotspot("Rear_Hotspot_2");
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([-45,0],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",200);
+               HS_DrawText([-35,0],port15 + ' <br> ' + port15_2 + ' <br> ' + port15_3 + ' <br> ' + port15_4,"Roboto",15,"left",200);
 
                // setHotSpot('hotspot16','hotspot_030',1045,-70,0,port33 + ' <br> ' + port34 + ' <br> ' + port35 + ' <br> ' + port53 + ' <br> ' + port36 + ' <br> ' + port37 + ' <br> ' + port38 + ' <br> ' + port39,320,19,"left")
             }
@@ -2533,7 +2533,7 @@ HS_SimpleCallout([-210, -13], 0, -13, "internal_hotspot_08", "", port23, "right"
                   port10 = finalLangues.port10;
                   port11 = finalLangues.port11;
                   port12 = finalLangues.port12;
-                  port13 = finalLangues.port13;
+                  // port13 = finalLangues.port13;
                   port14 = finalLangues.port14;
                   port14_2 = finalLangues.port14_2;
                   port14_3 = finalLangues.port14_3;

@@ -99,6 +99,7 @@ ul.MuiList-root.NestedList-root-7.MuiList-padding {
 	background-color: #fff;
 	margin-bottom: 20px;
 	cursor: pointer;
+	display:block;
 	/* margin-top: 56px; */
 }
 /* .Mui-disabled {
@@ -363,8 +364,8 @@ span.MuiButtonBase-root.MuiIconButton-root.PrivateSwitchBase-root-14.MuiSwitch-s
 	vertical-align: middle;
 	width: 62px;
 	height: 28px;
-	/* left: 5px; */
-	/* top: -2px; */
+	 left: 5px; 
+	 top: -2px; 
 }
 
 .switch input {
@@ -1734,7 +1735,7 @@ and (-webkit-device-pixel-ratio: 3) {
 	}
 }
 
-@media only screen and (min-device-width: 600px) and (max-device-width: 600px) and (orientation: portrait) {
+@media only screen and (min-device-width: 600px) and (max-device-width: 767px) and (orientation: portrait) {
 	#footerControls {
 		position: fixed;
 		left: 9%;
@@ -1909,7 +1910,7 @@ and (-webkit-device-pixel-ratio: 3) {
 	/* #howToUSE{transform: scale(0.8) translate(5px);} */
 }
 
-@media only screen and (min-device-width: 640px) and (max-device-width: 600px) {
+@media only screen and (min-device-width: 640px) and (max-device-width: 767px) {
 	*:focus {
 		outline: none;
 	}
