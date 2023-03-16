@@ -165,7 +165,7 @@ function App() {
       setOrientation(orientationStatus);
    }
    useEffect((event) => {
-    
+
 
       if (window.innerHeight > window.innerWidth) {
          // setBurgerBtnVisible(false);
@@ -220,12 +220,12 @@ function App() {
             {/* Ipad with open btn */}
 
             <Hidden only={['xs','lg']}>
-               {window.innerWidth < window.innerHeight && <Button variant="outlined" color="primary" size="large" className="openCloseBtn" style={{ display: orientationPotrait == true ? "block" : "none",maxWidth: '62px;'}} startIcon={<DehazeIcon />} disableElevation onClick={menuMobLandscapOpen}> </Button>}
-               {closeBtnVisibilityOpen && <Button variant="outlined" color="primary" size="large" className="openCloseBtn" style={{ display: orientationPotrait == true ? "block" : "none",maxWidth: '62px;' ,display:"none"}} startIcon={<DehazeIcon />} disableElevation onClick={menuMobLandscapOpen}> </Button>}
+               {window.innerWidth < window.innerHeight && <Button variant="outlined" color="primary" size="large" className="openCloseBtn" style={{ display: orientationPotrait == true ? "block" : "none",maxWidth: '62px' }} startIcon={<DehazeIcon />} disableElevation onClick={menuMobLandscapOpen}> </Button>}
+               {closeBtnVisibilityOpen && <Button variant="outlined" color="primary" size="large" className="openCloseBtn" style={{ display: orientationPotrait == true ? "block" : "none",maxWidth: '62px',display: "none" }} startIcon={<DehazeIcon />} disableElevation onClick={menuMobLandscapOpen}> </Button>}
 
                <div className="openCloseBar" style={{}}></div>
 
-               {closeBtnVisibilityClose && <Button variant="outlined" color="primary" size="large" className="openCloseBtn closeBtnMobLAndscap" style={{ display: orientationPotrait == true ? "block" : "none",maxWidth: '62px;' }} startIcon={<CloseIcon />} onClick={menuMobLandscapClose} > </Button>}
+               {closeBtnVisibilityClose && <Button variant="outlined" color="primary" size="large" className="openCloseBtn closeBtnMobLAndscap" style={{ display: orientationPotrait == true ? "block" : "none",maxWidth: '62px' }} startIcon={<CloseIcon />} onClick={menuMobLandscapClose} > </Button>}
             </Hidden>
 
             {/* Ipad end */}

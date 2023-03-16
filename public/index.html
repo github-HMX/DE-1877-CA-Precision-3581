@@ -433,7 +433,7 @@
       var checkOrientationStatus = null;
       window.canvasLandscapeMarginTop = false;
       var anim;
-
+      var _calloutPlacement = 0;
 
       var isipad = (/CriOS/i.test(navigator.userAgent) && /ipad/i.test(navigator.userAgent)) || (navigator.userAgent.indexOf('iPad') != -1) || (navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2);
 
@@ -1031,7 +1031,8 @@
                   // }
                   calloutcanvas.style.marginTop = canvas.style.marginTop = "0px";
 
-               } else {
+               }
+               else {
                   if (console.log("mobile potrait"),
                      r = 1 * window.innerHeight * o,
                      i > a.w || r > a.h)
@@ -1046,7 +1047,8 @@
                null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
                   scene.resize(canvas.width,canvas.height)),
                   window.checkOrientationStatus(!1)
-            } else if (isipad) {
+            }
+            else if (isipad) {
                // console.log("ipad");
                a = {
                   w: 1920,
@@ -1077,7 +1079,8 @@
                      $("#infinityrt-canvas, #calloutcanvas").css({
                         marginLeft: ""
                      })
-               } else if (window.innerHeight < window.innerWidth) {
+               }
+               else if (window.innerHeight < window.innerWidth) {
                   window.checkOrientationStatus(!1);
                   var c = "175";
                   if (calloutcanvas.width = canvas.width = t.width - c,
@@ -1089,16 +1092,23 @@
                   null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
                      scene.resize(canvas.width,canvas.height))
                }
-            } else {
+            }
+            else {
                // console.log("desktop");
                var d;
                c = "285"
                if (calloutcanvas.width = canvas.width = t.width - c,
                   calloutcanvas.height = canvas.height = t.height,
                   calloutcanvas.style.marginLeft = canvas.style.marginLeft = c + "px",
+
                   window.innerWidth > window.innerHeight)
                   (d = window.innerWidth / window.innerHeight - window.devicePixelRatio) < .5 && (d = .5),
                      d > 1 && (d = 1);
+               if (window.devicePixelRatio == 2) {
+                  console.log('marginVal',c)
+                  _calloutPlacement = -c;
+                  scene.setProjectionOffset(-c,0)
+               }
                null != scene && (scene._nav.canvasResize(canvas.width,canvas.height),
                   scene.resize(canvas.width,canvas.height)),
                   window.checkOrientationStatus(!1)
@@ -2046,7 +2056,7 @@
                HS_SimpleCallout([0,-50],0,0,"Front_Hotspot_1","",port1,"center",24,400,20);
                // setHotSpot('hotspot2','hotspot_010',110,-112,0,port1,395,18,"center");
 
-               HS_SimpleCallout([50,0],0,0,"Front_Hotspot_2","",port2,"left",10,190,0);
+               HS_SimpleCallout([30,0],0,0,"Front_Hotspot_2","",port2,"left",10,120,0);
                // setHotSpot('hotspot3','hotspot_012',351,-12,0,port3,310,18,"center");
 
             }
@@ -2341,7 +2351,7 @@
 
       function HS_SetOrigin(pt) {
          ctxCallouts.resetTransform();
-         ctxCallouts.translate(pt[0],pt[1]);
+         ctxCallouts.translate(pt[0] + _calloutPlacement / 2,pt[1]);
          var scale = canvasCallouts.height / 800;
          ctxCallouts.scale(scale,scale);
       }

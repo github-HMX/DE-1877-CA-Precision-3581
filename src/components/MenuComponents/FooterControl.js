@@ -168,7 +168,7 @@ export default function FooterControl(props) {
       //window.localStorage.setItem('tablet', false);
       //window.localStorage.setItem('theater', false);
       //window.localStorage.setItem('close', false);
-     // window.localStorage.setItem("position","reset");
+      // window.localStorage.setItem("position","reset");
       return () => {
          return false
       }
@@ -267,10 +267,10 @@ export default function FooterControl(props) {
 
    const featureCamSet = () => {
       var t = document.getElementById("sliderRange");
-      if(window.feature == "webcam"){
-       window.setTimeout(() => {
-         t.value = window.scene._nav.getZoomFactor()
-       }, 1000);
+      if (window.feature == "webcam") {
+         window.setTimeout(() => {
+            t.value = window.scene._nav.getZoomFactor()
+         },1000);
          window.GotoPosInTimeNamedValue(window.config.closeOut);
          window.scene._nav._navMinDolly = 23
          window.scene._nav._navMaxDolly = 55
@@ -279,10 +279,10 @@ export default function FooterControl(props) {
          window.scene._nav.getZoomFactor()
          window.feature = null;
       }
-      else if(window.feature == "access"){
+      else if (window.feature == "access") {
          window.setTimeout(() => {
             t.value = window.scene._nav.getZoomFactor()
-          }, 1000);
+         },1000);
          window.GotoPosInTimeNamedValue(window.config.front);
          window.scene._nav._navMinDolly = 23
          window.scene._nav._navMaxDolly = 55
@@ -300,15 +300,15 @@ export default function FooterControl(props) {
    const onZoomIn = (e) => {
       if (window.scene._nav.getZoomFactor() > 0)
          handleZoomChange(null,-1 + (parseFloat(document.getElementById("sliderRange").value)))
-       
-         featureCamSet();
+
+      featureCamSet();
    }
 
    const onZoomOut = (e) => {
       if (window.scene._nav.getZoomFactor() < 100)
          handleZoomChange(null,1 + (parseFloat(document.getElementById("sliderRange").value)))
-        
-         featureCamSet();
+
+      featureCamSet();
    }
 
 
@@ -322,7 +322,7 @@ export default function FooterControl(props) {
          }
       }
       featureCamSet();
-      
+
       window.scene.clearRefine();
 
       // alert("Rotate product left");
@@ -370,7 +370,7 @@ export default function FooterControl(props) {
       <React.Fragment>
          {ReactDOM.createPortal(
 
-            <div id='footerControls' class="footerControlDesk">
+            <div id='footerControls' className="footerControlDesk">
                <Hidden only={['xs','sm','md']}>
                   <div className="threebtns">
                      <div className="zoombarandRotateContainer">
@@ -391,7 +391,7 @@ export default function FooterControl(props) {
                               <Button tabIndex="2" style={{ color: "#0076CE" }} type="button" onMouseDown={onRippleStart} onMouseUp={onRippleStop} aria-label="Clickable Zoom Out" role="button" id="zoomIn" onClick={onZoomIn}> <TouchRipple ref={rippleRef} center={false} /></Button>
                               <div id="zoomSlider" aria-hidden="true">
                                  <div className="rangeslider" aria-hidden="true">
-                                    {/* <label> <input tabIndex="2" aria-hidden="true" type="range" min="0" max="1" step="0.01" class="myslider" onChange={handleZoomChange} id="sliderRange"/> */}
+                                    {/* <label> <input tabIndex="2" aria-hidden="true" type="range" min="0" max="1" step="0.01" className="myslider" onChange={handleZoomChange} id="sliderRange"/> */}
                                     <label> <input tabIndex="2" aria-hidden="true" type="range" min="0" max="100" step="1" className="myslider" onChange={handleZoomChange} id="sliderRange" />
                                     </label>
                                  </div>
