@@ -403,13 +403,13 @@ export default function FooterControl(props) {
                      <div style={clearBoth}>
                         <Hidden only='xs'>
                            <Button tabIndex="2" aria-label="Previous view" id="previousView" style={threeButtons} variant="outlined" color="primary" onClick={props.onPrevious} className={classes.margin}>
-                              <img alt="Previous view" style={{ height: '20px',width: '19px',paddingRight: '12px' }} src="./img/leftArrow.svg" />{window.finalLangues.previousView}
+                              <img alt="Previous view" style={{ height: '20px',width: '24px',paddingRight: '12px' }} src="./img/leftArrow.svg" />{window.finalLangues.previousView}
                            </Button>
                            <Button tabIndex="2" style={threeButtons} variant="outlined" id="resetView" color="primary" onClick={props.onReset} className={classes.margin}>
                               {window.finalLangues.resetView}
                            </Button>
                            <Button tabIndex="2" aria-label="Next view" style={threeButtons} id="nextView" variant="outlined" color="primary" onClick={props.onNext} expanded={props.expanded} className={classes.margin}>
-                              {window.finalLangues.nextView}  <img alt="Next view" style={{ height: '20px',width: '19px',paddingLeft: '12px' }} src="./img/rightArrow.svg" />
+                              {window.finalLangues.nextView}  <img alt="Next view" style={{ height: '20px',width: '24px',paddingLeft: '12px' }} src="./img/rightArrow.svg" />
                            </Button>
                         </Hidden>
                         {/* <Hidden only={['sm','md','lg','xl']}>
