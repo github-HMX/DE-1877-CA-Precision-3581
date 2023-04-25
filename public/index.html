@@ -2119,13 +2119,14 @@
 
             }
             else if (currentPosition == 'left') {
+               // console.log('left')
                // setHotSpot('hotspot1demo','Chassis_intrusion_switch_hotspot',50,-15,1.0,port0,200,19,"right");
 
-               HS_SimpleCallout([0,-190],0,0,"Left_Hotspot_1","",port22,"right",5,300,25);
+               HS_SimpleCallout([0,-300],0,0,"Left_Hotspot_1","",port22,"right",5,300,5);
 
-               HS_SimpleCallout([0,-160],0,0,"Left_Hotspot_2","",port10,"right",5,300,25);
+               HS_SimpleCallout([0,-250],0,0,"Left_Hotspot_2","",port10,"right",5,300,5);
 
-               HS_SimpleCallout([0,-100],0,0,"Left_Hotspot_3","",port9,"right",5,300,30);
+               HS_SimpleCallout([0,-210],0,0,"Left_Hotspot_3","",port9,"right",5,300,5);
 
                HS_SetOriginFromHotspot("Left_Hotspot_5");
                HS_DrawLine([0,-60],[0,-2]); //h
@@ -2133,15 +2134,16 @@
                HS_DrawLine([0,-60],[43,-60]); //v
                HS_DrawLine([24,-60],[24,-140]); //h3
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([25,-190],port8,"Roboto",15,"center",150)
+               HS_DrawText([25,-170],port8,"Roboto",15,"right",300)
 
-               HS_SimpleCallout([0,-95],0,0,"Left_Hotspot_6","",port7,"center",24,100,0);
+               HS_SimpleCallout([0,-80],0,0,"Left_Hotspot_6","",port7,"right",10,300,5);
 
 
-               HS_SimpleCallout([0,-35],0,0,"Left_Hotspot_7","",port6,"center",25,100,-5);
+               HS_SimpleCallout([0,-35],0,0,"Left_Hotspot_7","",port6,"right",10,300,5);
 
             }
             else if (currentPosition == 'right') {
+               // console.log('right')
                // setHotSpot('hotspot1demo','hotspot_016',278,72,0,port0,195,18,"right");
 
                HS_SetOriginFromHotspot("Right_Hotspot_1");
@@ -2150,9 +2152,9 @@
                HS_DrawLine([0,-60],[33,-60]); //v
                HS_DrawLine([17,-60],[17,-140]); //h3
                ctxCallouts.fillStyle = 'black';
-               HS_DrawText([25,-174],port11,"Roboto",15,"center",120)
+               HS_DrawText([5,-174],port11,"Roboto",15,"left",300)
 
-               HS_SimpleCallout([0,-60],0,0,"Right_Hotspot_3","",port12,"left",5,300,-5);
+               HS_SimpleCallout([0,-60],0,0,"Right_Hotspot_3","",port12,"left",5,400,-5);
 
             }
             else if (currentPosition == 'explode') {
@@ -2568,6 +2570,7 @@
                   port19 = finalLangues.port19
                   port20 = finalLangues.port20
                   port21 = finalLangues.port21
+                  port22 = finalLangues.port20
                   port24 = finalLangues.port24
 
 
