@@ -81,7 +81,7 @@ const MenuFeatures = (props) => {
            
             
             <AccordionDetails tabIndex="1" id="backlitBtn" onKeyPress={props.onOffBackliteClicked} onClick={props.onOffBackliteClicked}>
-               <MenuCircleBtnBacklite changeBacklitImg={props.tobeChanged} submenu="Backlit Keyboard" />
+               <MenuCircleBtnBacklite changeBacklitImg={props.tobeChanged} submenu={window.finalLangues.backlite} />
             </AccordionDetails>
             <AccordionDetails tabIndex="1" id="FPRBtn" onKeyPress={props.OnOffFPRclick} onClick={props.OnOffFPRclick}>
                <FPROnOff changeOnOffImg={props.ChangeFPRIcon} className="FPR" submenu={window.finalLangues.fingerprint} />
