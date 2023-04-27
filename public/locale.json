@@ -2,6 +2,8 @@
 	"config": [
 		{
 			"lang": "EN",
+
+			"title":"Precision 15 3581 Laptop",
 			
 			"reset": "Reset",
 			"rotate": "Rotate",
@@ -59,10 +61,12 @@
 			"port20": "Advanced thermals",
 			"port21": "Up to 64GB of 4800MHz memory",
 			"port24": "Up to 4TB of Gen4 storage"
+			
 		}, 
 
 		{
 			"lang": "EN-US",
+			"title":"Precision 15 3581 Laptop",
 			
 			"reset": "Reset",
 			"rotate": "Rotate",
@@ -124,6 +128,7 @@
 
 		{
 			"lang": "DA",
+			"title":"Bærbar Precision 15 3581-pc",
 			
 			"reset": "Nulstil",
 			"rotate": "Roter",
@@ -187,6 +192,7 @@
 
 		{
 			"lang": "DE",
+			"title":"Dell Precision 15 3581-Laptop",
 			
 			"reset": "Zurücksetzen",
 			"rotate": "Drehen",
@@ -248,6 +254,8 @@
 
 		{
 			"lang": "ES",
+			"title":"Portátil Precision 15 3581",
+
 			"reset": "Reinicio",
 			"rotate": "Giro",
 			"zoom": "Ampliación o reducción",
@@ -308,6 +316,7 @@
 
 		{
 			"lang": "FR",
+			"title":"Ordinateur portable Dell Precision 15 3581",
 			
 			"reset": "Réinitialiser",
 			"rotate": "Faire pivoter",
@@ -369,6 +378,7 @@
 		
 		{
 			"lang": "FR-CA",
+			"title":"Ordinateur portable Precision 15 3581",
 			
 			"reset": "Réinitialiser",
 			"rotate": "Faire pivoter",
@@ -430,6 +440,7 @@
 		
 		{
 			"lang": "IT",
+			"title":"Notebook Precision 15 3581",
 			
 			"reset": "Reimpostazione",
 			"rotate": "Rotazione",
@@ -491,6 +502,7 @@
 
 		{
 			"lang": "JA",
+			"title":"Dell Precision 15 3581ノートパソコン",
 			
 			"reset": "リセット",
 			"rotate": "回転",
@@ -552,7 +564,8 @@
 
 		{
 			"lang": "KO",
-			
+			"title":"Precision 15 3581 노트북",
+
 			"reset": "재설정",
 			"rotate": "회전",
 			"zoom": "Zoom",
@@ -613,6 +626,7 @@
 
 		{
 			"lang": "NL",
+			"title":"Precision 15 3581 laptop",
 			
 			"reset": "Resetten",
 			"rotate": "Draaien",
@@ -625,7 +639,7 @@
 			"nextView": "Volgende weergave",
 			"resetView": "Weergave opnieuw instellen",
 			"animations": "Overgangen verminderen",
-			"onScreenControls": "Kontrollere på skjermen",
+			"onScreenControls": "Bediening op het scherm",
 			"productView": "Productweergaven",
 			"feature": "Functies",
 			"mainmenu": "Hoofdmenu",
@@ -674,6 +688,7 @@
 
 	    {
 			"lang": "NO",
+			"title":"Bærbar Precision 15 3581-PC",
 			
 			"reset": "Tilbakestill",
 			"rotate": "Drei",
@@ -735,6 +750,7 @@
 
 	    {
 			"lang": "PL",
+			"title":"Notebook Precision 15 3581",
 			
 			"reset": "Resetuj",
 			"rotate": "Obróć",
@@ -796,6 +812,7 @@
 
 	    {
 			"lang": "PT-BR",
+			"title":"Notebook Precision 15 3581",
 			
 			"reset": "Redefinir",
 			"rotate": "Girar",
@@ -857,6 +874,7 @@
 
 		{
 			"lang": "SV",
+			"title":"Bärbara datorn Precision 15 3581",
 			
 			"reset": "Återställ ",
 			"rotate": "Rotera",
@@ -918,6 +936,7 @@
 	
 		{
 			"lang": "ZH-CN",
+			"title":"Precision 15 3581 笔记本电脑",
 			
 			"reset": "重置",
 			"rotate": "旋转",
@@ -979,6 +998,7 @@
 
 		{
 			"lang": "ZH-TW",
+			"title":"Precision 15 3581 筆記型電腦",
 			
 			"reset": "重設",
 			"rotate": "旋轉",
@@ -1040,6 +1060,7 @@
 
 	    {
 			"lang": "ZH-HK",
+			"title":"Precision 15 3581 筆記型電腦",
 			
 			"reset": "重設",
 			"rotate": "旋轉",

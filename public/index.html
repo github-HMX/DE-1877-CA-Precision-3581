@@ -97,6 +97,16 @@
             margin-left: 232px;
             margin-top: -104px;
          }
+         #loading > div {
+         text-align: center;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 40px;
+         line-height: 48px;
+         width: 938px;
+         min-inline-size: max-content;
+      }
       }
 
       @media screen and (min-width:1366px) {
@@ -121,6 +131,7 @@
             margin-left: 290px;
             margin-top: -110px;
          }
+         
       }
 
       @media screen and (min-width:1920px) {
@@ -280,7 +291,19 @@
       /* .hotspots:focus {
        outline: 1px solid #0076ce;
    } */
-
+      
+     @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
+      #loading > div {
+         text-align: center;
+         font-family: Roboto;
+         font-style: normal;
+         font-weight: 300;
+         font-size: 40px;
+         line-height: 48px;
+         width: 938px;
+         min-inline-size: max-content;
+      }
+     }
       @media screen and (min-width: 640px) and (max-width: 824px) and (orientation : landscape) {
 
          #loading {
@@ -416,6 +439,23 @@
 
       #infinityrt-canvas {
          transition: margin 1s;
+      }
+      @media screen and (min-width: 300px) and (max-width: 600px){
+      
+       #loading {
+            flex-wrap: wrap;
+            left: 50%;
+            top: 58%;
+            transform: translate(-50%, -240%) scale(0.6);
+            min-width: 350px;
+       }
+       #loading > div >div{
+         width: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         min-inline-size: min-content;
+       }
       }
    </style>
    <link rel="stylesheet"
@@ -1765,7 +1805,7 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-150,-120],port15 ,"Roboto",10,"left",100);
+                  HS_DrawText([-150,-150],port15 ,"Roboto",10,"left",100);
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
@@ -1831,14 +1871,14 @@
                else if (currentPosition == 'explode') {
                   // HS_SimpleCallout([0, -40], 0,30, "Front_Hotspot_1", "", port16, "center", 30, 350, 0);
                   HS_SimpleCallout([15,0],0,0,"internal_hotspot_01","",port18,"left",5,120,0);
-                  HS_SimpleCallout([77,-7],0,-7,"internal_hotspot_02","",port19,"left",5,70,0);
+                  HS_SimpleCallout([90,-7],0,-7,"internal_hotspot_02","",port19,"left",5,70,0);
                   HS_SimpleCallout([0,75],0,0,"internal_hotspot_03","",port20,"center",5,120,0);
 
                   HS_SetOriginFromHotspot("internal_hotspot_06");
                   HS_DrawLine([0,-6],[0,4]); //v1
                   HS_DrawLine([-55,-6],[-55,4]); //v2
-                  HS_DrawLine([-110,4],[0,4]); //h1
-                  HS_DrawText([-117,0],port24,"Roboto",10,"right",50);
+                  HS_DrawLine([-150,4],[0,4]); //h1
+                  HS_DrawText([-155,0],port24,"Roboto",10,"right",50);
 
                   HS_SetOriginFromHotspot("internal_hotspot_05");
                   HS_DrawLine([0,-9],[0,0]); //v1
@@ -1850,8 +1890,8 @@
                   HS_SetOriginFromHotspot("internal_hotspot_08");
                   HS_DrawLine([0,-35],[0,-5]); //v1
                   HS_DrawLine([-115,-35],[0,-35]); //h1
-                  HS_DrawLine([-115,-155],[-115,-35]); //v2
-                  HS_DrawText([-115,-160],port17,"Roboto",10,"left",300);
+                  HS_DrawLine([-115,-205],[-115,-35]); //v2
+                  HS_DrawText([-115,-215],port17,"Roboto",10,"left",300);
                }
             }
          }
@@ -2582,6 +2622,7 @@
                   if (userLang.toLowerCase() === "de" || finalLangues.lang.toLowerCase() === "it" || finalLangues.lang.toLowerCase() === "ro") {
                      setTimeout(function () {
                         document.querySelector("#mobHowToUseText").style.fontSize = '34px';
+                      
                      },0);
 
                   }
@@ -2599,8 +2640,14 @@
 
                      },0);
                   }
-
-
+                  if(finalLangues.lang.toLowerCase()=="nl"){
+                    if(document.querySelectorAll('.MuiButton-label')){
+                        let lables = document.querySelectorAll('.MuiButton-label');
+                        // console.log(lables)
+                        lables.forEach(lable => lable.style.lineHeight = "14px" );
+                    }
+                  }
+                  document.title =  finalLangues.title ? finalLangues.title : "Precision 15 3581 Laptop"
                   // if (userLang.toLowerCase() === "de") {
                   //    setTimeout(function () {
                   //       document.querySelector("#move_text_mob").style.width = '90px';
