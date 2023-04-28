@@ -304,14 +304,14 @@
          min-inline-size: max-content;
       }
      }
-      @media screen and (min-width: 640px) and (max-width: 824px) and (orientation : landscape) {
+      @media screen and (min-width: 640px) and (max-width: 1200px) and (orientation : landscape) {
 
          #loading {
             display: none;
             justify-content: center;
             position: absolute;
-            left: 50%;
-            top: 70%;
+            left: 60%;
+            top: 60%;
             transform: translate(-50%, -280%);
             width: 265px;
             height: 120px;
@@ -1709,7 +1709,7 @@
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_3");
                   ctxCallouts.fillStyle = 'black';
-                  HS_DrawText([-80,0],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
+                  HS_DrawText([-180,0],port14 + ' <br> ' + port14_2 + ' <br> ' + port14_3 + ' <br> ' + port14_4,"Roboto",10,"left",250);
 
 
                   HS_SetOriginFromHotspot("Rear_Hotspot_2");
@@ -2641,11 +2641,14 @@
                      },0);
                   }
                   if(finalLangues.lang.toLowerCase()=="nl"){
-                    if(document.querySelectorAll('.MuiButton-label')){
-                        let lables = document.querySelectorAll('.MuiButton-label');
-                        // console.log(lables)
-                        lables.forEach(lable => lable.style.lineHeight = "14px" );
-                    }
+                     setTimeout(() => {
+                        if(document.querySelectorAll('.MuiButton-label')){
+                           let lables = document.querySelectorAll('.MuiButton-label');
+                           console.log(lables)
+                           lables.forEach(lable => lable.style.lineHeight = "14px" );
+                        }
+                     }, 2000);
+                    
                   }
                   document.title =  finalLangues.title ? finalLangues.title : "Precision 15 3581 Laptop"
                   // if (userLang.toLowerCase() === "de") {
